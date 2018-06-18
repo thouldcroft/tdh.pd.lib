@@ -1,0 +1,3083 @@
+#N canvas 0 22 1406 856 10;
+#X obj -2129 75 inlet~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2082 479 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2093 343 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2079 522 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2077 569 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2073 610 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2073 693 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2073 651 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2069 736 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2085 433 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2070 877 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2071 783 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2070 922 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2068 968 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2066 1018 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2064 1117 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2064 1070 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2070 829 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2065 1166 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2063 1207 pd gate~;
+#X obj -2135 1245 outlet~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -2091 385 pd gate~;
+#X obj -2129 99 send~ from_in1;
+#X obj -2033 77 inlet~;
+#X obj -1933 76 inlet~;
+#X obj -1835 76 inlet~;
+#X obj -1738 76 inlet~;
+#X obj -1640 76 inlet~;
+#X obj -1540 75 inlet~;
+#X obj -1442 75 inlet~;
+#X obj -1345 75 inlet~;
+#X obj -1247 75 inlet~;
+#X obj -1146 74 inlet~;
+#X obj -1040 73 inlet~;
+#X obj -943 73 inlet~;
+#X obj -845 73 inlet~;
+#X obj -745 72 inlet~;
+#X obj -647 72 inlet~;
+#X obj -544 73 inlet~;
+#X obj -446 73 inlet~;
+#X obj -346 72 inlet~;
+#X obj -248 72 inlet~;
+#X obj -2033 101 send~ from_in2;
+#X obj -1933 100 send~ from_in3;
+#X obj -1835 100 send~ from_in4;
+#X obj -1738 100 send~ from_in5;
+#X obj -1640 100 send~ from_in6;
+#X obj -1540 99 send~ from_in7;
+#X obj -1442 99 send~ from_in8;
+#X obj -1345 99 send~ from_in9;
+#X obj -1247 99 send~ from_in10;
+#X obj -1146 98 send~ from_in11;
+#X obj -1040 97 send~ from_in12;
+#X obj -943 97 send~ from_in13;
+#X obj -845 97 send~ from_in14;
+#X obj -745 96 send~ from_in15;
+#X obj -647 96 send~ from_in16;
+#X obj -544 97 send~ from_in17;
+#X obj -446 97 send~ from_in18;
+#X obj -346 96 send~ from_in19;
+#X obj -248 96 send~ from_in20;
+#X obj -1997 802 receive~ from_in12;
+#X obj -1991 853 receive~ from_in13;
+#X obj -1988 897 receive~ from_in14;
+#X obj -1986 943 receive~ from_in15;
+#X obj -1989 994 receive~ from_in16;
+#X obj -1988 1041 receive~ from_in17;
+#X obj -1985 1092 receive~ from_in18;
+#X obj -1986 1139 receive~ from_in19;
+#X obj -1986 1181 receive~ from_in20;
+#X obj 60 40 tgl 15 0 2_a empty empty 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 82 42 tgl 15 0 3_a empty empty 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 103 41 tgl 15 0 4_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 128 40 tgl 15 0 5_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 153 40 tgl 15 0 6_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 39 60 tgl 15 0 1_b empty empty 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 82 62 tgl 15 0 3_b empty empty 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 105 60 tgl 15 0 4_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 129 59 tgl 15 0 5_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 152 59 tgl 15 0 6_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 37 84 tgl 15 0 1_c empty empty 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 62 84 tgl 15 0 2_c empty empty 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 104 84 tgl 15 0 4_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 129 84 tgl 15 0 5_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 155 82 tgl 15 0 6_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 38 108 tgl 15 0 1_d empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 63 109 tgl 15 0 2_d empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 87 109 tgl 15 0 3_d empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 130 109 tgl 15 0 5_d empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 155 109 tgl 15 0 6_d empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 37 132 tgl 15 0 1_e empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 62 134 tgl 15 0 2_e empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 86 132 tgl 15 0 3_e empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 108 131 tgl 15 0 4_e empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 156 131 tgl 15 0 6_e empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 37 154 tgl 15 0 1_f empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 62 154 tgl 15 0 2_f empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 86 153 tgl 15 0 3_f empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 110 154 tgl 15 0 4_f empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 132 153 tgl 15 0 5_f empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 198 40 tgl 15 0 8_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 219 40 tgl 15 0 9_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 241 40 tgl 15 0 10_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 177 40 tgl 15 0 7_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 198 59 tgl 15 0 8_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 220 59 tgl 15 0 9_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 242 59 tgl 15 0 10_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 178 59 tgl 15 0 7_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 199 79 tgl 15 0 8_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 221 78 tgl 15 0 9_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 243 78 tgl 15 0 10_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 179 80 tgl 15 0 7_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 200 106 tgl 15 0 8_d empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 224 104 tgl 15 0 9_d empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 245 106 tgl 15 0 10_d empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 179 106 tgl 15 0 7_d empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 200 129 tgl 15 0 8_e empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 222 128 tgl 15 0 9_e empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 244 128 tgl 15 0 10_e empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 180 130 tgl 15 0 7_e empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 201 153 tgl 15 0 8_f empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 223 152 tgl 15 0 9_f empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 245 152 tgl 15 0 10_f empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 181 154 tgl 15 0 7_f empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 203 176 tgl 15 0 8_g empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 223 176 tgl 15 0 9_g empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 245 177 tgl 15 0 10_g empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 221 200 tgl 15 0 9_h empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 243 200 tgl 15 0 10_h empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 184 202 tgl 15 0 7_h empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 205 222 tgl 15 0 8_i empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 244 220 tgl 15 0 10_i empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 184 222 tgl 15 0 7_i empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 203 243 tgl 15 0 8_j empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 224 242 tgl 15 0 9_j empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 182 244 tgl 15 0 7_j empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 111 177 tgl 15 0 4_g empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 133 178 tgl 15 0 5_g empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 157 178 tgl 15 0 6_g empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 86 177 tgl 15 0 3_g empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 108 201 tgl 15 0 4_h empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 134 201 tgl 15 0 5_h empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 159 202 tgl 15 0 6_h empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 82 199 tgl 15 0 3_h empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 109 222 tgl 15 0 4_i empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 134 222 tgl 15 0 5_i empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 158 223 tgl 15 0 6_i empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 84 221 tgl 15 0 3_i empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 109 244 tgl 15 0 4_j empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 131 245 tgl 15 0 5_j empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 157 245 tgl 15 0 6_j empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 86 246 tgl 15 0 3_j empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 63 177 tgl 15 0 2_g empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 38 176 tgl 15 0 1_g empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 58 198 tgl 15 0 2_h empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 36 198 tgl 15 0 1_h empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 60 220 tgl 15 0 2_i empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 35 219 tgl 15 0 1_i empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 59 244 tgl 15 0 2_j empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 33 245 tgl 15 0 1_j empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 291 40 tgl 15 0 12_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 311 40 tgl 15 0 13_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 334 41 tgl 15 0 14_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 359 40 tgl 15 0 15_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 384 40 tgl 15 0 16_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 270 60 tgl 15 0 11_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 313 60 tgl 15 0 13_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 336 60 tgl 15 0 14_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 360 59 tgl 15 0 15_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 383 59 tgl 15 0 16_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 268 84 tgl 15 0 11_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 293 84 tgl 15 0 12_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 335 84 tgl 15 0 14_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 360 84 tgl 15 0 15_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 386 82 tgl 15 0 16_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 269 108 tgl 15 0 11_d empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 294 109 tgl 15 0 12_d empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 318 109 tgl 15 0 13_d empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 361 109 tgl 15 0 15_d empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 386 109 tgl 15 0 16_d empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 268 132 tgl 15 0 11_e empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 295 131 tgl 15 0 12_e empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 317 132 tgl 15 0 13_e empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 339 131 tgl 15 0 14_e empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 390 131 tgl 15 0 16_e empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 268 154 tgl 15 0 11_f empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 293 154 tgl 15 0 12_f empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 317 153 tgl 15 0 13_f empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 341 154 tgl 15 0 14_f empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 363 153 tgl 15 0 15_f empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 429 40 tgl 15 0 18_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 450 40 tgl 15 0 19_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 472 40 tgl 15 0 20_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 408 40 tgl 15 0 17_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 429 59 tgl 15 0 18_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 451 59 tgl 15 0 19_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 473 59 tgl 15 0 20_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 409 59 tgl 15 0 17_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 430 79 tgl 15 0 18_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 452 78 tgl 15 0 19_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 474 78 tgl 15 0 20_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 410 80 tgl 15 0 17_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 432 104 tgl 15 0 18_d empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 454 103 tgl 15 0 19_d empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 474 104 tgl 15 0 20_d empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 410 107 tgl 15 0 17_d empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 431 129 tgl 15 0 18_e empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 453 128 tgl 15 0 19_e empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 475 128 tgl 15 0 20_e empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 411 130 tgl 15 0 17_e empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 432 153 tgl 15 0 18_f empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 454 152 tgl 15 0 19_f empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 476 152 tgl 15 0 20_f empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 412 154 tgl 15 0 17_f empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 432 178 tgl 15 0 18_g empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 454 176 tgl 15 0 19_g empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 475 176 tgl 15 0 20_g empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 455 199 tgl 15 0 19_h empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 477 199 tgl 15 0 20_h empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 413 201 tgl 15 0 17_h empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 432 221 tgl 15 0 18_i empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 477 220 tgl 15 0 20_i empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 412 222 tgl 15 0 17_i empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 432 243 tgl 15 0 18_j empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 455 242 tgl 15 0 19_j empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 411 244 tgl 15 0 17_j empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 342 177 tgl 15 0 14_g empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 364 178 tgl 15 0 15_g empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 388 178 tgl 15 0 16_g empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 317 177 tgl 15 0 13_g empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 342 200 tgl 15 0 14_h empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 364 201 tgl 15 0 15_h empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 388 201 tgl 15 0 16_h empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 316 198 tgl 15 0 13_h empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 222 tgl 15 0 14_i empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 364 223 tgl 15 0 15_i empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 388 223 tgl 15 0 16_i empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 315 221 tgl 15 0 13_i empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 244 tgl 15 0 14_j empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 362 245 tgl 15 0 15_j empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 386 245 tgl 15 0 16_j empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 317 246 tgl 15 0 13_j empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 294 177 tgl 15 0 12_g empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 269 176 tgl 15 0 11_g empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 295 198 tgl 15 0 12_h empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 268 198 tgl 15 0 11_h empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 291 220 tgl 15 0 12_i empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 269 219 tgl 15 0 11_i empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 290 244 tgl 15 0 12_j empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 268 245 tgl 15 0 11_j empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 292 61 tgl 15 0 12_b empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 314 85 tgl 15 0 13_c empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 338 109 tgl 15 0 14_d empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 270 40 tgl 15 0 11_a empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 363 132 tgl 15 0 15_e empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 388 155 tgl 15 0 16_f empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 413 178 tgl 15 0 17_g empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 434 200 tgl 15 0 18_h empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 456 220 tgl 15 0 19_i empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 476 240 tgl 15 0 20_j empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 56 266 tgl 15 0 2_k empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 83 265 tgl 15 0 3_k empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 110 266 tgl 15 0 4_k empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 132 265 tgl 15 0 5_k empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 156 265 tgl 15 0 6_k empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 33 287 tgl 15 0 1_l empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 80 287 tgl 15 0 3_l empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 109 287 tgl 15 0 4_l empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 133 286 tgl 15 0 5_l empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 157 286 tgl 15 0 6_l empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 32 311 tgl 15 0 1_m empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 55 310 tgl 15 0 2_m empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 107 310 tgl 15 0 4_m empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 132 310 tgl 15 0 5_m empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 158 309 tgl 15 0 6_m empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 32 332 tgl 15 0 1_n empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 57 333 tgl 15 0 2_n empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 83 333 tgl 15 0 3_n empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 134 332 tgl 15 0 5_n empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 157 332 tgl 15 0 6_n empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 31 354 tgl 15 0 1_o empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 57 354 tgl 15 0 2_o empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 84 354 tgl 15 0 3_o empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 109 353 tgl 15 0 4_o empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 158 353 tgl 15 0 6_o empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 32 376 tgl 15 0 1_p empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 57 376 tgl 15 0 2_p empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 85 375 tgl 15 0 3_p empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 111 375 tgl 15 0 4_p empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 133 375 tgl 15 0 5_p empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 199 265 tgl 15 0 8_k empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 223 264 tgl 15 0 9_k empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 245 265 tgl 15 0 10_k empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 180 266 tgl 15 0 7_k empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 203 286 tgl 15 0 8_l empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 223 286 tgl 15 0 9_l empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 246 285 tgl 15 0 10_l empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 183 286 tgl 15 0 7_l empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 202 311 tgl 15 0 8_m empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 225 310 tgl 15 0 9_m empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 248 308 tgl 15 0 10_m empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 182 311 tgl 15 0 7_m empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 204 330 tgl 15 0 8_n empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 183 331 tgl 15 0 7_n empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 205 351 tgl 15 0 8_o empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 225 352 tgl 15 0 9_o empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 249 354 tgl 15 0 10_o empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 179 352 tgl 15 0 7_o empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 227 330 tgl 15 0 9_n empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 252 332 tgl 15 0 10_n empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 201 375 tgl 15 0 8_p empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 225 374 tgl 15 0 9_p empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 249 376 tgl 15 0 10_p empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 181 376 tgl 15 0 7_p empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 223 422 tgl 15 0 9_r empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 246 422 tgl 15 0 10_r empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 180 422 tgl 15 0 7_r empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 202 397 tgl 15 0 8_q empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 226 396 tgl 15 0 9_q empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 248 396 tgl 15 0 10_q empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 202 445 tgl 15 0 8_s empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 248 443 tgl 15 0 10_s empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 182 444 tgl 15 0 7_s empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 204 467 tgl 15 0 8_t empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 229 466 tgl 15 0 9_t empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 183 468 tgl 15 0 7_t empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 112 397 tgl 15 0 4_q empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 137 398 tgl 15 0 5_q empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 159 399 tgl 15 0 6_q empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 85 397 tgl 15 0 3_q empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 112 420 tgl 15 0 4_r empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 139 421 tgl 15 0 5_r empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 158 421 tgl 15 0 6_r empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 85 420 tgl 15 0 3_r empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 115 445 tgl 15 0 4_s empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 139 446 tgl 15 0 5_s empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 161 446 tgl 15 0 6_s empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 86 445 tgl 15 0 3_s empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 117 468 tgl 15 0 4_t empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 139 469 tgl 15 0 5_t empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 158 469 tgl 15 0 6_t empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 88 470 tgl 15 0 3_t empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 58 397 tgl 15 0 2_q empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 33 396 tgl 15 0 1_q empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 58 419 tgl 15 0 2_r empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 35 420 tgl 15 0 1_r empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 58 444 tgl 15 0 2_s empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 33 443 tgl 15 0 1_s empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 57 468 tgl 15 0 2_t empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 31 469 tgl 15 0 1_t empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 55 288 tgl 15 0 2_l empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 80 311 tgl 15 0 3_m empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 108 333 tgl 15 0 4_n empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 33 265 tgl 15 0 1_k empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 133 354 tgl 15 0 5_o empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 157 377 tgl 15 0 6_p empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 183 396 tgl 15 0 7_q empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 200 423 tgl 15 0 8_r empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 226 444 tgl 15 0 9_s empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 248 467 tgl 15 0 10_t empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 289 266 tgl 15 0 12_k empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 315 266 tgl 15 0 13_k empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 267 tgl 15 0 14_k empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 362 266 tgl 15 0 15_k empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 387 266 tgl 15 0 16_k empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 269 286 tgl 15 0 11_l empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 316 287 tgl 15 0 13_l empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 288 tgl 15 0 14_l empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 364 287 tgl 15 0 15_l empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 387 287 tgl 15 0 16_l empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 271 309 tgl 15 0 11_m empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 295 309 tgl 15 0 12_m empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 340 310 tgl 15 0 14_m empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 364 311 tgl 15 0 15_m empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 388 310 tgl 15 0 16_m empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 273 331 tgl 15 0 11_n empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 297 330 tgl 15 0 12_n empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 321 333 tgl 15 0 13_n empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 367 333 tgl 15 0 15_n empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 392 333 tgl 15 0 16_n empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 272 353 tgl 15 0 11_o empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 295 353 tgl 15 0 12_o empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 321 355 tgl 15 0 13_o empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 343 354 tgl 15 0 14_o empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 390 353 tgl 15 0 16_o empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 271 376 tgl 15 0 11_p empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 293 376 tgl 15 0 12_p empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 318 376 tgl 15 0 13_p empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 342 377 tgl 15 0 14_p empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 364 375 tgl 15 0 15_p empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 433 265 tgl 15 0 18_k empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 456 264 tgl 15 0 19_k empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 478 263 tgl 15 0 20_k empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 411 265 tgl 15 0 17_k empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 433 287 tgl 15 0 18_l empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 455 287 tgl 15 0 20_l empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 477 287 tgl 15 0 20_l empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 413 287 tgl 15 0 17_l empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 432 307 tgl 15 0 18_m empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 454 306 tgl 15 0 19_m empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 476 306 tgl 15 0 20_m empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 412 308 tgl 15 0 17_m empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 435 330 tgl 15 0 18_n empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 414 330 tgl 15 0 17_n empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 432 352 tgl 15 0 18_o empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 454 351 tgl 15 0 19_o empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 476 351 tgl 15 0 20_o empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 412 353 tgl 15 0 17_o empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 457 329 tgl 15 0 19_n empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 479 329 tgl 15 0 20_n empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 431 376 tgl 15 0 18_p empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 453 375 tgl 15 0 19_p empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 475 375 tgl 15 0 20_p empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 411 377 tgl 15 0 17_p empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 454 423 tgl 15 0 19_r empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 476 423 tgl 15 0 20_r empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 409 425 tgl 15 0 17_r empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 432 398 tgl 15 0 18_q empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 454 397 tgl 15 0 19_q empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 476 397 tgl 15 0 20_q empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 432 446 tgl 15 0 18_s empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 477 445 tgl 15 0 20_s empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 412 447 tgl 15 0 17_s empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 434 468 tgl 15 0 18_t empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 457 467 tgl 15 0 19_t empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 413 469 tgl 15 0 17_t empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 341 398 tgl 15 0 14_q empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 363 399 tgl 15 0 15_q empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 387 399 tgl 15 0 16_q empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 316 398 tgl 15 0 13_q empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 338 424 tgl 15 0 14_r empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 360 425 tgl 15 0 15_r empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 384 425 tgl 15 0 16_r empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 312 422 tgl 15 0 13_r empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 342 447 tgl 15 0 14_s empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 364 448 tgl 15 0 15_s empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 388 448 tgl 15 0 16_s empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 317 446 tgl 15 0 13_s empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 342 469 tgl 15 0 14_t empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 364 470 tgl 15 0 15_t empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 388 470 tgl 15 0 16_t empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 319 471 tgl 15 0 13_t empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 293 398 tgl 15 0 12_q empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 268 397 tgl 15 0 11_q empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 288 421 tgl 15 0 12_r empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 268 421 tgl 15 0 11_r empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 293 445 tgl 15 0 12_s empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 271 444 tgl 15 0 11_s empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 292 469 tgl 15 0 12_t empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 269 468 tgl 15 0 11_t empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 55 6 2;
+#X text 80 8 3;
+#X text 104 7 4;
+#X text 127 8 5;
+#X text 151 7 6;
+#X text 176 9 7;
+#X text 195 9 8;
+#X text 219 7 9;
+#X text 236 7 10;
+#X text 265 9 11;
+#X text 287 7 12;
+#X text 310 9 13;
+#X text 331 7 14;
+#X text 353 7 15;
+#X text 376 8 16;
+#X text 401 10 17;
+#X text 422 8 18;
+#X text 444 8 19;
+#X text 466 7 20;
+#X text 33 8 1;
+#X text 505 34 A;
+#X text 504 55 B;
+#X text 504 78 C;
+#X text 503 99 D;
+#X text 503 122 E;
+#X text 504 146 F;
+#X text 505 164 G;
+#X text 505 190 H;
+#X text 502 211 I;
+#X text 500 233 J;
+#X text 497 254 K;
+#X text 499 277 L;
+#X text 501 303 M;
+#X text 500 324 N;
+#X text 498 344 O;
+#X text 499 364 P;
+#X text 503 389 Q;
+#X text 499 412 R;
+#X text 503 435 S;
+#X text 501 457 T;
+#X text -2070 1248 A;
+#N canvas 0 22 1369 643 sends 0;
+#X text 35 46 A;
+#X text 34 67 B;
+#X text 34 95 C;
+#X text 35 124 D;
+#X text 34 152 E;
+#X text 34 178 F;
+#X text 33 204 G;
+#X text 33 234 H;
+#X text 33 258 I;
+#X text 32 283 J;
+#X text 32 311 K;
+#X text 32 337 L;
+#X text 34 364 M;
+#X text 34 398 N;
+#X text 33 420 O;
+#X text 33 449 P;
+#X text 35 469 Q;
+#X text 34 498 R;
+#X text 33 527 S;
+#X text 34 551 T;
+#X text 114 18 2;
+#X text 157 18 3;
+#X text 203 18 4;
+#X text 244 19 5;
+#X text 298 16 6;
+#X text 337 20 7;
+#X text 382 22 8;
+#X text 436 22 9;
+#X text 480 22 10;
+#X text 528 23 11;
+#X text 575 24 12;
+#X text 618 26 13;
+#X text 663 25 14;
+#X text 710 25 15;
+#X text 754 27 16;
+#X text 803 27 17;
+#X text 853 25 18;
+#X text 898 26 19;
+#X text 941 28 20;
+#X text 65 16 1;
+#X text 997 81 All of these sends have been hard-coded with the toggle
+switches... but I realized that after I had made all these sends \,
+they took FOREVER (though made the creation of returns fairly easy)
+\, and so they will sit here JUST IN CASE I need them for some reason.
+-TDH;
+#X obj 51 599 r 1_a;
+#X obj 97 600 r 2_a;
+#X obj 143 600 r 3_a;
+#X obj 189 601 r 4_a;
+#X obj 234 602 r 5_a;
+#X obj 280 603 r 6_a;
+#X obj 326 603 r 7_a;
+#X obj 372 604 r 8_a;
+#X obj 421 604 r 9_a;
+#X obj 467 605 r 10_a;
+#X obj 513 605 r 11_a;
+#X obj 559 606 r 12_a;
+#X obj 604 607 r 13_a;
+#X obj 650 608 r 14_a;
+#X obj 696 608 r 15_a;
+#X obj 742 609 r 16_a;
+#X obj 791 609 r 17_a;
+#X obj 837 610 r 18_a;
+#X obj 883 610 r 19_a;
+#X obj 929 611 r 20_a;
+#X obj 929 639 r 20_b;
+#X obj 883 637 r 19_b;
+#X obj 837 637 r 18_b;
+#X obj 791 636 r 17_b;
+#X obj 742 636 r 16_b;
+#X obj 696 635 r 15_b;
+#X obj 649 635 r 14_b;
+#X obj 604 634 r 13_b;
+#X obj 559 633 r 12_b;
+#X obj 513 632 r 11_b;
+#X obj 467 632 r 10_b;
+#X obj 421 631 r 9_b;
+#X obj 372 631 r 8_b;
+#X obj 326 630 r 7_b;
+#X obj 280 630 r 6_b;
+#X obj 234 629 r 5_b;
+#X obj 189 628 r 4_b;
+#X obj 143 627 r 3_b;
+#X obj 97 627 r 2_b;
+#X obj 51 626 r 1_b;
+#X obj 50 654 r 1_c;
+#X obj 96 655 r 2_c;
+#X obj 142 655 r 3_c;
+#X obj 188 656 r 4_c;
+#X obj 233 657 r 5_c;
+#X obj 279 658 r 6_c;
+#X obj 325 658 r 7_c;
+#X obj 371 659 r 8_c;
+#X obj 420 659 r 9_c;
+#X obj 466 660 r 10_c;
+#X obj 512 660 r 11_c;
+#X obj 558 661 r 12_c;
+#X obj 603 662 r 13_c;
+#X obj 649 663 r 14_c;
+#X obj 695 663 r 15_c;
+#X obj 741 664 r 16_c;
+#X obj 790 664 r 17_c;
+#X obj 836 665 r 18_c;
+#X obj 882 665 r 19_c;
+#X obj 928 666 r 20_c;
+#X obj 928 693 r 20_d;
+#X obj 882 692 r 19_d;
+#X obj 835 692 r 18_d;
+#X obj 790 691 r 17_d;
+#X obj 741 691 r 16_d;
+#X obj 695 690 r 15_d;
+#X obj 649 690 r 14_d;
+#X obj 603 689 r 13_d;
+#X obj 558 688 r 12_d;
+#X obj 512 687 r 11_d;
+#X obj 466 687 r 10_d;
+#X obj 420 686 r 9_d;
+#X obj 371 686 r 8_d;
+#X obj 325 685 r 7_d;
+#X obj 279 685 r 6_d;
+#X obj 233 684 r 5_d;
+#X obj 188 683 r 4_d;
+#X obj 142 682 r 3_d;
+#X obj 96 682 r 2_d;
+#X obj 50 681 r 1_d;
+#X obj 50 707 r 1_e;
+#X obj 96 708 r 2_e;
+#X obj 142 708 r 3_e;
+#X obj 188 709 r 4_e;
+#X obj 233 710 r 5_e;
+#X obj 279 711 r 6_e;
+#X obj 325 712 r 7_e;
+#X obj 371 712 r 8_e;
+#X obj 420 712 r 9_e;
+#X obj 466 713 r 10_e;
+#X obj 512 713 r 11_e;
+#X obj 558 714 r 12_e;
+#X obj 603 715 r 13_e;
+#X obj 649 716 r 14_e;
+#X obj 695 716 r 15_e;
+#X obj 741 717 r 16_e;
+#X obj 790 717 r 17_e;
+#X obj 836 718 r 18_e;
+#X obj 882 718 r 19_e;
+#X obj 928 719 r 20_e;
+#X obj 928 746 r 20_f;
+#X obj 882 745 r 19_f;
+#X obj 836 745 r 18_f;
+#X obj 790 744 r 17_f;
+#X obj 741 744 r 16_f;
+#X obj 695 743 r 15_f;
+#X obj 649 743 r 14_f;
+#X obj 603 742 r 13_f;
+#X obj 558 741 r 12_f;
+#X obj 512 740 r 11_f;
+#X obj 466 740 r 10_f;
+#X obj 420 739 r 9_f;
+#X obj 371 739 r 8_f;
+#X obj 325 738 r 7_f;
+#X obj 279 738 r 6_f;
+#X obj 233 737 r 5_f;
+#X obj 188 736 r 4_f;
+#X obj 142 735 r 3_f;
+#X obj 96 735 r 2_f;
+#X obj 50 734 r 1_f;
+#X obj 49 762 r 1_g;
+#X obj 95 763 r 2_g;
+#X obj 141 763 r 3_g;
+#X obj 186 764 r 4_g;
+#X obj 232 765 r 5_g;
+#X obj 278 766 r 6_g;
+#X obj 324 766 r 7_g;
+#X obj 370 767 r 8_g;
+#X obj 419 767 r 9_g;
+#X obj 464 768 r 10_g;
+#X obj 511 768 r 11_g;
+#X obj 557 769 r 12_g;
+#X obj 602 770 r 13_g;
+#X obj 648 771 r 14_g;
+#X obj 694 771 r 15_g;
+#X obj 740 772 r 16_g;
+#X obj 789 772 r 17_g;
+#X obj 835 773 r 18_g;
+#X obj 881 773 r 19_g;
+#X obj 927 774 r 20_g;
+#X obj 927 801 r 20_h;
+#X obj 880 800 r 19_h;
+#X obj 835 800 r 18_h;
+#X obj 789 799 r 17_h;
+#X obj 740 799 r 16_h;
+#X obj 694 798 r 15_h;
+#X obj 648 798 r 14_h;
+#X obj 602 797 r 13_h;
+#X obj 557 796 r 12_h;
+#X obj 511 795 r 11_h;
+#X obj 465 795 r 10_h;
+#X obj 419 794 r 9_h;
+#X obj 370 794 r 8_h;
+#X obj 324 793 r 7_h;
+#X obj 278 793 r 6_h;
+#X obj 233 791 r 5_h;
+#X obj 187 791 r 4_h;
+#X obj 141 790 r 3_h;
+#X obj 95 790 r 2_h;
+#X obj 49 789 r 1_h;
+#X obj 50 814 r 1_i;
+#X obj 96 815 r 2_i;
+#X obj 142 815 r 3_i;
+#X obj 188 816 r 4_i;
+#X obj 233 817 r 5_i;
+#X obj 279 818 r 6_i;
+#X obj 325 818 r 7_i;
+#X obj 371 819 r 8_i;
+#X obj 420 819 r 9_i;
+#X obj 466 820 r 10_i;
+#X obj 512 820 r 11_i;
+#X obj 558 821 r 12_i;
+#X obj 603 822 r 13_i;
+#X obj 649 823 r 14_i;
+#X obj 695 823 r 15_i;
+#X obj 741 824 r 16_i;
+#X obj 790 824 r 17_i;
+#X obj 836 825 r 18_i;
+#X obj 882 825 r 19_i;
+#X obj 928 826 r 20_i;
+#X obj 928 853 r 20_j;
+#X obj 882 852 r 19_j;
+#X obj 836 852 r 18_j;
+#X obj 790 851 r 17_j;
+#X obj 741 851 r 16_j;
+#X obj 695 850 r 15_j;
+#X obj 649 850 r 14_j;
+#X obj 603 849 r 13_j;
+#X obj 558 848 r 12_j;
+#X obj 512 847 r 11_j;
+#X obj 467 847 r 10_j;
+#X obj 420 846 r 9_j;
+#X obj 371 846 r 8_j;
+#X obj 325 845 r 7_j;
+#X obj 279 845 r 6_j;
+#X obj 233 844 r 5_j;
+#X obj 188 843 r 4_j;
+#X obj 142 842 r 3_j;
+#X obj 96 842 r 2_j;
+#X obj 50 841 r 1_j;
+#X obj 49 869 r 1_k;
+#X obj 95 870 r 2_k;
+#X obj 141 870 r 3_k;
+#X obj 187 871 r 4_k;
+#X obj 232 872 r 5_k;
+#X obj 278 873 r 6_k;
+#X obj 324 873 r 7_k;
+#X obj 370 874 r 8_k;
+#X obj 419 874 r 9_k;
+#X obj 465 875 r 10_k;
+#X obj 511 875 r 11_k;
+#X obj 557 876 r 12_k;
+#X obj 602 877 r 13_k;
+#X obj 648 878 r 14_k;
+#X obj 694 878 r 15_k;
+#X obj 740 879 r 16_k;
+#X obj 789 879 r 17_k;
+#X obj 835 880 r 18_k;
+#X obj 881 880 r 19_k;
+#X obj 927 881 r 20_k;
+#X obj 927 908 r 20_l;
+#X obj 881 907 r 19_l;
+#X obj 835 907 r 18_l;
+#X obj 789 906 r 17_l;
+#X obj 740 906 r 16_l;
+#X obj 694 905 r 15_l;
+#X obj 648 905 r 14_l;
+#X obj 602 904 r 13_l;
+#X obj 558 903 r 12_l;
+#X obj 511 902 r 11_l;
+#X obj 465 902 r 10_l;
+#X obj 419 901 r 9_l;
+#X obj 370 901 r 8_l;
+#X obj 325 900 r 7_l;
+#X obj 278 900 r 6_l;
+#X obj 232 899 r 5_l;
+#X obj 187 898 r 4_l;
+#X obj 141 897 r 3_l;
+#X obj 95 897 r 2_l;
+#X obj 49 896 r 1_l;
+#X obj 49 922 r 1_m;
+#X obj 95 923 r 2_m;
+#X obj 141 923 r 3_m;
+#X obj 187 924 r 4_m;
+#X obj 232 925 r 5_m;
+#X obj 278 926 r 6_m;
+#X obj 324 926 r 7_m;
+#X obj 370 927 r 8_m;
+#X obj 419 927 r 9_m;
+#X obj 465 928 r 10_m;
+#X obj 511 927 r 11_m;
+#X obj 557 929 r 12_m;
+#X obj 602 930 r 13_m;
+#X obj 648 931 r 14_m;
+#X obj 694 931 r 15_m;
+#X obj 740 932 r 16_m;
+#X obj 789 932 r 17_m;
+#X obj 835 933 r 18_m;
+#X obj 881 933 r 19_m;
+#X obj 927 934 r 20_m;
+#X obj 927 961 r 20_n;
+#X obj 881 960 r 19_n;
+#X obj 835 960 r 18_n;
+#X obj 789 959 r 17_n;
+#X obj 740 959 r 16_n;
+#X obj 694 958 r 15_n;
+#X obj 648 958 r 14_n;
+#X obj 602 957 r 13_n;
+#X obj 557 956 r 12_n;
+#X obj 511 955 r 11_n;
+#X obj 465 955 r 10_n;
+#X obj 419 954 r 9_n;
+#X obj 370 954 r 8_n;
+#X obj 324 953 r 7_n;
+#X obj 278 953 r 6_n;
+#X obj 232 952 r 5_n;
+#X obj 187 951 r 4_n;
+#X obj 141 950 r 3_n;
+#X obj 95 950 r 2_n;
+#X obj 49 949 r 1_n;
+#X obj 48 977 r 1_o;
+#X obj 94 978 r 2_o;
+#X obj 140 978 r 3_o;
+#X obj 187 979 s r;
+#X obj 231 980 r 5_o;
+#X obj 277 981 r 6_o;
+#X obj 323 981 r 7_o;
+#X obj 369 982 r 8_o;
+#X obj 418 982 r 9_o;
+#X obj 464 983 r 10_o;
+#X obj 510 983 r 11_o;
+#X obj 556 984 r 12_o;
+#X obj 601 985 r 13_o;
+#X obj 647 986 r 14_o;
+#X obj 693 986 r 15_o;
+#X obj 739 987 r 16_o;
+#X obj 788 987 r 17_o;
+#X obj 835 988 r 18_o;
+#X obj 880 988 r 19_o;
+#X obj 926 989 r 20_o;
+#X obj 926 1016 r 20_p;
+#X obj 880 1015 r 19_p;
+#X obj 833 1015 r 18_p;
+#X obj 788 1014 r 17_p;
+#X obj 739 1014 r 16_p;
+#X obj 693 1013 r 15_p;
+#X obj 648 1013 r 14_p;
+#X obj 601 1012 r 13_p;
+#X obj 556 1011 r 12_p;
+#X obj 510 1010 r 11_p;
+#X obj 464 1010 r 10_p;
+#X obj 418 1009 r 9_p;
+#X obj 369 1009 r 8_p;
+#X obj 323 1008 r 7_p;
+#X obj 278 1008 r 6_p;
+#X obj 231 1007 r 5_p;
+#X obj 186 1006 r 4_p;
+#X obj 141 1005 r 3_p;
+#X obj 94 1005 r 2_p;
+#X obj 48 1004 r 1_p;
+#X obj 49 1027 r 1_q;
+#X obj 95 1029 r 2_q;
+#X obj 141 1029 r 3_q;
+#X obj 187 1030 r 4_q;
+#X obj 232 1031 r 5_q;
+#X obj 278 1032 r 6_q;
+#X obj 324 1032 r 7_q;
+#X obj 370 1033 r 8_q;
+#X obj 419 1033 r 9_q;
+#X obj 465 1034 r 10_q;
+#X obj 511 1034 r 11_q;
+#X obj 557 1035 r 12_q;
+#X obj 602 1036 r 13_q;
+#X obj 648 1037 r 14_q;
+#X obj 694 1037 r 15_q;
+#X obj 740 1038 r 16_q;
+#X obj 789 1038 r 17_q;
+#X obj 835 1039 r 18_q;
+#X obj 881 1039 r 19_q;
+#X obj 927 1040 r 20_q;
+#X obj 928 1067 r 20_r;
+#X obj 881 1065 r 19_r;
+#X obj 835 1066 r 18_r;
+#X obj 789 1065 r 17_r;
+#X obj 736 1063 r 16_r;
+#X obj 694 1064 r 15_r;
+#X obj 648 1064 r 14_r;
+#X obj 602 1063 r 13_r;
+#X obj 557 1062 r 12_r;
+#X obj 511 1061 r 11_r;
+#X obj 465 1061 r 10_r;
+#X obj 419 1060 r 9_r;
+#X obj 370 1060 r 8_r;
+#X obj 324 1059 r 7_r;
+#X obj 278 1059 r 6_r;
+#X obj 232 1058 r 5_r;
+#X obj 187 1057 r 4_r;
+#X obj 141 1056 r 3_r;
+#X obj 95 1056 r 2_r;
+#X obj 49 1055 r 1_r;
+#X obj 48 1083 r 1_s;
+#X obj 94 1084 r 2_s;
+#X obj 140 1084 r 3_s;
+#X obj 186 1085 r 4_s;
+#X obj 231 1086 r 5_s;
+#X obj 323 1087 r 7_s;
+#X obj 277 1087 r 6_s;
+#X obj 369 1088 r 8_s;
+#X obj 418 1088 r 9_s;
+#X obj 464 1089 r 10_s;
+#X obj 510 1089 r 11_s;
+#X obj 557 1090 r 12_a;
+#X obj 601 1091 r 13_s;
+#X obj 647 1092 r 14_s;
+#X obj 693 1092 r 15_s;
+#X obj 739 1093 r 16_s;
+#X obj 788 1093 r 17_s;
+#X obj 834 1094 r 18_s;
+#X obj 880 1094 r 19_s;
+#X obj 925 1095 r 20_s;
+#X obj 926 1122 r 20_t;
+#X obj 880 1121 r 19_t;
+#X obj 835 1121 r 18_t;
+#X obj 788 1120 r 17_t;
+#X obj 739 1120 r 16_t;
+#X obj 693 1119 r 15_t;
+#X obj 647 1119 r 14_t;
+#X obj 601 1118 r 13_t;
+#X obj 556 1117 r 12_t;
+#X obj 510 1116 r 11_t;
+#X obj 464 1116 r 10_t;
+#X obj 418 1115 r 9_t;
+#X obj 369 1115 r 8_t;
+#X obj 323 1114 r 7_t;
+#X obj 277 1114 r 6_t;
+#X obj 231 1113 r 5_t;
+#X obj 186 1112 r 4_t;
+#X obj 140 1111 r 3_t;
+#X obj 94 1111 r 2_t;
+#X obj 48 1110 r 1_t;
+#X restore 165 631 pd sends;
+#X obj 245 244 tgl 15 0 10_j empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 265 266 tgl 15 0 11_k empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 291 288 tgl 15 0 12_l empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 317 311 tgl 15 0 13_m empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 343 331 tgl 15 0 14_n empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 365 353 tgl 15 0 15_o empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 389 375 tgl 15 0 16_p empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 412 397 tgl 15 0 17_q empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 433 422 tgl 15 0 18_r empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 455 444 tgl 15 0 19_s empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 479 466 tgl 15 0 20_t empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 158 607 // All toggle switches above are hard-coded to send
+to "column_row", f 71;
+#X obj -2009 318 receive~ from_in1;
+#X obj -2009 359 receive~ from_in2;
+#X obj -2009 407 receive~ from_in3;
+#X obj -2004 450 receive~ from_in4;
+#X obj -2002 492 receive~ from_in5;
+#X obj -2004 535 receive~ from_in6;
+#X obj -2000 577 receive~ from_in7;
+#X obj -1996 620 receive~ from_in8;
+#X obj -1997 661 receive~ from_in9;
+#X obj -1993 705 receive~ from_in10;
+#X obj -1996 757 receive~ from_in11;
+#X obj 75 681 r 1_a;
+#X obj 121 682 r 2_a;
+#X obj 167 682 r 3_a;
+#X obj 213 683 r 4_a;
+#X obj 258 684 r 5_a;
+#X obj 304 685 r 6_a;
+#X obj 350 685 r 7_a;
+#X obj 396 686 r 8_a;
+#X obj 445 686 r 9_a;
+#X obj 491 687 r 10_a;
+#X obj 537 687 r 11_a;
+#X obj 583 688 r 12_a;
+#X obj 628 689 r 13_a;
+#X obj 674 690 r 14_a;
+#X obj 720 690 r 15_a;
+#X obj 766 691 r 16_a;
+#X obj 815 691 r 17_a;
+#X obj 861 692 r 18_a;
+#X obj 907 692 r 19_a;
+#X obj 953 693 r 20_a;
+#X obj 124 717 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 74 720 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 226 716 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 176 719 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 322 716 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 272 719 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 406 717 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 366 718 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 512 717 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 462 720 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 597 718 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 555 714 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 689 715 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 646 719 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 780 717 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 729 716 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 870 718 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 827 722 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 961 720 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 916 722 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 38 41 tgl 15 0 1_a empty empty 17 7 0 10 -262144 -1 -1 0 1;
+#X obj -2086 318 r 1_a;
+#X obj -2087 366 r 2_a;
+#X obj -2088 412 r 3_a;
+#X obj -2082 456 r 4_a;
+#X obj -2078 499 r 5_a;
+#X obj -2074 546 r 6_a;
+#X obj -2071 590 r 7_a;
+#X obj -2069 631 r 8_a;
+#X obj -2065 672 r 9_a;
+#X obj -2068 714 r 10_a;
+#X obj -2065 760 r 11_a;
+#X obj -2064 806 r 12_a;
+#X obj -2066 852 r 13_a;
+#X obj -2066 900 r 14_a;
+#X obj -2064 945 r 15_a;
+#X obj -2065 989 r 16_a;
+#X obj -2062 1045 r 17_a;
+#X obj -2061 1095 r 18_a;
+#X obj -2062 1141 r 19_a;
+#X obj -2062 1186 r 20_a;
+#X text -1976 264 Input for each channel strip 1-20 routed to output
+A, f 19;
+#X text -2134 261 Toggle receives for allowing each channel to pass
+to output A, f 21;
+#X obj -1734 318 receive~ from_in1;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1570 486 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1581 350 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1567 529 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1565 576 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1561 617 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1561 700 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1561 658 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1557 743 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1573 440 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1558 884 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1559 790 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1558 929 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1556 975 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1554 1025 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1552 1124 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1552 1077 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1558 836 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1553 1173 pd gate~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1551 1214 pd gate~;
+#X obj -1623 1252 outlet~;
+#N canvas 426 73 622 303 gate~ 0;
+#X obj 155 222 *~;
+#X obj 230 227 *~;
+#X obj 43 59 sel 0 1 2;
+#X msg 44 93 0 0;
+#X msg 78 93 1 0;
+#X msg 113 93 0 1;
+#X obj 68 125 unpack;
+#X obj 170 197 line~;
+#X obj 245 201 line~;
+#X obj 157 19 inlet~;
+#X obj 43 24 inlet;
+#X obj 155 258 outlet~;
+#X obj 170 166 pack f 20;
+#X obj 248 164 pack f 20;
+#X obj 230 256 outlet~;
+#X text 227 23 This code is based (read: copied) entirely from Christopher
+Ariza's abstration "mgGate2~" \, a part of the Martingale Library (https://code.google.com/p/martingale/).
+;
+#X connect 0 0 11 0;
+#X connect 1 0 14 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 12 0;
+#X connect 6 1 13 0;
+#X connect 7 0 0 1;
+#X connect 8 0 1 1;
+#X connect 9 0 0 0;
+#X connect 9 0 1 0;
+#X connect 10 0 2 0;
+#X connect 12 0 7 0;
+#X connect 13 0 8 0;
+#X restore -1579 392 pd gate~;
+#X obj -1485 809 receive~ from_in12;
+#X obj -1479 860 receive~ from_in13;
+#X obj -1476 904 receive~ from_in14;
+#X obj -1474 950 receive~ from_in15;
+#X obj -1477 1001 receive~ from_in16;
+#X obj -1476 1048 receive~ from_in17;
+#X obj -1473 1099 receive~ from_in18;
+#X obj -1474 1146 receive~ from_in19;
+#X obj -1474 1188 receive~ from_in20;
+#X text -1558 1255 A;
+#X obj -1497 325 receive~ from_in1;
+#X obj -1497 366 receive~ from_in2;
+#X obj -1497 414 receive~ from_in3;
+#X obj -1492 457 receive~ from_in4;
+#X obj -1490 499 receive~ from_in5;
+#X obj -1492 542 receive~ from_in6;
+#X obj -1488 584 receive~ from_in7;
+#X obj -1484 627 receive~ from_in8;
+#X obj -1485 668 receive~ from_in9;
+#X obj -1481 712 receive~ from_in10;
+#X obj -1484 764 receive~ from_in11;
+#X obj -1574 325 r 1_a;
+#X obj -1575 373 r 2_a;
+#X obj -1576 419 r 3_a;
+#X obj -1570 463 r 4_a;
+#X obj -1566 506 r 5_a;
+#X obj -1562 553 r 6_a;
+#X obj -1559 597 r 7_a;
+#X obj -1557 638 r 8_a;
+#X obj -1553 679 r 9_a;
+#X obj -1556 721 r 10_a;
+#X obj -1553 767 r 11_a;
+#X obj -1552 813 r 12_a;
+#X obj -1554 859 r 13_a;
+#X obj -1554 907 r 14_a;
+#X obj -1552 952 r 15_a;
+#X obj -1553 996 r 16_a;
+#X obj -1550 1052 r 17_a;
+#X obj -1549 1102 r 18_a;
+#X obj -1550 1148 r 19_a;
+#X obj -1550 1193 r 20_a;
+#X connect 0 0 22 0;
+#X connect 0 0 2 1;
+#X connect 1 0 20 0;
+#X connect 2 0 20 0;
+#X connect 3 0 20 0;
+#X connect 4 0 20 0;
+#X connect 5 0 20 0;
+#X connect 6 0 20 0;
+#X connect 7 0 20 0;
+#X connect 8 0 20 0;
+#X connect 9 0 20 0;
+#X connect 10 0 20 0;
+#X connect 11 0 20 0;
+#X connect 12 0 20 0;
+#X connect 13 0 20 0;
+#X connect 14 0 20 0;
+#X connect 15 0 20 0;
+#X connect 16 0 20 0;
+#X connect 17 0 20 0;
+#X connect 18 0 20 0;
+#X connect 19 0 20 0;
+#X connect 21 0 20 0;
+#X connect 23 0 42 0;
+#X connect 23 0 21 1;
+#X connect 24 0 43 0;
+#X connect 24 0 9 1;
+#X connect 25 0 44 0;
+#X connect 25 0 1 1;
+#X connect 26 0 45 0;
+#X connect 26 0 3 1;
+#X connect 27 0 46 0;
+#X connect 27 0 4 1;
+#X connect 28 0 47 0;
+#X connect 29 0 48 0;
+#X connect 30 0 49 0;
+#X connect 31 0 50 0;
+#X connect 32 0 51 0;
+#X connect 33 0 52 0;
+#X connect 34 0 53 0;
+#X connect 35 0 54 0;
+#X connect 36 0 55 0;
+#X connect 37 0 56 0;
+#X connect 38 0 57 0;
+#X connect 39 0 58 0;
+#X connect 40 0 59 0;
+#X connect 41 0 60 0;
+#X connect 515 0 536 0;
+#X connect 516 0 535 0;
+#X connect 517 0 538 0;
+#X connect 518 0 537 0;
+#X connect 519 0 540 0;
+#X connect 520 0 539 0;
+#X connect 521 0 542 0;
+#X connect 522 0 541 0;
+#X connect 523 0 544 0;
+#X connect 524 0 543 0;
+#X connect 525 0 546 0;
+#X connect 526 0 545 0;
+#X connect 527 0 548 0;
+#X connect 528 0 547 0;
+#X connect 529 0 550 0;
+#X connect 530 0 549 0;
+#X connect 531 0 552 0;
+#X connect 532 0 551 0;
+#X connect 533 0 554 0;
+#X connect 534 0 553 0;
+#X connect 556 0 2 0;
+#X connect 557 0 21 0;
+#X connect 558 0 9 0;
+#X connect 559 0 1 0;
+#X connect 560 0 3 0;
+#X connect 561 0 4 0;
+#X connect 562 0 5 0;
+#X connect 563 0 7 0;
+#X connect 564 0 6 0;
+#X connect 565 0 8 0;
+#X connect 566 0 11 0;
+#X connect 567 0 17 0;
+#X connect 568 0 10 0;
+#X connect 569 0 12 0;
+#X connect 570 0 13 0;
+#X connect 571 0 14 0;
+#X connect 572 0 16 0;
+#X connect 573 0 15 0;
+#X connect 574 0 18 0;
+#X connect 575 0 19 0;
+#X connect 579 0 598 0;
+#X connect 580 0 598 0;
+#X connect 581 0 598 0;
+#X connect 582 0 598 0;
+#X connect 583 0 598 0;
+#X connect 584 0 598 0;
+#X connect 585 0 598 0;
+#X connect 586 0 598 0;
+#X connect 587 0 598 0;
+#X connect 588 0 598 0;
+#X connect 589 0 598 0;
+#X connect 590 0 598 0;
+#X connect 591 0 598 0;
+#X connect 592 0 598 0;
+#X connect 593 0 598 0;
+#X connect 594 0 598 0;
+#X connect 595 0 598 0;
+#X connect 596 0 598 0;
+#X connect 597 0 598 0;
+#X connect 599 0 598 0;
+#X connect 600 0 595 1;
+#X connect 601 0 588 1;
+#X connect 602 0 590 1;
+#X connect 603 0 591 1;
+#X connect 604 0 592 1;
+#X connect 605 0 594 1;
+#X connect 606 0 593 1;
+#X connect 607 0 596 1;
+#X connect 608 0 597 1;
+#X connect 610 0 580 1;
+#X connect 611 0 599 1;
+#X connect 612 0 587 1;
+#X connect 613 0 579 1;
+#X connect 614 0 581 1;
+#X connect 615 0 582 1;
+#X connect 616 0 583 1;
+#X connect 617 0 585 1;
+#X connect 618 0 584 1;
+#X connect 619 0 586 1;
+#X connect 620 0 589 1;
+#X connect 621 0 580 0;
+#X connect 622 0 599 0;
+#X connect 623 0 587 0;
+#X connect 624 0 579 0;
+#X connect 625 0 581 0;
+#X connect 626 0 582 0;
+#X connect 627 0 583 0;
+#X connect 628 0 585 0;
+#X connect 629 0 584 0;
+#X connect 630 0 586 0;
+#X connect 631 0 589 0;
+#X connect 632 0 595 0;
+#X connect 633 0 588 0;
+#X connect 634 0 590 0;
+#X connect 635 0 591 0;
+#X connect 636 0 592 0;
+#X connect 637 0 594 0;
+#X connect 638 0 593 0;
+#X connect 639 0 596 0;
+#X connect 640 0 597 0;
+#X coords 0 -1 1 1 475 475 1 25 25;

@@ -1,0 +1,9 @@
+#N canvas 729 292 450 300 10;
+#X obj 84 104 comport/comport 1 115200;
+#X floatatom 85 128 5 0 0 0 - - -, f 5;
+#X floatatom 33 173 5 0 0 0 - - -, f 5;
+#X obj 85 147 maxlib/scale 0 255 0 5000;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 2 0;

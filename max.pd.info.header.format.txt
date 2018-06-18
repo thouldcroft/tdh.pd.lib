@@ -1,0 +1,22 @@
+MAX & PD HEADER/INFO FORMATS
+
+For ABSTRACTIONS:
+
+Abstraction Title
+by Travis Houldcroft / travishouldcroft.com
+
+filename/object-abstraction name
+Version & Date
+Description
+Arguments
+Inlets
+Outlets
+
+For DEMONSTRATION PATCHES
+
+Title
+by Travis Houldcroft / travishouldcroft.com
+
+filename.
+Version & Date
+Description

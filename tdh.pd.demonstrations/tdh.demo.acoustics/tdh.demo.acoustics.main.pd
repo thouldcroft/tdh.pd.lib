@@ -1,44 +1,44 @@
-#N canvas 1856 298 1200 623 10;
-#X obj 109 107 tdh.acoustics.demo.freq.amp~;
-#X obj 427 117 tdh.util.ezdsp~;
+#N canvas 27 23 1413 855 10;
+#X obj 463 19 tdh.util.ezdsp~;
 #X obj 109 570 dac~;
 #X text 141 571 <- Sends audio to your speakers;
-#X obj 113 677 tdh.acoustics.demo.phase.sig.addition~;
 #X obj 113 1145 dac~;
 #X text 166 536 Amplitude Envelope;
 #X text 21 1179 ==============================================================================================================================================================================================
-, f 306;
+, f 191;
 #X text 16 614 ==============================================================================================================================================================================================
-, f 306;
+, f 191;
 #X obj 112 1690 dac~;
 #X text 21 1729 ==============================================================================================================================================================================================
-, f 306;
+, f 191;
 #X obj 96 2241 dac~;
-#X obj 69 2466 tdh.acoustics.demo.amp.mod~;
 #X obj 70 2962 dac~;
-#X text 21 2429 ==============================================================================================================================================================================================
-, f 306;
-#X obj 68 3060 tdh.acoustics.demo.freq.mod~;
 #X text 23 3040 ==============================================================================================================================================================================================
-, f 306;
+, f 192;
 #X obj 70 3551 dac~;
-#X obj 112 1221 tdh.acoustics.demo.amp.env~;
-#X obj 95 1764 tdh.acoustics.demo.spectrum.additive.synthesis~;
 #X text 10 -48 Principles of Acoustics Demo;
 #X text 10 -34 Travis Houldcroft / travishouldcroft.com / github.com/thouldcroft
 , f 66;
 #X text 10 -8 tdh.demo.acoustics.main.pd;
 #X text 10 6 Ver 0.1 Aug 2017;
 #X text 10 19 Description;
-#X connect 0 0 2 0;
-#X connect 0 0 2 1;
-#X connect 4 0 5 0;
-#X connect 4 0 5 1;
-#X connect 12 0 13 0;
-#X connect 12 0 13 1;
-#X connect 15 0 17 0;
-#X connect 15 0 17 1;
-#X connect 18 0 9 0;
-#X connect 18 0 9 1;
-#X connect 19 0 11 0;
-#X connect 19 0 11 1;
+#X obj 109 107 tdh.demo.acoustics.freq.amp~;
+#X obj 113 677 tdh.demo.acoustics.phase.sig.addition~;
+#X obj 112 1221 tdh.demo.acoustics.amp.env~;
+#X obj 95 1764 tdh.demo.acoustics.spectrum.additive.synthesis~;
+#X obj 69 2466 tdh.demo.acoustics.amp.mod~;
+#X obj 68 3060 tdh.demo.acoustics.freq.mod~;
+#X text 21 2429 =========================================================================================================================================================================================
+, f 187;
+#X connect 18 0 1 0;
+#X connect 18 0 1 1;
+#X connect 19 0 3 0;
+#X connect 19 0 3 1;
+#X connect 20 0 7 0;
+#X connect 20 0 7 1;
+#X connect 21 0 9 0;
+#X connect 21 0 9 1;
+#X connect 22 0 10 0;
+#X connect 22 0 10 1;
+#X connect 23 0 12 0;
+#X connect 23 0 12 1;

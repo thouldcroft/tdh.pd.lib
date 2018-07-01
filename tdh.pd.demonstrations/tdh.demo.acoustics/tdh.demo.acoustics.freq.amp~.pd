@@ -228,6 +228,63 @@ has a frequency of 1 Hz. You will notice that the graph has two full
 cycles depicted \, over 2 seconds. If the graph instead represented
 1 whole second \, but still had the two cycles \, then we would say
 the frequency is 2 Hz., f 112;
+#N canvas 1671 -159 1259 697 frequency.test 1;
+#X msg 207 112 \; pd dsp 1;
+#X obj 144 46 inlet;
+#X obj 144 67 trigger b b;
+#X obj 185 526 osc~;
+#X obj 750 250 vline~;
+#X obj 185 595 dac~ 1 2;
+#X obj 185 559 *~ 0.5;
+#X obj 750 366 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 22000 256;
+#X msg 748 203 440 0 0 \, 0 0 5000 \, 22000 10000;
+#X obj 750 338 snapshot~;
+#X obj 840 305 metro 5;
+#X obj 846 275 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 479 282 440;
+#X obj 424 498 line;
+#X msg 424 312 0 50 \, 0.5 50;
+#X obj 260 186 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 260 238 trigger b b b b b, f 37;
+#X msg 369 368 0 50;
+#X obj 369 339 del 5000;
+#X obj 314 397 del 5050;
+#X obj 185 481 line;
+#X msg 185 456 0 \, 22000 10000;
+#X obj 314 432 del 5;
+#X msg 314 453 0.5 50;
+#X text 456 497 Amp envelope;
+#X text 512 296 1 Calibration tone for 5 sec;
+#X connect 1 0 2 0;
+#X connect 2 1 0 0;
+#X connect 3 0 6 0;
+#X connect 4 0 9 0;
+#X connect 6 0 5 0;
+#X connect 6 0 5 1;
+#X connect 8 0 4 0;
+#X connect 9 0 7 0;
+#X connect 10 0 9 0;
+#X connect 11 0 10 0;
+#X connect 12 0 3 0;
+#X connect 13 0 6 1;
+#X connect 14 0 13 0;
+#X connect 15 0 16 0;
+#X connect 16 1 19 0;
+#X connect 16 2 18 0;
+#X connect 16 3 14 0;
+#X connect 16 4 12 0;
+#X connect 17 0 13 0;
+#X connect 18 0 17 0;
+#X connect 19 0 22 0;
+#X connect 19 0 21 0;
+#X connect 20 0 3 0;
+#X connect 21 0 20 0;
+#X connect 22 0 23 0;
+#X connect 23 0 13 0;
+#X restore 1005 889 pd frequency.test;
 #X text 102 828 The human ear has limits in amplitude and frequency
 to what it can hear. For frequency \, the human ear can only hear approximately
 between 20 Hz and 20 \, 0 Hz. Some people can hear a little bit higher
@@ -237,12 +294,11 @@ what frequencies you can hear \; your headphones may only playback
 20 Hz to 18 \, 0 Hz (hopefully your system can playback at least 20-20
 \, 0 Hz \, but it isn’t always guaranteed!). You can test your own
 ear’s frequency perception (or your playback system’s range) using
-the controls below. First you must go to the "Pd Window" (Window->Pd
-Window) and click the toggle next to "DSP". You may also need to set
-your audio output (Media->Audio Settings...) and set the "Output Devices"
-to your built in speakers \, headphones \, or audio interface. You
-will hear a tone for 5 secs \, which you should adjust so that you
-can hear that tone well \, then the test will begin., f 112;
+the controls below. You may need to set your audio output (Media->Audio
+Settings...) and set the "Output Devices" to your built in speakers
+\, headphones \, or audio interface. You will hear a tone for 5 secs
+\, which you should adjust so that you can hear that tone well \, then
+the test will begin., f 112;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 1 0 15 0;

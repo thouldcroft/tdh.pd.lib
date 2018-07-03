@@ -2,7 +2,7 @@
 #X obj -418 307 osc~ 440;
 #X obj -418 393 *~;
 #X floatatom -341 314 5 0 1 0 - - -, f 5;
-#X obj 1552 -100 tdh.util.scope~;
+#X obj 1443 -114 tdh.util.scope~;
 #X text -340 205 Frequency;
 #X text -330 271 Amplitude (0.0-1.0);
 #X obj -418 532 send~ sig1;
@@ -34,14 +34,6 @@
 #X text -648 409 it by a range of number from 0-1;
 #X obj -415 270 * 20000;
 #X text 101 102 AMPLITUDE AND FREQUENCY;
-#N canvas 0 22 450 278 (subpatch) 0;
-#X array linear-\$0 100 float 3;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0;
-#X coords 0 0 100 100 200 140 1 0 0;
-#X restore 1602 396 graph;
 #X text 102 158 Sound waves are created through the movement of a vibrating
 mass. An object vibrates enough to make sound through and excitation
 \; this could be air passing over vocal cords \, a plectrum (pick)
@@ -253,7 +245,7 @@ the frequency is 2 Hz., f 112;
 -1 -1;
 #X text 125 104 Frequency Test;
 #X obj 106 128 nbx 5 14 -1e+37 1e+37 0 0 empty current_frequency empty
-15 10 0 10 -262144 -1 -1 22000 256;
+15 10 0 10 -262144 -1 -1 0 256;
 #X obj 98 534 send current_frequency;
 #X msg 275 456 0 \, 22000 30000;
 #X text 166 127 Current Frequency;
@@ -307,6 +299,30 @@ Settings...) and set the "Output Devices" to your built in speakers
 \, headphones \, or audio interface. You will hear a tone for 5 secs
 \, which you should adjust so that you can hear that tone well \, then
 the test will begin., f 112;
+#N canvas 2329 163 744 578 linear_log 1;
+#X obj 382 123 line 0;
+#X msg 382 102 100 5000;
+#X obj 382 144 t f f;
+#X obj 382 167 tabwrite linear;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array linear 100 float 3;
+#A 0 0.8 1.6 2.8 3.6 4.8 5.6 6.8 7.6 8.8 9.6 10.8 11.6 12.8 13.6 14.8
+15.6 16.8 17.6 18.8 19.6 20.8 21.6 22.8 23.6 24.8 25.6 26.8 27.6 28.8
+29.6 30.8 31.6 32.8 33.6 34.8 35.6 36.8 37.6 38.8 39.6 40.8 41.6 42.8
+43.6 44.8 45.6 46.8 47.6 48.8 49.6 50.8 51.6 52.8 53.6 54.8 55.6 56.8
+57.6 58.8 59.6 60.8 61.6 62.8 63.6 64.8 65.6 66.8 67.6 68.8 69.6 70.8
+71.6 72.8 73.6 74.8 75.6 76.8 77.6 78.8 79.6 80.8 81.6 82.8 83.6 84.8
+85.6 86.8 87.6 88.8 89.6 90.8 91.6 92.8 93.6 94.8 95.6 96.8 97.6 98.8
+100;
+#X coords 0 100 100 0 200 140 1 0 0;
+#X restore 216 303 graph;
+#X msg 502 107 \; linear xticks 0 25 5;
+#X msg 502 146 \; linear yticks 0 25 5;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 2 1 3 1;
+#X restore 1775 623 pd linear_log;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 1 0 15 0;

@@ -34,11 +34,6 @@
 #X text -648 409 it by a range of number from 0-1;
 #X obj -415 270 * 20000;
 #X text 101 102 AMPLITUDE AND FREQUENCY;
-#X text 102 158 Sound waves are created through the movement of a vibrating
-mass. An object vibrates enough to make sound through and excitation
-\; this could be air passing over vocal cords \, a plectrum (pick)
-plucking a guitar string \, a stick hitting a drum head \, two hands
-snapping a carrot in half \, or a rock hitting pavement., f 112;
 #N canvas 1440 -209 1920 1035 demonstration.wave 0;
 #X floatatom 690 375 0 0 0 0 - - -;
 #X obj 845 296 trigger f f;
@@ -220,7 +215,7 @@ has a frequency of 1 Hz. You will notice that the graph has two full
 cycles depicted \, over 2 seconds. If the graph instead represented
 1 whole second \, but still had the two cycles \, then we would say
 the frequency is 2 Hz., f 112;
-#N canvas 181 23 1259 697 frequency.test 1;
+#N canvas 181 23 1259 697 frequency.test 0;
 #X msg 773 156 \; pd dsp 1;
 #X obj 710 131 trigger b b;
 #X obj 635 526 osc~;
@@ -284,7 +279,7 @@ the frequency is 2 Hz., f 112;
 #X connect 25 0 1 0;
 #X connect 28 0 8 0;
 #X coords 0 -1 1 1 340 30 2 100 100;
-#X restore 816 748 pd frequency.test;
+#X restore 875 744 pd frequency.test;
 #N canvas 35 23 1379 796 linear_log 0;
 #X msg 1140 208 100 5000;
 #X obj 1140 250 t f f;
@@ -389,6 +384,11 @@ Settings...) and set the "Output Devices" to your built in speakers
 \, headphones \, or audio interface. You will hear a tone for 5 secs
 \, which you should adjust so that you can hear that tone well \, then
 the test will begin., f 112;
+#X text 102 158 Sound waves are created through the movement of a vibrating
+mass. An object vibrates enough to make sound through and excitation
+\; this could be air passing over vocal cords \, a plectrum (pick)
+plucking a guitar string \, a stick hitting a drum head \, two hands
+snapping a carrot in half \, or a rock hitting pavement., f 112;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 1 0 15 0;

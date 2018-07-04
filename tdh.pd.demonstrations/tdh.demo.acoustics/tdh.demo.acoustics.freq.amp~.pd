@@ -220,41 +220,41 @@ has a frequency of 1 Hz. You will notice that the graph has two full
 cycles depicted \, over 2 seconds. If the graph instead represented
 1 whole second \, but still had the two cycles \, then we would say
 the frequency is 2 Hz., f 112;
-#N canvas 1671 -159 1259 697 frequency.test 0;
-#X msg 413 156 \; pd dsp 1;
-#X obj 350 131 trigger b b;
-#X obj 275 526 osc~;
-#X obj 275 595 dac~ 1 2;
-#X obj 275 559 *~ 0.5;
-#X msg 569 282 440;
-#X obj 514 498 line;
-#X msg 514 312 0 50 \, 0.5 50;
-#X obj 350 238 trigger b b b b b, f 37;
-#X msg 459 368 0 50;
-#X obj 459 339 del 5000;
-#X obj 404 397 del 5050;
-#X obj 275 481 line;
-#X obj 404 432 del 5;
-#X msg 404 453 0.5 50;
-#X text 546 497 Amp envelope;
-#X text 602 296 1 Calibration tone for 5 sec;
-#X obj 359 556 sel 22000;
-#X obj 359 577 delay 100;
-#X msg 359 598 0 100;
-#X obj 105 105 bng 15 250 50 0 start_test empty empty 17 7 0 10 -262144
+#N canvas 181 23 1259 697 frequency.test 1;
+#X msg 773 156 \; pd dsp 1;
+#X obj 710 131 trigger b b;
+#X obj 635 526 osc~;
+#X obj 635 595 dac~ 1 2;
+#X obj 635 559 *~ 0.5;
+#X msg 929 282 440;
+#X obj 874 498 line;
+#X msg 874 312 0 50 \, 0.5 50;
+#X obj 710 238 trigger b b b b b, f 37;
+#X msg 819 368 0 50;
+#X obj 819 339 del 5000;
+#X obj 764 397 del 5050;
+#X obj 635 481 line;
+#X obj 764 432 del 5;
+#X msg 764 453 0.5 50;
+#X text 906 497 Amp envelope;
+#X text 962 296 1 Calibration tone for 5 sec;
+#X obj 719 556 sel 22000;
+#X obj 719 577 delay 100;
+#X msg 719 598 0 100;
+#X obj 105 107 bng 15 250 50 0 start_test empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 125 104 Frequency Test;
-#X obj 106 128 nbx 5 14 -1e+37 1e+37 0 0 empty current_frequency empty
+#X text 126 106 Frequency Test;
+#X obj 236 107 nbx 5 15 -1e+37 1e+37 0 0 empty current_frequency empty
 15 10 0 10 -262144 -1 -1 0 256;
-#X obj 98 534 send current_frequency;
-#X msg 275 456 0 \, 22000 30000;
-#X text 166 127 Current Frequency;
-#X obj 349 98 bng 15 250 50 0 empty start_test empty 17 7 0 10 -262144
+#X obj 458 534 send current_frequency;
+#X msg 635 456 0 \, 22000 30000;
+#X obj 709 98 bng 15 250 50 0 empty start_test empty 17 7 0 10 -262144
 -1 -1;
-#X msg 414 598 \; pd dsp 0;
-#X text 419 553 silence oscillator & turn off dsp when done;
-#X obj 350 152 del 100;
-#X connect 1 0 29 0;
+#X msg 774 598 \; pd dsp 0;
+#X text 779 553 silence oscillator & turn off dsp when done;
+#X obj 710 152 del 100;
+#X text 296 106 Current Frequency (Hz);
+#X connect 1 0 28 0;
 #X connect 1 1 0 0;
 #X connect 2 0 4 0;
 #X connect 4 0 3 0;
@@ -278,12 +278,12 @@ the frequency is 2 Hz., f 112;
 #X connect 14 0 6 0;
 #X connect 17 0 18 0;
 #X connect 18 0 19 0;
-#X connect 18 0 27 0;
+#X connect 18 0 26 0;
 #X connect 19 0 6 0;
 #X connect 24 0 12 0;
-#X connect 26 0 1 0;
-#X connect 29 0 8 0;
-#X coords 0 -1 1 1 175 50 2 100 100;
+#X connect 25 0 1 0;
+#X connect 28 0 8 0;
+#X coords 0 -1 1 1 340 30 2 100 100;
 #X restore 816 748 pd frequency.test;
 #N canvas 35 23 1379 796 linear_log 0;
 #X msg 1140 208 100 5000;

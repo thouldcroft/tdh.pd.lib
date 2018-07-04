@@ -1,4 +1,4 @@
-#N canvas 1440 -209 1920 1035 10;
+#N canvas 28 23 1412 855 10;
 #X obj -418 307 osc~ 440;
 #X obj -418 393 *~;
 #X floatatom -341 314 5 0 1 0 - - -, f 5;
@@ -284,7 +284,97 @@ the frequency is 2 Hz., f 112;
 #X connect 26 0 1 0;
 #X connect 29 0 8 0;
 #X coords 0 -1 1 1 175 50 2 100 100;
-#X restore 321 953 pd frequency.test;
+#X restore 816 748 pd frequency.test;
+#N canvas 35 23 1379 796 linear_log 0;
+#X msg 1140 208 100 5000;
+#X obj 1140 250 t f f;
+#X obj 1140 273 tabwrite linear;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array linear 100 float 3;
+#A 0 0.8 1.6 2.8 3.6 4.8 5.6 6.8 7.6 8.8 9.6 10.8 11.6 12.8 13.6 14.8
+15.6 16.8 17.6 18.8 19.6 20.8 21.6 22.8 23.6 24.8 25.6 26.8 27.6 28.8
+29.6 30.8 31.6 32.8 33.6 34.8 35.6 36.8 37.6 38.8 39.6 40.8 41.6 42.8
+43.6 44.8 45.6 46.8 47.6 48.8 49.6 50.8 51.6 52.8 53.6 54.8 55.6 56.8
+57.6 58.8 59.6 60.8 61.6 62.8 63.6 64.8 65.6 66.8 67.6 68.8 69.6 70.8
+71.6 72.8 73.6 74.8 75.6 76.8 77.6 78.8 79.6 80.8 81.6 82.8 83.6 84.8
+85.6 86.8 87.6 88.8 89.6 90.8 91.6 92.8 93.6 94.8 95.6 96.8 97.6 98.8
+100;
+#X coords 0 100 100 0 200 140 1 0 0;
+#X restore 178 121 graph;
+#X msg 1256 256 \; linear yticks 0 25 5;
+#X obj 1256 206 loadbang;
+#X msg 1140 428 100 5000;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array logarithmic 100 float 3;
+#A 0 0.64 2.56 7.84 12.96 23.04 31.36 46.24 57.76 77.44 92.16 116.64
+134.56 163.84 184.96 219.04 243.36 282.24 309.76 353.44 384.16 432.64
+466.56 519.84 556.96 615.04 655.36 718.24 761.76 829.44 876.16 948.64
+998.56 1075.84 1128.96 1211.04 1267.36 1354.24 1413.76 1505.44 1568.16
+1664.64 1730.56 1831.84 1900.96 2007.04 2079.36 2190.24 2265.76 2381.44
+2460.16 2580.64 2662.56 2787.84 2872.96 3003.04 3091.36 3226.24 3317.76
+3457.44 3552.16 3696.64 3794.56 3943.84 4044.96 4199.04 4303.36 4462.24
+4569.76 4733.44 4844.16 5012.64 5126.56 5299.84 5416.96 5595.04 5715.36
+5898.24 6021.76 6209.44 6336.16 6528.64 6658.56 6855.84 6988.96 7191.04
+7327.36 7534.24 7673.76 7885.44 8028.16 8244.64 8390.56 8611.84 8760.96
+8987.04 9139.36 9370.24 9525.76 9761.44 10000;
+#X coords 100 0 0 10000 200 140 2 0 0;
+#X restore 462 120 graph;
+#X obj 1256 426 loadbang;
+#X obj 1140 515 t f b;
+#X obj 1192 541 f;
+#X obj 1140 493 *;
+#X obj 1140 470 t f f f;
+#X obj 1140 566 tabwrite logarithmic;
+#X obj 1140 449 line 0;
+#X obj 1140 229 line 0;
+#X msg 1256 447 \; logarithmic xticks 0 25 5;
+#X msg 1256 479 \; logarithmic yticks 0 500 5;
+#X msg 1256 225 \; linear xticks 0 25 10;
+#X text 457 262 0;
+#X text 220 262 25;
+#X text 269 262 50;
+#X text 319 262 75;
+#X text 364 262 100;
+#X text 181 280 Sound pressure level in decibel;
+#X text 449 250 0;
+#X text 443 216 25;
+#X text 443 180 50;
+#X text 443 147 75;
+#X text 438 114 100;
+#X text 387 170 Perceived;
+#X text 389 183 loudness;
+#X text 173 263 0;
+#X text 165 253 0;
+#X text 159 219 25;
+#X text 159 183 50;
+#X text 159 148 75;
+#X text 154 116 100;
+#X text 102 173 Perceived;
+#X text 104 186 loudness;
+#X text 500 262 25;
+#X text 549 261 50;
+#X text 599 261 75;
+#X text 644 261 100;
+#X text 465 278 Sound pressure level in decibel;
+#X connect 0 0 15 0;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 5 0 18 0;
+#X connect 5 0 4 0;
+#X connect 6 0 14 0;
+#X connect 8 0 16 0;
+#X connect 8 0 17 0;
+#X connect 9 0 13 0;
+#X connect 9 1 10 0;
+#X connect 10 0 13 1;
+#X connect 11 0 9 0;
+#X connect 12 0 11 0;
+#X connect 12 1 11 1;
+#X connect 12 2 10 1;
+#X connect 14 0 12 0;
+#X connect 15 0 1 0;
+#X coords 0 -1 1 1 570 200 2 100 100;
+#X restore 788 1040 pd linear_log;
 #X text 102 828 The human ear has limits in amplitude and frequency
 to what it can hear. For frequency \, the human ear can only hear approximately
 between 20 Hz and 20 \, 0 Hz. Some people can hear a little bit higher
@@ -299,69 +389,6 @@ Settings...) and set the "Output Devices" to your built in speakers
 \, headphones \, or audio interface. You will hear a tone for 5 secs
 \, which you should adjust so that you can hear that tone well \, then
 the test will begin., f 112;
-#N canvas 2329 163 744 578 linear_log 1;
-#X msg 382 102 100 5000;
-#X obj 382 144 t f f;
-#X obj 382 167 tabwrite linear;
-#N canvas 0 22 450 278 (subpatch) 0;
-#X array linear 100 float 3;
-#A 0 0.8 1.6 2.8 3.6 4.8 5.6 6.8 7.6 8.8 9.6 10.8 11.6 12.8 13.6 14.8
-15.6 16.8 17.6 18.8 19.6 20.8 21.6 22.8 23.6 24.8 25.6 26.8 27.6 28.8
-29.6 30.8 31.6 32.8 33.6 34.8 35.6 36.8 37.6 38.8 39.6 40.8 41.6 42.8
-43.6 44.8 45.6 46.8 47.6 48.8 49.6 50.8 51.6 52.8 53.6 54.8 55.6 56.8
-57.6 58.8 59.6 60.8 61.6 62.8 63.6 64.8 65.6 66.8 67.6 68.8 69.6 70.8
-71.6 72.8 73.6 74.8 75.6 76.8 77.6 78.8 79.6 80.8 81.6 82.8 83.6 84.8
-85.6 86.8 87.6 88.8 89.6 90.8 91.6 92.8 93.6 94.8 95.6 96.8 97.6 98.8
-100;
-#X coords 0 100 100 0 200 140 1 0 0;
-#X restore 139 107 graph;
-#X msg 498 117 \; linear xticks 0 25 5;
-#X msg 498 156 \; linear yticks 0 25 5;
-#X obj 498 78 loadbang;
-#X msg 382 322 100 5000;
-#N canvas 0 22 450 278 (subpatch) 0;
-#X array logarithmic 100 float 3;
-#A 0 0.64 2.56 7.84 12.96 23.04 31.36 46.24 57.76 77.44 92.16 116.64
-134.56 163.84 184.96 219.04 243.36 282.24 309.76 353.44 384.16 432.64
-466.56 519.84 556.96 615.04 655.36 718.24 761.76 829.44 876.16 948.64
-998.56 1075.84 1128.96 1211.04 1267.36 1354.24 1413.76 1505.44 1568.16
-1664.64 1730.56 1831.84 1900.96 2007.04 2079.36 2190.24 2265.76 2381.44
-2460.16 2580.64 2662.56 2787.84 2872.96 3003.04 3091.36 3226.24 3317.76
-3457.44 3552.16 3696.64 3794.56 3943.84 4044.96 4199.04 4303.36 4462.24
-4569.76 4733.44 4844.16 5012.64 5126.56 5299.84 5416.96 5595.04 5715.36
-5898.24 6021.76 6209.44 6336.16 6528.64 6658.56 6855.84 6988.96 7191.04
-7327.36 7534.24 7673.76 7885.44 8028.16 8244.64 8390.56 8611.84 8760.96
-8987.04 9139.36 9370.24 9525.76 9761.44 10000;
-#X coords 0 0 100 10000 200 140 2 0 0;
-#X restore 139 327 graph;
-#X obj 498 298 loadbang;
-#X obj 382 434 t f b;
-#X obj 434 470 f;
-#X obj 384 402 *;
-#X obj 382 364 t f f f;
-#X obj 382 505 tabwrite logarithmic;
-#X msg 498 337 \; linear logarithmic 0 25 5;
-#X msg 498 374 \; linear logarithmic 0 25 5;
-#X obj 382 343 line 0;
-#X obj 382 123 line 0;
-#X connect 0 0 18 0;
-#X connect 1 0 2 0;
-#X connect 1 1 2 1;
-#X connect 6 0 4 0;
-#X connect 6 0 5 0;
-#X connect 7 0 17 0;
-#X connect 9 0 15 0;
-#X connect 9 0 16 0;
-#X connect 10 0 14 0;
-#X connect 10 1 11 0;
-#X connect 11 0 14 1;
-#X connect 12 0 10 0;
-#X connect 13 0 12 0;
-#X connect 13 1 12 1;
-#X connect 13 2 11 1;
-#X connect 17 0 13 0;
-#X connect 18 0 1 0;
-#X restore 1775 623 pd linear_log;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 1 0 15 0;

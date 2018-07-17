@@ -1,4 +1,4 @@
-#N canvas 1800 86 1259 855 10;
+#N canvas 2308 65 1259 832 10;
 #X obj 286 626 +;
 #X obj 281 677 metro;
 #X obj 286 563;
@@ -48,11 +48,6 @@ inlet. Data to this inlet sets parameters and causes output. Other
 inlets are cold inlets \, which don't cause output \, but do set parameters.
 , f 188;
 #X text 24 192 Pd As a Programming Language;
-#X text 24 222 Pd as a Programming Language Pd is unlike most computer
-languages \, in that it isn't purely text based. However \, Pd contains
-almost all of the elements one would look for in a programming language
-\; such as data storage structures \, variable \, and the ability to
-develop algorithms., f 192;
 #X text 24 253 To program in Pd you connect boxes \, known as objects
 \, together to form an algorithm. Some objects are plain objects that
 don't do much other than process information \, while other objects
@@ -64,7 +59,7 @@ more accessible than a text based programming language)., f 192;
 #X obj 509 342 + 2;
 #X obj 509 295 bng 15 250 50 0 empty \$0-loadbang empty 17 7 0 10 -262144
 -1 -1;
-#N canvas 2152 298 977 313 initialize 1;
+#N canvas 225 326 977 336 initialize 0;
 #X obj 33 2 loadbang;
 #X obj 30 172 send \$0-loadbang;
 #X msg 152 75 12345;
@@ -189,8 +184,8 @@ above \, and then click outside the object. You will see that the object
 has now taken on the form of the object whose name you typed in \,
 with the correct number of inlets and outlets (see below) that are
 associated with that object., f 187;
-#X obj 535 2287 print;
-#X floatatom 535 2263 5 0 0 0 - - -, f 5;
+#X obj 535 2307 print;
+#X floatatom 535 2283 5 0 0 0 - - -, f 5;
 #X text 244 1964 Message;
 #X text 244 1989 You type a message \, either text or number \, into
 this box \, and clicking on the box sends the message. Note how it
@@ -249,7 +244,7 @@ until you go beyond -999.9 or 9999.9., f 119;
 #X connect 8 0 1 0;
 #X connect 8 1 3 0;
 #X connect 8 2 5 0;
-#X restore 655 2274 pd double.click.for.numberbox.limits;
+#X restore 655 2294 pd double.click.for.numberbox.limits;
 #X text 244 2153 The [number] box is another object to send or display
 numbers. You can enter numbers by clicking and dragging in the [number]
 box \, or you can click once inside the box and type a number \, hitting
@@ -290,7 +285,7 @@ also shows objects that output "bang"., f 119;
 #X obj 548 2507 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X text 497 2116 Fig. 7 Message boxes, f 25;
-#X text 497 2316 Fig. 8 Number box;
+#X text 497 2336 Fig. 8 Number box;
 #X obj 548 2527 print;
 #X text 381 2551 Fig. 9 The bang interface button (click to send the
 message "bang", f 66;
@@ -398,38 +393,43 @@ make cool music or make experimental sound art. Pd is your sandbox.
 #X text 67 3653 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 , f 192;
 #X text 1139 3798 ver 0.5;
-#X connect 3 0 124 0;
+#X text 24 222 Pd as a Programming Language Pd is unlike most computer
+languages \, in that it isn't purely text based. However \, Pd contains
+almost all of the elements one would look for in a programming language
+\, such as data storage structures \, variable \, and the ability to
+develop algorithms., f 192;
+#X connect 3 0 123 0;
 #X connect 5 0 12 0;
 #X connect 8 0 9 0;
 #X connect 14 0 13 0;
-#X connect 15 0 108 0;
-#X connect 24 0 25 0;
+#X connect 15 0 107 0;
+#X connect 23 0 24 0;
+#X connect 24 0 22 0;
 #X connect 25 0 23 0;
-#X connect 26 0 24 0;
-#X connect 62 0 61 0;
-#X connect 73 0 76 0;
-#X connect 79 0 81 0;
-#X connect 80 0 79 0;
-#X connect 82 0 84 0;
-#X connect 84 0 83 0;
-#X connect 86 0 79 0;
-#X connect 87 0 88 0;
+#X connect 61 0 60 0;
+#X connect 72 0 75 0;
+#X connect 78 0 80 0;
+#X connect 79 0 78 0;
+#X connect 81 0 83 0;
+#X connect 83 0 82 0;
+#X connect 85 0 78 0;
+#X connect 86 0 87 0;
+#X connect 86 0 88 0;
 #X connect 87 0 89 0;
 #X connect 88 0 90 0;
-#X connect 89 0 91 0;
-#X connect 92 0 95 0;
-#X connect 92 0 96 0;
-#X connect 95 0 94 0;
-#X connect 96 0 93 0;
-#X connect 99 0 100 0;
-#X connect 99 0 101 0;
-#X connect 100 0 103 0;
-#X connect 101 0 102 0;
-#X connect 104 0 101 0;
-#X connect 104 1 100 0;
-#X connect 110 0 114 0;
-#X connect 114 0 113 0;
-#X connect 117 0 118 0;
-#X connect 118 0 120 0;
-#X connect 119 0 118 0;
-#X connect 125 0 126 0;
+#X connect 91 0 94 0;
+#X connect 91 0 95 0;
+#X connect 94 0 93 0;
+#X connect 95 0 92 0;
+#X connect 98 0 99 0;
+#X connect 98 0 100 0;
+#X connect 99 0 102 0;
+#X connect 100 0 101 0;
+#X connect 103 0 100 0;
+#X connect 103 1 99 0;
+#X connect 109 0 113 0;
+#X connect 113 0 112 0;
+#X connect 116 0 117 0;
+#X connect 117 0 119 0;
+#X connect 118 0 117 0;
+#X connect 124 0 125 0;

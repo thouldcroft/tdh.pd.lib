@@ -1,4 +1,4 @@
-#N canvas 28 23 1412 855 10;
+#N canvas 1974 -135 1412 855 10;
 #X obj -418 307 osc~ 440;
 #X obj -418 393 *~;
 #X floatatom -341 314 5 0 1 0 - - -, f 5;
@@ -139,82 +139,7 @@
 #X connect 17 0 8 0;
 #X connect 17 0 19 0;
 #X coords 0 -1 1 1 500 350 2 100 100;
-#X restore 792 225 pd demonstration.wave;
-#X text 102 208 Once this mass starts vibrating \, it pushes the air
-molecules around it. Sometimes these molecules are pushed far \, sometimes
-pushed just a little. Once the surround molecules get pushed \, they
-collide with the molecules around them. Those molecules get pushed
-\, but not as hard as the molecules surrounding the vibrating mass.
-The second set of molecules in turn collide with the molecules around
-THEM \, with some loss of strength. This process repeats until the
-molecules next to you ear drums (next to a microphone diaphragm) gets
-pushed \, increasing the pressure of molecules. Now molecules tend
-to want to go where there is less pressure \, i.e. where there is less
-molecules. Once a molecule is pushed \, it will attempt to return where
-it originally was \, because right now there is less pressure/more
-room where they *were*. They often over shoot this target by a bit.
-However \, as long as the vibrating mass stops vibrating \, the molecule
-will eventually settle to where it originally was. This molecule movement
-back causes your ear drum to also be relieved of pressure \, and it
-also over shoots its target a little bit. Thus a single vibration will
-cause this chain of events to happen \, and as long as it doesn’t
-lose too much energy in the process \, will cause your ear drum to
-move. If the vibrating body keeps vibrating at least more than 20 times
-a second \, the ear hears a sound!, f 112;
-#X text 101 136 INTRODUCTION;
-#X text 101 373 AMPLITUDE;
-#X text 102 398 We obviously can’t see sound move in the air normally
-\, so we graph sounds such as you see below. We arbitrarily mark “0”
-on the vertical/y axis as the ear drum’s starting point. The push
-on the ear drum ramps up the y axis to a maximum \, which we will arbitrarily
-call “1” \, and then it ramps down back to 0 \, overshoots the
-original position \, and if the energy in the sound wave is strong
-enough \, the ear drum and molecules may push as far beyond the original
-point as it had been initially pushed. This is dependent on the amount
-of energy in the signal. All natural-occurring sounds will eventually
-lose energy and return to 0 We call the push above 0 the wave’s COMPRESSION
-\, while the dip below 0 is the wave’s RAREFACTION. The displacement
-caused by the wave is known as the wave’s AMPLITUDE. We will often
-refer to the wave’s amplitude by its average between its compression
-and rarefaction \, taking the absolute value of the rarefaction. The
-wave you see below has an amplitude of 1, f 112;
-#X text 102 518 Amplitude represents the change in sound pressure level
-caused by the movement of molecules in reaction to a vibrating element.
-Sound pressure level is one of the many factors that effects how LOUD
-we hear a sound. There are many other factors that affect the loudness
-of a sound \, and that is beyond the scope of this text. Later we will
-discuss another way to calculate the intensity/loudness of a sound
-that is more closely aligned with how we hear \, called the DECIBEL.
-, f 112;
-#X text 101 593 FREQUENCY;
-#X text 102 618 The horizontal/x axis is labelled “Time”. Therefore
-this graph marks the change in amplitude (displacement of molecules/ear
-drum) over time. Time has a very strong effect on our perception of
-a sound. The change in amplitude over time is a major signifier in
-how we determine a sound’s source (more about THAT in the “Envelope”
-section). The other element that is highly dependent on time is the
-sound’s pitch. Pitch is a purely perceptual (i.e. not scientifically
-quantifiable) element of sound that allows us to order sounds as higher
-or lower in pitch. This is most easily noticed in music: some notes
-are higher (such as flute playing a note) while other notes are lower
-(a tuba playing a note). This also exists with natural sounds. If you
-hit two hollowed out logs of different sizes with a branch \, you might
-hear a pitch difference between the two., f 112;
-#X text 102 718 The element of pitch is primarily (but not entirely)
-tied to the *quantifiable* element of a sound wave known as FREQUENCY.
-When a wave’s amplitude makes a full compression and rarefaction
-and then returns to 0 \, we call this a wave’s CYCLE. A wave’s
-frequency is how many full cycles it completes in one second. We use
-the label Hertz (Hz) to signify the value we are discuss is the frequency
-(cycles per second) of a wave (or really \, they frequency of ANY regularly
-repeating element in nature). Look at the graph and trace an imaginary
-line up from the 1 second mark \, and then check how many full cycles
-of the sound wave happen in that one second. You will notice that only
-one full cycle is completed in one second. Therefore this sound wave
-has a frequency of 1 Hz. You will notice that the graph has two full
-cycles depicted \, over 2 seconds. If the graph instead represented
-1 whole second \, but still had the two cycles \, then we would say
-the frequency is 2 Hz., f 112;
+#X restore 792 125 pd demonstration.wave;
 #N canvas 181 23 1259 697 frequency.test 0;
 #X msg 773 156 \; pd dsp 1;
 #X obj 710 131 trigger b b;
@@ -280,7 +205,7 @@ the frequency is 2 Hz., f 112;
 #X connect 28 0 8 0;
 #X coords 0 -1 1 1 340 30 2 100 100;
 #X restore 875 744 pd frequency.test;
-#N canvas 35 23 1379 796 linear_log 0;
+#N canvas 2240 -72 1379 796 linear_log 0;
 #X msg 1140 208 100 5000;
 #X obj 1140 250 t f f;
 #X obj 1140 273 tabwrite linear;
@@ -312,7 +237,7 @@ the frequency is 2 Hz., f 112;
 5898.24 6021.76 6209.44 6336.16 6528.64 6658.56 6855.84 6988.96 7191.04
 7327.36 7534.24 7673.76 7885.44 8028.16 8244.64 8390.56 8611.84 8760.96
 8987.04 9139.36 9370.24 9525.76 9761.44 10000;
-#X coords 100 0 0 10000 200 140 2 0 0;
+#X coords 0 10000 100 0 200 140 2 0 0;
 #X restore 462 120 graph;
 #X obj 1256 426 loadbang;
 #X obj 1140 515 t f b;
@@ -330,27 +255,27 @@ the frequency is 2 Hz., f 112;
 #X text 269 262 50;
 #X text 319 262 75;
 #X text 364 262 100;
-#X text 181 280 Sound pressure level in decibel;
 #X text 449 250 0;
 #X text 443 216 25;
 #X text 443 180 50;
 #X text 443 147 75;
 #X text 438 114 100;
-#X text 387 170 Perceived;
-#X text 389 183 loudness;
 #X text 173 263 0;
 #X text 165 253 0;
 #X text 159 219 25;
 #X text 159 183 50;
 #X text 159 148 75;
 #X text 154 116 100;
-#X text 102 173 Perceived;
-#X text 104 186 loudness;
 #X text 500 262 25;
 #X text 549 261 50;
 #X text 599 261 75;
 #X text 644 261 100;
-#X text 465 278 Sound pressure level in decibel;
+#X text 103 173 Perceived;
+#X text 103 185 Level;
+#X text 383 173 Perceived;
+#X text 383 185 Level;
+#X text 211 278 Sound Pressure Level;
+#X text 491 278 Sound Pressure Level;
 #X connect 0 0 15 0;
 #X connect 1 0 2 0;
 #X connect 1 1 2 1;
@@ -369,26 +294,66 @@ the frequency is 2 Hz., f 112;
 #X connect 14 0 12 0;
 #X connect 15 0 1 0;
 #X coords 0 -1 1 1 570 200 2 100 100;
-#X restore 788 1040 pd linear_log;
-#X text 102 828 The human ear has limits in amplitude and frequency
-to what it can hear. For frequency \, the human ear can only hear approximately
-between 20 Hz and 20 \, 0 Hz. Some people can hear a little bit higher
-and a little bit lower \, particularly younger people \; as we get
-older \, the range shrinks a bit. You playback system also determines
-what frequencies you can hear \; your headphones may only playback
-20 Hz to 18 \, 0 Hz (hopefully your system can playback at least 20-20
-\, 0 Hz \, but it isn’t always guaranteed!). You can test your own
-ear’s frequency perception (or your playback system’s range) using
-the controls below. You may need to set your audio output (Media->Audio
-Settings...) and set the "Output Devices" to your built in speakers
-\, headphones \, or audio interface. You will hear a tone for 5 secs
-\, which you should adjust so that you can hear that tone well \, then
-the test will begin., f 112;
-#X text 102 158 Sound waves are created through the movement of a vibrating
-mass. An object vibrates enough to make sound through and excitation
-\; this could be air passing over vocal cords \, a plectrum (pick)
-plucking a guitar string \, a stick hitting a drum head \, two hands
-snapping a carrot in half \, or a rock hitting pavement., f 112;
+#X restore 1295 546 pd linear_log;
+#N canvas 2882 363 699 439 INTRODUCTION 0;
+#X text 5 7 INTRODUCTION;
+#X text 6 29 Sound waves are created through the movement of a vibrating
+mass. An object vibrates enough to make sound through an excitation
+- this excitation could be air passing over vocal cords \, a plectrum
+(pick) plucking a guitar string \, a stick hitting a drum head \, two
+hands snapping a carrot in half \, or a rock hitting pavement. This
+vibration creates a variation in the pressure of air molecules (or
+water molecules \, though not as easily) that travels as a WAVE that
+\, when it reaches our ears \, the brain amazingly interprets as sound!
+, f 112;
+#X text 6 99 How does this all work? Let’s use a guitar string as
+an example as a vibrating mass. A guitar pick pulls the string back
+\, then releases it and the string starts to vibrate. The first movement
+of the vibration is a movement of the string opposite to the direction
+the pick pulled the strong. This movement pushes the air molecules
+around it. Sometimes these molecules are pushed far \, sometimes pushed
+just a little. Once the surrounding molecules get pushed \, a build-up
+of pressure (caused by an increase in the number of molecules for the
+area) results. This pressure effects all of the molecules around the
+vibrating mass. As the pressure increases around the string \, the
+molecules increase the pressure of the molecules surrounding them.
+This pushes other molecules out away from the string. This causes a
+chain reaction that produces an increase in pressure that travels all
+the way to your ear drums (or to a microphone) \, with some loss of
+energy. This pressure pushes your ear drum in \, directly analogous
+to the string vibration. This increase in pressure on the ear drum
+is known as the sound wave’s COMPRESSION. Back at the string \, the
+string can only move so far in one direction \, and so it will then
+swing back the other way. This leaves empty space with lower pressure
+\, and all molecules attract to areas with a lower pressure \, so they
+will fill in the space where the string was \, and in fact they travel
+past where the space they initially had occupied. This causes an opposite
+chain reaction \, where all of the molecules \, including those pushing
+against your ear drum \, reverse direction to seek an area of less
+pressure \, and all involved \, including the ear drum \, swing past
+the place of initial rest \, and in fact build up pressure in the opposite
+direction. We call this the wave’s RAREFACTION. If the string is
+plucked hard enough \, the cycle repeats again as the string swings
+back. This cycle of increasing and then decreasing of pressure at our
+ear drum is astoundingly interpreted by our brains as sound!, f 112
+;
+#X text 6 319 We typically can’t see sound move in the air normally
+\, so we graph sounds such as you see below. The vertical/y-axis of
+the graph maps the change in air pressure. The equilibrium of air pressure
+(known as the ATMOSPHERIC PRESSURE) is at the center of the axis \,
+which we mark (arbitrarily) as 0 The increase in pressure \, the wave’s
+compression \, is the area above the equilibrium on the graph \, and
+we use positive numbers to represent this. The wave’s rarefaction
+is represented by the area below the 0 point \, and we use negative
+numbers to represent this portion of the wave., f 112;
+#X restore 139 212 pd INTRODUCTION;
+#X text 101 133 In the modules below you will explore two fundamental
+components of a sound wave: it's amplitude and it's frequency. Click
+on a module (a box labelled "pd" with a section title) to read about
+these aspects and interact with hands on tools which will allow you
+to see these sound aspects in action. Additionally you can control
+a sound wave generator to the right of this text \, allowing you to
+manipulate the generator's frequency and amplitude., f 103;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 1 0 15 0;

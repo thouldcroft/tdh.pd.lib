@@ -196,6 +196,41 @@ these aspects and interact with hands on tools which will allow you
 to see these sound aspects in action. Additionally you can control
 a sound wave generator to the right of this text \, allowing you to
 manipulate the generator's frequency and amplitude., f 75;
+#N canvas 2117 136 1089 587 SOUND_PRESSURE_LEVEL 1;
+#X text 4 3 If you have ever plucked a guitar string or hit a drum
+\, you likely noticed that the harder you hit or plucked resulted in
+a louder sound. While if you plucked or hit the objects with less intensity
+\, it might have sounded softer. When a string is plucked harder \,
+this means when it vibrates it moves farther from its resting point
+(the point where it sits when not vibrating). This causes the string
+to push the air molecules around it farther \, creating a greater pressure
+build up. In our sound wave graph we map the amount of pressure above
+the atmospheric pressure caused by the vibrating object in the y axis
+\, depicting the wave’s compression and rarefaction. This aspect
+of the wave is known as the wave’s AMPLITUDE. When we talk about
+amplitude \, we often graph it abstractly between +1 and -1 \, at which
+these points are the MAXIMUM points that some system can have. This
+system can be our computer \, a recording studio \, or our ear \, it
+all depends on the context!, f 73;
+#X text 4 173 When mapping the sound pressure level to a scale of +1
+to -1 \, we call it LINEAR AMPLITUDE. It makes using computers to calculate
+it very easy \, and it also makes a lot of sense when we manipulate
+it (as we will see). For example \, we can set the sound wave to half
+its amplitude by setting the amplitude to 0.5 (or dividing all of the
+amplitude points by 2). When we discuss the amplitude of a wave at
+a certain point \, we talk about the absolute value max peak of a cycle.
+For example if a wave goes from +0.7 to -0.9 \, we are going to take
+the absolute value of those points and report the peak \, so this example
+wave would have an amplitude of 0.9., f 73;
+#X text 4 293 To the right is a small controllable sound generator.
+Press the “On” button to turn the generator on and adjust the wave’s
+amplitude with the fader labelled “AMP” by clicking and dragging
+on the middle line. You will see the wave displayed next to the fader.
+As the amplitude increases from 0 \, the sound will get louder. At
+1 the wave is as loud as your computer can handle \, so going above
+this level will create a very distorted sound., f 73;
+#X restore 286 609 pd SOUND_PRESSURE_LEVEL \, AMPLITUDE \, AND THE
+DECIBEL;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 1 0 15 0;

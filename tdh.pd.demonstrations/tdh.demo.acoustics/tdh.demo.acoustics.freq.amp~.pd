@@ -196,8 +196,8 @@ these aspects and interact with hands on tools which will allow you
 to see these sound aspects in action. Additionally you can control
 a sound wave generator to the right of this text \, allowing you to
 manipulate the generator's frequency and amplitude., f 75;
-#N canvas 2117 136 1089 587 SOUND_PRESSURE_LEVEL 1;
-#X text 4 3 If you have ever plucked a guitar string or hit a drum
+#N canvas 2117 136 1097 715 SOUND_PRESSURE_LEVEL 1;
+#X text 4 23 If you have ever plucked a guitar string or hit a drum
 \, you likely noticed that the harder you hit or plucked resulted in
 a louder sound. While if you plucked or hit the objects with less intensity
 \, it might have sounded softer. When a string is plucked harder \,
@@ -212,7 +212,7 @@ amplitude \, we often graph it abstractly between +1 and -1 \, at which
 these points are the MAXIMUM points that some system can have. This
 system can be our computer \, a recording studio \, or our ear \, it
 all depends on the context!, f 73;
-#X text 4 173 When mapping the sound pressure level to a scale of +1
+#X text 4 193 When mapping the sound pressure level to a scale of +1
 to -1 \, we call it LINEAR AMPLITUDE. It makes using computers to calculate
 it very easy \, and it also makes a lot of sense when we manipulate
 it (as we will see). For example \, we can set the sound wave to half
@@ -222,13 +222,91 @@ a certain point \, we talk about the absolute value max peak of a cycle.
 For example if a wave goes from +0.7 to -0.9 \, we are going to take
 the absolute value of those points and report the peak \, so this example
 wave would have an amplitude of 0.9., f 73;
-#X text 4 293 To the right is a small controllable sound generator.
+#X text 4 313 To the right is a small controllable sound generator.
 Press the “On” button to turn the generator on and adjust the wave’s
 amplitude with the fader labelled “AMP” by clicking and dragging
 on the middle line. You will see the wave displayed next to the fader.
 As the amplitude increases from 0 \, the sound will get louder. At
 1 the wave is as loud as your computer can handle \, so going above
 this level will create a very distorted sound., f 73;
+#X text 4 403 Talking about amplitude as a linear system is a problem
+\, because our ear unfortunately doesn’t hear linearly \, our ears
+perceive sound LOGARITHMICALLY. This introduction to acoustics attempts
+to keep as much math out of the discussion as possible \, so I will
+(try) to convey this concept as succinctly as possible (my apologies
+to anyone with a solid background in mathematics). When discussing
+linear vs. logarithmic scales in regards to hearing \, I like to think
+of how these scales are used illustrate the *changes* in our perception
+of sounds., f 73;
+#X text 4 3 SOUND PRESSURE LEVEL AND AMPLITUDE, f 73;
+#X text 4 513 LINEAR VS. LOGARITHMIC PERCEPTION SCALES, f 73;
+#X text 4 533 Below are two graphs \, one of a linear scale and one
+of a logarithmic scale (these graphs are strictly for demonstration
+\, and do not represent tested values). For both graphs the x-axis
+represents sound pressure level \, while the y-axis represents our
+perception of the sound pressure level. We will look at the linear
+graph first. On the x-axis \, trace a straight line vertically from
+the sound pressure level of 50 until you hit the graphed line. Now
+trace a line left horizontally until you reach the labelled y-axis.
+You will find that the line you trace lands right around 50 on the
+perceived level scale. So if our ears heard linearly \, then a sound
+pressure level of 50 would be perceived as a sound pressure level of
+50 However \, our ears do not hear this way \, our ears hear more like
+the logarithmic graph. Trace the same line as you did on the linear
+graph \, this time on the logarithmic graph. You will find that a sound
+pressure level of 50 results in a perceived level of around 25 While
+this graph is for demonstration only \, it does give us a rough estimate
+of how our ears hear sound pressure level. On the lower end of sound
+pressure levels \, large changes in SPL don’t register as drastic
+of a change in perceived level. However \, as sound pressure levels
+increase \, change in sound pressure level show a much more dramatic
+change in perceived level., f 73;
+#X text 3 763 THE DECIBEL, f 73;
+#X text 3 783 Sound pressure level can be measured in a multitude of
+ways \, and since level is a physical quantity \, these levels will
+be a linear reading \; a measurement tool is simply reporting changes
+in sound pressure level. While actual sound pressure levels are measured
+linearly \, our ears do not hear these levels linearly. Therefore \,
+acousticians developed a scale that better reflects how we hear \,
+called the DECIBEL. The decibel scale (abbreviated dB) tames the huge
+scale of numbers that are recorded when monitoring sound pressure levels
+with measurement equipment and shifts these linear readings into a
+logarithmic scale., f 73;
+#X text 3 898 The tricky element of the decibel is that it doesn’t
+actually represent a physical quantity \, it represents a ratio between
+a measured quantity and a reference level. Therefore \, when we use
+decibels we need to know what this reference level is. This sounds
+confusing \, but fortunately with digital audio we generally only deal
+with 2 different decibel scales. When we reference a decibel scale
+it should be followed an abbreviation telling us what the reference
+is. The first decibel scale we will discuss is dB SPL \, which we know
+from above stands for sound pressure level. With dB SPL \, the reference
+level is the threshold of human hearing \, i.e. the point at which
+we can hear the softest sound. We mark this as 0 dB SPL. This scale
+goes from this threshold to the threshold of pain \, around 140 dB
+SPL. This is the point where sounds can damage the ear. Below is a
+chart of sounds and their associated SPL in dB., f 73;
+#X text 3 1058 The other point where we use decibels in digital audio
+is when we are working in a DIGITAL AUDIO WORKSTATION (DAW). A DAW
+is a type of audio software that contains an entire virtual recording
+studio inside a computer – complete with tracks to record to and
+faders to mix with. We will use the DAW REAPER later in the semester.
+When we are monitoring how loud a signal is in \, our DAW will report
+its level in dB. However \, DAWs as well as digital audio mixers don’t
+report signals in dB SPL. Instead they use a decibel scale called DIGITAL
+FULL SCALE \, abbreviated FS. With dB FS \, our digital workstation
+reports maximum level our digital device can handle as 0 dB FS. This
+is the same level as the linear amplitude value of 1 We will discuss
+digital audio in another class \, but all digital audio systems have
+a max level they can handle \, and this is represented as 0 dB FS.
+In a DAW \, all signals below this will have a negative number \, usually
+going as low as -60 or -90 dB FS. A second sound generator is found
+below \, this time with what we call a METER \, a device that indicates
+signal level in dB FS. Turn the sound generator and adjust the generator’s
+linear amplitude with the fader \, and watch the corresponding level
+in dB FS as indicated by the meter., f 73;
+#X text 644 42 TO DO: amplitude experiment module \, logarithmic and
+linear graph \, dBFS and linear demo \, SPL graph;
 #X restore 286 609 pd SOUND_PRESSURE_LEVEL \, AMPLITUDE \, AND THE
 DECIBEL;
 #X connect 0 0 1 0;

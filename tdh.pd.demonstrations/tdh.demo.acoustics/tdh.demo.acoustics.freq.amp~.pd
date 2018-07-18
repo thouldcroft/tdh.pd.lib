@@ -1,4 +1,4 @@
-#N canvas 2588 209 1412 855 10;
+#N canvas 1803 -7 1412 855 10;
 #X obj -418 307 osc~ 440;
 #X obj -418 393 *~;
 #X floatatom -341 314 5 0 1 0 - - -, f 5;
@@ -139,7 +139,7 @@
 #X connect 17 0 8 0;
 #X connect 17 0 19 0;
 #X coords 0 -1 1 1 500 350 2 100 100;
-#X restore 792 125 pd demonstration.wave;
+#X restore 645 140 pd demonstration.wave;
 #N canvas 181 23 1259 697 frequency.test 0;
 #X msg 773 156 \; pd dsp 1;
 #X obj 710 131 trigger b b;
@@ -353,7 +353,7 @@ on a module (a box labelled "pd" with a section title) to read about
 these aspects and interact with hands on tools which will allow you
 to see these sound aspects in action. Additionally you can control
 a sound wave generator to the right of this text \, allowing you to
-manipulate the generator's frequency and amplitude., f 103;
+manipulate the generator's frequency and amplitude., f 75;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 1 0 15 0;

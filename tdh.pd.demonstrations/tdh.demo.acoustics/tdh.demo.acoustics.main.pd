@@ -1,4 +1,5 @@
 #N canvas 2242 -164 1414 855 10;
+#X declare -lib ggee;
 #X obj 110 1892 dac~;
 #X text 142 1893 <- Sends audio to your speakers;
 #X obj 114 2467 dac~;
@@ -19,7 +20,6 @@
 #X text 10 -34 Travis Houldcroft / travishouldcroft.com / github.com/thouldcroft
 , f 66;
 #X text 10 -8 tdh.demo.acoustics.main.pd;
-#X text 10 19 Description;
 #X obj 110 1429 tdh.demo.acoustics.freq.amp~;
 #X obj 114 1999 tdh.demo.acoustics.phase.sig.addition~;
 #X obj 113 2543 tdh.demo.acoustics.amp.env~;
@@ -31,7 +31,7 @@
 #X text 1403 -1 | \; | \; | \; | \; | \; | \; | \; | \; | \; | \; |
 \;;
 #X text 9 6 Ver 0.2 July 2018;
-#N canvas 2022 -156 1060 676 intro 0;
+#N canvas 1722 -83 1255 750 intro 0;
 #X text 105 104 INTRODUCTION;
 #X text 106 126 Sound waves are created through the movement of a vibrating
 mass. An object vibrates enough to make sound through an excitation
@@ -41,8 +41,8 @@ hands snapping a carrot in half \, or a rock hitting pavement. This
 vibration creates a variation in the pressure of air molecules (or
 water molecules \, though not as easily) that travels as a WAVE that
 \, when it reaches our ears \, the brain amazingly interprets as sound!
-, f 112;
-#X text 106 196 How does this all work? Let’s use a guitar string
+, f 179;
+#X text 106 176 How does this all work? Let’s use a guitar string
 as an example as a vibrating mass. A guitar pick pulls the string back
 \, then releases it and the string starts to vibrate. The first movement
 of the vibration is a movement of the string opposite to the direction
@@ -71,9 +71,9 @@ the place of initial rest \, and in fact build up pressure in the opposite
 direction. We call this the wave’s RAREFACTION. If the string is
 plucked hard enough \, the cycle repeats again as the string swings
 back. This cycle of increasing and then decreasing of pressure at our
-ear drum is astoundingly interpreted by our brains as sound!, f 112
+ear drum is astoundingly interpreted by our brains as sound!, f 179
 ;
-#X text 106 416 We typically can’t see sound move in the air normally
+#X text 106 596 We typically can’t see sound move in the air normally
 \, so we graph sounds such as you see below. The vertical/y-axis of
 the graph maps the change in air pressure. The equilibrium of air pressure
 (known as the ATMOSPHERIC PRESSURE) is at the center of the axis \,
@@ -81,8 +81,9 @@ which we mark (arbitrarily) as 0 The increase in pressure \, the wave’s
 compression \, is the area above the equilibrium on the graph \, and
 we use positive numbers to represent this. The wave’s rarefaction
 is represented by the area below the 0 point \, and we use negative
-numbers to represent this portion of the wave., f 112;
-#X coords 0 -1 1 1 1100 400 2 100 100;
+numbers to represent this portion of the wave., f 178;
+#X obj 660 453 ggee/image lwav2_attr.gif;
+#X coords 0 -1 1 1 1100 550 2 100 100;
 #X restore 7 148 pd intro;
 #N canvas 576 136 649 316 dsp 0;
 #X obj 107 109 tgl 15 0 dsp-0 empty empty 17 7 0 10 -4032 -1 -1 0 1
@@ -95,15 +96,18 @@ ON or OFF, f 66;
 #X connect 1 0 2 0;
 #X coords 0 -1 1 1 1100 30 2 100 100;
 #X restore 7 97 pd dsp;
-#X connect 16 0 0 0;
-#X connect 16 0 0 1;
-#X connect 17 0 2 0;
-#X connect 17 0 2 1;
-#X connect 18 0 6 0;
-#X connect 18 0 6 1;
-#X connect 19 0 8 0;
-#X connect 19 0 8 1;
-#X connect 20 0 9 0;
-#X connect 20 0 9 1;
-#X connect 21 0 11 0;
-#X connect 21 0 11 1;
+#X obj 1177 -8 declare -lib ggee;
+#X text 1178 17;
+#X text 10 19 Dependencies:;
+#X connect 15 0 0 0;
+#X connect 15 0 0 1;
+#X connect 16 0 2 0;
+#X connect 16 0 2 1;
+#X connect 17 0 6 0;
+#X connect 17 0 6 1;
+#X connect 18 0 8 0;
+#X connect 18 0 8 1;
+#X connect 19 0 9 0;
+#X connect 19 0 9 1;
+#X connect 20 0 11 0;
+#X connect 20 0 11 1;

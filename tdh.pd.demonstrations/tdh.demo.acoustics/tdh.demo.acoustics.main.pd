@@ -1,44 +1,99 @@
-#N canvas 27 23 1413 855 10;
-#X obj 463 19 tdh.util.ezdsp~;
-#X obj 109 570 dac~;
-#X text 141 571 <- Sends audio to your speakers;
-#X obj 113 1145 dac~;
-#X text 166 536 Amplitude Envelope;
-#X text 21 1179 ==============================================================================================================================================================================================
+#N canvas 1915 -228 1414 855 10;
+#X obj 110 1112 dac~;
+#X text 142 1113 <- Sends audio to your speakers;
+#X obj 114 1687 dac~;
+#X text 167 1078 Amplitude Envelope;
+#X text 22 1721 ==============================================================================================================================================================================================
 , f 191;
-#X text 16 614 ==============================================================================================================================================================================================
+#X text 17 1156 ==============================================================================================================================================================================================
 , f 191;
 #X obj 112 1690 dac~;
 #X text 21 1729 ==============================================================================================================================================================================================
 , f 191;
 #X obj 96 2241 dac~;
-#X obj 70 2962 dac~;
-#X text 23 3040 ==============================================================================================================================================================================================
+#X obj 71 3504 dac~;
+#X text 24 3582 ==============================================================================================================================================================================================
 , f 192;
 #X obj 70 3551 dac~;
 #X text 10 -48 Principles of Acoustics Demo;
 #X text 10 -34 Travis Houldcroft / travishouldcroft.com / github.com/thouldcroft
 , f 66;
 #X text 10 -8 tdh.demo.acoustics.main.pd;
-#X text 10 6 Ver 0.1 Aug 2017;
 #X text 10 19 Description;
-#X obj 109 107 tdh.demo.acoustics.freq.amp~;
-#X obj 113 677 tdh.demo.acoustics.phase.sig.addition~;
-#X obj 112 1221 tdh.demo.acoustics.amp.env~;
-#X obj 95 1764 tdh.demo.acoustics.spectrum.additive.synthesis~;
-#X obj 69 2466 tdh.demo.acoustics.amp.mod~;
-#X obj 68 3060 tdh.demo.acoustics.freq.mod~;
+#X obj 110 649 tdh.demo.acoustics.freq.amp~;
+#X obj 114 1219 tdh.demo.acoustics.phase.sig.addition~;
+#X obj 113 1763 tdh.demo.acoustics.amp.env~;
+#X obj 52 2545 tdh.demo.acoustics.spectrum.additive.synthesis~;
+#X obj 70 3008 tdh.demo.acoustics.amp.mod~;
+#X obj 69 3602 tdh.demo.acoustics.freq.mod~;
 #X text 21 2429 =========================================================================================================================================================================================
 , f 187;
-#X connect 18 0 1 0;
-#X connect 18 0 1 1;
-#X connect 19 0 3 0;
-#X connect 19 0 3 1;
-#X connect 20 0 7 0;
-#X connect 20 0 7 1;
-#X connect 21 0 9 0;
-#X connect 21 0 9 1;
-#X connect 22 0 10 0;
-#X connect 22 0 10 1;
-#X connect 23 0 12 0;
-#X connect 23 0 12 1;
+#X text 1403 -1 | \; | \; | \; | \; | \; | \; | \; | \; | \; | \; |
+\;;
+#X text 9 6 Ver 0.2 July 2018;
+#X obj 883 20 tdh.util.ezdsp~;
+#N canvas 2022 -156 1060 676 intro 0;
+#X text 105 104 INTRODUCTION;
+#X text 106 126 Sound waves are created through the movement of a vibrating
+mass. An object vibrates enough to make sound through an excitation
+- this excitation could be air passing over vocal cords \, a plectrum
+(pick) plucking a guitar string \, a stick hitting a drum head \, two
+hands snapping a carrot in half \, or a rock hitting pavement. This
+vibration creates a variation in the pressure of air molecules (or
+water molecules \, though not as easily) that travels as a WAVE that
+\, when it reaches our ears \, the brain amazingly interprets as sound!
+, f 112;
+#X text 106 196 How does this all work? Let’s use a guitar string
+as an example as a vibrating mass. A guitar pick pulls the string back
+\, then releases it and the string starts to vibrate. The first movement
+of the vibration is a movement of the string opposite to the direction
+the pick pulled the strong. This movement pushes the air molecules
+around it. Sometimes these molecules are pushed far \, sometimes pushed
+just a little. Once the surrounding molecules get pushed \, a build-up
+of pressure (caused by an increase in the number of molecules for the
+area) results. This pressure effects all of the molecules around the
+vibrating mass. As the pressure increases around the string \, the
+molecules increase the pressure of the molecules surrounding them.
+This pushes other molecules out away from the string. This causes a
+chain reaction that produces an increase in pressure that travels all
+the way to your ear drums (or to a microphone) \, with some loss of
+energy. This pressure pushes your ear drum in \, directly analogous
+to the string vibration. This increase in pressure on the ear drum
+is known as the sound wave’s COMPRESSION. Back at the string \, the
+string can only move so far in one direction \, and so it will then
+swing back the other way. This leaves empty space with lower pressure
+\, and all molecules attract to areas with a lower pressure \, so they
+will fill in the space where the string was \, and in fact they travel
+past where the space they initially had occupied. This causes an opposite
+chain reaction \, where all of the molecules \, including those pushing
+against your ear drum \, reverse direction to seek an area of less
+pressure \, and all involved \, including the ear drum \, swing past
+the place of initial rest \, and in fact build up pressure in the opposite
+direction. We call this the wave’s RAREFACTION. If the string is
+plucked hard enough \, the cycle repeats again as the string swings
+back. This cycle of increasing and then decreasing of pressure at our
+ear drum is astoundingly interpreted by our brains as sound!, f 112
+;
+#X text 106 416 We typically can’t see sound move in the air normally
+\, so we graph sounds such as you see below. The vertical/y-axis of
+the graph maps the change in air pressure. The equilibrium of air pressure
+(known as the ATMOSPHERIC PRESSURE) is at the center of the axis \,
+which we mark (arbitrarily) as 0 The increase in pressure \, the wave’s
+compression \, is the area above the equilibrium on the graph \, and
+we use positive numbers to represent this. The wave’s rarefaction
+is represented by the area below the 0 point \, and we use negative
+numbers to represent this portion of the wave., f 112;
+#X coords 0 -1 1 1 1100 400 2 100 100;
+#X restore 84 118 pd intro;
+#X connect 16 0 0 0;
+#X connect 16 0 0 1;
+#X connect 17 0 2 0;
+#X connect 17 0 2 1;
+#X connect 18 0 6 0;
+#X connect 18 0 6 1;
+#X connect 19 0 8 0;
+#X connect 19 0 8 1;
+#X connect 20 0 9 0;
+#X connect 20 0 9 1;
+#X connect 21 0 11 0;
+#X connect 21 0 11 1;

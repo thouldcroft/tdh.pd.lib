@@ -1,4 +1,4 @@
-#N canvas 1974 -135 1412 855 10;
+#N canvas 2588 209 1412 855 10;
 #X obj -418 307 osc~ 440;
 #X obj -418 393 *~;
 #X floatatom -341 314 5 0 1 0 - - -, f 5;
@@ -365,4 +365,4 @@ manipulate the generator's frequency and amplitude., f 103;
 #X connect 11 0 0 0;
 #X connect 12 0 30 0;
 #X connect 30 0 11 0;
-#X coords 0 -1 1 1 1200 450 2 100 100;
+#X coords 0 -1 1 1 1100 450 2 100 100;

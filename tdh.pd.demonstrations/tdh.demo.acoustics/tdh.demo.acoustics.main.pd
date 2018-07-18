@@ -1,37 +1,36 @@
-#N canvas 1915 -228 1414 855 10;
-#X obj 110 1112 dac~;
-#X text 142 1113 <- Sends audio to your speakers;
-#X obj 114 1687 dac~;
-#X text 167 1078 Amplitude Envelope;
-#X text 22 1721 ==============================================================================================================================================================================================
+#N canvas 2242 -164 1414 855 10;
+#X obj 110 1892 dac~;
+#X text 142 1893 <- Sends audio to your speakers;
+#X obj 114 2467 dac~;
+#X text 167 1858 Amplitude Envelope;
+#X text 22 2501 ==============================================================================================================================================================================================
 , f 191;
-#X text 17 1156 ==============================================================================================================================================================================================
+#X text 17 1936 ==============================================================================================================================================================================================
 , f 191;
-#X obj 112 1690 dac~;
-#X text 21 1729 ==============================================================================================================================================================================================
+#X obj 112 2470 dac~;
+#X text 21 2509 ==============================================================================================================================================================================================
 , f 191;
-#X obj 96 2241 dac~;
-#X obj 71 3504 dac~;
-#X text 24 3582 ==============================================================================================================================================================================================
+#X obj 96 3021 dac~;
+#X obj 71 4284 dac~;
+#X text 24 4362 ==============================================================================================================================================================================================
 , f 192;
-#X obj 70 3551 dac~;
+#X obj 70 4331 dac~;
 #X text 10 -48 Principles of Acoustics Demo;
 #X text 10 -34 Travis Houldcroft / travishouldcroft.com / github.com/thouldcroft
 , f 66;
 #X text 10 -8 tdh.demo.acoustics.main.pd;
 #X text 10 19 Description;
-#X obj 110 649 tdh.demo.acoustics.freq.amp~;
-#X obj 114 1219 tdh.demo.acoustics.phase.sig.addition~;
-#X obj 113 1763 tdh.demo.acoustics.amp.env~;
-#X obj 52 2545 tdh.demo.acoustics.spectrum.additive.synthesis~;
-#X obj 70 3008 tdh.demo.acoustics.amp.mod~;
-#X obj 69 3602 tdh.demo.acoustics.freq.mod~;
-#X text 21 2429 =========================================================================================================================================================================================
+#X obj 110 1429 tdh.demo.acoustics.freq.amp~;
+#X obj 114 1999 tdh.demo.acoustics.phase.sig.addition~;
+#X obj 113 2543 tdh.demo.acoustics.amp.env~;
+#X obj 52 3325 tdh.demo.acoustics.spectrum.additive.synthesis~;
+#X obj 70 3788 tdh.demo.acoustics.amp.mod~;
+#X obj 69 4382 tdh.demo.acoustics.freq.mod~;
+#X text 21 3209 =========================================================================================================================================================================================
 , f 187;
 #X text 1403 -1 | \; | \; | \; | \; | \; | \; | \; | \; | \; | \; |
 \;;
 #X text 9 6 Ver 0.2 July 2018;
-#X obj 883 20 tdh.util.ezdsp~;
 #N canvas 2022 -156 1060 676 intro 0;
 #X text 105 104 INTRODUCTION;
 #X text 106 126 Sound waves are created through the movement of a vibrating
@@ -84,7 +83,18 @@ we use positive numbers to represent this. The wave’s rarefaction
 is represented by the area below the 0 point \, and we use negative
 numbers to represent this portion of the wave., f 112;
 #X coords 0 -1 1 1 1100 400 2 100 100;
-#X restore 84 118 pd intro;
+#X restore 7 148 pd intro;
+#N canvas 576 136 649 316 dsp 0;
+#X obj 107 109 tgl 15 0 dsp-0 empty empty 17 7 0 10 -4032 -1 -1 0 1
+;
+#X obj 34 216 tgl 15 0 empty dsp-0 empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 34 236 \; pd dsp \$1;
+#X text 133 109 Click here to turn AUDIO (DSP/digital signal processing)
+ON or OFF, f 66;
+#X connect 1 0 2 0;
+#X coords 0 -1 1 1 1100 30 2 100 100;
+#X restore 7 97 pd dsp;
 #X connect 16 0 0 0;
 #X connect 16 0 0 1;
 #X connect 17 0 2 0;

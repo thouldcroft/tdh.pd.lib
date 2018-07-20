@@ -1,4 +1,4 @@
-#N canvas 1529 16 1412 855 10;
+#N canvas 2187 -241 1412 855 10;
 #X obj -418 307 osc~ 440;
 #X obj -418 393 *~;
 #X floatatom -341 314 5 0 1 0 - - -, f 5;
@@ -195,7 +195,115 @@ these aspects and interact with hands on tools which will allow you
 to see these sound aspects in action. Additionally you can control
 a sound wave generator to the right of this text \, allowing you to
 manipulate the generator's frequency and amplitude., f 75;
-#N canvas 2699 -19 1097 715 SOUND_PRESSURE_LEVEL 0;
+#N canvas 2014 -331 1114 1395 sound_gen_amp_demo 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array amp-freq-demo-scope-\$0 250 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 250 -1 350 250 1 0 0;
+#X restore 326 151 graph;
+#X obj 950 708 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 779 829 dac~ 1 2;
+#X obj 950 731 metro 100;
+#X obj 950 662 loadbang;
+#X msg 950 683 1;
+#X obj 779 372 osc~ 440;
+#X obj 779 603 *~;
+#X obj 779 702 *~;
+#X obj 812 627 tgl 15 0 empty amp-freq-demo-onoff-0 empty 17 7 0 10
+-262144 -1 -1 0 1;
+#X obj 128 141 tgl 15 0 amp-freq-demo-onoff-0 empty empty 17 7 0 10
+-4032 -1 -1 0 1;
+#X text 150 140 Sound Generator On/Off;
+#X obj 229 188 vsl 15 120 0 2 0 0 \$0-generator_amp empty empty 0 -9
+0 10 -4032 -1 -1 1190 1;
+#X obj 864 389 vsl 15 128 0 4 0 1 empty \$0-generator_amp empty 0 -9
+0 10 -262144 -1 -1 635 1;
+#X obj 864 546 line;
+#X obj 812 680 line~;
+#X msg 812 653 \$1 250;
+#X msg 864 525 \$1 50;
+#X text 225 333 Amplitude;
+#X obj 915 524 send amp-\$0;
+#X obj -26 290 receive amp-\$0;
+#X obj -3 220 receive freq-\$0;
+#X obj 779 109 vsl 15 128 0 1 0 1 empty \$0-generator_freq empty 0
+-9 0 10 -262144 -1 -1 961 1;
+#X obj 779 336 line;
+#X msg 779 315 \$1 50;
+#X obj 128 188 vsl 15 120 0 1 0 1 \$0-generator_freq empty empty 0
+-9 0 10 -4032 -1 -1 909 1;
+#X text 108 333 Frequency;
+#X obj 227 317 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0.2 256;
+#X obj 779 249 * 25000;
+#X obj 830 314 send freq-\$0;
+#X obj 112 317 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 1890.76 256;
+#X obj 12 28 loadbang;
+#X msg 11 91 0.0176;
+#X msg 11 131 0.2;
+#X obj 862 778 tabwrite~ amp-freq-demo-scope-\$0;
+#N canvas 3321 201 450 300 linamptodbfs 0;
+#X obj 133 125 log;
+#X obj 133 146 / 2.303;
+#X obj 133 167 * 20;
+#X obj 133 74 inlet;
+#X obj 133 224 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 0 0;
+#X restore -29 437 pd linamptodbfs;
+#X obj 228 367 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 -13.9769 256;
+#X text 225 347 (Linear);
+#X text 223 384 Amplitude;
+#X text 226 396 (dB FS);
+#X obj 259 188 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X msg 128 74 0;
+#X connect 1 0 3 0;
+#X connect 3 0 34 0;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 2 0;
+#X connect 8 0 2 1;
+#X connect 8 0 34 0;
+#X connect 9 0 16 0;
+#X connect 13 0 17 0;
+#X connect 13 0 19 0;
+#X connect 14 0 7 1;
+#X connect 15 0 8 1;
+#X connect 16 0 15 0;
+#X connect 17 0 14 0;
+#X connect 20 0 27 0;
+#X connect 20 0 35 0;
+#X connect 21 0 30 0;
+#X connect 22 0 28 0;
+#X connect 23 0 6 0;
+#X connect 24 0 23 0;
+#X connect 28 0 29 0;
+#X connect 28 0 24 0;
+#X connect 31 0 32 0;
+#X connect 31 0 33 0;
+#X connect 31 0 41 0;
+#X connect 32 0 25 0;
+#X connect 33 0 12 0;
+#X connect 35 0 36 0;
+#X connect 35 0 40 0;
+#X connect 41 0 10 0;
+#X coords 0 -1 1 1 600 350 2 100 100;
+#X restore 578 108 pd sound_gen_amp_demo;
+#N canvas 2699 -19 1097 715 01_SOUND_PRESSURE_LEVEL 0;
 #X text 4 23 If you have ever plucked a guitar string or hit a drum
 \, you likely noticed that the harder you hit or plucked resulted in
 a louder sound. While if you plucked or hit the objects with less intensity
@@ -332,7 +440,7 @@ in dB FS as indicated by the meter., f 73;
 -1 -1 0 1;
 #X text 139 104 Sound Generator On/Off;
 #X obj 117 130 vsl 15 128 0 2 0 0 \$0-amp_demo empty empty 0 -9 0 10
--262144 -1 -1 3300 1;
+-262144 -1 -1 0 1;
 #X obj 699 50 vsl 15 128 0 2 0 1 empty \$0-amp_demo empty 0 -9 0 10
 -262144 -1 -1 3300 1;
 #X obj 699 207 line;
@@ -366,116 +474,8 @@ in dB FS as indicated by the meter., f 73;
 #X restore 477 5 pd sound_gen_amp_demo;
 #X text 727 393 TO DO: logarithmic and linear graph \, dBFS and linear
 demo \, SPL graph;
-#X restore 106 215 pd SOUND_PRESSURE_LEVEL \, AMPLITUDE \, AND THE
+#X restore 138 228 pd 01_SOUND_PRESSURE_LEVEL \, AMPLITUDE \, AND THE
 DECIBEL;
-#N canvas 2014 -331 1114 1395 sound_gen_amp_demo 0;
-#N canvas 0 22 450 278 (subpatch) 0;
-#X array amp-freq-demo-scope-\$0 250 float 3;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
-#X coords 0 1 250 -1 350 250 1 0 0;
-#X restore 329 146 graph;
-#X obj 950 708 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 779 829 dac~ 1 2;
-#X obj 950 731 metro 100;
-#X obj 950 662 loadbang;
-#X msg 950 683 1;
-#X obj 779 372 osc~ 440;
-#X obj 779 603 *~;
-#X obj 779 702 *~;
-#X obj 812 627 tgl 15 0 empty amp-freq-demo-onoff-0 empty 17 7 0 10
--262144 -1 -1 0 1;
-#X obj 122 131 tgl 15 0 amp-freq-demo-onoff-0 empty empty 17 7 0 10
--262144 -1 -1 0 1;
-#X text 145 130 Sound Generator On/Off;
-#X obj 229 188 vsl 15 120 0 2 0 0 \$0-generator_amp empty empty 0 -9
-0 10 -262144 -1 -1 1190 1;
-#X obj 864 389 vsl 15 128 0 4 0 1 empty \$0-generator_amp empty 0 -9
-0 10 -262144 -1 -1 635 1;
-#X obj 864 546 line;
-#X obj 812 680 line~;
-#X msg 812 653 \$1 250;
-#X msg 864 525 \$1 50;
-#X text 225 335 Amplitude;
-#X obj 915 524 send amp-\$0;
-#X obj -26 290 receive amp-\$0;
-#X obj -3 220 receive freq-\$0;
-#X obj 779 109 vsl 15 128 0 1 0 1 empty \$0-generator_freq empty 0
--9 0 10 -262144 -1 -1 854 1;
-#X obj 779 336 line;
-#X msg 779 315 \$1 50;
-#X obj 124 188 vsl 15 120 0 1 0 1 \$0-generator_freq empty empty 0
--9 0 10 -262144 -1 -1 800 1;
-#X text 108 343 Frequency;
-#X obj 227 319 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 0.2 256;
-#X obj 779 249 * 25000;
-#X obj 830 314 send freq-\$0;
-#X obj 112 327 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 1680.67 256;
-#X obj 12 28 loadbang;
-#X msg 11 91 0.0176;
-#X msg 11 131 0.2;
-#X obj 862 778 tabwrite~ amp-freq-demo-scope-\$0;
-#N canvas 3321 201 450 300 linamptodbfs 0;
-#X obj 133 125 log;
-#X obj 133 146 / 2.303;
-#X obj 133 167 * 20;
-#X obj 133 74 inlet;
-#X obj 133 224 outlet;
-#X connect 0 0 1 0;
-#X connect 1 0 2 0;
-#X connect 2 0 4 0;
-#X connect 3 0 0 0;
-#X restore -29 437 pd linamptodbfs;
-#X obj 228 367 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 -13.9769 256;
-#X text 225 347 (Linear);
-#X text 223 384 Amplitude;
-#X text 226 396 (dB FS);
-#X obj 259 187 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
-#X msg 120 74 0;
-#X connect 1 0 3 0;
-#X connect 3 0 34 0;
-#X connect 4 0 5 0;
-#X connect 5 0 1 0;
-#X connect 6 0 7 0;
-#X connect 7 0 8 0;
-#X connect 8 0 2 0;
-#X connect 8 0 2 1;
-#X connect 8 0 34 0;
-#X connect 9 0 16 0;
-#X connect 13 0 17 0;
-#X connect 13 0 19 0;
-#X connect 14 0 7 1;
-#X connect 15 0 8 1;
-#X connect 16 0 15 0;
-#X connect 17 0 14 0;
-#X connect 20 0 27 0;
-#X connect 20 0 35 0;
-#X connect 21 0 30 0;
-#X connect 22 0 28 0;
-#X connect 23 0 6 0;
-#X connect 24 0 23 0;
-#X connect 28 0 29 0;
-#X connect 28 0 24 0;
-#X connect 31 0 32 0;
-#X connect 31 0 33 0;
-#X connect 31 0 41 0;
-#X connect 32 0 25 0;
-#X connect 33 0 12 0;
-#X connect 35 0 36 0;
-#X connect 35 0 40 0;
-#X connect 41 0 10 0;
-#X coords 0 -1 1 1 600 350 2 100 100;
-#X restore 578 108 pd sound_gen_amp_demo;
 #X connect 0 0 1 0;
 #X connect 1 0 5 0;
 #X connect 1 0 14 0;

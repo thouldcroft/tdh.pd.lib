@@ -1,4 +1,4 @@
-#N canvas 2187 -241 1412 855 10;
+#N canvas 28 23 1412 855 10;
 #X obj -418 307 osc~ 440;
 #X obj -418 393 *~;
 #X floatatom -341 314 5 0 1 0 - - -, f 5;
@@ -98,6 +98,297 @@
 #X connect 28 0 8 0;
 #X coords 0 -1 1 1 340 30 2 100 100;
 #X restore 875 744 pd frequency.test;
+#X text 101 133 In the modules below you will explore two fundamental
+components of a sound wave: it's amplitude and it's frequency. Click
+on a module (a box labelled "pd" with a section title) to read about
+these aspects and interact with hands on tools which will allow you
+to see these sound aspects in action. Additionally you can control
+a sound wave generator to the right of this text \, allowing you to
+manipulate the generator's frequency and amplitude., f 75;
+#N canvas 2014 -331 1114 1395 sound_gen_amp_demo 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array amp-freq-demo-scope-\$0 250 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 250 -1 350 250 1 0 0;
+#X restore 326 141 graph;
+#X obj 950 708 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 779 829 dac~ 1 2;
+#X obj 950 731 metro 100;
+#X obj 950 662 loadbang;
+#X msg 950 683 1;
+#X obj 779 372 osc~ 440;
+#X obj 779 603 *~;
+#X obj 779 702 *~;
+#X obj 812 627 tgl 15 0 empty amp-freq-demo-onoff-0 empty 17 7 0 10
+-262144 -1 -1 0 1;
+#X obj 128 131 tgl 15 0 amp-freq-demo-onoff-0 empty empty 17 7 0 10
+-4032 -1 -1 0 1;
+#X text 150 130 Sound Generator On/Off;
+#X obj 229 178 vsl 15 120 0 2 0 0 \$0-generator_amp empty empty 0 -9
+0 10 -4032 -1 -1 1190 1;
+#X obj 864 389 vsl 15 128 0 4 0 1 empty \$0-generator_amp empty 0 -9
+0 10 -262144 -1 -1 635 1;
+#X obj 864 546 line;
+#X obj 812 680 line~;
+#X msg 812 653 \$1 250;
+#X msg 864 525 \$1 50;
+#X text 225 323 Amplitude;
+#X obj 915 524 send amp-\$0;
+#X obj -26 290 receive amp-\$0;
+#X obj -3 210 receive freq-\$0;
+#X obj 779 109 vsl 15 128 0 1 0 1 empty \$0-generator_freq empty 0
+-9 0 10 -262144 -1 -1 224 1;
+#X obj 779 336 line;
+#X msg 779 315 \$1 50;
+#X obj 128 178 vsl 15 120 0 1 0 1 \$0-generator_freq empty empty 0
+-9 0 10 -4032 -1 -1 209 1;
+#X text 108 323 Frequency;
+#X obj 227 307 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0.2 256;
+#X obj 779 249 * 25000;
+#X obj 830 314 send freq-\$0;
+#X obj 112 307 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 440 256;
+#X obj 12 28 loadbang;
+#X msg 11 91 0.0176;
+#X msg 11 131 0.2;
+#X obj 862 778 tabwrite~ amp-freq-demo-scope-\$0;
+#N canvas 3321 201 450 300 linamptodbfs 0;
+#X obj 133 125 log;
+#X obj 133 146 / 2.303;
+#X obj 133 167 * 20;
+#X obj 133 74 inlet;
+#X obj 133 224 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 0 0;
+#X restore -29 437 pd linamptodbfs;
+#X obj 228 357 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 -13.9769 256;
+#X text 225 337 (Linear);
+#X text 223 374 Amplitude;
+#X text 226 386 (dB FS);
+#X obj 259 178 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X msg 128 74 0;
+#X text 104 419 NOTE: Typed in number values will not be reflected
+by a fader position, f 36;
+#X connect 1 0 3 0;
+#X connect 3 0 34 0;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 2 0;
+#X connect 8 0 2 1;
+#X connect 8 0 34 0;
+#X connect 9 0 16 0;
+#X connect 13 0 17 0;
+#X connect 13 0 19 0;
+#X connect 14 0 7 1;
+#X connect 15 0 8 1;
+#X connect 16 0 15 0;
+#X connect 17 0 14 0;
+#X connect 20 0 27 0;
+#X connect 20 0 35 0;
+#X connect 21 0 30 0;
+#X connect 22 0 28 0;
+#X connect 23 0 6 0;
+#X connect 24 0 23 0;
+#X connect 28 0 29 0;
+#X connect 28 0 24 0;
+#X connect 31 0 32 0;
+#X connect 31 0 33 0;
+#X connect 31 0 41 0;
+#X connect 32 0 25 0;
+#X connect 33 0 12 0;
+#X connect 35 0 36 0;
+#X connect 35 0 40 0;
+#X connect 41 0 10 0;
+#X coords 0 -1 1 1 600 350 2 100 100;
+#X restore 578 108 pd sound_gen_amp_demo;
+#N canvas 343 23 1097 715 01_SOUND_PRESSURE_LEVEL 1;
+#X text 4 23 If you have ever plucked a guitar string or hit a drum
+\, you likely noticed that the harder you hit or plucked resulted in
+a louder sound. While if you plucked or hit the objects with less intensity
+\, it might have sounded softer. When a string is plucked harder \,
+this means when it vibrates it moves farther from its resting point
+(the point where it sits when not vibrating). This causes the string
+to push the air molecules around it farther \, creating a greater pressure
+build up. In our sound wave graph we map the amount of pressure above
+the atmospheric pressure caused by the vibrating object in the y axis
+\, depicting the wave’s compression and rarefaction. This aspect
+of the wave is known as the wave’s AMPLITUDE. When we talk about
+amplitude \, we often graph it abstractly between +1 and -1 \, at which
+these points are the MAXIMUM points that some system can have. This
+system can be our computer \, a recording studio \, or our ear \, it
+all depends on the context!, f 73;
+#X text 4 193 When mapping the sound pressure level to a scale of +1
+to -1 \, we call it LINEAR AMPLITUDE. It makes using computers to calculate
+it very easy \, and it also makes a lot of sense when we manipulate
+it (as we will see). For example \, we can set the sound wave to half
+its amplitude by setting the amplitude to 0.5 (or dividing all of the
+amplitude points by 2). When we discuss the amplitude of a wave at
+a certain point \, we talk about the absolute value max peak of a cycle.
+For example if a wave goes from +0.7 to -0.9 \, we are going to take
+the absolute value of those points and report the peak \, so this example
+wave would have an amplitude of 0.9., f 73;
+#X text 4 313 To the right is a small controllable sound generator.
+Press the “On” button to turn the generator on and adjust the wave’s
+amplitude with the fader labelled “AMP” by clicking and dragging
+on the middle line. You will see the wave displayed next to the fader.
+As the amplitude increases from 0 \, the sound will get louder. At
+1 the wave is as loud as your computer can handle \, so going above
+this level will create a very distorted sound., f 73;
+#X text 4 403 Talking about amplitude as a linear system is a problem
+\, because our ear unfortunately doesn’t hear linearly \, our ears
+perceive sound LOGARITHMICALLY. This introduction to acoustics attempts
+to keep as much math out of the discussion as possible \, so I will
+(try) to convey this concept as succinctly as possible (my apologies
+to anyone with a solid background in mathematics). When discussing
+linear vs. logarithmic scales in regards to hearing \, I like to think
+of how these scales are used illustrate the *changes* in our perception
+of sounds., f 73;
+#X text 4 3 SOUND PRESSURE LEVEL AND AMPLITUDE, f 73;
+#X text 4 513 LINEAR VS. LOGARITHMIC PERCEPTION SCALES, f 73;
+#X text 4 533 Below are two graphs \, one of a linear scale and one
+of a logarithmic scale (these graphs are strictly for demonstration
+\, and do not represent tested values). For both graphs the x-axis
+represents sound pressure level \, while the y-axis represents our
+perception of the sound pressure level. We will look at the linear
+graph first. On the x-axis \, trace a straight line vertically from
+the sound pressure level of 50 until you hit the graphed line. Now
+trace a line left horizontally until you reach the labelled y-axis.
+You will find that the line you trace lands right around 50 on the
+perceived level scale. So if our ears heard linearly \, then a sound
+pressure level of 50 would be perceived as a sound pressure level of
+50 However \, our ears do not hear this way \, our ears hear more like
+the logarithmic graph. Trace the same line as you did on the linear
+graph \, this time on the logarithmic graph. You will find that a sound
+pressure level of 50 results in a perceived level of around 25 While
+this graph is for demonstration only \, it does give us a rough estimate
+of how our ears hear sound pressure level. On the lower end of sound
+pressure levels \, large changes in SPL don’t register as drastic
+of a change in perceived level. However \, as sound pressure levels
+increase \, change in sound pressure level show a much more dramatic
+change in perceived level., f 73;
+#X text 3 983 THE DECIBEL, f 73;
+#X text 3 1003 Sound pressure level can be measured in a multitude
+of ways \, and since level is a physical quantity \, these levels will
+be a linear reading \; a measurement tool is simply reporting changes
+in sound pressure level. While actual sound pressure levels are measured
+linearly \, our ears do not hear these levels linearly. Therefore \,
+acousticians developed a scale that better reflects how we hear \,
+called the DECIBEL. The decibel scale (abbreviated dB) tames the huge
+scale of numbers that are recorded when monitoring sound pressure levels
+with measurement equipment and shifts these linear readings into a
+logarithmic scale., f 73;
+#X text 3 1118 The tricky element of the decibel is that it doesn’t
+actually represent a physical quantity \, it represents a ratio between
+a measured quantity and a reference level. Therefore \, when we use
+decibels we need to know what this reference level is. This sounds
+confusing \, but fortunately with digital audio we generally only deal
+with 2 different decibel scales. When we reference a decibel scale
+it should be followed an abbreviation telling us what the reference
+is. The first decibel scale we will discuss is dB SPL \, which we know
+from above stands for sound pressure level. With dB SPL \, the reference
+level is the threshold of human hearing \, i.e. the point at which
+we can hear the softest sound. We mark this as 0 dB SPL. This scale
+goes from this threshold to the threshold of pain \, around 140 dB
+SPL. This is the point where sounds can damage the ear. Below is a
+chart of sounds and their associated SPL in dB., f 73;
+#X text 3 1278 The other point where we use decibels in digital audio
+is when we are working in a DIGITAL AUDIO WORKSTATION (DAW). A DAW
+is a type of audio software that contains an entire virtual recording
+studio inside a computer – complete with tracks to record to and
+faders to mix with. We will use the DAW REAPER later in the semester.
+When we are monitoring how loud a signal is in \, our DAW will report
+its level in dB. However \, DAWs as well as digital audio mixers don’t
+report signals in dB SPL. Instead they use a decibel scale called DIGITAL
+FULL SCALE \, abbreviated FS. With dB FS \, our digital workstation
+reports maximum level our digital device can handle as 0 dB FS. This
+is the same level as the linear amplitude value of 1 We will discuss
+digital audio in another class \, but all digital audio systems have
+a max level they can handle \, and this is represented as 0 dB FS.
+In a DAW \, all signals below this will have a negative number \, usually
+going as low as -60 or -90 dB FS. A second sound generator is found
+below \, this time with what we call a METER \, a device that indicates
+signal level in dB FS. Turn the sound generator and adjust the generator’s
+linear amplitude with the fader \, and watch the corresponding level
+in dB FS as indicated by the meter., f 73;
+#N canvas 1493 -130 860 714 sound_gen_amp_demo 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array amp-demo-scope-\$0 250 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 250 -1 200 140 1 0 0;
+#X restore 292 120 graph;
+#X obj 785 369 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 614 490 dac~ 1 2;
+#X obj 785 392 metro 100;
+#X obj 785 323 loadbang;
+#X msg 785 344 1;
+#X obj 614 33 osc~ 440;
+#X obj 614 264 *~;
+#X obj 614 363 *~;
+#X obj 647 288 tgl 15 0 empty amp-demo-onoff-0 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 117 105 tgl 15 0 amp-demo-onoff-0 empty empty 17 7 0 10 -4032
+-1 -1 0 1;
+#X text 139 104 Sound Generator On/Off;
+#X obj 117 130 vsl 15 128 0 2 0 0 \$0-amp_demo empty empty 0 -9 0 10
+-4032 -1 -1 0 1;
+#X obj 699 50 vsl 15 128 0 2 0 1 empty \$0-amp_demo empty 0 -9 0 10
+-262144 -1 -1 0 1;
+#X obj 699 207 line;
+#X obj 647 341 line~;
+#X msg 647 314 \$1 250;
+#X msg 699 186 \$1 50;
+#X text 105 282 Amplitude;
+#X obj 697 439 tabwrite~ amp-demo-scope-\$0;
+#X obj 73 22 loadbang;
+#X msg 73 43 0;
+#X obj 108 267 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X text 104 304 Note: Typed in numbers will not be reflected by a change
+in the fader's position, f 32;
+#X connect 1 0 3 0;
+#X connect 3 0 19 0;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 2 0;
+#X connect 8 0 2 1;
+#X connect 8 0 19 0;
+#X connect 9 0 16 0;
+#X connect 13 0 17 0;
+#X connect 13 0 22 0;
+#X connect 14 0 7 1;
+#X connect 15 0 8 1;
+#X connect 16 0 15 0;
+#X connect 17 0 14 0;
+#X connect 20 0 21 0;
+#X connect 21 0 10 0;
+#X coords 0 -1 1 1 400 250 2 100 100;
+#X restore 477 5 pd sound_gen_amp_demo;
+#X text 727 393 TO DO: logarithmic and linear graph \, dBFS and linear
+demo \, SPL graph;
 #N canvas 2240 -72 1379 796 linear_log 0;
 #X msg 1140 208 100 5000;
 #X obj 1140 250 t f f;
@@ -187,298 +478,7 @@
 #X connect 14 0 12 0;
 #X connect 15 0 1 0;
 #X coords 0 -1 1 1 570 200 2 100 100;
-#X restore 1295 546 pd linear_log;
-#X text 101 133 In the modules below you will explore two fundamental
-components of a sound wave: it's amplitude and it's frequency. Click
-on a module (a box labelled "pd" with a section title) to read about
-these aspects and interact with hands on tools which will allow you
-to see these sound aspects in action. Additionally you can control
-a sound wave generator to the right of this text \, allowing you to
-manipulate the generator's frequency and amplitude., f 75;
-#N canvas 2014 -331 1114 1395 sound_gen_amp_demo 0;
-#N canvas 0 22 450 278 (subpatch) 0;
-#X array amp-freq-demo-scope-\$0 250 float 3;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
-#X coords 0 1 250 -1 350 250 1 0 0;
-#X restore 326 141 graph;
-#X obj 950 708 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 779 829 dac~ 1 2;
-#X obj 950 731 metro 100;
-#X obj 950 662 loadbang;
-#X msg 950 683 1;
-#X obj 779 372 osc~ 440;
-#X obj 779 603 *~;
-#X obj 779 702 *~;
-#X obj 812 627 tgl 15 0 empty amp-freq-demo-onoff-0 empty 17 7 0 10
--262144 -1 -1 0 1;
-#X obj 128 131 tgl 15 0 amp-freq-demo-onoff-0 empty empty 17 7 0 10
--4032 -1 -1 0 1;
-#X text 150 130 Sound Generator On/Off;
-#X obj 229 178 vsl 15 120 0 2 0 0 \$0-generator_amp empty empty 0 -9
-0 10 -4032 -1 -1 1190 1;
-#X obj 864 389 vsl 15 128 0 4 0 1 empty \$0-generator_amp empty 0 -9
-0 10 -262144 -1 -1 635 1;
-#X obj 864 546 line;
-#X obj 812 680 line~;
-#X msg 812 653 \$1 250;
-#X msg 864 525 \$1 50;
-#X text 225 323 Amplitude;
-#X obj 915 524 send amp-\$0;
-#X obj -26 290 receive amp-\$0;
-#X obj -3 210 receive freq-\$0;
-#X obj 779 109 vsl 15 128 0 1 0 1 empty \$0-generator_freq empty 0
--9 0 10 -262144 -1 -1 961 1;
-#X obj 779 336 line;
-#X msg 779 315 \$1 50;
-#X obj 128 178 vsl 15 120 0 1 0 1 \$0-generator_freq empty empty 0
--9 0 10 -4032 -1 -1 909 1;
-#X text 108 323 Frequency;
-#X obj 227 307 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 0.2 256;
-#X obj 779 249 * 25000;
-#X obj 830 314 send freq-\$0;
-#X obj 112 307 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 1890.76 256;
-#X obj 12 28 loadbang;
-#X msg 11 91 0.0176;
-#X msg 11 131 0.2;
-#X obj 862 778 tabwrite~ amp-freq-demo-scope-\$0;
-#N canvas 3321 201 450 300 linamptodbfs 0;
-#X obj 133 125 log;
-#X obj 133 146 / 2.303;
-#X obj 133 167 * 20;
-#X obj 133 74 inlet;
-#X obj 133 224 outlet;
-#X connect 0 0 1 0;
-#X connect 1 0 2 0;
-#X connect 2 0 4 0;
-#X connect 3 0 0 0;
-#X restore -29 437 pd linamptodbfs;
-#X obj 228 357 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 -13.9769 256;
-#X text 225 337 (Linear);
-#X text 223 374 Amplitude;
-#X text 226 386 (dB FS);
-#X obj 259 178 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
-#X msg 128 74 0;
-#X text 104 419 NOTE: Typed in number values will not be reflected
-by a fader position, f 36;
-#X connect 1 0 3 0;
-#X connect 3 0 34 0;
-#X connect 4 0 5 0;
-#X connect 5 0 1 0;
-#X connect 6 0 7 0;
-#X connect 7 0 8 0;
-#X connect 8 0 2 0;
-#X connect 8 0 2 1;
-#X connect 8 0 34 0;
-#X connect 9 0 16 0;
-#X connect 13 0 17 0;
-#X connect 13 0 19 0;
-#X connect 14 0 7 1;
-#X connect 15 0 8 1;
-#X connect 16 0 15 0;
-#X connect 17 0 14 0;
-#X connect 20 0 27 0;
-#X connect 20 0 35 0;
-#X connect 21 0 30 0;
-#X connect 22 0 28 0;
-#X connect 23 0 6 0;
-#X connect 24 0 23 0;
-#X connect 28 0 29 0;
-#X connect 28 0 24 0;
-#X connect 31 0 32 0;
-#X connect 31 0 33 0;
-#X connect 31 0 41 0;
-#X connect 32 0 25 0;
-#X connect 33 0 12 0;
-#X connect 35 0 36 0;
-#X connect 35 0 40 0;
-#X connect 41 0 10 0;
-#X coords 0 -1 1 1 600 350 2 100 100;
-#X restore 578 108 pd sound_gen_amp_demo;
-#N canvas 2699 -19 1097 715 01_SOUND_PRESSURE_LEVEL 1;
-#X text 4 23 If you have ever plucked a guitar string or hit a drum
-\, you likely noticed that the harder you hit or plucked resulted in
-a louder sound. While if you plucked or hit the objects with less intensity
-\, it might have sounded softer. When a string is plucked harder \,
-this means when it vibrates it moves farther from its resting point
-(the point where it sits when not vibrating). This causes the string
-to push the air molecules around it farther \, creating a greater pressure
-build up. In our sound wave graph we map the amount of pressure above
-the atmospheric pressure caused by the vibrating object in the y axis
-\, depicting the wave’s compression and rarefaction. This aspect
-of the wave is known as the wave’s AMPLITUDE. When we talk about
-amplitude \, we often graph it abstractly between +1 and -1 \, at which
-these points are the MAXIMUM points that some system can have. This
-system can be our computer \, a recording studio \, or our ear \, it
-all depends on the context!, f 73;
-#X text 4 193 When mapping the sound pressure level to a scale of +1
-to -1 \, we call it LINEAR AMPLITUDE. It makes using computers to calculate
-it very easy \, and it also makes a lot of sense when we manipulate
-it (as we will see). For example \, we can set the sound wave to half
-its amplitude by setting the amplitude to 0.5 (or dividing all of the
-amplitude points by 2). When we discuss the amplitude of a wave at
-a certain point \, we talk about the absolute value max peak of a cycle.
-For example if a wave goes from +0.7 to -0.9 \, we are going to take
-the absolute value of those points and report the peak \, so this example
-wave would have an amplitude of 0.9., f 73;
-#X text 4 313 To the right is a small controllable sound generator.
-Press the “On” button to turn the generator on and adjust the wave’s
-amplitude with the fader labelled “AMP” by clicking and dragging
-on the middle line. You will see the wave displayed next to the fader.
-As the amplitude increases from 0 \, the sound will get louder. At
-1 the wave is as loud as your computer can handle \, so going above
-this level will create a very distorted sound., f 73;
-#X text 4 403 Talking about amplitude as a linear system is a problem
-\, because our ear unfortunately doesn’t hear linearly \, our ears
-perceive sound LOGARITHMICALLY. This introduction to acoustics attempts
-to keep as much math out of the discussion as possible \, so I will
-(try) to convey this concept as succinctly as possible (my apologies
-to anyone with a solid background in mathematics). When discussing
-linear vs. logarithmic scales in regards to hearing \, I like to think
-of how these scales are used illustrate the *changes* in our perception
-of sounds., f 73;
-#X text 4 3 SOUND PRESSURE LEVEL AND AMPLITUDE, f 73;
-#X text 4 513 LINEAR VS. LOGARITHMIC PERCEPTION SCALES, f 73;
-#X text 4 533 Below are two graphs \, one of a linear scale and one
-of a logarithmic scale (these graphs are strictly for demonstration
-\, and do not represent tested values). For both graphs the x-axis
-represents sound pressure level \, while the y-axis represents our
-perception of the sound pressure level. We will look at the linear
-graph first. On the x-axis \, trace a straight line vertically from
-the sound pressure level of 50 until you hit the graphed line. Now
-trace a line left horizontally until you reach the labelled y-axis.
-You will find that the line you trace lands right around 50 on the
-perceived level scale. So if our ears heard linearly \, then a sound
-pressure level of 50 would be perceived as a sound pressure level of
-50 However \, our ears do not hear this way \, our ears hear more like
-the logarithmic graph. Trace the same line as you did on the linear
-graph \, this time on the logarithmic graph. You will find that a sound
-pressure level of 50 results in a perceived level of around 25 While
-this graph is for demonstration only \, it does give us a rough estimate
-of how our ears hear sound pressure level. On the lower end of sound
-pressure levels \, large changes in SPL don’t register as drastic
-of a change in perceived level. However \, as sound pressure levels
-increase \, change in sound pressure level show a much more dramatic
-change in perceived level., f 73;
-#X text 3 763 THE DECIBEL, f 73;
-#X text 3 783 Sound pressure level can be measured in a multitude of
-ways \, and since level is a physical quantity \, these levels will
-be a linear reading \; a measurement tool is simply reporting changes
-in sound pressure level. While actual sound pressure levels are measured
-linearly \, our ears do not hear these levels linearly. Therefore \,
-acousticians developed a scale that better reflects how we hear \,
-called the DECIBEL. The decibel scale (abbreviated dB) tames the huge
-scale of numbers that are recorded when monitoring sound pressure levels
-with measurement equipment and shifts these linear readings into a
-logarithmic scale., f 73;
-#X text 3 898 The tricky element of the decibel is that it doesn’t
-actually represent a physical quantity \, it represents a ratio between
-a measured quantity and a reference level. Therefore \, when we use
-decibels we need to know what this reference level is. This sounds
-confusing \, but fortunately with digital audio we generally only deal
-with 2 different decibel scales. When we reference a decibel scale
-it should be followed an abbreviation telling us what the reference
-is. The first decibel scale we will discuss is dB SPL \, which we know
-from above stands for sound pressure level. With dB SPL \, the reference
-level is the threshold of human hearing \, i.e. the point at which
-we can hear the softest sound. We mark this as 0 dB SPL. This scale
-goes from this threshold to the threshold of pain \, around 140 dB
-SPL. This is the point where sounds can damage the ear. Below is a
-chart of sounds and their associated SPL in dB., f 73;
-#X text 3 1058 The other point where we use decibels in digital audio
-is when we are working in a DIGITAL AUDIO WORKSTATION (DAW). A DAW
-is a type of audio software that contains an entire virtual recording
-studio inside a computer – complete with tracks to record to and
-faders to mix with. We will use the DAW REAPER later in the semester.
-When we are monitoring how loud a signal is in \, our DAW will report
-its level in dB. However \, DAWs as well as digital audio mixers don’t
-report signals in dB SPL. Instead they use a decibel scale called DIGITAL
-FULL SCALE \, abbreviated FS. With dB FS \, our digital workstation
-reports maximum level our digital device can handle as 0 dB FS. This
-is the same level as the linear amplitude value of 1 We will discuss
-digital audio in another class \, but all digital audio systems have
-a max level they can handle \, and this is represented as 0 dB FS.
-In a DAW \, all signals below this will have a negative number \, usually
-going as low as -60 or -90 dB FS. A second sound generator is found
-below \, this time with what we call a METER \, a device that indicates
-signal level in dB FS. Turn the sound generator and adjust the generator’s
-linear amplitude with the fader \, and watch the corresponding level
-in dB FS as indicated by the meter., f 73;
-#N canvas 1493 -130 860 714 sound_gen_amp_demo 0;
-#N canvas 0 22 450 278 (subpatch) 0;
-#X array amp-demo-scope-\$0 250 float 3;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
-#X coords 0 1 250 -1 200 140 1 0 0;
-#X restore 292 120 graph;
-#X obj 785 369 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 614 490 dac~ 1 2;
-#X obj 785 392 metro 100;
-#X obj 785 323 loadbang;
-#X msg 785 344 1;
-#X obj 614 33 osc~ 440;
-#X obj 614 264 *~;
-#X obj 614 363 *~;
-#X obj 647 288 tgl 15 0 empty amp-demo-onoff-0 empty 17 7 0 10 -262144
--1 -1 0 1;
-#X obj 117 105 tgl 15 0 amp-demo-onoff-0 empty empty 17 7 0 10 -4032
--1 -1 0 1;
-#X text 139 104 Sound Generator On/Off;
-#X obj 117 130 vsl 15 128 0 2 0 0 \$0-amp_demo empty empty 0 -9 0 10
--4032 -1 -1 0 1;
-#X obj 699 50 vsl 15 128 0 2 0 1 empty \$0-amp_demo empty 0 -9 0 10
--262144 -1 -1 0 1;
-#X obj 699 207 line;
-#X obj 647 341 line~;
-#X msg 647 314 \$1 250;
-#X msg 699 186 \$1 50;
-#X text 105 282 Amplitude;
-#X obj 697 439 tabwrite~ amp-demo-scope-\$0;
-#X obj 73 22 loadbang;
-#X msg 73 43 0;
-#X obj 108 267 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 0 256;
-#X text 104 304 Note: Typed in numbers will not be reflected by a change
-in the fader's position, f 32;
-#X connect 1 0 3 0;
-#X connect 3 0 19 0;
-#X connect 4 0 5 0;
-#X connect 5 0 1 0;
-#X connect 6 0 7 0;
-#X connect 7 0 8 0;
-#X connect 8 0 2 0;
-#X connect 8 0 2 1;
-#X connect 8 0 19 0;
-#X connect 9 0 16 0;
-#X connect 13 0 17 0;
-#X connect 13 0 22 0;
-#X connect 14 0 7 1;
-#X connect 15 0 8 1;
-#X connect 16 0 15 0;
-#X connect 17 0 14 0;
-#X connect 20 0 21 0;
-#X connect 21 0 10 0;
-#X coords 0 -1 1 1 400 250 2 100 100;
-#X restore 477 5 pd sound_gen_amp_demo;
-#X text 727 393 TO DO: logarithmic and linear graph \, dBFS and linear
-demo \, SPL graph;
+#X restore -58 762 pd linear_log;
 #X restore 138 228 pd 01_SOUND_PRESSURE_LEVEL \, AMPLITUDE \, AND THE
 DECIBEL;
 #X connect 0 0 1 0;

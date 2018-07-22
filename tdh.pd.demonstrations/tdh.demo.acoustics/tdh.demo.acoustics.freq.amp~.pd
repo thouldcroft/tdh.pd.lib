@@ -1,4 +1,5 @@
 #N canvas 28 23 1412 855 10;
+#X declare -lib ggee;
 #X obj -418 307 osc~ 440;
 #X obj -418 393 *~;
 #X floatatom -341 314 5 0 1 0 - - -, f 5;
@@ -237,7 +238,7 @@ by a fader position, f 36;
 #X connect 54 0 44 0;
 #X coords 0 -1 1 1 600 350 2 100 100;
 #X restore 578 108 pd sound_gen_amp_demo;
-#N canvas 1440 -209 1920 1035 01_SOUND_PRESSURE_LEVEL 1;
+#N canvas 2087 -209 1064 1035 01_SOUND_PRESSURE_LEVEL 0;
 #X text -46 23 If you have ever plucked a guitar string or hit a drum
 \, you likely noticed that the harder you hit or plucked resulted in
 a louder sound. While if you plucked or hit the objects with less intensity
@@ -317,7 +318,7 @@ we can hear the softest sound. We mark this as 0 dB SPL. This scale
 goes from this threshold to the threshold of pain \, around 140 dB
 SPL. This is the point where sounds can damage the ear. Below is a
 chart of sounds and their associated SPL in dB., f 97;
-#X text -44 1068 The other point where we use decibels in digital audio
+#X text -44 1528 The other point where we use decibels in digital audio
 is when we are working in a DIGITAL AUDIO WORKSTATION (DAW). A DAW
 is a type of audio software that contains an entire virtual recording
 studio inside a computer – complete with tracks to record to and
@@ -338,7 +339,7 @@ linear amplitude with the fader \, and watch the corresponding level
 in dB FS as indicated by the meter., f 97;
 #N canvas 1493 -130 860 714 sound_gen_amp_demo 0;
 #N canvas 0 22 450 278 (subpatch) 0;
-#X array amp-demo-scope-\$0 250 float 3;
+#X array amp-demo-scope-wdbfs-\$0 250 float 3;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -363,44 +364,71 @@ in dB FS as indicated by the meter., f 97;
 #X obj 117 105 tgl 15 0 amp-demo-onoff-0 empty empty 17 7 0 10 -4032
 -1 -1 0 1;
 #X text 139 104 Sound Generator On/Off;
-#X obj 117 130 vsl 15 128 0 2 0 0 \$0-amp_demo empty empty 0 -9 0 10
--4032 -1 -1 0 1;
+#X obj 117 130 vsl 15 120 0 2 0 0 \$0-amp_demo empty empty 0 -9 0 10
+-4032 -1 -1 3800 1;
 #X obj 699 50 vsl 15 128 0 2 0 1 empty \$0-amp_demo empty 0 -9 0 10
--262144 -1 -1 0 1;
+-262144 -1 -1 4055 1;
 #X obj 699 207 line;
 #X obj 647 341 line~;
 #X msg 647 314 \$1 250;
 #X msg 699 186 \$1 50;
-#X text 105 282 Amplitude;
-#X obj 697 439 tabwrite~ amp-demo-scope-\$0;
-#X obj 73 22 loadbang;
+#X obj 44 22 loadbang;
 #X msg 73 43 0;
-#X obj 108 267 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 0 256;
-#X text 104 304 Note: Typed in numbers will not be reflected by a change
+#X obj 108 257 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0.638655 256;
+#X text 104 308 Note: Typed in numbers will not be reflected by a change
 in the fader's position, f 32;
+#X obj 697 439 tabwrite~ amp-demo-scope-wdbfs-\$0;
+#N canvas 3321 201 450 300 linamptodbfs 0;
+#X obj 133 125 log;
+#X obj 133 146 / 2.303;
+#X obj 133 167 * 20;
+#X obj 133 74 inlet;
+#X obj 133 224 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 0 0;
+#X restore 745 185 pd linamptodbfs;
+#X text 105 272 Amplitude;
+#X text 105 282 (Linear);
+#X obj 209 129 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 745 208 s dbfs-\$0;
+#X obj 198 257 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 -3.89397 256;
+#X obj 624 186 s linamp-\$0;
+#X obj 20 228 r linamp-\$0;
+#X obj 20 152 r dbfs-\$0;
+#X msg 44 68 0.1;
+#X text 195 272 Amplitude;
+#X text 199 282 (dB FS);
 #X connect 1 0 3 0;
-#X connect 3 0 19 0;
+#X connect 3 0 22 0;
 #X connect 4 0 5 0;
 #X connect 5 0 1 0;
 #X connect 6 0 7 0;
 #X connect 7 0 8 0;
 #X connect 8 0 2 0;
 #X connect 8 0 2 1;
-#X connect 8 0 19 0;
+#X connect 8 0 22 0;
 #X connect 9 0 16 0;
 #X connect 13 0 17 0;
-#X connect 13 0 22 0;
+#X connect 13 0 23 0;
+#X connect 13 0 29 0;
 #X connect 14 0 7 1;
 #X connect 15 0 8 1;
 #X connect 16 0 15 0;
 #X connect 17 0 14 0;
-#X connect 20 0 21 0;
-#X connect 21 0 10 0;
+#X connect 18 0 19 0;
+#X connect 18 0 32 0;
+#X connect 19 0 10 0;
+#X connect 23 0 27 0;
+#X connect 30 0 20 0;
+#X connect 31 0 26 0;
+#X connect 31 0 28 0;
+#X connect 32 0 12 0;
 #X coords 0 -1 1 1 400 250 2 100 100;
-#X restore 562 268 pd sound_gen_amp_demo;
-#X text 741 702 TO DO: logarithmic and linear graph \, dBFS and linear
-demo \, SPL graph;
+#X restore 580 1533 pd sound_gen_amp_demo;
 #N canvas 2240 -72 1379 796 linear_log 0;
 #X msg 1140 208 100 5000;
 #X obj 1140 250 t f f;
@@ -607,6 +635,73 @@ we hear \, called the DECIBEL. The decibel scale (abbreviated dB) tames
 the huge scale of numbers that are recorded when monitoring sound pressure
 levels with measurement equipment and shifts these linear readings
 into a logarithmic scale., f 97;
+#X obj 562 -15 declare -lib ggee;
+#X text 49 1463 https://www.quora.com/How-much-sound-do-we-bear-in-decibels-What-are-the-levels-of-sound-in-DB-produced-by-planes-trains-crackers-guitar-etc
+;
+#X obj 234 1249 ggee/image db_spl_edit.gif;
+#N canvas 1493 -130 860 714 sound_gen_amp_demo 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array amp-demo-scope-\$0 250 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 250 -1 200 140 1 0 0;
+#X restore 292 120 graph;
+#X obj 785 369 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 614 490 dac~ 1 2;
+#X obj 785 392 metro 100;
+#X obj 785 323 loadbang;
+#X msg 785 344 1;
+#X obj 614 33 osc~ 440;
+#X obj 614 264 *~;
+#X obj 614 363 *~;
+#X obj 647 288 tgl 15 0 empty amp-demo-onoff-0 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 117 105 tgl 15 0 amp-demo-onoff-0 empty empty 17 7 0 10 -4032
+-1 -1 0 1;
+#X text 139 104 Sound Generator On/Off;
+#X obj 117 130 vsl 15 128 0 2 0 0 \$0-amp_demo empty empty 0 -9 0 10
+-4032 -1 -1 0 1;
+#X obj 699 50 vsl 15 128 0 2 0 1 empty \$0-amp_demo empty 0 -9 0 10
+-262144 -1 -1 4055 1;
+#X obj 699 207 line;
+#X obj 647 341 line~;
+#X msg 647 314 \$1 250;
+#X msg 699 186 \$1 50;
+#X text 105 282 Amplitude;
+#X obj 697 439 tabwrite~ amp-demo-scope-\$0;
+#X obj 73 22 loadbang;
+#X msg 73 43 0;
+#X obj 108 267 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0.638655 256;
+#X text 104 304 Note: Typed in numbers will not be reflected by a change
+in the fader's position, f 32;
+#X connect 1 0 3 0;
+#X connect 3 0 19 0;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 2 0;
+#X connect 8 0 2 1;
+#X connect 8 0 19 0;
+#X connect 9 0 16 0;
+#X connect 13 0 17 0;
+#X connect 13 0 22 0;
+#X connect 14 0 7 1;
+#X connect 15 0 8 1;
+#X connect 16 0 15 0;
+#X connect 17 0 14 0;
+#X connect 20 0 21 0;
+#X connect 21 0 10 0;
+#X coords 0 -1 1 1 400 250 2 100 100;
+#X restore 562 268 pd sound_gen_amp_demo;
 #X restore 138 228 pd 01_SOUND_PRESSURE_LEVEL \, AMPLITUDE \, AND THE
 DECIBEL;
 #X connect 0 0 1 0;

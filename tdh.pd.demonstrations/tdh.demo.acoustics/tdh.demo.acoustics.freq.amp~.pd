@@ -1,104 +1,7 @@
 #N canvas 28 23 1412 855 10;
 #X declare -lib ggee;
-#X obj -418 307 osc~ 440;
-#X obj -418 393 *~;
-#X floatatom -341 314 5 0 1 0 - - -, f 5;
-#X text -340 205 Frequency;
-#X text -330 271 Amplitude (0.0-1.0);
-#X obj -418 532 send~ sig1;
 #X obj 2072 -146 receive~ sig1;
-#X obj -397 347 / 127;
-#X obj -338 224 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
-#X obj -341 290 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
-#X obj -341 243 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-10 -262144 -1 -1 0 256;
-#X obj -415 238 / 127;
-#X text -628 349 This brings slider's range to 0.0-1.0;
-#X text -648 233 This brings slider's range to 0.0-1.0;
-#X obj -474 503 outlet~;
-#X text -544 533 Send to oscilloscope;
-#X text -615 503 Send out the subpatch;
-#X text -598 190 Sliders output whole numbers from 0-127;
-#X text -337 107 Frequency & Amplitude;
-#X text -343 145 Parameters can either be set through;
-#X text -343 159 sliders or typing/dragging in number;
-#X text -343 171 boxes;
-#X text -653 263 This brings slider's range to 0-20000 \,;
-#X text -654 276 which is the range of human hearing for;
-#X text -656 288 frequency. Then we send that value to;
-#X text -654 301 the left inlet of [osc~];
-#X text -646 381 We can control a signal's amplitude;
-#X text -646 395 by scaling it from 0-1 by multiplying;
-#X text -648 409 it by a range of number from 0-1;
-#X obj -415 270 * 20000;
 #X text 101 102 AMPLITUDE AND FREQUENCY;
-#N canvas 181 23 1259 697 frequency.test 0;
-#X msg 773 156 \; pd dsp 1;
-#X obj 710 131 trigger b b;
-#X obj 635 526 osc~;
-#X obj 635 595 dac~ 1 2;
-#X obj 635 559 *~ 0.5;
-#X msg 929 282 440;
-#X obj 874 498 line;
-#X msg 874 312 0 50 \, 0.5 50;
-#X obj 710 238 trigger b b b b b, f 37;
-#X msg 819 368 0 50;
-#X obj 819 339 del 5000;
-#X obj 764 397 del 5050;
-#X obj 635 481 line;
-#X obj 764 432 del 5;
-#X msg 764 453 0.5 50;
-#X text 906 497 Amp envelope;
-#X text 962 296 1 Calibration tone for 5 sec;
-#X obj 719 556 sel 22000;
-#X obj 719 577 delay 100;
-#X msg 719 598 0 100;
-#X obj 105 107 bng 15 250 50 0 start_test empty empty 17 7 0 10 -262144
--1 -1;
-#X text 126 106 Frequency Test;
-#X obj 236 107 nbx 5 15 -1e+37 1e+37 0 0 empty current_frequency empty
-15 10 0 10 -262144 -1 -1 0 256;
-#X obj 458 534 send current_frequency;
-#X msg 635 456 0 \, 22000 30000;
-#X obj 709 98 bng 15 250 50 0 empty start_test empty 17 7 0 10 -262144
--1 -1;
-#X msg 774 598 \; pd dsp 0;
-#X text 779 553 silence oscillator & turn off dsp when done;
-#X obj 710 152 del 100;
-#X text 296 106 Current Frequency (Hz);
-#X connect 1 0 28 0;
-#X connect 1 1 0 0;
-#X connect 2 0 4 0;
-#X connect 4 0 3 0;
-#X connect 4 0 3 1;
-#X connect 5 0 2 0;
-#X connect 5 0 23 0;
-#X connect 6 0 4 1;
-#X connect 7 0 6 0;
-#X connect 8 1 11 0;
-#X connect 8 2 10 0;
-#X connect 8 3 7 0;
-#X connect 8 4 5 0;
-#X connect 9 0 6 0;
-#X connect 10 0 9 0;
-#X connect 11 0 13 0;
-#X connect 11 0 24 0;
-#X connect 12 0 2 0;
-#X connect 12 0 17 0;
-#X connect 12 0 23 0;
-#X connect 13 0 14 0;
-#X connect 14 0 6 0;
-#X connect 17 0 18 0;
-#X connect 18 0 19 0;
-#X connect 18 0 26 0;
-#X connect 19 0 6 0;
-#X connect 24 0 12 0;
-#X connect 25 0 1 0;
-#X connect 28 0 8 0;
-#X coords 0 -1 1 1 340 30 2 100 100;
-#X restore 875 744 pd frequency.test;
 #X text 101 133 In the modules below you will explore two fundamental
 components of a sound wave: it's amplitude and it's frequency. Click
 on a module (a box labelled "pd" with a section title) to read about
@@ -106,7 +9,7 @@ these aspects and interact with hands on tools which will allow you
 to see these sound aspects in action. Additionally you can control
 a sound wave generator to the right of this text \, allowing you to
 manipulate the generator's frequency and amplitude., f 75;
-#N canvas 1802 -157 1114 855 sound_gen_amp_demo 0;
+#N canvas 326 23 1114 855 sound_gen_amp_demo 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array amp-freq-demo-scope-\$0 250 float 3;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -131,12 +34,12 @@ manipulate the generator's frequency and amplitude., f 75;
 #X obj 812 627 tgl 15 0 empty amp-freq-demo-onoff-0 empty 17 7 0 10
 -262144 -1 -1 0 1;
 #X obj 128 131 tgl 15 0 amp-freq-demo-onoff-0 empty empty 17 7 0 10
--4032 -1 -1 1 1;
+-4032 -1 -1 0 1;
 #X text 150 130 Sound Generator On/Off;
 #X obj 229 178 vsl 15 120 0 2 0 0 \$0-generator_amp empty empty 0 -9
-0 10 -4032 -1 -1 6200 1;
+0 10 -4032 -1 -1 0 1;
 #X obj 864 389 vsl 15 128 0 4 0 1 empty \$0-generator_amp empty 0 -9
-0 10 -262144 -1 -1 3308 1;
+0 10 -262144 -1 -1 0 1;
 #X obj 864 546 line;
 #X obj 812 680 line~;
 #X msg 812 653 \$1 250;
@@ -153,7 +56,7 @@ manipulate the generator's frequency and amplitude., f 75;
 -9 0 10 -4032 -1 -1 209 1;
 #X text 108 323 Frequency;
 #X obj 227 307 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 1.04202 256;
+-204800 -1 -1 0 256;
 #X obj 779 249 * 25000;
 #X obj 830 314 send freq-\$0;
 #X obj 112 307 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
@@ -174,7 +77,7 @@ manipulate the generator's frequency and amplitude., f 75;
 #X connect 3 0 0 0;
 #X restore 204 751 pd linamptodbfs;
 #X obj 228 357 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 38.6406 256;
+-204800 -1 -1 0 256;
 #X text 225 337 (Linear);
 #X text 223 374 Amplitude;
 #X text 226 386 (dB FS);
@@ -218,6 +121,7 @@ by a fader position, f 36;
 #X connect 24 0 23 0;
 #X connect 28 0 29 0;
 #X connect 28 0 24 0;
+#X connect 30 0 6 0;
 #X connect 31 0 32 0;
 #X connect 31 0 33 0;
 #X connect 31 0 41 0;
@@ -238,7 +142,7 @@ by a fader position, f 36;
 #X connect 54 0 44 0;
 #X coords 0 -1 1 1 600 350 2 100 100;
 #X restore 578 108 pd sound_gen_amp_demo;
-#N canvas 2087 -209 1064 1035 01_SOUND_PRESSURE_LEVEL 0;
+#N canvas 376 23 1064 855 01_SOUND_PRESSURE_LEVEL 0;
 #X text -46 23 If you have ever plucked a guitar string or hit a drum
 \, you likely noticed that the harder you hit or plucked resulted in
 a louder sound. While if you plucked or hit the objects with less intensity
@@ -365,9 +269,9 @@ in dB FS as indicated by the meter., f 97;
 -1 -1 0 1;
 #X text 139 104 Sound Generator On/Off;
 #X obj 117 130 vsl 15 120 0 2 0 0 \$0-amp_demo empty empty 0 -9 0 10
--4032 -1 -1 3800 1;
+-4032 -1 -1 595 1;
 #X obj 699 50 vsl 15 128 0 2 0 1 empty \$0-amp_demo empty 0 -9 0 10
--262144 -1 -1 4055 1;
+-262144 -1 -1 635 1;
 #X obj 699 207 line;
 #X obj 647 341 line~;
 #X msg 647 314 \$1 250;
@@ -375,7 +279,7 @@ in dB FS as indicated by the meter., f 97;
 #X obj 44 22 loadbang;
 #X msg 73 43 0;
 #X obj 108 257 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 0.638655 256;
+-204800 -1 -1 0.1 256;
 #X text 104 308 Note: Typed in numbers will not be reflected by a change
 in the fader's position, f 32;
 #X obj 697 439 tabwrite~ amp-demo-scope-wdbfs-\$0;
@@ -395,7 +299,7 @@ in the fader's position, f 32;
 #X obj 209 129 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 745 208 s dbfs-\$0;
 #X obj 198 257 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 -3.89397 256;
+-204800 -1 -1 -19.9964 256;
 #X obj 624 186 s linamp-\$0;
 #X obj 20 228 r linamp-\$0;
 #X obj 20 152 r dbfs-\$0;
@@ -669,7 +573,7 @@ into a logarithmic scale., f 97;
 #X obj 117 130 vsl 15 128 0 2 0 0 \$0-amp_demo empty empty 0 -9 0 10
 -4032 -1 -1 0 1;
 #X obj 699 50 vsl 15 128 0 2 0 1 empty \$0-amp_demo empty 0 -9 0 10
--262144 -1 -1 4055 1;
+-262144 -1 -1 635 1;
 #X obj 699 207 line;
 #X obj 647 341 line~;
 #X msg 647 314 \$1 250;
@@ -679,7 +583,7 @@ into a logarithmic scale., f 97;
 #X obj 73 22 loadbang;
 #X msg 73 43 0;
 #X obj 108 267 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 0.638655 256;
+-204800 -1 -1 0.0944882 256;
 #X text 104 304 Note: Typed in numbers will not be reflected by a change
 in the fader's position, f 32;
 #X connect 1 0 3 0;
@@ -704,14 +608,161 @@ in the fader's position, f 32;
 #X restore 562 268 pd sound_gen_amp_demo;
 #X restore 138 228 pd 01_SOUND_PRESSURE_LEVEL \, AMPLITUDE \, AND THE
 DECIBEL;
-#X connect 0 0 1 0;
-#X connect 1 0 5 0;
-#X connect 1 0 14 0;
-#X connect 2 0 1 1;
-#X connect 7 0 2 0;
-#X connect 8 0 11 0;
-#X connect 9 0 7 0;
-#X connect 10 0 0 0;
+#N canvas 209 57 1036 722 02_FREQUENCY_AND_PITCH 0;
+#N canvas 260 100 1022 716 sound_gen_amp_demo 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array freq-demo-scope-\$0 250 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 249 -1 250 140 1 0 0;
+#X restore 243 132 graph;
+#X obj 785 369 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 614 490 dac~ 1 2;
+#X obj 785 323 loadbang;
+#X msg 785 344 1;
+#X obj 614 33 osc~ 440;
+#X obj 614 363 *~;
+#X obj 647 288 tgl 15 0 empty \$0-freq-demo-on_off empty 17 7 0 10
+-262144 -1 -1 0 1;
+#X obj 117 105 tgl 15 0 \$0-freq-demo-on_off empty empty 17 7 0 10
+-4032 -1 -1 0 1;
+#X text 139 104 Sound Generator On/Off;
+#X obj 117 130 vsl 15 128 20 20000 0 0 \$0-freq-demo-slider empty empty
+0 -9 0 10 -4032 -1 -1 0 1;
+#X obj 699 50 vsl 15 128 20 20000 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 127 1;
+#X obj 699 207 line;
+#X obj 647 341 line~;
+#X msg 647 314 \$1 250;
+#X obj 73 22 loadbang;
+#X msg 73 43 0;
+#X obj 108 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq-demo-numbox empty
+empty 0 -8 0 10 -204800 -1 -1 0 256;
+#X obj 696 439 tabwrite~ freq-demo-scope-\$0;
+#X obj 175 479 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 175 498 print;
+#X msg 175 451 set \$1;
+#X floatatom 165 402 5 0 0 0 - - -, f 5;
+#X msg -41 278 set \$1;
+#X obj 699 28 r \$0-freq-demo-slider;
+#X obj -41 257 r \$0-freq-demo-slider;
+#X msg -40 132 set \$1;
+#X obj -40 111 r \$0-freq-demo-numbox;
+#X obj 733 78 r \$0-freq-demo-numbox;
+#X msg 699 186 \$1 100;
+#X obj 614 264 *~ 0.5;
+#X obj 785 392 metro 250;
+#X text 105 282 Frequency;
+#X text 165 267 Hz;
+#X obj 107 307 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X text 105 324 Amplitude;
+#X connect 1 0 31 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 30 0;
+#X connect 6 0 2 0;
+#X connect 6 0 2 1;
+#X connect 6 0 18 0;
+#X connect 7 0 14 0;
 #X connect 11 0 29 0;
-#X connect 29 0 10 0;
+#X connect 12 0 5 0;
+#X connect 13 0 6 1;
+#X connect 14 0 13 0;
+#X connect 15 0 16 0;
+#X connect 16 0 8 0;
+#X connect 19 0 20 0;
+#X connect 21 0 19 0;
+#X connect 22 0 21 0;
+#X connect 23 0 17 0;
+#X connect 24 0 11 0;
+#X connect 25 0 23 0;
+#X connect 26 0 10 0;
+#X connect 27 0 26 0;
+#X connect 28 0 11 0;
+#X connect 29 0 12 0;
+#X connect 30 0 6 0;
+#X connect 31 0 18 0;
+#X coords 0 -1 1 1 400 250 2 100 100;
+#X restore 186 83 pd sound_gen_amp_demo;
+#N canvas 181 23 1259 697 frequency.test 0;
+#X msg 773 156 \; pd dsp 1;
+#X obj 710 131 trigger b b;
+#X obj 635 526 osc~;
+#X obj 635 595 dac~ 1 2;
+#X obj 635 559 *~ 0.5;
+#X msg 929 282 440;
+#X obj 874 498 line;
+#X msg 874 312 0 50 \, 0.5 50;
+#X obj 710 238 trigger b b b b b, f 37;
+#X msg 819 368 0 50;
+#X obj 819 339 del 5000;
+#X obj 764 397 del 5050;
+#X obj 635 481 line;
+#X obj 764 432 del 5;
+#X msg 764 453 0.5 50;
+#X text 906 497 Amp envelope;
+#X text 962 296 1 Calibration tone for 5 sec;
+#X obj 719 556 sel 22000;
+#X obj 719 577 delay 100;
+#X msg 719 598 0 100;
+#X obj 105 107 bng 15 250 50 0 start_test empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 126 106 Frequency Test;
+#X obj 236 107 nbx 5 15 -1e+37 1e+37 0 0 empty current_frequency empty
+15 10 0 10 -262144 -1 -1 0 256;
+#X obj 458 534 send current_frequency;
+#X msg 635 456 0 \, 22000 30000;
+#X obj 709 98 bng 15 250 50 0 empty start_test empty 17 7 0 10 -262144
+-1 -1;
+#X msg 774 598 \; pd dsp 0;
+#X text 779 553 silence oscillator & turn off dsp when done;
+#X obj 710 152 del 100;
+#X text 296 106 Current Frequency (Hz);
+#X connect 1 0 28 0;
+#X connect 1 1 0 0;
+#X connect 2 0 4 0;
+#X connect 4 0 3 0;
+#X connect 4 0 3 1;
+#X connect 5 0 2 0;
+#X connect 5 0 23 0;
+#X connect 6 0 4 1;
+#X connect 7 0 6 0;
+#X connect 8 1 11 0;
+#X connect 8 2 10 0;
+#X connect 8 3 7 0;
+#X connect 8 4 5 0;
+#X connect 9 0 6 0;
+#X connect 10 0 9 0;
+#X connect 11 0 13 0;
+#X connect 11 0 24 0;
+#X connect 12 0 2 0;
+#X connect 12 0 17 0;
+#X connect 12 0 23 0;
+#X connect 13 0 14 0;
+#X connect 14 0 6 0;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 18 0 26 0;
+#X connect 19 0 6 0;
+#X connect 24 0 12 0;
+#X connect 25 0 1 0;
+#X connect 28 0 8 0;
+#X coords 0 -1 1 1 340 30 2 100 100;
+#X restore 189 451 pd frequency.test;
+#X text 625 143 TO DO:;
+#X text 626 208 - Insert text \, check sizing (use amp module as template?)
+;
+#X text 625 165 - sound generator: small amp control for freq demo
+\, 220 440 880 buttons \,;
+#X text 626 238 - Spectral view??;
+#X restore 564 594 pd 02_FREQUENCY_AND_PITCH;
 #X coords 0 -1 1 1 1100 450 2 100 100;

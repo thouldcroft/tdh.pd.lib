@@ -21,7 +21,7 @@ manipulate the generator's frequency and amplitude., f 75;
 #X obj 1072 336 tgl 15 0 empty \$0-freq-demo-on_off empty 17 7 0 10
 -4032 -1 -1 0 1;
 #X obj 904 60 vsl 15 128 20 20000 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 267 1;
+-1 -1 2271 1;
 #X obj 904 217 line;
 #X obj 1145 488 line~;
 #X obj 904 38 r \$0-freq-demo-slider;
@@ -29,7 +29,7 @@ manipulate the generator's frequency and amplitude., f 75;
 #X msg 904 196 \$1 100;
 #X obj 1104 692 metro 250;
 #X obj 1038 177 vsl 15 128 0 2 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 635 1;
+-1 -1 1921 1;
 #X obj 1038 128 r \$0-amp-demo-slider;
 #X obj 1051 149 r \$0-amp-demo-numbox;
 #X msg 1146 465 \$1 100;
@@ -45,11 +45,11 @@ amplitude value.;
 #X obj 127 106 tgl 15 0 \$0-freq-demo-on_off empty empty 17 7 0 10
 -204800 -1 -1 0 1;
 #X obj 127 130 vsl 15 120 0 22500 0 0 \$0-freq-demo-slider empty empty
-0 -9 0 10 -204800 -1 -1 248 1;
+0 -9 0 10 -204800 -1 -1 1900 1;
 #X obj 118 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq-demo-numbox empty
-empty 0 -8 0 10 -204800 -1 -1 440 256;
-#X msg -63 291 set \$1;
-#X obj -63 268 r \$0-freq-demo-slider;
+empty 0 -8 0 10 -204800 -1 -1 3592.44 256;
+#X msg -63 271 set \$1;
+#X obj -63 248 r \$0-freq-demo-slider;
 #X msg -63 154 set \$1;
 #X obj -63 133 r \$0-freq-demo-numbox;
 #X text 115 282 Frequency;
@@ -61,9 +61,9 @@ empty 0 -8 0 10 -204800 -1 -1 440 256;
 #X obj -61 53 r \$0-amp-demo-numbox;
 #X obj -65 198 r \$0-amp-demo-slider;
 #X obj 208 130 vsl 15 120 0 1.5 0 0 \$0-amp-demo-slider empty empty
-0 -9 0 10 -204800 -1 -1 847 1;
+0 -9 0 10 -204800 -1 -1 2400 1;
 #X obj 203 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-amp-demo-numbox empty
-empty 0 -8 0 10 -204800 -1 -1 0.1 256;
+empty 0 -8 0 10 -204800 -1 -1 0.302521 256;
 #N canvas 564 462 450 300 init 0;
 #X obj 117 22 loadbang;
 #X msg 108 110 0;
@@ -98,7 +98,7 @@ empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0;
 #X coords 0 1 444 -1 500 100 1 0 0;
-#X restore 178 335 graph;
+#X restore 178 385 graph;
 #N canvas 123 39 1142 661 spectrograph 0;
 #N canvas 789 23 651 544 fft-analysis 0;
 #X obj 15 164 *~;
@@ -134,8 +134,8 @@ per second. The graph is back on the main (parent) window.;
 used. (The others are determined by symmetry: they're complex conjugates
 of the first half \, in reverse order.) This takes 1/2 the CPU time
 of "fft".;
-#X obj 14 498 tabwrite~ \$0-spectrum;
 #X obj 23 470 metro 50;
+#X obj 14 498 tabwrite~ \$0-amp-freq-demo-spectrum;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 2 0 4 0;
@@ -145,11 +145,11 @@ of "fft".;
 #X connect 3 0 0 1;
 #X connect 4 0 19 0;
 #X connect 5 0 19 1;
-#X connect 6 0 23 0;
+#X connect 6 0 24 0;
 #X connect 7 0 8 0;
-#X connect 8 0 24 0;
+#X connect 8 0 23 0;
 #X connect 19 0 6 0;
-#X connect 24 0 23 0;
+#X connect 23 0 24 0;
 #X restore 1094 205 pd fft-analysis;
 #N canvas 0 0 450 300 (subpatch) 0;
 #X array \$0-amp-freq-demo-spectrum 256 float 0;
@@ -297,26 +297,33 @@ of "fft".;
 #X connect 20 0 19 0;
 #X connect 22 0 12 0;
 #X coords 0 -1 1 1 590 175 2 100 100;
-#X restore 105 493 pd spectrograph;
+#X restore 105 543 pd spectrograph;
 #N canvas 27 23 450 300 blank 0;
 #X coords 0 -1 1 1 590 175 2 100 100;
-#X restore 105 308 pd blank;
-#X text 157 351 0.5-;
-#X text 152 401 -0.5-;
-#X text 151 425 -1;
-#X text 157 327 1;
-#X text 664 446 0.01;
-#X text 404 446 0.005;
-#X text 414 432 |;
-#X text 673 432 |;
-#X text 174 432 |;
-#X text 166 446 0;
-#X text 156 376 0.0-;
-#X text 380 465 Time (Seconds);
-#X text 108 370 Ampli-tude, f 6;
+#X restore 105 358 pd blank;
+#X text 157 401 0.5-;
+#X text 152 451 -0.5-;
+#X text 151 475 -1;
+#X text 157 377 1;
+#X text 664 496 0.01;
+#X text 404 496 0.005;
+#X text 414 482 |;
+#X text 673 482 |;
+#X text 174 482 |;
+#X text 166 496 0;
+#X text 156 426 0.0-;
+#X text 380 515 Time (Seconds);
+#X text 108 420 Ampli-tude, f 6;
 #X obj 208 42 receive~ \$0-sig1;
 #X obj 958 633 send~ \$0-sig1;
-#X obj -42 439 receive~ \$0-sig1;
+#X obj -42 489 receive~ \$0-sig1;
+#X text 200 324 Amplitude;
+#X obj 203 307 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 -995.99 256;
+#X text 258 265 linear;
+#X text 261 306 dB FS;
+#X obj 73 309 + 3;
+#X connect 0 0 69 0;
 #X connect 1 0 14 0;
 #X connect 3 0 4 0;
 #X connect 4 0 1 0;
@@ -360,7 +367,8 @@ of "fft".;
 #X connect 45 1 0 1;
 #X connect 62 0 45 0;
 #X connect 64 0 47 0;
-#X coords 0 -1 1 1 600 575 2 100 100;
+#X connect 69 0 66 0;
+#X coords 0 -1 1 1 600 625 2 100 100;
 #X restore 578 108 pd sound_gen_amp_demo;
 #N canvas 207 23 1062 855 01_SOUND_PRESSURE_LEVEL 0;
 #X text -46 23 If you have ever plucked a guitar string or hit a drum
@@ -1183,11 +1191,11 @@ that is making the sound is vibrating at a certain frequency. `, f
 #X obj 117 129 vsl 15 128 0 22500 0 0 \$0-freq-demo-slider empty empty
 0 -9 0 10 -204800 -1 -1 248 1;
 #X obj 904 60 vsl 15 128 20 20000 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 267 1;
+-1 -1 2271 1;
 #X obj 904 217 line;
 #X obj 1145 488 line~;
 #X obj 108 266 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq-demo-numbox empty
-empty 0 -8 0 10 -204800 -1 -1 440 256;
+empty 0 -8 0 10 -204800 -1 -1 3592.44 256;
 #X obj 985 719 tabwrite~ freq-demo-scope-\$0;
 #X msg -40 242 set \$1;
 #X obj 904 38 r \$0-freq-demo-slider;
@@ -1428,9 +1436,9 @@ of "fft".;
 #X obj 297 129 vsl 15 128 0 1.5 0 0 \$0-amp-demo-slider empty empty
 0 -9 0 10 -204800 -1 -1 847 1;
 #X obj 288 266 nbx 5 14 -1e+37 1e+37 0 0 \$0-amp-demo-numbox empty
-empty 0 -8 0 10 -204800 -1 -1 0.1 256;
+empty 0 -8 0 10 -204800 -1 -1 0.302521 256;
 #X obj 1038 177 vsl 15 128 0 2 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 635 1;
+-1 -1 1921 1;
 #X obj 1038 128 r \$0-amp-demo-slider;
 #X obj 1051 149 r \$0-amp-demo-numbox;
 #X msg 1146 465 \$1 100;
@@ -1546,4 +1554,4 @@ amplitude value.;
 #X text 658 455 On/Off button on sound gen needs to gate volume \,
 not instill its own ramp.;
 #X restore 137 278 pd 02_FREQUENCY_AND_PITCH;
-#X coords 0 -1 1 1 1100 600 2 100 100;
+#X coords 0 -1 1 1 1100 650 2 100 100;

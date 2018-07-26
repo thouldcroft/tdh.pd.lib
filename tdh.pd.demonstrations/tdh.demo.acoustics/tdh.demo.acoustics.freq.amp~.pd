@@ -10,8 +10,79 @@ to see these sound aspects in action. Additionally you can control
 a sound wave generator to the right of this text \, allowing you to
 manipulate the generator's frequency and amplitude., f 75;
 #N canvas 326 23 1114 855 sound_gen_amp_demo 0;
-#N canvas 0 22 450 278 (subpatch) 0;
-#X array amp-freq-demo-scope-\$0 250 float 3;
+#X obj 226 130 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 1104 669 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 904 720 dac~ 1 2;
+#X obj 1104 623 loadbang;
+#X msg 1104 644 1;
+#X obj 904 253 osc~ 440;
+#X obj 904 593 *~;
+#X obj 1072 336 tgl 15 0 empty \$0-freq-demo-on_off empty 17 7 0 10
+-4032 -1 -1 0 1;
+#X obj 904 60 vsl 15 128 20 20000 0 1 empty empty empty 0 -9 0 10 -4032
+-1 -1 267 1;
+#X obj 904 217 line;
+#X obj 1145 488 line~;
+#X obj 904 38 r \$0-freq-demo-slider;
+#X obj 933 59 r \$0-freq-demo-numbox;
+#X msg 904 196 \$1 100;
+#X obj 1104 692 metro 250;
+#X obj 1038 177 vsl 15 128 0 2 0 1 empty empty empty 0 -9 0 10 -4032
+-1 -1 635 1;
+#X obj 1038 128 r \$0-amp-demo-slider;
+#X obj 1051 149 r \$0-amp-demo-numbox;
+#X msg 1146 465 \$1 100;
+#X floatatom 1038 313 5 0 0 0 - - -, f 5;
+#X obj 1066 429 spigot;
+#X obj 1038 397 float;
+#X obj 1072 356 t b f;
+#X obj 1146 396 sel 0;
+#X msg 1146 417 0;
+#X text 1122 318 When toggle is off \, ramp down to silence and close
+the gate. When toggle is on \, open the gate and ramp to the current
+amplitude value.;
+#X obj 127 106 tgl 15 0 \$0-freq-demo-on_off empty empty 17 7 0 10
+-204800 -1 -1 0 1;
+#X obj 127 130 vsl 15 120 0 22500 0 0 \$0-freq-demo-slider empty empty
+0 -9 0 10 -204800 -1 -1 248 1;
+#X obj 118 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq-demo-numbox empty
+empty 0 -8 0 10 -204800 -1 -1 440 256;
+#X msg -63 291 set \$1;
+#X obj -63 268 r \$0-freq-demo-slider;
+#X msg -63 154 set \$1;
+#X obj -63 133 r \$0-freq-demo-numbox;
+#X text 115 282 Frequency;
+#X text 175 267 Hz;
+#X text 200 284 Amplitude;
+#X text 149 105 On/Off;
+#X msg -65 221 set \$1;
+#X msg -61 74 set \$1;
+#X obj -61 53 r \$0-amp-demo-numbox;
+#X obj -65 198 r \$0-amp-demo-slider;
+#X obj 208 130 vsl 15 120 0 1.5 0 0 \$0-amp-demo-slider empty empty
+0 -9 0 10 -204800 -1 -1 847 1;
+#X obj 203 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-amp-demo-numbox empty
+empty 0 -8 0 10 -204800 -1 -1 0.1 256;
+#N canvas 564 462 450 300 init 0;
+#X obj 117 22 loadbang;
+#X msg 108 110 0;
+#X obj 98 191 outlet;
+#X obj 205 188 outlet;
+#X msg 203 117 440;
+#X msg 300 122 0.1;
+#X obj 300 143 outlet;
+#X connect 0 0 1 0;
+#X connect 0 0 4 0;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X restore 114 13 pd init;
+#X obj 985 719 tabwrite~ amp-freq-demo-scope-\$0;
+#X obj 208 67 else/vu~;
+#N canvas 27 23 450 278 (subpatch) 0;
+#X array amp-freq-demo-scope-\$0 445 float 1;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -19,128 +90,277 @@ manipulate the generator's frequency and amplitude., f 75;
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
-#X coords 0 1 250 -1 350 250 1 0 0;
-#X restore 326 141 graph;
-#X obj 950 708 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
-1;
-#X obj 779 829 dac~ 1 2;
-#X obj 950 731 metro 100;
-#X obj 950 662 loadbang;
-#X msg 950 683 1;
-#X obj 779 372 osc~ 440;
-#X obj 779 603 *~;
-#X obj 779 702 *~;
-#X obj 812 627 tgl 15 0 empty amp-freq-demo-onoff-0 empty 17 7 0 10
--262144 -1 -1 0 1;
-#X obj 128 131 tgl 15 0 amp-freq-demo-onoff-0 empty empty 17 7 0 10
--4032 -1 -1 0 1;
-#X text 150 130 Sound Generator On/Off;
-#X obj 229 178 vsl 15 120 0 2 0 0 \$0-generator_amp empty empty 0 -9
-0 10 -4032 -1 -1 1190 1;
-#X obj 864 389 vsl 15 128 0 4 0 1 empty \$0-generator_amp empty 0 -9
-0 10 -262144 -1 -1 635 1;
-#X obj 864 546 line;
-#X obj 812 680 line~;
-#X msg 812 653 \$1 250;
-#X msg 864 525 \$1 50;
-#X text 225 323 Amplitude;
-#X obj 915 524 send amp-\$0;
-#X obj -26 290 receive amp-\$0;
-#X obj -3 210 receive freq-\$0;
-#X obj 779 109 vsl 15 128 0 1 0 1 empty \$0-generator_freq empty 0
--9 0 10 -262144 -1 -1 224 1;
-#X obj 779 336 line;
-#X msg 779 315 \$1 50;
-#X obj 128 178 vsl 15 120 0 1 0 1 \$0-generator_freq empty empty 0
--9 0 10 -4032 -1 -1 209 1;
-#X text 108 323 Frequency;
-#X obj 227 307 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 0.2 256;
-#X obj 779 249 * 25000;
-#X obj 830 314 send freq-\$0;
-#X obj 112 307 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 440 256;
-#X obj 12 28 loadbang;
-#X msg 11 91 0.0176;
-#X msg 11 131 0.2;
-#X obj 862 778 tabwrite~ amp-freq-demo-scope-\$0;
-#N canvas 3321 201 450 300 linamptodbfs 0;
-#X obj 133 125 log;
-#X obj 133 146 / 2.303;
-#X obj 133 167 * 20;
-#X obj 133 74 inlet;
-#X obj 133 224 outlet;
-#X connect 0 0 1 0;
-#X connect 1 0 2 0;
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0;
+#X coords 0 1 444 -1 500 100 1 0 0;
+#X restore 178 335 graph;
+#N canvas 123 39 1142 661 spectrograph 0;
+#N canvas 789 23 651 544 fft-analysis 0;
+#X obj 15 164 *~;
+#X obj 14 99 inlet~;
+#X obj 15 218 rfft~;
+#X obj 36 140 tabreceive~ \$0-hann;
+#X obj 14 306 *~;
+#X obj 56 306 *~;
+#X obj 15 356 sqrt~;
+#X obj 23 386 loadbang;
+#X obj 23 449 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X obj 15 8 block~ 512;
+#X text 225 131 tabreceive~ outputs array contents \,;
+#X text 225 149 constantly \, every block. Here it's;
+#X text 223 169 used to get the Hann window to;
+#X text 225 187 multiply by the input.;
+#X text 120 7 block~ object does no computation but declares this;
+#X text 120 24 window to be operating at a different block size from
+;
+#X text 122 58 Fourier transform.;
+#X text 121 40 the parent window. This determines the size of the;
+#X text 76 99 The inlet~ automatically re-blocks to the new block size.
+;
+#X obj 15 332 +~;
+#X text 94 308 Take the magnitude by squaring real and imaginary part
+\, adding and taking square root.;
+#X text 110 424 periodically graph the output. It appears every 512
+samples (about 12 milliseconds) but we only update the graph 4 times
+per second. The graph is back on the main (parent) window.;
+#X text 82 215 forward real FFT. Like "fft~" \, but only one inlet
+(for the real part) and only the first half of the output signals are
+used. (The others are determined by symmetry: they're complex conjugates
+of the first half \, in reverse order.) This takes 1/2 the CPU time
+of "fft".;
+#X obj 14 498 tabwrite~ \$0-spectrum;
+#X obj 23 470 metro 50;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
 #X connect 2 0 4 0;
-#X connect 3 0 0 0;
-#X restore 204 751 pd linamptodbfs;
-#X obj 228 357 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 0 256;
-#X text 225 337 (Linear);
-#X text 223 374 Amplitude;
-#X text 226 386 (dB FS);
-#X obj 259 178 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
-#X msg 128 74 0;
-#X text 104 419 NOTE: Typed in number values will not be reflected
-by a fader position, f 36;
-#X obj 464 621 env~;
-#X obj 464 690 dbtorms;
-#X floatatom 126 596 0 0 0 0 - - -;
-#X floatatom 126 651 0 0 0 0 - - -;
-#X floatatom 126 700 0 0 0 0 - - -;
-#X obj 126 624 dbtorms;
-#X obj 126 676 rmstodb;
-#X floatatom 204 772 5 0 0 0 - - -, f 5;
-#X obj 464 526 osc~ 440;
-#X obj 466 592 *~;
-#X floatatom 529 551 5 0 0 0 - - -, f 5;
-#X floatatom 464 642 5 0 0 0 - - -, f 5;
-#X floatatom 464 711 5 0 0 0 - - -, f 5;
-#X connect 1 0 3 0;
-#X connect 3 0 34 0;
-#X connect 4 0 5 0;
-#X connect 5 0 1 0;
-#X connect 6 0 7 0;
+#X connect 2 0 4 1;
+#X connect 2 1 5 0;
+#X connect 2 1 5 1;
+#X connect 3 0 0 1;
+#X connect 4 0 19 0;
+#X connect 5 0 19 1;
+#X connect 6 0 23 0;
 #X connect 7 0 8 0;
-#X connect 8 0 2 0;
-#X connect 8 0 2 1;
-#X connect 8 0 34 0;
-#X connect 9 0 16 0;
-#X connect 13 0 17 0;
-#X connect 13 0 19 0;
-#X connect 14 0 7 1;
-#X connect 15 0 8 1;
-#X connect 16 0 15 0;
-#X connect 17 0 14 0;
-#X connect 20 0 27 0;
-#X connect 21 0 30 0;
-#X connect 22 0 28 0;
-#X connect 23 0 6 0;
+#X connect 8 0 24 0;
+#X connect 19 0 6 0;
 #X connect 24 0 23 0;
-#X connect 28 0 29 0;
-#X connect 28 0 24 0;
-#X connect 30 0 6 0;
-#X connect 31 0 32 0;
-#X connect 31 0 33 0;
-#X connect 31 0 41 0;
-#X connect 32 0 25 0;
-#X connect 33 0 12 0;
-#X connect 35 0 50 0;
-#X connect 41 0 10 0;
-#X connect 43 0 54 0;
-#X connect 44 0 55 0;
-#X connect 45 0 48 0;
-#X connect 46 0 49 0;
-#X connect 46 0 35 0;
-#X connect 48 0 46 0;
-#X connect 49 0 47 0;
-#X connect 51 0 52 0;
-#X connect 52 0 43 0;
-#X connect 53 0 52 1;
-#X connect 54 0 44 0;
-#X coords 0 -1 1 1 600 350 2 100 100;
+#X restore 1094 205 pd fft-analysis;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-amp-freq-demo-spectrum 256 float 0;
+#X coords 0 128 255 0 500 100 1 0 0;
+#X restore 168 115 graph;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-hann1 512 float 1;
+#A 0 0 3.76403e-05 0.000150591 0.000338793 0.000602275 0.000940949
+0.00135478 0.00184369 0.00240764 0.00304651 0.00376022 0.00454867 0.00541174
+0.0063493 0.00736117 0.00844723 0.00960734 0.0108413 0.0121489 0.01353
+0.0149843 0.0165117 0.0181119 0.0197847 0.0215298 0.0233469 0.0252359
+0.0271963 0.0292279 0.0313304 0.0335035 0.0357469 0.0380601 0.040443
+0.042895 0.0454159 0.0480052 0.0506626 0.0533877 0.05618 0.0590392
+0.0619648 0.0649563 0.0680134 0.0711355 0.0743222 0.077573 0.0808874
+0.0842649 0.0877051 0.0912073 0.0947711 0.0983959 0.102081 0.105826
+0.109631 0.113494 0.117416 0.121395 0.125431 0.129524 0.133672 0.137876
+0.142134 0.146446 0.150811 0.155229 0.159699 0.16422 0.168792 0.173413
+0.178084 0.182803 0.18757 0.192384 0.197244 0.20215 0.2071 0.212095
+0.217133 0.222214 0.227337 0.2325 0.237704 0.242948 0.24823 0.25355
+0.258907 0.264301 0.26973 0.275194 0.280691 0.286222 0.291785 0.297379
+0.303003 0.308658 0.314341 0.320052 0.32579 0.331555 0.337344 0.343159
+0.348997 0.354857 0.36074 0.366643 0.372567 0.37851 0.384471 0.390449
+0.396444 0.402455 0.40848 0.414519 0.420571 0.426635 0.432709 0.438794
+0.444889 0.450991 0.457101 0.463218 0.46934 0.475466 0.481596 0.487729
+0.493864 0.5 0.506136 0.512271 0.518404 0.524534 0.53066 0.536782 0.542899
+0.549009 0.555111 0.561205 0.56729 0.573365 0.579429 0.585481 0.59152
+0.597545 0.603556 0.609551 0.615529 0.62149 0.627433 0.633357 0.63926
+0.645143 0.651003 0.656841 0.662656 0.668445 0.67421 0.679948 0.685659
+0.691342 0.696997 0.702621 0.708215 0.713778 0.719309 0.724806 0.73027
+0.735699 0.741092 0.74645 0.75177 0.757052 0.762295 0.767499 0.772663
+0.777786 0.782867 0.787905 0.7929 0.79785 0.802756 0.807616 0.812431
+0.817197 0.821916 0.826587 0.831209 0.83578 0.840301 0.844771 0.849189
+0.853554 0.857866 0.862124 0.866328 0.870476 0.874569 0.878605 0.882584
+0.886506 0.890369 0.894174 0.897919 0.901605 0.905229 0.908793 0.912295
+0.915736 0.919113 0.922428 0.925678 0.928865 0.931987 0.935044 0.938036
+0.940961 0.94382 0.946613 0.949338 0.951995 0.954585 0.957106 0.959558
+0.96194 0.964254 0.966497 0.96867 0.970773 0.972804 0.974765 0.976654
+0.978471 0.980216 0.981889 0.983489 0.985016 0.98647 0.987852 0.989159
+0.990393 0.991553 0.992639 0.993651 0.994589 0.995452 0.99624 0.996954
+0.997593 0.998156 0.998645 0.999059 0.999398 0.999661 0.999849 0.999962
+1 0.999962 0.999849 0.999661 0.999398 0.999059 0.998645 0.998156 0.997592
+0.996953 0.996239 0.995451 0.994588 0.99365 0.992638 0.991552 0.990392
+0.989158 0.987851 0.986469 0.985015 0.983488 0.981887 0.980215 0.978469
+0.976652 0.974763 0.972803 0.970771 0.968669 0.966495 0.964252 0.961939
+0.959556 0.957104 0.954583 0.951993 0.949336 0.946611 0.943818 0.940959
+0.938034 0.935042 0.931985 0.928863 0.925676 0.922425 0.919111 0.915733
+0.912293 0.908791 0.905227 0.901602 0.897917 0.894171 0.890367 0.886503
+0.882582 0.878602 0.874566 0.870473 0.866325 0.862121 0.857863 0.853551
+0.849186 0.844768 0.840298 0.835777 0.831205 0.826584 0.821913 0.817194
+0.812427 0.807613 0.802753 0.797847 0.792896 0.787901 0.782863 0.777782
+0.77266 0.767496 0.762292 0.757048 0.751766 0.746446 0.741089 0.735695
+0.730266 0.724802 0.719305 0.713774 0.708211 0.702617 0.696993 0.691338
+0.685655 0.679944 0.674206 0.668441 0.662652 0.656837 0.650999 0.645139
+0.639256 0.633353 0.627429 0.621486 0.615525 0.609547 0.603552 0.597541
+0.591516 0.585477 0.579425 0.573361 0.567286 0.561201 0.555107 0.549004
+0.542894 0.536778 0.530656 0.52453 0.518399 0.512266 0.506131 0.499996
+0.49386 0.487725 0.481592 0.475462 0.469335 0.463213 0.457097 0.450987
+0.444884 0.43879 0.432705 0.42663 0.420566 0.414515 0.408476 0.40245
+0.39644 0.390445 0.384466 0.378505 0.372563 0.366639 0.360736 0.354853
+0.348993 0.343155 0.33734 0.331551 0.325786 0.320048 0.314337 0.308654
+0.302999 0.297375 0.291781 0.286218 0.280687 0.27519 0.269726 0.264297
+0.258904 0.253547 0.248226 0.242944 0.237701 0.232497 0.227333 0.222211
+0.21713 0.212092 0.207097 0.202146 0.19724 0.19238 0.187566 0.182799
+0.17808 0.17341 0.168788 0.164217 0.159696 0.155226 0.150808 0.146443
+0.142131 0.137873 0.133669 0.129521 0.125428 0.121392 0.117413 0.113491
+0.109628 0.105823 0.102078 0.0983929 0.0947681 0.0912043 0.0877021
+0.084262 0.0808845 0.0775701 0.0743194 0.0711327 0.0680107 0.0649537
+0.0619622 0.0590366 0.0561775 0.0533852 0.0506602 0.0480028 0.0454136
+0.0428927 0.0404407 0.038058 0.0357447 0.0335014 0.0313284 0.0292259
+0.0271944 0.025234 0.0233451 0.0215281 0.019783 0.0181103 0.0165102
+0.0149829 0.0135286 0.0121476 0.01084 0.00960615 0.0084461 0.0073601
+0.00634828 0.00541082 0.00454783 0.00375944 0.00304583 0.00240701 0.00184315
+0.00135431 0.000940561 0.000601947 0.000338584 0.000150442 3.75807e-05
+;
+#X coords 0 1 511 0 200 120 1 0 0;
+#X restore 1399 132 graph;
+#X msg 1341 130 0;
+#X obj 1235 179 osc~;
+#X obj 1235 131 samplerate~;
+#X obj 1235 202 *~ -0.5;
+#X obj 1235 225 +~ 0.5;
+#X text 1385 124 1;
+#X text 1378 242 0;
+#X text 1394 255 0;
+#X obj 1235 155 / 512;
+#X obj 1228 70 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 1504 109 Hann window;
+#X text 1283 177 period 512;
+#X text 1260 64 recalculate Hann;
+#X text 1284 77 window table;
+#X text 1580 258 511;
+#X obj 1227 40 inlet;
+#X obj 1054 232 outlet~;
+#X obj 1054 28 inlet~;
+#X text 1108 234 Thru;
+#X obj 1330 34 loadbang;
+#X text 155 226 20;
+#X text 171 226 500;
+#X text 186 238 1000;
+#X text 200 226 2000;
+#X text 244 225 4000;
+#X text 164 238 250;
+#X text 163 213 |;
+#X text 170 213 |;
+#X text 177 213 |;
+#X text 187 213 |;
+#X text 209 213 |;
+#X text 254 213 |;
+#X text 300 213 |;
+#X text 291 225 6000;
+#X text 349 213 |;
+#X text 338 225 8000;
+#X text 391 213 |;
+#X text 380 225 10000;
+#X text 436 213 |;
+#X text 425 225 12000;
+#X text 482 213 |;
+#X text 471 225 14000;
+#X text 528 213 |;
+#X text 517 225 16000;
+#X text 574 213 |;
+#X text 563 225 18000;
+#X text 617 213 |;
+#X text 606 225 20000;
+#X text 664 213 |;
+#X text 653 225 22000;
+#X text 354 253 Frequency in Hz;
+#X text 101 155 Magni-tude, f 6;
+#X text 147 158 0.5-;
+#X text 154 108 1;
+#X text 154 205 0;
+#X obj 1227 250 tabwrite~ \$0-hann1;
+#X connect 3 0 4 1;
+#X connect 4 0 6 0;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 7 0 58 0;
+#X connect 11 0 4 0;
+#X connect 12 0 5 0;
+#X connect 12 0 3 0;
+#X connect 12 0 58 0;
+#X connect 18 0 12 0;
+#X connect 20 0 0 0;
+#X connect 20 0 19 0;
+#X connect 22 0 12 0;
+#X coords 0 -1 1 1 590 175 2 100 100;
+#X restore 105 493 pd spectrograph;
+#N canvas 27 23 450 300 blank 0;
+#X coords 0 -1 1 1 590 175 2 100 100;
+#X restore 105 308 pd blank;
+#X text 157 351 0.5-;
+#X text 152 401 -0.5-;
+#X text 151 425 -1;
+#X text 157 327 1;
+#X text 664 446 0.01;
+#X text 404 446 0.005;
+#X text 414 432 |;
+#X text 673 432 |;
+#X text 174 432 |;
+#X text 166 446 0;
+#X text 156 376 0.0-;
+#X text 380 465 Time (Seconds);
+#X text 108 370 Ampli-tude, f 6;
+#X obj 208 42 receive~ \$0-sig1;
+#X obj 958 633 send~ \$0-sig1;
+#X obj -42 439 receive~ \$0-sig1;
+#X connect 1 0 14 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
+#X connect 6 0 2 1;
+#X connect 6 0 44 0;
+#X connect 6 0 63 0;
+#X connect 7 0 22 0;
+#X connect 8 0 13 0;
+#X connect 9 0 5 0;
+#X connect 10 0 6 1;
+#X connect 11 0 8 0;
+#X connect 12 0 8 0;
+#X connect 13 0 9 0;
+#X connect 14 0 44 0;
+#X connect 15 0 19 0;
+#X connect 16 0 15 0;
+#X connect 17 0 15 0;
+#X connect 18 0 10 0;
+#X connect 19 0 21 0;
+#X connect 20 0 18 0;
+#X connect 21 0 20 0;
+#X connect 22 0 21 0;
+#X connect 22 1 20 1;
+#X connect 22 1 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 18 0;
+#X connect 29 0 28 0;
+#X connect 30 0 29 0;
+#X connect 31 0 27 0;
+#X connect 32 0 31 0;
+#X connect 37 0 42 0;
+#X connect 38 0 41 0;
+#X connect 39 0 38 0;
+#X connect 40 0 37 0;
+#X connect 43 0 26 0;
+#X connect 43 1 27 0;
+#X connect 43 2 41 0;
+#X connect 45 0 0 0;
+#X connect 45 1 0 1;
+#X connect 62 0 45 0;
+#X connect 64 0 47 0;
+#X coords 0 -1 1 1 600 575 2 100 100;
 #X restore 578 108 pd sound_gen_amp_demo;
 #N canvas 207 23 1062 855 01_SOUND_PRESSURE_LEVEL 0;
 #X text -46 23 If you have ever plucked a guitar string or hit a drum
@@ -608,7 +828,7 @@ in the fader's position, f 32;
 #X restore 562 268 pd sound_gen_amp_demo;
 #X restore 138 228 pd 01_SOUND_PRESSURE_LEVEL \, AMPLITUDE \, AND THE
 DECIBEL;
-#N canvas 2385 30 1239 855 02_FREQUENCY_AND_PITCH 1;
+#N canvas 2385 30 1239 855 02_FREQUENCY_AND_PITCH 0;
 #X text -46 3 SOUND PRESSURE LEVEL AND AMPLITUDE, f 73;
 #X text -44 1163 THE DECIBEL, f 73;
 #X text -44 1278 The tricky element of the decibel is that it doesn’t
@@ -930,7 +1150,7 @@ pitch than 150 Hz. Therefore \, when a musical or natural sound has
 a lower or higher pitch \, this means that the vibration of the mass
 that is making the sound is vibrating at a certain frequency. `, f
 98;
-#N canvas 1882 -150 1600 1073 sound_gen_freq_demo 0;
+#N canvas 1710 -150 1772 1073 sound_gen_freq_demo 0;
 #N canvas 26 23 450 278 (subpatch) 0;
 #X array freq-demo-scope-\$0 445 float 1;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -989,19 +1209,19 @@ empty 0 -8 0 10 -204800 -1 -1 440 256;
 -1 -1;
 #X obj 194 205 bng 15 250 50 0 \$0-600hz empty 600_Hz 17 7 0 10 -4032
 -1 -1;
-#X obj -31 -1 bng 15 250 50 0 empty \$0-220hz 220_Hz 17 7 0 10 -4032
+#X obj -31 -211 bng 15 250 50 0 empty \$0-220hz 220_Hz 17 7 0 10 -4032
 -1 -1;
-#X obj -31 19 bng 15 250 50 0 empty \$0-440hz 440_Hz 17 7 0 10 -4032
+#X obj -31 -191 bng 15 250 50 0 empty \$0-440hz 440_Hz 17 7 0 10 -4032
 -1 -1;
-#X obj -31 39 bng 15 250 50 0 empty \$0-880hz 880_Hz 17 7 0 10 -4032
+#X obj -31 -171 bng 15 250 50 0 empty \$0-880hz 880_Hz 17 7 0 10 -4032
 -1 -1;
-#X obj -31 59 bng 15 250 50 0 empty \$0-600hz 600_Hz 17 7 0 10 -4032
+#X obj -31 -151 bng 15 250 50 0 empty \$0-600hz 600_Hz 17 7 0 10 -4032
 -1 -1;
-#X msg 35 -1 220;
-#X msg 35 19 440;
-#X msg 35 39 880;
-#X msg 35 59 600;
-#X obj 37 37;
+#X msg 35 -211 220;
+#X msg 35 -191 440;
+#X msg 35 -171 880;
+#X msg 35 -151 600;
+#X obj 37 -173;
 #N canvas 123 39 1142 661 spectrograph 0;
 #N canvas 789 23 651 544 fft-analysis 0;
 #X obj 15 164 *~;
@@ -1326,4 +1546,4 @@ amplitude value.;
 #X text 658 455 On/Off button on sound gen needs to gate volume \,
 not instill its own ramp.;
 #X restore 137 278 pd 02_FREQUENCY_AND_PITCH;
-#X coords 0 -1 1 1 1100 450 2 100 100;
+#X coords 0 -1 1 1 1100 600 2 100 100;

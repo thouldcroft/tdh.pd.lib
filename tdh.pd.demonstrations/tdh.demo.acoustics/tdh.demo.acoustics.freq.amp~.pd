@@ -1305,5 +1305,8 @@ empty 0 -8 0 10 -204800 -1 -1 0 256;
 #X connect 74 0 45 0;
 #X coords 0 -1 1 1 610 570 2 100 100;
 #X restore 556 601 pd sound_gen_freq_demo;
+#X text 658 435 TO DO;
+#X text 658 455 On/Off button on sound gen needs to gate volume \,
+not instill its own ramp.;
 #X restore 137 278 pd 02_FREQUENCY_AND_PITCH;
 #X coords 0 -1 1 1 1100 450 2 100 100;

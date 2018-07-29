@@ -1255,21 +1255,9 @@ aren’t any other people or pets in the room if you are playing the
 test over speakers., f 98;
 #X text -66 279;
 #X restore 137 424 pd 00_HUMAN_HEARING_LIMITS-FREQUENCY;
-#N canvas 99 115 1266 631 00_PITCH_AND_OCTAVE 1;
+#N canvas 99 115 1270 736 00_PITCH_AND_OCTAVE 0;
 #X text -46 13 PITCH AND OCTAVE, f 73;
-#X text -46 33 As mentioned earlier \, frequency is a major influence
-on the perception of pitch. To the right is a sound generating module
-that allows you to change the frequency of a test tone. You can change
-the tone’s frequency with either the slider or by clicking and typing
-in the number box below the slider. Turn the module on \, and set the
-frequency to a a low valued \, around 150 Hz. Now increase the frequency
-value to around 800 Hz. Which frequency sounds lower in pitch? Which
-frequency sounds higher? Most people perceive 800 Hz to be higher in
-pitch than 150 Hz. Therefore \, when a musical or natural sound has
-a lower or higher pitch \, this means that the vibration of the mass
-that is making the sound is vibrating at a certain frequency. `, f
-98;
-#N canvas 135 23 832 855 sound_gen_freq_demo 1;
+#N canvas 135 23 832 855 sound_gen_freq_demo 0;
 #N canvas 26 23 450 278 (subpatch) 0;
 #X array freq-demo-scope-\$0 445 float 1;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -1300,13 +1288,13 @@ that is making the sound is vibrating at a certain frequency. `, f
 #X obj 117 105 tgl 15 0 \$0-freq-demo-on_off empty empty 17 7 0 10
 -204800 -1 -1 0 1;
 #X obj 117 149 vsl 15 128 0 22500 0 0 \$0-freq-demo-slider empty empty
-0 -9 0 10 -204800 -1 -1 124 1;
+0 -9 0 10 -204800 -1 -1 497 1;
 #X obj 904 60 vsl 15 128 20 20000 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 127 1;
+-1 -1 547 1;
 #X obj 904 217 line;
 #X obj 1145 488 line~;
 #X obj 108 286 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq-demo-numbox empty
-empty 0 -8 0 10 -204800 -1 -1 220 256;
+empty 0 -8 0 10 -204800 -1 -1 880 256;
 #X obj 985 719 tabwrite~ freq-demo-scope-\$0;
 #X msg -40 242 set \$1;
 #X obj 904 38 r \$0-freq-demo-slider;
@@ -1544,11 +1532,11 @@ of "fft".;
 #X obj 720 84 r \$0-amp-demo-numbox;
 #X obj 720 219 r \$0-amp-demo-slider;
 #X obj 377 147 vsl 15 128 0 1.5 0 0 \$0-amp-demo-slider empty empty
-0 -9 0 10 -204800 -1 -1 2547 1;
+0 -9 0 10 -204800 -1 -1 6247 1;
 #X obj 368 284 nbx 5 14 -1e+37 1e+37 0 0 \$0-amp-demo-numbox empty
-empty 0 -8 0 10 -204800 -1 -1 0.295276 256;
+empty 0 -8 0 10 -204800 -1 -1 0.732283 256;
 #X obj 1038 177 vsl 15 128 0 2 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 1875 1;
+-1 -1 4650 1;
 #X obj 1038 128 r \$0-amp-demo-slider;
 #X obj 1051 149 r \$0-amp-demo-numbox;
 #X msg 1146 465 \$1 100;
@@ -1697,8 +1685,20 @@ amplitude value.;
 #X connect 95 0 96 0;
 #X connect 96 0 93 0;
 #X coords 0 -1 1 1 610 570 2 100 100;
-#X restore 556 -9 pd sound_gen_freq_demo;
-#X text -66 -39;
+#X restore 556 71 pd sound_gen_freq_demo;
+#X text -66 1;
+#X text -46 33 As mentioned earlier \, frequency is a major influence
+on the perception of pitch. To the right is a sound generating module
+that allows you to change the frequency of a test tone. You can change
+the tone’s frequency with either the slider or by clicking and typing
+in the number box below the slider. Turn the module on \, and set the
+frequency to a a low valued \, around 150 Hz. Now increase the frequency
+value to around 800 Hz. Which frequency sounds lower in pitch? Which
+frequency sounds higher? Most people perceive 800 Hz to be higher in
+pitch than 150 Hz. Therefore \, when a musical or natural sound has
+a lower or higher pitch \, this means that the vibration of the mass
+that is making the sound is vibrating at a certain frequency., f 98
+;
 #X text -46 133 In the sound generator box is graphic representations
 of the frequency. One graph is the graph we have seen before \, showing
 the change of amplitude over time. In order to visibly see the very
@@ -1727,16 +1727,39 @@ early explorations of sound it was discovered that tones (musical sounds)
 had relationships like this \, among others. The phenomenon of the
 octave led to the development of a musical system that relies on a
 total of 11 pitch classes \, in differing octaves/registers. Listen
-to 440 Hz again. Now drop the frequency down to 220 Hz. This two is
+to 440 Hz again. Now drop the frequency down to 220 Hz. These two are
 likely to be heard as the same pitch class \, because this frequency
 is in fact an octave lower than 440 Hz. Look at the 3 frequencies suggested:
 220 Hz \, 440 Hz \, 880 Hz. You may recognize a pattern: each octave
 higher is a doubling of the frequency (220 * 2 = 440 \, 440 * 2 = 880)
 \, and to get an octave lower \, we divide by 2 This is true for ALL
 frequencies. To get the octave above or below a frequency \, simply
-multiply or divide by 2 Why does our ear hear these tones as similar?
-Some of this can be explained by investigating WAVELENGTH \, found
-in the next sub-module., f 98;
+multiply or divide by 2, f 98;
+#X text -46 457 The octave can help us illustrate another interesting
+component of our perception of frequency and pitch. Set the tone generator
+to 220 Hz using the preset button. Now set the tone generator to 320
+Hz. You likely heard a major difference in pitch \, from a change in
+100 Hz. Now set the tone generator to 1000 Hz using the preset button.
+Now change it to 1100 Hz. You most likely heard a change in pitch \,
+but did it seem as drastic as the change from 220 to 320 Hz? The change
+in frequency was only 100 Hz \, same as 220-320 Hz. Try this again
+at 5000 Hz. Now change to 5100 Hz. Did the change seem even less pronounced?
+This is because \, like sound pressure level \, our ear hears frequency
+logarithmically. Small changes in frequency that occur in the lower
+limits of frequency have a much more drastic effect on our perception
+of pitch versus changes in the mid to upper ranges of frequency. So
+a change from 220 to 320 Hz is going to sound much more drastic than
+a change from 5000 to 5100 Hz. This can also be seen in octaves. 220
+Hz to 440 Hz is an octave. The change in Hertz here is 220 Hz. Listen
+to 2000 Hz now. Next change it to 4000 Hz. You should hear an octave
+again \, but this time \, the change in frequency is 2000 Hz. This
+is important to keep in mind when you start to develop sound projects
+– the mid to upper reaches of hearing in regards to frequency take
+a greater amount of change in frequency to actually be heard as change.
+, f 98;
+#X text -46 643 Why does our ear hear these tones as similar? Some
+of this can be explained by investigating WAVELENGTH \, found in the
+next sub-module., f 98;
 #X restore 137 450 pd 00_PITCH_AND_OCTAVE;
 #X text 101 133 In the sub-modules below you will explore two fundamental
 components of a sound wave: it's amplitude and it's frequency. Click

@@ -946,7 +946,7 @@ be used as a replaceable element in message box \, which does not accept
 #X connect 27 0 29 0;
 #X connect 27 0 30 0;
 #X connect 27 0 32 0;
-#X coords 0 -1 1 1 400 250 2 100 100;
+#X coords 0 -1 1 1 610 250 2 100 100;
 #X restore 561 7 pd demonstration.wave;
 #X obj 562 -15 declare -lib ggee;
 #X text -46 23 When graphing the sound wave \, the horizontal/x axis
@@ -1514,17 +1514,17 @@ of a second. You can still count the The other is a graph that marks
 the actual frequency as a spike in the graph. This is called a SPECTRAL
 PLOT \, and it will be of more use later., f 98;
 #N canvas 1556 -173 1711 977 octave_graph 0;
-#X obj 703 521 trigger f f;
-#X obj 803 568 + 1;
-#X obj 766 542 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 913 551 trigger f f;
+#X obj 1013 598 + 1;
+#X obj 976 572 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 703 502 line;
-#X obj 766 567 f 0;
-#X msg 803 543 0;
-#X obj 803 502 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 913 532 line;
+#X obj 976 597 f 0;
+#X msg 1013 573 0;
+#X obj 1013 532 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 855 122 loadbang;
-#X obj 703 594 expr sin(2 * 3.14159 * $f1 / 360);
+#X obj 1065 152 loadbang;
+#X obj 913 624 expr sin(2 * 3.14159 * $f1 / 360);
 #N canvas 192 62 450 278 (subpatch) 0;
 #X array \$0-demo_soundwave_harmonic 360 float 1;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -1575,87 +1575,99 @@ PLOT \, and it will be of more use later., f 98;
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 #X coords 0 1 359 -1 300 200 1 0 0;
-#X restore 187 148 graph;
-#X text 184 350 0;
-#X text 293 364 Time (Seconds);
-#X text 167 339 -1;
-#X text 155 290 -0.5;
-#X text 172 143 1;
-#X text 160 191 0.5;
-#X text 172 241 0;
-#X text 101 236 Amplitude;
-#X text 104 247 (Linear);
-#X obj 831 149 list \$0;
-#X text 917 120 [list] trick where \, when receiving a bang \, it creates
-a list with just the element that is the argument. This can be used
-as a replaceable element in message box \, which does not accept \$0
-;
-#X obj 703 427 bng 15 250 50 0 empty \$0-2hz empty 17 7 0 10 -204800
+#X restore 397 178 graph;
+#X text 394 380 0;
+#X text 503 394 Time (Seconds);
+#X text 377 369 -1;
+#X text 365 320 -0.5;
+#X text 382 173 1;
+#X text 370 221 0.5;
+#X text 382 271 0;
+#X text 311 266 Amplitude;
+#X text 314 277 (Linear);
+#X obj 1041 179 list \$0;
+#X text 1127 150 [list] trick where \, when receiving a bang \, it
+creates a list with just the element that is the argument. This can
+be used as a replaceable element in message box \, which does not accept
+\$0;
+#X obj 913 457 bng 15 250 50 0 empty \$0-2hz empty 17 7 0 10 -204800
 -1 -1;
-#X msg 703 481 0 \, 1000 10000;
-#X obj 703 619 tabwrite \$0-demo_soundwave_harmonic;
-#X msg 831 183 \; \$1-demo_soundwave_harmonic xticks 0 90 1;
-#X obj 406 616 tabwrite \$0-demo_soundwave_harmonic1;
-#X msg 831 218 \; \$1-demo_soundwave_harmonic yticks 0 0.1 5;
-#X obj 831 123 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X msg 913 511 0 \, 1000 10000;
+#X obj 913 649 tabwrite \$0-demo_soundwave_harmonic;
+#X msg 1041 213 \; \$1-demo_soundwave_harmonic xticks 0 90 1;
+#X obj 616 646 tabwrite \$0-demo_soundwave_harmonic1;
+#X msg 1041 248 \; \$1-demo_soundwave_harmonic yticks 0 0.1 5;
+#X obj 1041 153 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 406 592 expr 0.5 * sin(2 * 3.14159 * $f1 / 180);
-#X obj 105 595 expr 0.25 * sin(2 * 3.14159 * $f1 / 90);
-#X obj 105 622 tabwrite \$0-demo_soundwave_harmonic2;
-#X msg 831 353 \; \$1-demo_soundwave_harmonic1 const 0;
-#X msg 831 391 \; \$1-demo_soundwave_harmonic2 const 0;
-#X obj 406 520 trigger f f;
-#X obj 506 571 + 1;
-#X obj 469 544 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 616 622 expr 0.5 * sin(2 * 3.14159 * $f1 / 180);
+#X obj 315 625 expr 0.25 * sin(2 * 3.14159 * $f1 / 90);
+#X obj 315 652 tabwrite \$0-demo_soundwave_harmonic2;
+#X msg 1041 383 \; \$1-demo_soundwave_harmonic1 const 0;
+#X msg 1041 421 \; \$1-demo_soundwave_harmonic2 const 0;
+#X obj 616 550 trigger f f;
+#X obj 716 601 + 1;
+#X obj 679 574 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 406 499 line;
-#X obj 469 570 f 0;
-#X msg 506 545 0;
-#X obj 506 502 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 616 529 line;
+#X obj 679 600 f 0;
+#X msg 716 575 0;
+#X obj 716 532 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 948 -45 Initialization:;
-#X obj 406 437 bng 15 250 50 0 empty \$0-4hz empty 17 7 0 10 -204800
+#X text 1158 -15 Initialization:;
+#X obj 616 467 bng 15 250 50 0 empty \$0-4hz empty 17 7 0 10 -204800
 -1 -1;
-#X msg 406 478 0 \, 1000 10000;
-#X obj 406 457 t b b;
-#X obj 105 520 trigger f f;
-#X obj 205 571 + 1;
-#X obj 168 544 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X msg 616 508 0 \, 1000 10000;
+#X obj 616 487 t b b;
+#X obj 315 550 trigger f f;
+#X obj 415 601 + 1;
+#X obj 378 574 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 105 499 line;
-#X obj 168 570 f 0;
-#X msg 205 545 0;
-#X obj 205 502 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 315 529 line;
+#X obj 378 600 f 0;
+#X msg 415 575 0;
+#X obj 415 532 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 105 437 bng 15 250 50 0 empty \$0-8hz empty 17 7 0 10 -204800
+#X obj 315 467 bng 15 250 50 0 empty \$0-8hz empty 17 7 0 10 -204800
 -1 -1;
-#X msg 105 478 0 \, 1000 10000;
-#X obj 105 457 t b b;
-#X obj 703 447 t b b;
-#X text 603 91 Initialization---------------------------------------------------------------------------------------------------
+#X msg 315 508 0 \, 1000 10000;
+#X obj 315 487 t b b;
+#X obj 913 477 t b b;
+#X text 813 121 Initialization---------------------------------------------------------------------------------------------------
 , f 115;
-#X text 738 423 2 Hz;
-#X text 438 423 4 Hz;
-#X text 128 423 8 Hz;
-#X obj 108 166 bng 15 250 50 0 \$0-2hz empty 2Hz 17 7 0 10 -204800
+#X text 948 453 2 Hz;
+#X text 648 453 4 Hz;
+#X text 338 453 8 Hz;
+#X obj 109 216 bng 15 250 50 0 \$0-2hz empty 2Hz 17 7 0 10 -204800
 -1 -1;
-#X msg 831 313 \; \$1-demo_soundwave_harmonic const 0;
-#X obj 108 186 bng 15 250 50 0 \$0-4hz empty 4Hz 17 7 0 10 -204800
+#X msg 1041 343 \; \$1-demo_soundwave_harmonic const 0;
+#X obj 109 236 bng 15 250 50 0 \$0-4hz empty 4Hz 17 7 0 10 -204800
 -1 -1;
-#X obj 108 206 bng 15 250 50 0 \$0-8hz empty 8Hz 17 7 0 10 -204800
+#X obj 109 256 bng 15 250 50 0 \$0-8hz empty 8Hz 17 7 0 10 -204800
 -1 -1;
-#X obj 730 277 bng 15 250 50 0 empty \$0-clear Clear 17 7 0 10 -204800
+#X obj 940 307 bng 15 250 50 0 empty \$0-clear Clear 17 7 0 10 -204800
 -1 -1;
-#X obj 108 147 bng 15 250 50 0 \$0-clear empty Clear 17 7 0 10 -204800
+#X obj 109 197 bng 15 250 50 0 \$0-clear empty Clear 17 7 0 10 -204800
 -1 -1;
-#X obj 730 299 list \$0;
-#X msg 917 273 \; \$1-demo_soundwave_harmonic3 const 0;
-#X text 1144 277 This array is strictly for the horizontal line at
+#X obj 940 329 list \$0;
+#X msg 1127 303 \; \$1-demo_soundwave_harmonic3 const 0;
+#X text 1354 307 This array is strictly for the horizontal line at
 0;
-#X text 251 350 0.25;
-#X text 332 350 0.5;
-#X text 403 350 0.75;
-#X text 483 350 1;
+#X text 461 380 0.25;
+#X text 542 380 0.5;
+#X text 613 380 0.75;
+#X text 693 380 1;
+#X obj 107 321 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 107 340 expr 1130 / $f1;
+#X obj 107 362 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262130 -1 -1 0 256;
+#X text 169 319 Frequency in Hz;
+#X text 168 361 Wavelength in Feet;
+#X text 105 303 Wavelength = V/f;
+#X text 208 335 Velocity of sound @ 68 F, f 13;
+#X text 105 177 Graph soundwaves:;
+#X text 104 289 Calculate wavelength:;
+#X text 106 103 OCTAVE AND WAVELENGTH DEMONSTRATION;
 #X connect 0 0 8 0;
 #X connect 0 1 2 0;
 #X connect 1 0 4 1;
@@ -1709,7 +1721,9 @@ as a replaceable element in message box \, which does not accept \$0
 #X connect 65 0 60 0;
 #X connect 65 0 31 0;
 #X connect 65 0 32 0;
-#X coords 0 -1 1 1 400 300 2 100 100;
+#X connect 72 0 73 0;
+#X connect 73 0 74 0;
+#X coords 0 -1 1 1 610 315 2 100 100;
 #X restore 564 1215 pd octave_graph;
 #X restore 137 278 pd 02_FREQUENCY_AND_PITCH;
 #X coords 0 -1 1 1 1100 650 2 100 100;

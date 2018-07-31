@@ -1,4 +1,4 @@
-#N canvas 1858 -132 1413 855 10;
+#N canvas 27 23 1413 855 10;
 #X declare -lib ggee;
 #X declare -lib ggee;
 #X declare -lib ggee;
@@ -15,13 +15,13 @@
 #X obj 1072 336 tgl 15 0 empty \$0-main-freq-demo-on_off empty 17 7
 0 10 -4032 -1 -1 0 1;
 #X obj 904 60 vsl 15 128 20 20000 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 4074 1;
+-1 -1 267 1;
 #X obj 904 217 line;
 #X obj 1145 488 line~;
 #X msg 904 196 \$1 100;
 #X obj 1104 692 metro 250;
 #X obj 1038 177 vsl 15 128 0 2 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 2962 1;
+-1 -1 635 1;
 #X msg 1146 465 \$1 100;
 #X floatatom 1038 313 5 0 0 0 - - -, f 5;
 #X obj 1066 429 spigot;
@@ -35,9 +35,9 @@ amplitude value.;
 #X obj 127 106 tgl 15 0 \$0-main-freq-demo-on_off empty empty 17 7
 0 10 -204800 -1 -1 0 1;
 #X obj 127 130 vsl 15 120 0 22500 0 0 \$0-main-freq-demo-slider empty
-empty 0 -9 0 10 -204800 -1 -1 3416 1;
+empty 0 -9 0 10 -204800 -1 -1 233 1;
 #X obj 118 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq-demo-numbox empty
-empty 0 -8 0 10 -204800 -1 -1 6428.57 256;
+empty 0 -8 0 10 -204800 -1 -1 440 256;
 #X msg -63 271 set \$1;
 #X msg -63 154 set \$1;
 #X text 115 282 Frequency;
@@ -47,9 +47,9 @@ empty 0 -8 0 10 -204800 -1 -1 6428.57 256;
 #X msg -65 221 set \$1;
 #X msg -61 102 set \$1;
 #X obj 208 130 vsl 15 120 0 1.5 0 0 \$0-main-amp-demo-slider empty
-empty 0 -9 0 10 -204800 -1 -1 3793 1;
+empty 0 -9 0 10 -204800 -1 -1 793 1;
 #X obj 203 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-amp-demo-numbox empty
-empty 0 -8 0 10 -204800 -1 -1 0.466387 256;
+empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 #N canvas 564 462 450 300 init 0;
 #X obj 117 22 loadbang;
 #X msg 108 110 0;
@@ -371,14 +371,14 @@ of "fft".;
 10 -204800 -1 -1;
 #X text 331 118 Frequency Presets, f 10;
 #X obj 1619 796 nbx 5 14 -1e+37 1e+37 0 0 \$0-main-start-freq empty
-empty 0 -8 0 10 -204800 -1 -1 52 256;
+empty 0 -8 0 10 -204800 -1 -1 0 256;
 #X obj 1619 814 nbx 5 14 -1e+37 1e+37 0 0 \$0-main-end-freq empty empty
-0 -8 0 10 -204800 -1 -1 996 256;
+0 -8 0 10 -204800 -1 -1 0 256;
 #X obj 1877 487 r \$0-main-start-freq;
 #X obj 1884 511 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-10 -262144 -1 -1 52 256;
+10 -262144 -1 -1 0 256;
 #X obj 1587 506 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-10 -262144 -1 -1 996 256;
+10 -262144 -1 -1 0 256;
 #X obj 1580 484 r \$0-main-end-freq;
 #X text 1545 16 Frequency Presets;
 #X text 1702 347 Frequency Ramp;
@@ -392,10 +392,10 @@ empty 0 -8 0 10 -204800 -1 -1 52 256;
 #X text 1675 794 Frequency Start;
 #X text 1676 813 Frequency End;
 #X obj 1619 834 nbx 5 14 -1e+37 1e+37 0 0 \$0-main-freq-ramp-dur empty
-empty 0 -8 0 10 -204800 -1 -1 5002 256;
+empty 0 -8 0 10 -204800 -1 -1 0 256;
 #X obj 1720 486 r \$0-main-freq-ramp-dur;
 #X obj 1732 507 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
-10 -262144 -1 -1 5002 256;
+10 -262144 -1 -1 0 256;
 #X obj 1693 525 float;
 #X obj 1602 413 t b b b;
 #X msg 1851 554 \$1 20;
@@ -409,7 +409,7 @@ the start to the end point will be heard \, over the specified duration.
 , f 30;
 #X text 1714 771 Frequency Sweep;
 #X obj 480 47 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--262144 -1 -1 52 256;
+-262144 -1 -1 0 256;
 #X obj 433 14 r \$0-main-freq-sweep;
 #X obj 1629 675 s \$0-main-freq-sweep;
 #X obj 1610 627 line;
@@ -777,7 +777,7 @@ into a logarithmic scale., f 97;
 #X obj 234 397 ggee/image db_spl_edit.gif;
 #X text -64 -14 .;
 #X restore 125 371 pd 03_THE_DECIBEL;
-#N canvas 207 23 993 640 01_SOUND_PRESSURE_LEVEL_AND_AMPLITUDE 0;
+#N canvas 207 23 1076 641 01_SOUND_PRESSURE_LEVEL_AND_AMPLITUDE 0;
 #X text -46 23 If you have ever plucked a guitar string or hit a drum
 \, you likely noticed that the harder you hit or plucked resulted in
 a louder sound. While if you plucked or hit the objects with less intensity
@@ -1168,9 +1168,9 @@ full cycles depicted \, over 2 seconds. If the graph instead represented
 1 whole second \, but still had the two cycles \, then we would say
 the frequency is 2 Hz., f 98;
 #X text -46 3 FREQUENCY AND PITCH - INTRODUCTION, f 73;
-#X text -58 387;
+#X text -58 387 comment;
 #X restore 125 457 pd 04_FREQUENCY_AND_PITCH;
-#N canvas 2095 -28 636 320 05_HUMAN_HEARING_LIMITS-FREQUENCY 0;
+#N canvas 499 43 636 320 05_HUMAN_HEARING_LIMITS-FREQUENCY 0;
 #X text -46 13 HUMAN HEARING LIMITS: FREQUENCY, f 73;
 #N canvas 181 23 1259 697 frequency.test 0;
 #X obj 710 131 trigger b b;
@@ -1282,7 +1282,7 @@ get very high \, they can be somewhat unpleasant to listen to. It is
 only for a brief moment \, but you should probably make sure there
 aren’t any other people or pets in the room if you are playing the
 test over speakers., f 98;
-#X text -66 279;
+#X text -66 279 .;
 #X restore 125 503 pd 05_HUMAN_HEARING_LIMITS-FREQUENCY;
 #N canvas 99 115 1270 736 06_PITCH_AND_OCTAVE 0;
 #X text -46 13 PITCH AND OCTAVE, f 73;
@@ -1317,13 +1317,13 @@ test over speakers., f 98;
 #X obj 117 105 tgl 15 0 \$0-freq-demo-on_off empty empty 17 7 0 10
 -204800 -1 -1 0 1;
 #X obj 117 149 vsl 15 128 0 22500 0 0 \$0-freq-demo-slider empty empty
-0 -9 0 10 -204800 -1 -1 497 1;
+0 -9 0 10 -204800 -1 -1 248 1;
 #X obj 904 60 vsl 15 128 20 20000 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 547 1;
+-1 -1 267 1;
 #X obj 904 217 line;
 #X obj 1145 488 line~;
 #X obj 108 286 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq-demo-numbox empty
-empty 0 -8 0 10 -204800 -1 -1 880 256;
+empty 0 -8 0 10 -204800 -1 -1 440 256;
 #X obj 985 719 tabwrite~ freq-demo-scope-\$0;
 #X msg -40 242 set \$1;
 #X obj 904 38 r \$0-freq-demo-slider;
@@ -1561,11 +1561,11 @@ of "fft".;
 #X obj 720 84 r \$0-amp-demo-numbox;
 #X obj 720 219 r \$0-amp-demo-slider;
 #X obj 377 147 vsl 15 128 0 1.5 0 0 \$0-amp-demo-slider empty empty
-0 -9 0 10 -204800 -1 -1 6247 1;
+0 -9 0 10 -204800 -1 -1 847 1;
 #X obj 368 284 nbx 5 14 -1e+37 1e+37 0 0 \$0-amp-demo-numbox empty
-empty 0 -8 0 10 -204800 -1 -1 0.732283 256;
+empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 #X obj 1038 177 vsl 15 128 0 2 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 4650 1;
+-1 -1 635 1;
 #X obj 1038 128 r \$0-amp-demo-slider;
 #X obj 1051 149 r \$0-amp-demo-numbox;
 #X msg 1146 465 \$1 100;
@@ -1715,7 +1715,6 @@ amplitude value.;
 #X connect 96 0 93 0;
 #X coords 0 -1 1 1 610 570 2 100 100;
 #X restore 556 71 pd sound_gen_freq_demo;
-#X text -66 1;
 #X text -46 33 As mentioned earlier \, frequency is a major influence
 on the perception of pitch. To the right is a sound generating module
 that allows you to change the frequency of a test tone. You can change
@@ -1789,6 +1788,7 @@ a greater amount of change in frequency to actually be heard as change.
 #X text -46 643 Why does our ear hear these tones as similar? Some
 of this can be explained by investigating WAVELENGTH \, found in the
 next sub-module., f 98;
+#X text -66 1 .;
 #X restore 125 549 pd 06_PITCH_AND_OCTAVE;
 #N canvas 1666 -19 1266 631 07_WAVELENGTH 0;
 #X text -46 13 PITCH AND OCTAVE, f 73;

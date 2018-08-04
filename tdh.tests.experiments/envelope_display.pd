@@ -1,4 +1,4 @@
-#N canvas 26 23 1414 855 10;
+#N canvas 535 23 905 855 10;
 #X obj 591 166 openpanel;
 #X obj 592 137 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -3396,6 +3396,7 @@ and vice versa (they share envelope sends), f 14;
 #X floatatom 893 1212 5 0 0 0 - - -, f 5;
 #X floatatom 586 1203 5 0 0 0 - - -, f 5;
 #X floatatom 255 1201 5 0 0 0 - - -, f 5;
+#X obj 822 1183 clip 0 1;
 #X connect 0 0 25 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
@@ -3473,7 +3474,7 @@ and vice versa (they share envelope sends), f 14;
 #X connect 84 0 7 0;
 #X connect 84 0 7 1;
 #X connect 89 0 92 0;
-#X connect 89 0 96 0;
+#X connect 89 0 148 0;
 #X connect 90 0 89 0;
 #X connect 91 0 90 0;
 #X connect 93 0 107 0;
@@ -3521,3 +3522,4 @@ and vice versa (they share envelope sends), f 14;
 #X connect 142 0 135 0;
 #X connect 143 0 144 0;
 #X connect 144 0 29 1;
+#X connect 148 0 96 0;

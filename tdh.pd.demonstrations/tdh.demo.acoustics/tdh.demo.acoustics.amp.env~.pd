@@ -1,14 +1,14 @@
-#N canvas 2022 -300 1623 1072 10;
-#X obj 1434 248 openpanel;
-#X obj 1435 219 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#N canvas 1804 -259 1623 855 10;
+#X obj 1904 275 openpanel;
+#X obj 1905 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1242 216 soundfiler;
-#X obj 1237 256 nbx 20 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+#X obj 1712 243 soundfiler;
+#X obj 1707 283 nbx 20 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
 10 -262144 -1 -1 109566 256;
-#X obj 1237 275 / 44100;
-#X obj 1236 303 nbx 10 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+#X obj 1707 302 / 44100;
+#X obj 1706 330 nbx 10 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
 10 -262144 -1 -1 2.48449 256;
-#X obj 1250 701 bng 15 250 50 0 empty empty Cello_with_envelope 17
+#X obj 1667 689 bng 15 250 50 0 empty empty Cello_with_envelope 17
 7 0 10 -262144 -1 -1;
 #X obj 673 1106 dac~ 1 2;
 #N canvas 0 22 450 278 (subpatch) 0;
@@ -19,34 +19,34 @@
 #X array cello 189122 float 4;
 #X coords 0 1 189121 -1 300 200 1 0 0;
 #X restore 450 170 graph;
-#X obj 1086 225 openpanel;
-#X obj 1086 198 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 1556 252 openpanel;
+#X obj 1556 225 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 891 193 soundfiler;
-#X obj 886 233 nbx 20 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+#X obj 1361 220 soundfiler;
+#X obj 1356 260 nbx 20 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
 10 -262144 -1 -1 189122 256;
-#X obj 886 252 / 44100;
-#X obj 885 280 nbx 10 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+#X obj 1356 279 / 44100;
+#X obj 1355 307 nbx 10 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
 10 -262144 -1 -1 4.28848 256;
-#X obj 1236 322 * 1000;
-#X obj 1236 348 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+#X obj 1706 349 * 1000;
+#X obj 1706 375 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
 10 -262144 -1 -1 2484.49 256;
-#X obj 885 299 * 1000;
-#X obj 885 320 nbx 10 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+#X obj 1355 326 * 1000;
+#X obj 1355 347 nbx 10 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
 10 -262144 -1 -1 4288.48 256;
-#X obj 1000 728 tabplay~ guitar;
-#X obj 1000 710 bng 15 250 50 0 empty empty Guitar 17 7 0 10 -262144
+#X obj 1417 716 tabplay~ guitar;
+#X obj 1417 698 bng 15 250 50 0 empty empty Guitar 17 7 0 10 -262144
 -1 -1;
-#X obj 894 82 loadbang;
-#X msg 1086 253 read \$1 cello;
-#X obj 1245 106 loadbang;
-#X msg 1434 269 read \$1 guitar;
-#X msg 892 162 read -resize ../SoundLibrary/celloA3_TDH_EDIT4.aiff
+#X obj 1364 109 loadbang;
+#X msg 1556 280 read \$1 cello;
+#X obj 1715 133 loadbang;
+#X msg 1904 296 read \$1 guitar;
+#X msg 1362 189 read -resize ../SoundLibrary/celloA3_TDH_EDIT4.aiff
 cello, f 45;
-#X obj 1250 853 line~;
-#X obj 1249 874 tabread4~ cello;
-#X obj 1249 970 *~ 1;
-#X msg 1250 831 10000 \, 189122 4000;
+#X obj 1667 841 line~;
+#X obj 1666 862 tabread4~ cello;
+#X obj 1666 958 *~ 1;
+#X msg 1667 819 10000 \, 189122 4000;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-env3 10000 float 1;
 #A 0 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3
@@ -651,12 +651,12 @@ cello, f 45;
 #X floatatom 1099 1260 5 0 0 0 - - -, f 5;
 #X obj 1035 1144 line~;
 #X obj 1035 1165 tabread4~ \$0-env2;
-#X obj 1158 835 *~;
+#X obj 1575 823 *~;
 #X msg 1035 1123 0 \, 10001 4288;
-#X obj 1099 806 phasor~ 220;
-#X obj 909 710 bng 15 250 50 0 empty empty Cello 17 7 0 10 -262144
+#X obj 1516 794 phasor~ 220;
+#X obj 1326 698 bng 15 250 50 0 empty empty Cello 17 7 0 10 -262144
 -1 -1;
-#X obj 909 729 tabplay~ cello;
+#X obj 1326 717 tabplay~ cello;
 #X obj 1359 1240 snapshot~;
 #X obj 1373 1216 metro 1;
 #X obj 1374 1197 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
@@ -665,7 +665,7 @@ cello, f 45;
 #X obj 1359 1142 line~;
 #X obj 1359 1163 tabread4~ \$0-env1;
 #X msg 1359 1121 0 \, 10001 4288;
-#X msg 1242 171 read ../SoundLibrary/41678__digifishmusic__guitar-nylon-open-a3__TDH_EDIT.wav
+#X msg 1712 198 read ../SoundLibrary/41678__digifishmusic__guitar-nylon-open-a3__TDH_EDIT.wav
 guitar;
 #X obj 1035 1295 spigot;
 #X obj 901 1165 tgl 15 0 empty empty Cello_Envelope 17 7 0 10 -262144
@@ -683,7 +683,7 @@ guitar;
 #X obj 901 1128 r cello_env_toggle;
 #X obj 904 1287 s guitar_env_toggle;
 #X obj 1220 1165 r guitar_env_toggle;
-#X obj 1269 755 s env_trigger;
+#X obj 1686 743 s env_trigger;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-env2 10000 float 1;
 #A 0 0.0142859 0.0142859 0.0142859 0.0142859 0.0142859 0.0142859 0.0142859
@@ -1933,26 +1933,26 @@ guitar;
 #X restore 53 704 graph;
 #X msg 1820 1229 \; \$1-env3 const 0.3;
 #X obj 1828 1125 loadbang;
-#X obj 1102 706 bng 15 250 50 0 empty empty Synthetic_tone 17 7 0 10
+#X obj 1519 694 bng 15 250 50 0 empty empty Synthetic_tone 17 7 0 10
 -262144 -1 -1;
-#X obj 1102 726 t b b;
-#X msg 1102 777 0 \, 0.7 150;
-#X obj 1173 805 line;
-#X obj 1173 756 del 1000;
-#X msg 1173 777 0 150;
-#X obj 1681 842 *~;
-#X obj 1620 761 phasor~ 220;
-#X obj 1619 677 bng 15 250 50 0 empty empty Synthetic_Tone_with_Envelope
+#X obj 1519 714 t b b;
+#X msg 1519 765 0 \, 0.7 150;
+#X obj 1590 793 line;
+#X obj 1590 744 del 1000;
+#X msg 1590 765 0 150;
+#X obj 2098 830 *~;
+#X obj 2037 749 phasor~ 220;
+#X obj 2036 665 bng 15 250 50 0 empty empty Synthetic_Tone_with_Envelope
 17 7 0 10 -262144 -1 -1;
-#X obj 1298 909 r envelope;
-#X obj 1619 724 s env_trigger;
-#X obj 1696 760 r envelope;
-#X obj 909 749 throw~ dac;
+#X obj 1715 897 r envelope;
+#X obj 2036 712 s env_trigger;
+#X obj 2113 748 r envelope;
+#X obj 1326 737 throw~ dac;
 #X obj 674 1037 catch~ dac;
-#X obj 1000 749 throw~ dac;
-#X obj 1249 991 throw~ dac;
-#X obj 1158 855 throw~ dac;
-#X obj 1681 873 throw~ dac;
+#X obj 1417 737 throw~ dac;
+#X obj 1666 979 throw~ dac;
+#X obj 1575 843 throw~ dac;
+#X obj 2098 861 throw~ dac;
 #X obj 1659 1240 snapshot~;
 #X obj 1673 1216 metro 1;
 #X obj 1674 1197 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
@@ -1981,22 +1981,22 @@ guitar;
 #X obj 1537 1217 t f f;
 #X obj 1235 1217 t f f;
 #X obj 934 1201 t f f;
-#X msg 1316 121 read ../SoundLibrary/41678__digifishmusic__guitar-nylon-open-a3__TDH_EDIT.wav
+#X msg 1786 148 read ../SoundLibrary/41678__digifishmusic__guitar-nylon-open-a3__TDH_EDIT.wav
 guitar1a;
-#X msg 961 114 read -resize ../SoundLibrary/celloA3_TDH_EDIT4.aiff
+#X msg 1431 141 read -resize ../SoundLibrary/celloA3_TDH_EDIT4.aiff
 cello1a, f 44;
-#X obj 1696 820 spigot;
-#X msg 1729 786 1;
-#X msg 1766 786 0;
-#X obj 1766 760 r synth_off;
-#X obj 1412 844 s synth_off;
-#X obj 1297 940 spigot;
-#X obj 1250 725 t b b b;
-#X msg 1378 906 1;
-#X msg 1414 904 0;
-#X obj 1414 875 r cello_off;
-#X obj 1619 697 t b b;
-#X obj 1768 737 s cello_off;
+#X obj 2113 808 spigot;
+#X msg 2146 774 1;
+#X msg 2183 774 0;
+#X obj 2183 748 r synth_off;
+#X obj 1829 832 s synth_off;
+#X obj 1714 928 spigot;
+#X obj 1667 713 t b b b;
+#X msg 1795 894 1;
+#X msg 1831 892 0;
+#X obj 1831 863 r cello_off;
+#X obj 2036 685 t b b;
+#X obj 2185 725 s cello_off;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-env1 10000 float 1;
 #A 0 0.0428424 0.136078 0.136454 0.136829 0.137205 0.137581 0.137957
@@ -2753,25 +2753,25 @@ cello1a, f 44;
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 #X coords 0 1 9999 0 300 100 1 0 0;
 #X restore 54 572 graph;
-#X obj 1378 780 s envelope;
-#X msg 1379 730 0 25;
-#X text 1417 730 silence playing tone;
-#X obj 1859 782 s envelope;
-#X msg 1860 735 0 25;
-#X text 1898 735 silence playing tone;
-#X text 1506 833 turn off synth envelope [receive] when playing cello
+#X obj 1795 768 s envelope;
+#X msg 1796 718 0 25;
+#X text 1834 718 silence playing tone;
+#X obj 2276 770 s envelope;
+#X msg 2277 723 0 25;
+#X text 2315 723 silence playing tone;
+#X text 1923 821 turn off synth envelope [receive] when playing cello
 and vice versa (they share envelope sends), f 14;
-#X msg 1800 786 0 25;
-#X obj 1800 807 line;
-#X obj 1379 751 line;
-#X obj 1860 756 line;
-#X msg 1447 904 0 25;
-#X obj 1447 925 line;
+#X msg 2217 774 0 25;
+#X obj 2217 795 line;
+#X obj 1796 739 line;
+#X obj 2277 744 line;
+#X msg 1864 892 0 25;
+#X obj 1864 913 line;
 #X floatatom 1736 1294 5 0 0 0 - - -, f 5;
 #X floatatom 1429 1285 5 0 0 0 - - -, f 5;
 #X floatatom 1098 1283 5 0 0 0 - - -, f 5;
 #X obj 1665 1265 clip 0 1;
-#N canvas 1440 -209 1920 1035 sound_gen_amp_demo 0;
+#N canvas 1829 -94 1920 1035 sound_gen_amp_demo 1;
 #X obj 226 130 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 1104 669 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 1 1;
@@ -2781,15 +2781,15 @@ and vice versa (they share envelope sends), f 14;
 #X obj 904 253 osc~ 440;
 #X obj 898 538 *~;
 #X obj 1072 336 tgl 15 0 empty \$0-main-freq-demo-on_off empty 17 7
-0 10 -4032 -1 -1 1 1;
+0 10 -4032 -1 -1 0 1;
 #X obj 904 60 vsl 15 128 20 20000 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 829 1;
+-1 -1 267 1;
 #X obj 904 217 line;
 #X obj 1145 488 line~;
 #X msg 904 196 \$1 100;
 #X obj 1104 692 metro 250;
 #X obj 1038 177 vsl 15 128 0 2 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 80 1;
+-1 -1 635 1;
 #X msg 1146 465 \$1 100;
 #X floatatom 1038 313 5 0 0 0 - - -, f 5;
 #X obj 1066 429 spigot;
@@ -2801,11 +2801,11 @@ and vice versa (they share envelope sends), f 14;
 the gate. When toggle is on \, open the gate and ramp to the current
 amplitude value.;
 #X obj 127 106 tgl 15 0 \$0-main-freq-demo-on_off empty empty 17 7
-0 10 -204800 -1 -1 1 1;
+0 10 -204800 -1 -1 0 1;
 #X obj 127 130 vsl 15 120 0 22500 0 0 \$0-env_demo_freq_slider empty
-empty 0 -9 0 10 -204800 -1 -1 700 1;
+empty 0 -9 0 10 -204800 -1 -1 233 1;
 #X obj 118 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-env_demo_freq_numbox empty
-empty 0 -8 0 10 -204800 -1 -1 1323.53 256;
+empty 0 -8 0 10 -204800 -1 -1 440 256;
 #X msg -63 271 set \$1;
 #X msg -63 154 set \$1;
 #X text 115 282 Frequency;
@@ -2814,9 +2814,9 @@ empty 0 -8 0 10 -204800 -1 -1 1323.53 256;
 #X msg -65 221 set \$1;
 #X msg -61 102 set \$1;
 #X obj 208 130 vsl 15 120 0 1.5 0 0 \$0-env_demo_amp_slider empty empty
-0 -9 0 10 -204800 -1 -1 100 1;
+0 -9 0 10 -204800 -1 -1 793 1;
 #X obj 203 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-env_demo_amp_numbox empty
-empty 0 -8 0 10 -204800 -1 -1 0.012605 256;
+empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 #N canvas 564 462 450 300 init 0;
 #X obj 117 22 loadbang;
 #X msg 108 110 0;
@@ -2905,14 +2905,14 @@ empty 0 -8 0 10 -204800 -1 -1 0.012605 256;
 0.000401188 -0.00196758 -0.00426662 -0.00641431 -0.00833472 -0.00995951
 -0.0112312 -0.0121049;
 #X coords 0 1 444 -1 350 200 1 0 0;
-#X restore 381 122 graph;
-#X text 360 163 0.5-;
-#X text 355 263 -0.5-;
-#X text 354 312 -1;
-#X text 360 114 1;
-#X text 359 213 0.0-;
+#X restore 373 122 graph;
+#X text 352 163 0.5-;
+#X text 347 263 -0.5-;
+#X text 346 312 -1;
+#X text 352 114 1;
+#X text 351 213 0.0-;
 #X obj 203 287 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 -38 256;
+-204800 -1 -1 0 256;
 #X text 261 286 dB FS;
 #X obj 42 283 + 3;
 #X obj 958 633 send~ \$0-main-sig1;
@@ -2932,7 +2932,7 @@ empty 0 -8 0 10 -204800 -1 -1 0.012605 256;
 #X msg 1296 566 \; \$1-env_demo_scope const -1;
 #N canvas 27 23 450 300 blank 0;
 #X coords 0 -1 1 1 400 250 2 100 100;
-#X restore 350 103 pd blank;
+#X restore 342 103 pd blank;
 #X text 258 266 Master Amp;
 #X obj 898 590 *~;
 #X obj 948 547 r \$0-env_demo_main_envelope;
@@ -3529,7 +3529,7 @@ empty 0 -8 0 10 -204800 -1 -1 0.012605 256;
 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3
 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3;
 #X coords 0 1 9999 0 300 100 1 0 0;
-#X restore 393 632 graph;
+#X restore 385 632 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-cello_env 10000 float 1;
 #A 0 0.0142859 0.0142859 0.0142859 0.0142859 0.0142859 0.0142859 0.0142859
@@ -4774,10 +4774,10 @@ empty 0 -8 0 10 -204800 -1 -1 0.012605 256;
 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857
 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857
 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857
-0.0142857 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.00714302;
+0.0142857 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.00714302 ;
 #X coords 0 1 9999 0 300 100 1 0 0;
-#X restore 394 504 graph;
-#N canvas 0 22 450 278 (subpatch) 0;
+#X restore 386 504 graph;
+#N canvas 27 23 450 278 (subpatch) 0;
 #X array \$0-guitar_env 10000 float 1;
 #A 0 0.0428424 0.136078 0.136454 0.136829 0.137205 0.137581 0.137957
 0.138333 0.138709 0.139085 0.139461 0.139837 0.140213 0.140589 0.140965
@@ -5532,7 +5532,7 @@ empty 0 -8 0 10 -204800 -1 -1 0.012605 256;
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 #X coords 0 1 9999 0 300 100 1 0 0;
-#X restore 395 372 graph;
+#X restore 385 377 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-adsr_env 10000 float 1;
 #A 0 0.0199993 0.0199993 0.0199993 0.0199993 0.0199993 0.0199993 0.0199993
@@ -6797,7 +6797,7 @@ empty 0 -8 0 10 -204800 -1 -1 0.012605 256;
 0.00999999 0.00999999 0.00999999 0.00999999 0.00999999 0.00999999 0.00999999
 0.00999999 0.00999999 0.00999999 0.00999999;
 #X coords 0 1 9999 0 300 100 1 0 0;
-#X restore 392 762 graph;
+#X restore 384 762 graph;
 #X text 162 334 Source;
 #X obj 116 364 tgl 15 0 empty empty Synthetic_Tone 17 7 0 10 -262144
 -1 -1 0 1;
@@ -6814,7 +6814,104 @@ empty 0 -8 0 10 -204800 -1 -1 0.012605 256;
 #X text 162 464 Envelope;
 #X obj 116 584 tgl 15 0 empty empty ADSR 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 118 759 tdh.synth.adsr.lite~;
+#X obj 110 759 tdh.synth.adsr.lite~;
+#X obj 1178 848 r \$0-env_demo_guitar_env_trig-r;
+#X obj 833 1020 snapshot~;
+#X obj 855 1000 metro 1;
+#X obj 856 981 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 897 1042 5 0 0 0 - - -, f 5;
+#X obj 833 926 line~;
+#X obj 833 947 tabread4~ \$0-env2;
+#X msg 833 905 0 \, 10001 4288;
+#X obj 1397 1022 snapshot~;
+#X obj 1411 998 metro 1;
+#X obj 1412 979 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X floatatom 1467 1043 5 0 0 0 - - -, f 5;
+#X obj 1397 924 line~;
+#X obj 1397 945 tabread4~ \$0-env1;
+#X msg 1397 903 0 \, 10001 4288;
+#X obj 833 1077 spigot;
+#X obj 699 947 tgl 15 0 empty empty Cello_Envelope 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 1209 972 tgl 15 0 empty empty Guitar_Envelope 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 1397 1084 spigot;
+#X obj 1209 1032 sel 1;
+#X msg 1210 1057 0;
+#X obj 701 1023 sel 1;
+#X msg 702 1048 0;
+#X text 1153 1033 Close other envelope spigot, f 8;
+#X text 640 1020 Close other envelope spigot, f 8;
+#X obj 1210 1078 s cello_env_toggle;
+#X obj 699 910 r cello_env_toggle;
+#X obj 702 1069 s guitar_env_toggle;
+#X obj 1727 1022 snapshot~;
+#X obj 1741 998 metro 1;
+#X obj 1742 979 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X floatatom 1807 1046 5 0 0 0 - - -, f 5;
+#X obj 1727 924 line~;
+#X msg 1727 903 0 \, 10001 4288;
+#X obj 1589 972 tgl 15 0 empty empty User_Envelope 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 1727 1084 spigot;
+#X obj 1589 1034 sel 1;
+#X msg 1590 1059 0;
+#X text 1503 1035 Close other envelope spigot, f 8;
+#X obj 1590 1080 s cello_env_toggle;
+#X obj 1588 947 r user_env_toggle;
+#X obj 1591 1104 s guitar_env_toggle;
+#X obj 1210 1104 s user_env_toggle;
+#X obj 703 1094 s user_env_toggle;
+#X obj 833 876 r env_trigger;
+#X obj 1396 877 r env_trigger;
+#X obj 1727 945 tabread4~ \$0-env3;
+#X obj 1726 877 r env_trigger;
+#X obj 833 1098 s envelope;
+#X obj 1397 1105 s envelope;
+#X obj 1727 1105 s envelope;
+#X obj 1605 999 t f f;
+#X obj 732 983 t f f;
+#X floatatom 1804 1076 5 0 0 0 - - -, f 5;
+#X floatatom 1467 1067 5 0 0 0 - - -, f 5;
+#X floatatom 896 1065 5 0 0 0 - - -, f 5;
+#X obj 1733 1047 clip 0 1;
+#X obj 1223 999 t f f b;
+#N canvas 27 23 450 300 set_guitar_env 0;
+#X obj 66 75 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 66 95 list \$0;
+#X msg 66 118 \; \$1-guitar_env read guitar_env.txt;
+#X obj 81 40 inlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 0 0;
+#X restore 1238 937 pd set_guitar_env;
+#X obj 1238 917 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 1180 818 FROM TOGGLE;
+#X text 1260 890 set the stored env in case user changed it, f 19
+;
+#X obj 1191 773 cnv 15 150 20 empty empty LEFT_OFF_HERE 20 12 0 14
+-257985 -66577 0;
+#X obj 1647 270 cnv 15 250 300 empty empty empty 20 12 0 14 -245501
+-66577 0;
+#X obj 1725 308 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1724 367 t b s, f 11;
+#X obj 1724 419 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1724 439 list \$0;
+#X obj 1724 346 savepanel;
+#X obj 1724 483 pack f s;
+#X msg 1724 510 \; \$1-adsr_env write \$2;
+#X text 1658 283 For writing the "stock" envelopes;
+#X text 1343 775 TO DO: have the cello envelope reload when it is toggled
+\, connect the GUI toggles to the envelope generators \, send the envelope
+data to the sound generator \, rename all receives that have been held
+over.;
 #X connect 0 0 44 0;
 #X connect 1 0 12 0;
 #X connect 3 0 4 0;
@@ -6863,7 +6960,68 @@ empty 0 -8 0 10 -204800 -1 -1 0.012605 256;
 #X connect 61 0 2 1;
 #X connect 61 0 2 0;
 #X connect 62 0 61 1;
-#X coords 0 -1 1 1 600 625 2 100 100;
+#X connect 77 0 94 0;
+#X connect 77 0 136 0;
+#X connect 78 0 81 0;
+#X connect 78 0 92 0;
+#X connect 79 0 78 0;
+#X connect 80 0 79 0;
+#X connect 82 0 83 0;
+#X connect 83 0 78 0;
+#X connect 84 0 82 0;
+#X connect 85 0 88 0;
+#X connect 85 0 95 0;
+#X connect 86 0 85 0;
+#X connect 87 0 86 0;
+#X connect 89 0 90 0;
+#X connect 90 0 85 0;
+#X connect 91 0 89 0;
+#X connect 92 0 125 0;
+#X connect 93 0 98 0;
+#X connect 93 0 129 0;
+#X connect 94 0 96 0;
+#X connect 94 0 134 0;
+#X connect 95 0 126 0;
+#X connect 96 0 97 0;
+#X connect 97 0 102 0;
+#X connect 97 0 119 0;
+#X connect 98 0 99 0;
+#X connect 99 0 104 0;
+#X connect 99 0 120 0;
+#X connect 103 0 93 0;
+#X connect 105 0 108 0;
+#X connect 105 0 133 0;
+#X connect 106 0 105 0;
+#X connect 107 0 106 0;
+#X connect 109 0 123 0;
+#X connect 110 0 109 0;
+#X connect 111 0 113 0;
+#X connect 111 0 128 0;
+#X connect 112 0 127 0;
+#X connect 113 0 114 0;
+#X connect 114 0 116 0;
+#X connect 114 0 118 0;
+#X connect 117 0 111 0;
+#X connect 121 0 84 0;
+#X connect 122 0 91 0;
+#X connect 123 0 105 0;
+#X connect 124 0 110 0;
+#X connect 128 0 112 1;
+#X connect 128 1 107 0;
+#X connect 129 0 92 1;
+#X connect 129 1 80 0;
+#X connect 133 0 112 0;
+#X connect 134 0 95 1;
+#X connect 134 1 87 0;
+#X connect 136 0 135 0;
+#X connect 141 0 145 0;
+#X connect 142 0 143 0;
+#X connect 142 1 146 1;
+#X connect 143 0 144 0;
+#X connect 144 0 146 0;
+#X connect 145 0 142 0;
+#X connect 146 0 147 0;
+#X coords 0 -1 1 1 650 625 2 100 100;
 #X restore 515 -708 pd sound_gen_amp_demo;
 #X connect 0 0 25 0;
 #X connect 1 0 0 0;
@@ -6990,4 +7148,4 @@ empty 0 -8 0 10 -204800 -1 -1 0.012605 256;
 #X connect 141 0 142 0;
 #X connect 142 0 29 1;
 #X connect 146 0 96 0;
-#X coords 0 -1 1 1 725 450 2 100 100;
+#X coords 0 -1 1 1 1100 650 2 100 100;

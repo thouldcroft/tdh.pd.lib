@@ -2771,8 +2771,7 @@ and vice versa (they share envelope sends), f 14;
 #X floatatom 1429 1285 5 0 0 0 - - -, f 5;
 #X floatatom 1098 1283 5 0 0 0 - - -, f 5;
 #X obj 1665 1265 clip 0 1;
-#N canvas 27 23 1413 855 sound_gen_amp_demo 0;
-#X obj 226 130 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#N canvas 27 23 1413 855 sound_gen_amp_demo 1;
 #X obj 1104 669 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 1 1;
 #X obj 904 720 dac~ 1 2;
@@ -2800,39 +2799,6 @@ and vice versa (they share envelope sends), f 14;
 #X text 1122 318 When toggle is off \, ramp down to silence and close
 the gate. When toggle is on \, open the gate and ramp to the current
 amplitude value.;
-#X obj 127 106 tgl 15 0 \$0-main-freq-demo-on_off empty empty 17 7
-0 10 -204800 -1 -1 0 1;
-#X obj 127 130 vsl 15 120 0 22500 0 0 \$0-env_demo_freq_slider empty
-empty 0 -9 0 10 -204800 -1 -1 233 1;
-#X obj 118 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-env_demo_freq_numbox empty
-empty 0 -8 0 10 -204800 -1 -1 440 256;
-#X msg -63 271 set \$1;
-#X msg -63 154 set \$1;
-#X text 115 282 Frequency;
-#X text 175 267 Hz;
-#X text 149 105 On/Off;
-#X msg -65 221 set \$1;
-#X msg -61 102 set \$1;
-#X obj 208 130 vsl 15 120 0 1.5 0 0 \$0-env_demo_amp_slider empty empty
-0 -9 0 10 -204800 -1 -1 793 1;
-#X obj 203 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-env_demo_amp_numbox empty
-empty 0 -8 0 10 -204800 -1 -1 0.1 256;
-#N canvas 564 462 450 300 init 0;
-#X obj 117 22 loadbang;
-#X msg 108 110 0;
-#X obj 98 191 outlet;
-#X obj 205 188 outlet;
-#X msg 203 117 440;
-#X msg 300 122 0.1;
-#X obj 300 143 outlet;
-#X connect 0 0 1 0;
-#X connect 0 0 4 0;
-#X connect 0 0 5 0;
-#X connect 1 0 2 0;
-#X connect 4 0 3 0;
-#X connect 5 0 6 0;
-#X restore 114 13 pd init;
-#X obj 208 67 else/vu~;
 #N canvas 27 23 450 278 (subpatch) 0;
 #X array \$0-env_demo_scope 445 float 1;
 #A 0 0.00864661 0.00677411 0.00466141 0.0023834 2.09249e-05 -0.0023423
@@ -2911,20 +2877,11 @@ empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 #X text 346 312 -1;
 #X text 352 114 1;
 #X text 351 213 0.0-;
-#X obj 203 287 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 0 256;
-#X text 261 286 dB FS;
-#X obj 42 283 + 3;
 #X obj 958 633 send~ \$0-main-sig1;
-#X obj 208 42 receive~ \$0-main-sig1;
-#X obj -66 198 r \$0-env_demo_amp_slider;
-#X obj -63 248 r \$0-env_demo_freq_slider;
 #X obj 904 38 r \$0-env_demo_freq_slider;
 #X obj 1038 128 r \$0-env_demo_amp_slider;
 #X obj 1051 149 r \$0-env_demo_amp_numbox;
-#X obj -61 81 r \$0-env_demo_amp_numbox;
 #X obj 932 59 r \$0-env_demo_freq_numbox;
-#X obj -63 133 r \$0-env_demo_freq_numbox;
 #X obj 985 720 tabwrite~ \$0-env_demo_scope;
 #X obj 1301 518 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -2933,7 +2890,6 @@ empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 #N canvas 27 23 450 300 blank 0;
 #X coords 0 -1 1 1 400 250 2 100 100;
 #X restore 342 103 pd blank;
-#X text 258 266 Master Amp;
 #X obj 898 590 *~;
 #X obj 948 547 r \$0-env_demo_main_envelope;
 #N canvas 0 22 450 278 (subpatch) 0;
@@ -3529,7 +3485,7 @@ empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3
 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3 0.3;
 #X coords 0 1 9999 0 300 100 1 0 0;
-#X restore 385 662 graph;
+#X restore 118 519 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-cello_env 10000 float 1;
 #A 0 0.0142859 0.0142859 0.0142859 0.0142859 0.0142859 0.0142859 0.0142859
@@ -4774,9 +4730,9 @@ empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857
 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857
 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857 0.0142857
-0.0142857 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.00714302 ;
+0.0142857 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.00714302;
 #X coords 0 1 9999 0 300 100 1 0 0;
-#X restore 386 504 graph;
+#X restore 439 398 graph;
 #N canvas 27 23 450 278 (subpatch) 0;
 #X array \$0-guitar_env 10000 float 1;
 #A 0 0.0428424 0.136078 0.136454 0.136829 0.137205 0.137581 0.137957
@@ -5532,7 +5488,7 @@ empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
 #X coords 0 1 9999 0 300 100 1 0 0;
-#X restore 385 377 graph;
+#X restore 116 397 graph;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array \$0-adsr_env 10000 float 1;
 #A 0 0.0199993 0.0199993 0.0199993 0.0199993 0.0199993 0.0199993 0.0199993
@@ -6797,69 +6753,58 @@ empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 0.00999999 0.00999999 0.00999999 0.00999999 0.00999999 0.00999999 0.00999999
 0.00999999 0.00999999 0.00999999 0.00999999;
 #X coords 0 1 9999 0 300 100 1 0 0;
-#X restore 384 812 graph;
-#X text 162 334 Source;
-#X obj 116 364 tgl 15 0 empty empty Synthetic_Tone 17 7 0 10 -262144
+#X restore 437 524 graph;
+#X obj 130 298 tgl 15 0 empty empty Synthetic_Tone 17 7 0 10 -262144
 -1 -1 0 1;
-#X obj 116 394 tgl 15 0 empty empty Guitar 17 7 0 10 -262144 -1 -1
+#X obj 130 318 tgl 15 0 empty empty Guitar 17 7 0 10 -262144 -1 -1
 0 1;
-#X obj 116 424 tgl 15 0 empty empty Cello 17 7 0 10 -262144 -1 -1 0
+#X obj 130 338 tgl 15 0 empty empty Cello 17 7 0 10 -262144 -1 -1 0
 1;
-#X obj 117 494 tgl 15 0 \$0-env_demo_guitar_env_trig-r \$0-env_demo_guitar_env_toggle-s
+#X obj 126 131 tgl 15 0 \$0-env_demo_guitar_env_toggle-r \$0-env_demo_guitar_env_toggle-s
 Guitar_Envelope 17 7 0 10 -262144 -1 -1 0 1;
-#X obj 116 524 tgl 15 0 \$0-env_demo_cello_env_trig-r \$0-env_demo_cello_env_toggle-s
+#X obj 126 151 tgl 15 0 \$0-env_demo_cello_env_toggle-r \$0-env_demo_cello_env_toggle-s
 Cello_Envelope 17 7 0 10 -262144 -1 -1 0 1;
-#X obj 116 554 tgl 15 0 \$0-env_demo_user_env_toggle-s \$0-env_demo_user_env_toggle-s
-User_Defined_Envelope 17 7 0 10 -262144 -1 -1 1 1;
-#X text 162 464 Envelope;
-#X obj 116 584 tgl 15 0 empty empty ADSR 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 1154 900 r \$0-env_demo_guitar_env_trig-r;
-#X obj 1796 1096 snapshot~;
-#X obj 1818 1076 metro 1;
-#X obj 1819 1057 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+#X obj 126 171 tgl 15 0 \$0-env_demo_user_env_toggle-s \$0-env_demo_user_env_toggle-s
+User_Defined_Envelope 17 7 0 10 -262144 -1 -1 0 1;
+#X obj 1766 1096 snapshot~;
+#X obj 1788 1076 metro 1;
+#X obj 1789 1057 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 0 1;
-#X obj 1796 1002 line~;
-#X msg 1796 981 0 \, 10001 4288;
-#X obj 1403 1074 snapshot~;
-#X obj 1417 1050 metro 1;
-#X obj 1418 1031 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+#X obj 1766 1002 line~;
+#X msg 1766 981 0 \, 10001 4288;
+#X obj 1273 1074 snapshot~;
+#X obj 1287 1050 metro 1;
+#X obj 1288 1031 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 0 1;
-#X obj 1403 976 line~;
-#X msg 1403 955 0 \, 10001 4288;
-#X obj 1796 1153 spigot;
-#X obj 1566 1028 tgl 15 0 empty empty Cello_Envelope 17 7 0 10 -262144
+#X obj 1273 976 line~;
+#X msg 1273 955 0 \, 10001 4288;
+#X obj 1766 1153 spigot;
+#X obj 1536 1028 tgl 15 0 empty empty Cello_Envelope 17 7 0 10 -262144
 -1 -1 0 1;
-#X obj 1185 1024 tgl 15 0 empty empty Guitar_Envelope 17 7 0 10 -262144
+#X obj 1055 1024 tgl 15 0 empty empty Guitar_Envelope 17 7 0 10 -262144
 -1 -1 0 1;
-#X obj 1403 1136 spigot;
-#X obj 1185 1084 sel 1;
-#X msg 1186 1109 0;
-#X obj 1574 1099 sel 1;
-#X msg 1575 1124 0;
-#X text 1129 1085 Close other envelope spigot, f 8;
-#X text 1513 1096 Close other envelope spigot, f 8;
-#X obj 2167 1022 snapshot~;
-#X obj 2181 998 metro 1;
-#X obj 2182 979 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
-#X obj 2167 924 line~;
-#X msg 2167 903 0 \, 10001 4288;
-#X obj 1939 972 tgl 15 0 empty empty User_Envelope 17 7 0 10 -262144
--1 -1 1 1;
-#X obj 2167 1084 spigot;
-#X obj 1939 1034 sel 1;
-#X msg 1940 1059 0;
-#X obj 1796 952 r env_trigger;
-#X obj 1402 929 r env_trigger;
-#X obj 2166 877 r env_trigger;
-#X obj 1796 1174 s envelope;
-#X obj 1403 1157 s envelope;
-#X obj 2167 1105 s envelope;
-#X obj 1955 999 t f f;
-#X obj 1605 1059 t f f;
-#X obj 2173 1047 clip 0 1;
-#X obj 1199 1051 t f f b;
+#X obj 1273 1136 spigot;
+#X obj 1055 1084 sel 1;
+#X msg 1056 1109 0;
+#X obj 1544 1099 sel 1;
+#X msg 1545 1124 0;
+#X text 999 1085 Close other envelope spigot, f 8;
+#X text 1483 1096 Close other envelope spigot, f 8;
+#X obj 2233 1022 snapshot~;
+#X obj 2247 998 metro 1;
+#X obj 2248 979 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 2233 924 line~;
+#X msg 2233 903 0 \, 10001 4288;
+#X obj 2005 972 tgl 15 0 empty empty User_Envelope 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 2233 1084 spigot;
+#X obj 2005 1034 sel 1;
+#X msg 2006 1059 0;
+#X obj 2021 999 t f f;
+#X obj 1575 1059 t f f;
+#X obj 2239 1047 clip 0 1;
+#X obj 1069 1051 t f f b;
 #N canvas 27 23 450 300 set_guitar_env 0;
 #X obj 66 75 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -6869,13 +6814,13 @@ User_Defined_Envelope 17 7 0 10 -262144 -1 -1 1 1;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 3 0 0 0;
-#X restore 1214 989 pd set_guitar_env;
-#X obj 1214 969 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X restore 1084 989 pd set_guitar_env;
+#X obj 1084 969 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 1156 870 FROM TOGGLE;
-#X text 1236 937 set the stored env in case user changed it, f 19
+#X text 1026 870 FROM TOGGLE;
+#X text 1106 937 set the stored env in case user changed it, f 19
 ;
-#X obj 1191 773 cnv 15 150 20 empty empty LEFT_OFF_HERE 20 12 0 14
+#X obj 2736 889 cnv 15 150 20 empty empty LEFT_OFF_HERE 20 12 0 14
 -257985 -66577 0;
 #X obj 1647 270 cnv 15 250 300 empty empty empty 20 12 0 14 -245501
 -66577 0;
@@ -6889,16 +6834,12 @@ User_Defined_Envelope 17 7 0 10 -262144 -1 -1 1 1;
 #X obj 1724 483 pack f s;
 #X msg 1724 510 \; \$1-adsr_env write \$2;
 #X text 1658 283 For writing the "stock" envelopes;
-#X text 1348 769 TO DO: have the cello envelope reload when it is toggled
-\, connect the GUI toggles to the envelope generators \, send the envelope
-data to the sound generator \, rename all receives that have been held
-over.;
-#X obj 1154 921 t f f;
-#X obj 1627 981 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 1024 921 t f f;
+#X obj 1597 981 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 1649 949 set the stored env in case user changed it, f 19
+#X text 1619 949 set the stored env in case user changed it, f 19
 ;
-#X obj 1577 956 t f f;
+#X obj 1547 956 t f f;
 #N canvas 752 222 450 300 set_cello_env 0;
 #X obj 66 75 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
@@ -6908,230 +6849,381 @@ over.;
 #X connect 0 0 1 0;
 #X connect 1 0 3 0;
 #X connect 2 0 0 0;
-#X restore 1627 1001 pd set_cello_env;
-#X obj 1186 1130 s \$0-env_demo_cello_env_toggle-s;
-#X obj 1572 896 r \$0-env_demo_cello_env_trig-r;
-#X obj 1584 1145 s \$0-env_demo_guitar_env_toggle-s;
-#X obj 1403 997 tabread4~ \$0-guitar_env;
-#X obj 1797 1023 tabread4~ \$0-cello_env;
-#X obj 1938 947 r \$0-env_demo_user_env_toggle-s;
-#X obj 2167 945 tabread4~ \$0-user_env;
-#X obj 1940 1080 s \$0-env_demo_guitar_env_toggle-s;
-#X obj 1941 1104 s \$0-env_demo_cello_env_toggle-s;
-#X obj 1186 1156 s \$0-env_demo_user_env_toggle-s;
-#X obj 1576 1170 s \$0-env_demo_user_env_toggle-s;
-#N canvas 27 23 796 579 adsr 0;
-#X obj -185 492 vline~;
-#X floatatom -17 275 5 0 0 1 A - -, f 5;
-#X floatatom -17 295 5 0 0 1 D - -, f 5;
-#X floatatom -17 315 5 0 0 1 S - -, f 5;
-#X floatatom -17 335 5 0 0 1 R - -, f 5;
-#X obj -184 161 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
-#X obj -184 186 sel 1;
-#X obj -185 412 pack f f f;
-#X obj -185 385 f;
-#X obj -185 208 t b b b b;
-#X floatatom 237 120 5 0 0 1 Attack_(ms) - -, f 5;
-#X floatatom 237 137 5 0 0 1 Decay_(ms) - -, f 5;
-#X floatatom 237 154 5 0 0 1 Sustain_(amp) - -, f 5;
-#X floatatom 237 171 5 0 0 1 Release_(ms) - -, f 5;
-#X obj 110 145 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj -105 186 sel 0;
-#X msg -64 447 \$1 10 \, 0 \$2;
-#X obj -64 385 f;
-#X obj -64 412 pack f f;
-#X obj -106 208 t b b b;
-#X obj -185 559 outlet~ envelope_sig;
-#X obj -38 559 outlet envelope_data;
-#X text -401 12 ADSR Envelope;
-#X text -401 28 tdh.synth.adsr~.pd;
-#X msg -185 447 1 \$1 \, \$3 \$2 \$1;
-#X text -346 159 '1' triggers envelope A \, D & S stages \, '0' ramps
-to S (if necessary) \, and proceeds with R stage., f 25;
-#X text 131 126 Toggle ON to start envelope, f 17;
-#X text 131 157 Toggle OFF to trigger SUSTAIN phase and end the envelope
-, f 17;
-#X text 142 215 Currently only works with synthetic tone, f 25;
-#X text 153 103 SET/TRIGGER ADSR HERE;
-#X obj -43 520 snapshot~;
-#X obj 23 491 metro 10;
-#X obj 22 466 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 24 416 inlet;
-#X connect 0 0 20 0;
-#X connect 0 0 30 0;
-#X connect 1 0 8 1;
-#X connect 2 0 7 1;
-#X connect 3 0 7 2;
-#X connect 3 0 17 1;
-#X connect 4 0 18 1;
-#X connect 5 0 6 0;
-#X connect 5 0 15 0;
-#X connect 6 0 9 0;
-#X connect 7 0 24 0;
-#X connect 8 0 7 0;
-#X connect 9 0 8 0;
-#X connect 9 1 3 0;
-#X connect 9 2 2 0;
-#X connect 9 3 1 0;
-#X connect 10 0 1 0;
-#X connect 11 0 2 0;
-#X connect 12 0 3 0;
-#X connect 13 0 4 0;
-#X connect 14 0 5 0;
-#X connect 15 0 19 0;
-#X connect 16 0 0 0;
-#X connect 17 0 18 0;
-#X connect 18 0 16 0;
-#X connect 19 0 17 0;
-#X connect 19 1 4 0;
-#X connect 19 2 3 0;
-#X connect 24 0 0 0;
-#X connect 30 0 21 0;
-#X connect 31 0 30 0;
-#X connect 32 0 31 0;
-#X connect 33 0 32 0;
-#X coords 0 -1 1 1 250 145 2 100 100;
-#X restore 113 806 pd adsr;
-#X text 404 617 Draw your own envelope here by clicking and dragging
+#X restore 1597 1001 pd set_cello_env;
+#X obj 1056 1130 s \$0-env_demo_cello_env_toggle-s;
+#X obj 1554 1145 s \$0-env_demo_guitar_env_toggle-s;
+#X obj 1273 997 tabread4~ \$0-guitar_env;
+#X obj 1767 1023 tabread4~ \$0-cello_env;
+#X obj 2004 947 r \$0-env_demo_user_env_toggle-s;
+#X obj 2233 945 tabread4~ \$0-user_env;
+#X obj 2006 1080 s \$0-env_demo_guitar_env_toggle-s;
+#X obj 2007 1104 s \$0-env_demo_cello_env_toggle-s;
+#X obj 1056 1156 s \$0-env_demo_user_env_toggle-s;
+#X obj 1546 1170 s \$0-env_demo_user_env_toggle-s;
+#X text 129 620 Draw your own envelope here by clicking and dragging
 inside the rectangle, f 48;
-#X obj 1186 1186 s \$0-env_demo_adsr_env_toggle-s;
-#X obj 1576 1196 s \$0-env_demo_adsr_env_toggle-s;
-#X obj 1941 1141 s \$0-env_demo_adsr_env_toggle-s;
-#X obj 884 1136 s \$0-env_demo_cello_env_toggle-s;
-#X obj 884 1162 s \$0-env_demo_user_env_toggle-s;
-#X obj 884 1192 s \$0-env_demo_guitar_env_toggle-s;
-#X obj 885 1007 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-0 1;
-#X obj 885 1084 sel 1;
-#X msg 886 1109 0;
-#X obj 912 1043 t f f;
-#X obj 937 1084 spigot;
-#X obj 937 1105 s envelope;
-#X connect 0 0 44 0;
-#X connect 1 0 12 0;
-#X connect 3 0 4 0;
-#X connect 4 0 1 0;
+#X obj 1056 1186 s \$0-env_demo_adsr_env_toggle-s;
+#X obj 1546 1196 s \$0-env_demo_adsr_env_toggle-s;
+#X obj 2007 1141 s \$0-env_demo_adsr_env_toggle-s;
+#X obj 2305 424 bng 15 250 50 0 empty empty Cello_with_envelope 17
+7 0 10 -262144 -1 -1;
+#X obj 2305 576 line~;
+#X obj 2304 597 tabread4~ cello;
+#X obj 2304 693 *~ 1;
+#X msg 2305 554 10000 \, 189122 4000;
+#X obj 3032 663 *~;
+#X obj 2971 582 phasor~ 220;
+#X obj 2970 498 bng 15 250 50 0 empty empty Synthetic_Tone_with_Envelope
+17 7 0 10 -262144 -1 -1;
+#X obj 2353 632 r envelope;
+#X obj 2970 545 s env_trigger;
+#X obj 3047 581 r envelope;
+#X obj 2304 714 throw~ dac;
+#X obj 3032 694 throw~ dac;
+#X obj 3047 641 spigot;
+#X msg 3080 607 1;
+#X msg 3117 607 0;
+#X obj 3117 581 r synth_off;
+#X obj 2467 567 s synth_off;
+#X obj 2352 663 spigot;
+#X obj 2305 448 t b b b;
+#X msg 2433 629 1;
+#X msg 2469 627 0;
+#X obj 2469 598 r cello_off;
+#X obj 2970 518 t b b;
+#X obj 3119 558 s cello_off;
+#X text 2561 556 turn off synth envelope [receive] when playing cello
+and vice versa (they share envelope sends), f 14;
+#X msg 3151 607 0 25;
+#X obj 3151 628 line;
+#X msg 2502 627 0 25;
+#X obj 2502 648 line;
+#X obj 126 191 tgl 15 0 \$0-env_demo_adsr_env_toggle-r \$0-env_demo_adsr_env_toggle-s
+ADSR 17 7 0 10 -204800 -1 -1 1 1;
+#X obj 2585 1091 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 2585 1151 sel 1;
+#X msg 2586 1176 0;
+#X text 2529 1152 Close other envelope spigot, f 8;
+#X text 2588 976 FROM TOGGLE;
+#X obj 2586 1197 s \$0-env_demo_cello_env_toggle-s;
+#X obj 2586 1223 s \$0-env_demo_user_env_toggle-s;
+#X obj 2586 1253 s \$0-env_demo_guitar_env_toggle-s;
+#X obj 2951 1090 f;
+#X obj 2978 1091 r \$0-adsr_att-r;
+#X obj 2951 1170 f;
+#X obj 2951 1230 f;
+#X obj 3011 1334 f;
+#X obj 2978 1171 r \$0-adsr_dec-r;
+#X obj 2978 1230 r \$0-adsr_sus-r;
+#X obj 3041 1340 r \$0-adsr_rel-r;
+#X obj 2894 1506 spigot;
+#X obj 2894 1529 s \$0-env_demo_envelope;
+#X obj 2585 1111 t f f;
+#X obj 3078 970 r \$0-env_demo_env_trigger;
+#X obj 2894 1467 line;
+#X obj 2856 1019 t b b b b;
+#X obj 3078 1006 t b b b;
+#X text 3081 1318 R;
+#X msg 3012 1386 0 \$1;
+#X text 2506 930 ADSR Cluserf-----------------------------------------------------------------------------------------------------------------------
+, f 134;
+#X text 2893 891 TO DO: get ADSR envelope to establish and trigger
+\, play sounds with envelopes \, get sound file players into this module
+;
+#X obj 1024 900 r \$0-env_demo_guitar_env_toggle-r;
+#X obj 1542 896 r \$0-env_demo_cello_env_toggle-r;
+#X obj 2586 1006 r \$0-env_demo_adsr_env_toggle-r;
+#X obj 2232 877 r \$0-env_demo_env_trigger;
+#X obj 1272 929 r \$0-env_demo_env_trigger;
+#X obj 1766 902 r \$0-env_demo_env_trigger;
+#X obj 2233 1105 s \$0-env_demo_envelope;
+#X obj 1766 1174 s \$0-env_demo_envelope;
+#X obj 1273 1157 s \$0-env_demo_envelope;
+#X obj 3004 937 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 178 193 nbx 5 14 -1e+37 1e+37 0 0 \$0-adsr_att-r empty Attack
+56 8 0 10 -204800 -1 -1 2000 256;
+#X obj 178 210 nbx 5 14 -1e+37 1e+37 0 0 \$0-adsr_dec-r empty Decay
+56 8 0 10 -204800 -1 -1 1000 256;
+#X obj 177 226 nbx 5 14 0 1 0 0 \$0-adsr_sus-r empty Sustain 56 8 0
+10 -204800 -1 -1 0.5 256;
+#X obj 177 242 nbx 5 14 -1e+37 1e+37 0 0 \$0-adsr_rel-r empty Release
+56 8 0 10 -204800 -1 -1 1000 256;
+#X floatatom 2982 1065 5 0 0 0 - - -, f 5;
+#X floatatom 2982 1153 5 0 0 0 - - -, f 5;
+#X floatatom 2982 1205 5 0 0 0 - - -, f 5;
+#X floatatom 3042 1316 5 0 0 0 - - -, f 5;
+#X obj 3195 1097 r \$0-adsr_rel-r;
+#X obj 3181 1151 f;
+#X floatatom 3220 1131 5 0 0 0 - - -, f 5;
+#X obj 3181 1172 t b f;
+#X obj 3196 1242 -;
+#X obj 3149 1204 f 4288;
+#X obj 3010 1279 del;
+#X text 2725 1382 0 to 1 over attack time \, 1 to sustain over decay
+time, f 26;
+#X text 3186 995 This determines how long to wait after the envelope
+has been triggered to trigger the rel portion of the envelope. Currently
+the duration is fixed. send this value to a del to delay the bang that
+triggers the release, f 28;
+#X floatatom 3221 1278 5 0 0 0 - - -, f 5;
+#X obj 3219 1480 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 0 256;
+#X obj 3160 1402 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X msg 3304 1368 0 \, 1 \$3 \, \$1 \$2;
+#X text 3077 1090 A;
+#X text 3077 1170 D;
+#X text 3077 1230 S;
+#X obj 2893 1149 t b b;
+#X msg 2951 1119 0 \, 1 \$1;
+#X obj 2894 1125 del;
+#X text 2726 1133 Decay to sustain level has to be delayed by the attack
+time, f 21;
+#X obj 2937 1285 pack f f;
+#X msg 2937 1306 \$1 \$2;
+#X obj -423 -18 cnv 15 500 400 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj -104 130 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj -203 106 tgl 15 0 \$0-main-freq-demo-on_off empty empty 17 7
+0 10 -204800 -1 -1 0 1;
+#X obj -203 130 vsl 15 120 0 22500 0 0 \$0-env_demo_freq_slider empty
+empty 0 -9 0 10 -204800 -1 -1 233 1;
+#X obj -212 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-env_demo_freq_numbox
+empty empty 0 -8 0 10 -204800 -1 -1 440 256;
+#X msg -393 271 set \$1;
+#X msg -393 154 set \$1;
+#X text -215 282 Frequency;
+#X text -155 267 Hz;
+#X text -181 105 On/Off;
+#X msg -395 221 set \$1;
+#X msg -391 102 set \$1;
+#X obj -122 130 vsl 15 120 0 1.5 0 0 \$0-env_demo_amp_slider empty
+empty 0 -9 0 10 -204800 -1 -1 793 1;
+#X obj -127 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-env_demo_amp_numbox empty
+empty 0 -8 0 10 -204800 -1 -1 0.1 256;
+#N canvas 564 462 450 300 init 0;
+#X obj 117 22 loadbang;
+#X msg 108 110 0;
+#X obj 98 191 outlet;
+#X obj 205 188 outlet;
+#X msg 203 117 440;
+#X msg 300 122 0.1;
+#X obj 300 143 outlet;
+#X connect 0 0 1 0;
+#X connect 0 0 4 0;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 4 0 3 0;
 #X connect 5 0 6 0;
-#X connect 6 0 61 0;
-#X connect 7 0 18 0;
-#X connect 8 0 11 0;
-#X connect 9 0 5 0;
-#X connect 10 0 6 1;
-#X connect 11 0 9 0;
-#X connect 12 0 55 0;
-#X connect 13 0 15 0;
-#X connect 14 0 10 0;
-#X connect 15 0 17 0;
-#X connect 16 0 14 0;
+#X restore -216 13 pd init;
+#X obj -122 67 else/vu~;
+#X obj -127 287 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -204800 -1 -1 0 256;
+#X text -69 286 dB FS;
+#X obj -288 283 + 3;
+#X obj -122 42 receive~ \$0-main-sig1;
+#X obj -396 198 r \$0-env_demo_amp_slider;
+#X obj -393 248 r \$0-env_demo_freq_slider;
+#X obj -391 81 r \$0-env_demo_amp_numbox;
+#X obj -393 133 r \$0-env_demo_freq_numbox;
+#X text -72 266 Master Amp;
+#X text -374 -13 Use this to implement a frequency varible synthetic
+tone down the line;
+#X text 125 273 Play sound with Envelope:;
+#X text 131 105 Choose Envelope:;
+#X obj 2328 498 s \$0-env_demo_env_trigger;
+#X connect 0 0 11 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X connect 4 0 5 0;
+#X connect 6 0 17 0;
+#X connect 7 0 10 0;
+#X connect 8 0 4 0;
+#X connect 9 0 5 1;
+#X connect 10 0 8 0;
+#X connect 11 0 32 0;
+#X connect 12 0 14 0;
+#X connect 13 0 9 0;
+#X connect 14 0 16 0;
+#X connect 15 0 13 0;
+#X connect 16 0 15 0;
 #X connect 17 0 16 0;
-#X connect 18 0 17 0;
-#X connect 18 1 16 1;
-#X connect 18 1 19 0;
-#X connect 19 0 20 0;
-#X connect 20 0 14 0;
-#X connect 25 0 24 0;
-#X connect 26 0 23 0;
-#X connect 30 0 33 0;
-#X connect 31 0 32 0;
-#X connect 34 0 22 0;
-#X connect 34 1 23 0;
-#X connect 34 2 32 0;
-#X connect 35 0 0 0;
-#X connect 35 1 0 1;
-#X connect 44 0 42 0;
-#X connect 46 0 35 0;
-#X connect 47 0 30 0;
-#X connect 48 0 25 0;
-#X connect 49 0 8 0;
-#X connect 50 0 13 0;
-#X connect 51 0 13 0;
-#X connect 52 0 31 0;
-#X connect 53 0 8 0;
-#X connect 54 0 26 0;
-#X connect 56 0 57 0;
-#X connect 57 0 58 0;
-#X connect 61 0 45 0;
-#X connect 61 0 55 0;
-#X connect 61 0 2 1;
-#X connect 61 0 2 0;
-#X connect 62 0 61 1;
-#X connect 76 0 131 0;
-#X connect 77 0 87 0;
-#X connect 78 0 77 0;
-#X connect 79 0 78 0;
-#X connect 80 0 140 0;
-#X connect 81 0 80 0;
-#X connect 82 0 90 0;
+#X connect 17 1 15 1;
+#X connect 17 1 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 13 0;
+#X connect 28 0 7 0;
+#X connect 29 0 12 0;
+#X connect 30 0 12 0;
+#X connect 31 0 7 0;
+#X connect 33 0 34 0;
+#X connect 34 0 35 0;
+#X connect 37 0 27 0;
+#X connect 37 0 32 0;
+#X connect 37 0 1 1;
+#X connect 37 0 1 0;
+#X connect 38 0 37 1;
+#X connect 49 0 59 0;
+#X connect 50 0 49 0;
+#X connect 51 0 50 0;
+#X connect 52 0 104 0;
+#X connect 53 0 52 0;
+#X connect 54 0 62 0;
+#X connect 55 0 54 0;
+#X connect 56 0 55 0;
+#X connect 57 0 103 0;
+#X connect 58 0 57 0;
+#X connect 59 0 180 0;
+#X connect 60 0 79 0;
+#X connect 60 0 65 0;
+#X connect 61 0 63 0;
+#X connect 61 0 81 0;
+#X connect 62 0 181 0;
+#X connect 63 0 64 0;
+#X connect 64 0 101 0;
+#X connect 64 0 109 0;
+#X connect 64 0 112 0;
+#X connect 65 0 66 0;
+#X connect 66 0 102 0;
+#X connect 66 0 110 0;
+#X connect 66 0 113 0;
+#X connect 69 0 80 0;
+#X connect 70 0 69 0;
+#X connect 71 0 70 0;
+#X connect 72 0 106 0;
+#X connect 73 0 72 0;
+#X connect 74 0 76 0;
+#X connect 74 0 78 0;
+#X connect 75 0 179 0;
+#X connect 76 0 77 0;
+#X connect 77 0 107 0;
+#X connect 77 0 108 0;
+#X connect 77 0 114 0;
+#X connect 78 0 75 1;
+#X connect 78 1 71 0;
+#X connect 79 0 59 1;
+#X connect 79 1 51 0;
+#X connect 80 0 75 0;
+#X connect 81 0 62 1;
+#X connect 81 1 56 0;
 #X connect 83 0 82 0;
-#X connect 84 0 83 0;
-#X connect 85 0 139 0;
-#X connect 86 0 85 0;
-#X connect 87 0 109 0;
-#X connect 88 0 113 0;
-#X connect 88 0 93 0;
-#X connect 89 0 91 0;
-#X connect 89 0 115 0;
-#X connect 90 0 110 0;
-#X connect 91 0 92 0;
-#X connect 92 0 136 0;
-#X connect 92 0 145 0;
-#X connect 92 0 149 0;
+#X connect 88 0 92 0;
+#X connect 89 0 90 0;
+#X connect 89 1 93 1;
+#X connect 90 0 91 0;
+#X connect 91 0 93 0;
+#X connect 92 0 89 0;
 #X connect 93 0 94 0;
-#X connect 94 0 138 0;
-#X connect 94 0 146 0;
-#X connect 94 0 150 0;
-#X connect 97 0 114 0;
-#X connect 98 0 97 0;
-#X connect 99 0 98 0;
-#X connect 100 0 142 0;
-#X connect 101 0 100 0;
-#X connect 102 0 104 0;
-#X connect 102 0 112 0;
-#X connect 103 0 111 0;
-#X connect 104 0 105 0;
-#X connect 105 0 143 0;
-#X connect 105 0 144 0;
-#X connect 105 0 151 0;
-#X connect 106 0 81 0;
-#X connect 107 0 86 0;
-#X connect 108 0 101 0;
-#X connect 112 0 103 1;
-#X connect 112 1 99 0;
-#X connect 113 0 87 1;
-#X connect 113 1 79 0;
-#X connect 114 0 103 0;
-#X connect 115 0 90 1;
-#X connect 115 1 84 0;
-#X connect 117 0 116 0;
-#X connect 122 0 126 0;
-#X connect 123 0 124 0;
-#X connect 123 1 127 1;
-#X connect 124 0 125 0;
-#X connect 125 0 127 0;
-#X connect 126 0 123 0;
-#X connect 127 0 128 0;
-#X connect 131 0 89 0;
-#X connect 131 1 117 0;
-#X connect 132 0 135 0;
-#X connect 134 0 88 0;
-#X connect 134 1 132 0;
-#X connect 137 0 134 0;
-#X connect 139 0 82 0;
-#X connect 140 0 77 0;
-#X connect 141 0 102 0;
-#X connect 142 0 97 0;
-#X connect 147 1 159 0;
-#X connect 155 0 156 0;
-#X connect 156 0 157 0;
-#X connect 157 0 152 0;
-#X connect 157 0 153 0;
-#X connect 157 0 154 0;
-#X connect 158 0 159 1;
-#X connect 158 1 147 0;
-#X connect 159 0 160 0;
+#X connect 96 0 61 0;
+#X connect 96 1 83 0;
+#X connect 97 0 100 0;
+#X connect 99 0 60 0;
+#X connect 99 1 97 0;
+#X connect 103 0 54 0;
+#X connect 104 0 49 0;
+#X connect 105 0 74 0;
+#X connect 106 0 69 0;
+#X connect 115 0 134 0;
+#X connect 116 0 117 0;
+#X connect 117 0 118 0;
+#X connect 118 0 126 0;
+#X connect 119 0 116 0;
+#X connect 120 0 127 0;
+#X connect 121 0 120 0;
+#X connect 122 0 138 0;
+#X connect 123 0 133 0;
+#X connect 125 0 128 0;
+#X connect 128 0 120 1;
+#X connect 129 0 128 1;
+#X connect 130 0 128 1;
+#X connect 131 0 130 0;
+#X connect 131 0 141 0;
+#X connect 133 0 118 1;
+#X connect 134 0 119 0;
+#X connect 134 1 241 0;
+#X connect 134 2 135 0;
+#X connect 134 2 132 0;
+#X connect 135 0 133 1;
+#X connect 136 0 133 1;
+#X connect 137 0 136 0;
+#X connect 137 0 143 0;
+#X connect 138 0 124 0;
+#X connect 138 1 139 0;
+#X connect 138 1 129 0;
+#X connect 141 0 142 0;
+#X connect 142 0 120 1;
+#X connect 143 0 144 0;
+#X connect 144 0 118 1;
+#X connect 146 0 164 0;
+#X connect 147 0 148 0;
+#X connect 148 0 151 0;
+#X connect 148 0 152 0;
+#X connect 148 0 153 0;
+#X connect 154 0 208 0;
+#X connect 154 0 209 1;
+#X connect 155 0 154 1;
+#X connect 155 0 187 0;
+#X connect 156 0 211 1;
+#X connect 157 0 211 0;
+#X connect 158 0 170 0;
+#X connect 159 0 156 1;
+#X connect 159 0 188 0;
+#X connect 160 0 157 1;
+#X connect 160 0 189 0;
+#X connect 161 0 158 1;
+#X connect 161 0 190 0;
+#X connect 162 0 163 0;
+#X connect 164 0 147 0;
+#X connect 164 1 162 1;
+#X connect 165 0 168 0;
+#X connect 166 0 162 0;
+#X connect 166 0 202 0;
+#X connect 166 0 201 0;
+#X connect 167 1 197 0;
+#X connect 167 2 209 0;
+#X connect 167 3 154 0;
+#X connect 168 1 167 0;
+#X connect 168 2 192 0;
+#X connect 170 0 166 0;
+#X connect 173 0 96 0;
+#X connect 174 0 99 0;
+#X connect 175 0 146 0;
+#X connect 176 0 73 0;
+#X connect 177 0 58 0;
+#X connect 178 0 53 0;
+#X connect 191 0 192 1;
+#X connect 191 0 193 0;
+#X connect 192 0 194 0;
+#X connect 194 0 196 0;
+#X connect 194 1 195 1;
+#X connect 195 0 197 1;
+#X connect 195 0 200 0;
+#X connect 196 0 195 0;
+#X connect 197 0 158 0;
+#X connect 207 0 157 0;
+#X connect 207 1 156 0;
+#X connect 208 0 166 0;
+#X connect 209 0 207 0;
+#X connect 211 0 212 0;
+#X connect 212 0 166 0;
+#X connect 214 0 231 0;
+#X connect 218 0 217 0;
+#X connect 219 0 216 0;
+#X connect 223 0 226 0;
+#X connect 224 0 225 0;
+#X connect 227 0 215 0;
+#X connect 227 1 216 0;
+#X connect 227 2 225 0;
+#X connect 228 0 214 0;
+#X connect 228 1 214 1;
+#X connect 231 0 229 0;
+#X connect 232 0 228 0;
+#X connect 233 0 223 0;
+#X connect 234 0 218 0;
+#X connect 235 0 224 0;
+#X connect 236 0 219 0;
 #X coords 0 -1 1 1 650 625 2 100 100;
 #X restore 515 -708 pd sound_gen_amp_demo;
 #X connect 0 0 25 0;

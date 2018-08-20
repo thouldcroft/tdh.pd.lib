@@ -1,7 +1,7 @@
 #N canvas 27 23 1413 855 10;
 #X declare -lib ggee;
 #X text 101 102 AMPLITUDE AND FREQUENCY;
-#N canvas 1440 -209 1920 1035 sound_gen_amp_demo 0;
+#N canvas 119 23 1920 855 sound_gen_amp_demo 0;
 #X obj 226 130 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 1104 669 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 1 1;
@@ -1275,8 +1275,7 @@ only for a brief moment \, but you should probably make sure there
 aren’t any other people or pets in the room if you are playing the
 test over speakers., f 98;
 #X restore 125 503 pd 05_HUMAN_HEARING_LIMITS-FREQUENCY;
-#N canvas 99 115 1270 736 06_PITCH_AND_OCTAVE 0;
-#X text -46 13 PITCH AND OCTAVE, f 73;
+#N canvas 99 115 1250 687 06_PITCH_AND_OCTAVE 0;
 #N canvas 135 23 832 855 sound_gen_freq_demo 0;
 #N canvas 26 23 450 278 (subpatch) 0;
 #X array freq-demo-scope-\$0 445 float 1;
@@ -1705,8 +1704,8 @@ amplitude value.;
 #X connect 95 0 96 0;
 #X connect 96 0 93 0;
 #X coords 0 -1 1 1 610 570 2 100 100;
-#X restore 556 71 pd sound_gen_freq_demo;
-#X text -46 33 As mentioned earlier \, frequency is a major influence
+#X restore 612 73 pd sound_gen_freq_demo;
+#X text 10 35 As mentioned earlier \, frequency is a major influence
 on the perception of pitch. To the right is a sound generating module
 that allows you to change the frequency of a test tone. You can change
 the tone’s frequency with either the slider or by clicking and typing
@@ -1718,7 +1717,7 @@ pitch than 150 Hz. Therefore \, when a musical or natural sound has
 a lower or higher pitch \, this means that the vibration of the mass
 that is making the sound is vibrating at a certain frequency., f 98
 ;
-#X text -46 133 In the sound generator box is graphic representations
+#X text 10 135 In the sound generator box is graphic representations
 of the frequency. One graph is the graph we have seen before \, showing
 the change of amplitude over time. In order to visibly see the very
 high frequencies \, the time scale is VERY short \, approximately 1/100th
@@ -1727,10 +1726,10 @@ of cycles by 100 to get the actual frequency in Hertz. 500 Hz is a
 good frequency to test the accuracy of the graph. The other is a graph
 that marks the actual frequency as a spike in the graph. This is called
 a SPECTRAL PLOT \, and it will be of more use later., f 98;
-#X text -46 233 One interesting element of our perception of pitch
-is the OCTAVE. So far we have talked about pitch as being higher or
-lower than another pitch. This is specifically known as RELATIVE PITCH
-\, because we are simply determining if a sound (such as our test tone)
+#X text 10 235 One interesting element of our perception of pitch is
+the OCTAVE. So far we have talked about pitch as being higher or lower
+than another pitch. This is specifically known as RELATIVE PITCH \,
+because we are simply determining if a sound (such as our test tone)
 is higher or lower in relation to another sound. Pitch can also be
 discussed in more absolute terms \, specifically in music. The octave
 assists us in these absolute terms. This will be clearer through audio
@@ -1754,7 +1753,7 @@ higher is a doubling of the frequency (220 * 2 = 440 \, 440 * 2 = 880)
 \, and to get an octave lower \, we divide by 2 This is true for ALL
 frequencies. To get the octave above or below a frequency \, simply
 multiply or divide by 2, f 98;
-#X text -46 457 The octave can help us illustrate another interesting
+#X text 10 459 The octave can help us illustrate another interesting
 component of our perception of frequency and pitch. Set the tone generator
 to 220 Hz using the preset button. Now set the tone generator to 320
 Hz. You likely heard a major difference in pitch \, from a change in
@@ -1776,10 +1775,10 @@ is important to keep in mind when you start to develop sound projects
 – the mid to upper reaches of hearing in regards to frequency take
 a greater amount of change in frequency to actually be heard as change.
 , f 98;
-#X text -46 643 Why does our ear hear these tones as similar? Some
-of this can be explained by investigating WAVELENGTH \, found in the
-next sub-module., f 98;
-#X text -66 1 .;
+#X text 10 645 Why does our ear hear these tones as similar? Some of
+this can be explained by investigating WAVELENGTH \, found in the next
+sub-module., f 98;
+#X text 10 5 5 Pitch and Octave;
 #X restore 125 549 pd 06_PITCH_AND_OCTAVE;
 #N canvas 1666 -19 1266 631 07_WAVELENGTH 0;
 #X text -46 13 PITCH AND OCTAVE, f 73;

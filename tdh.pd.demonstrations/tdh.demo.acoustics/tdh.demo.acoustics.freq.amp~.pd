@@ -1,6 +1,5 @@
 #N canvas 27 23 1413 855 10;
 #X declare -lib ggee;
-#X declare -lib ggee;
 #X text 101 102 AMPLITUDE AND FREQUENCY;
 #N canvas 1440 -209 1920 1035 sound_gen_amp_demo 0;
 #X obj 226 130 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
@@ -1000,22 +999,22 @@ then we will see how it applies to amplitude., f 98;
 #X text 7 394 Close this window to move on to the next module., f
 98;
 #X restore 125 279 pd 01_SOUND_PRESSURE_LEVEL_AND_AMPLITUDE;
-#N canvas 55 23 1264 388 04_FREQUENCY_AND_PITCH 0;
-#N canvas 1440 -29 1413 855 demonstration.wave 0;
-#X floatatom 690 375 0 0 0 0 - - -;
-#X obj 845 296 trigger f f;
-#X obj 945 383 + 1;
-#X obj 908 347 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#N canvas 55 23 1035 370 04_FREQUENCY_AND_PITCH 0;
+#N canvas 80 171 1413 855 demonstration.wave 0;
+#X floatatom 779 416 0 0 0 0 - - -;
+#X obj 934 337 trigger f f;
+#X obj 1034 424 + 1;
+#X obj 997 388 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 845 237 line;
-#X obj 908 382 f 0;
-#X msg 945 348 0;
-#X obj 945 270 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 934 278 line;
+#X obj 997 423 f 0;
+#X msg 1034 389 0;
+#X obj 1034 311 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 845 216 0 \, 1000 10000;
-#X obj 980 188 loadbang;
-#X obj 845 188 loadbang;
-#X obj 690 347 expr sin(2 * 3.14159 * $f1 / 360);
+#X msg 934 257 0 \, 1000 10000;
+#X obj 1069 229 loadbang;
+#X obj 934 229 loadbang;
+#X obj 779 388 expr sin(2 * 3.14159 * $f1 / 360);
 #X text 251 340 0.5;
 #X text 332 340 1;
 #X text 403 340 1.5;
@@ -1094,15 +1093,15 @@ then we will see how it applies to amplitude., f 98;
 #X text 101 226 Amplitude;
 #X text 104 237 (Linear);
 #X text 869 115 Initialization:;
-#X obj 980 212 list \$0;
-#X text 1045 194 [list] trick where \, when receiving a bang \, it
+#X obj 1069 253 list \$0;
+#X text 1134 235 [list] trick where \, when receiving a bang \, it
 creates a list with just the element that is the argument. This can
 be used as a replaceable element in message box \, which does not accept
 \$0;
-#X msg 1011 263 \; demo_soundwave_freq-amp-\$1 xticks 0 90 1;
-#X msg 980 401 \; demo_soundwave_freq-amp-\$1 yticks 0 0.1 5;
-#X obj 719 414 tabwrite demo_soundwave_freq-amp-\$0;
-#X msg 1036 340 \; demo_soundwave_freq-amp-\$1 const 1;
+#X msg 1100 304 \; demo_soundwave_freq-amp-\$1 xticks 0 90 1;
+#X msg 1069 442 \; demo_soundwave_freq-amp-\$1 yticks 0 0.1 5;
+#X obj 808 455 tabwrite demo_soundwave_freq-amp-\$0;
+#X msg 1125 381 \; demo_soundwave_freq-amp-\$1 const 1;
 #X connect 0 0 31 0;
 #X connect 1 0 11 0;
 #X connect 1 1 3 0;
@@ -1121,10 +1120,9 @@ be used as a replaceable element in message box \, which does not accept
 #X connect 27 0 29 0;
 #X connect 27 0 30 0;
 #X connect 27 0 32 0;
-#X coords 0 -1 1 1 610 275 2 100 100;
-#X restore 561 7 pd demonstration.wave;
-#X obj 562 -15 declare -lib ggee;
-#X text -46 23 When graphing the sound wave \, the horizontal/x axis
+#X coords 0 -1 1 1 400 275 2 100 100;
+#X restore 611 6 pd demonstration.wave;
+#X text 4 22 When graphing the sound wave \, the horizontal/x axis
 is labelled “Time”. As we learned in the previous module \, the
 y-axis depicts amplitude \, so when we graph a sound wave like this
 we are graphing the change in amplitude over time. We call this type
@@ -1133,8 +1131,8 @@ we will learn of another representation later. Time has a very strong
 effect on our perception of a sound. The change in amplitude over time
 is a major signifier in how we determine a sound’s source (more about
 that in the “Envelope” module)., f 98;
-#X text -46 103 Another element that is highly dependent on time is
-the sound’s PITCH. Pitch is a purely perceptual (i.e. not scientifically
+#X text 4 102 Another element that is highly dependent on time is the
+sound’s PITCH. Pitch is a purely perceptual (i.e. not scientifically
 quantifiable) element of sound that allows us to order sounds as higher
 or lower in pitch. A vivid example of this is in music: some sounds
 are pitched higher (such as flute playing a note) while other sounds
@@ -1146,7 +1144,7 @@ of bird calls to the drastic different in pitch between the calls of
 a lion and a domestic cat. How does time play into our perception of
 pitch? It is very closely tied to the time dependent element of sound
 wave called FREQUENCY., f 98;
-#X text -46 218 As mentioned earlier \, pitch cannot be easily quantified
+#X text 4 217 As mentioned earlier \, pitch cannot be easily quantified
 \, and it is based primarily on perception. However \, pitch is predominantly
 influenced by an element of a sound wave that is quantifiable: the
 sound wave’s FREQUENCY. Frequency is based on sound wave’s CYCLE.
@@ -1162,8 +1160,7 @@ wave has a frequency of 1 Hz. You will notice that the graph has two
 full cycles depicted \, over 2 seconds. If the graph instead represented
 1 whole second \, but still had the two cycles \, then we would say
 the frequency is 2 Hz., f 98;
-#X text -46 3 FREQUENCY AND PITCH - INTRODUCTION, f 73;
-#X text -58 387 comment;
+#X text 4 2 FREQUENCY AND PITCH - INTRODUCTION, f 73;
 #X restore 125 457 pd 04_FREQUENCY_AND_PITCH;
 #N canvas 499 43 636 320 05_HUMAN_HEARING_LIMITS-FREQUENCY 0;
 #X text -46 13 HUMAN HEARING LIMITS: FREQUENCY, f 73;

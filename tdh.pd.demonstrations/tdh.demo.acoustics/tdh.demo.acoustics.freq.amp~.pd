@@ -301,7 +301,7 @@ of "fft".;
 #X text 108 420 Ampli-tude, f 6;
 #X text 200 324 Amplitude;
 #X obj 203 307 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 -995.99 256;
+-204800 -1 -1 0 256;
 #X text 258 265 linear;
 #X text 261 306 dB FS;
 #X obj 73 309 + 3;
@@ -777,8 +777,8 @@ into a logarithmic scale., f 97;
 #X obj 234 397 ggee/image db_spl_edit.gif;
 #X text -64 -14 .;
 #X restore 125 371 pd 03_THE_DECIBEL;
-#N canvas 207 23 1076 641 01_SOUND_PRESSURE_LEVEL_AND_AMPLITUDE 0;
-#X text -46 23 If you have ever plucked a guitar string or hit a drum
+#N canvas 224 97 1091 657 01_SOUND_PRESSURE_LEVEL_AND_AMPLITUDE 0;
+#X text 7 24 If you have ever plucked a guitar string or hit a drum
 \, you likely noticed that the harder you hit or plucked resulted in
 a louder sound. While if you plucked or hit the objects with less intensity
 \, it might have sounded softer. When a string is plucked harder \,
@@ -793,33 +793,24 @@ amplitude \, we often graph it abstractly between +1 and -1 \, at which
 these points are the MAXIMUM points that some system can have. This
 system can be our computer \, a recording studio \, or our ear \, it
 all depends on the context!, f 98;
-#X text -46 153 When mapping the sound pressure level to a scale of
-+1 to -1 \, we call it LINEAR AMPLITUDE. It makes using computers to
-calculate it very easy \, and it also makes a lot of sense when we
-manipulate it (as we will see). For example \, we can set the sound
-wave to half its amplitude by setting the amplitude to 0.5 (or dividing
-all of the amplitude points by 2). When we discuss the amplitude of
-a wave at a certain point \, we talk about the absolute value max peak
-of a cycle. For example if a wave goes from +0.7 to -0.9 \, we are
-going to take the absolute value of those points and report the peak
-\, so this example wave would have an amplitude of 0.9., f 98;
-#X text -46 243 To the right is a small controllable sound generator.
+#X text 7 154 When mapping the sound pressure level to a scale of +1
+to -1 \, we call it LINEAR AMPLITUDE. It makes using computers to calculate
+it very easy \, and it also makes a lot of sense when we manipulate
+it (as we will see). For example \, we can set the sound wave to half
+its amplitude by setting the amplitude to 0.5 (or dividing all of the
+amplitude points by 2). When we discuss the amplitude of a wave at
+a certain point \, we talk about the absolute value max peak of a cycle.
+For example if a wave goes from +0.7 to -0.9 \, we are going to take
+the absolute value of those points and report the peak \, so this example
+wave would have an amplitude of 0.9., f 98;
+#X text 7 244 To the right is a small controllable sound generator.
 Press the “On” button to turn the generator on and adjust the wave’s
 amplitude with the fader labelled “AMP” by clicking and dragging
 on the middle line. You will see the wave displayed next to the fader.
 As the amplitude increases from 0 \, the sound will get louder. At
 1 the wave is as loud as your computer can handle \, so going above
 this level will create a very distorted sound., f 98;
-#X text -46 313 Talking about amplitude as a linear system is a problem
-\, because our ear unfortunately doesn’t hear linearly \, our ears
-perceive sound LOGARITHMICALLY. This introduction to acoustics attempts
-to keep as much math out of the discussion as possible \, so I will
-(try) to convey this concept as succinctly as possible (my apologies
-to anyone with a solid background in mathematics). When discussing
-linear vs. logarithmic scales in regards to hearing \, I like to think
-of how these scales are used illustrate the *changes* in our perception
-of sounds., f 98;
-#X text -46 3 SOUND PRESSURE LEVEL AND AMPLITUDE, f 73;
+#X text 7 4 SOUND PRESSURE LEVEL AND AMPLITUDE, f 73;
 #N canvas 1440 -209 1920 1035 demonstration.wave 0;
 #X floatatom 690 375 0 0 0 0 - - -;
 #X obj 845 296 trigger f f;
@@ -939,7 +930,7 @@ of sounds., f 98;
 #X connect 17 0 29 0;
 #X connect 17 0 31 0;
 #X coords 0 -1 1 1 400 275 2 100 100;
-#X restore 561 7 pd demonstration.wave;
+#X restore 614 8 pd demonstration.wave;
 #N canvas 1493 -130 860 714 sound_gen_amp_demo 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array amp-demo-scope-\$0 250 float 3;
@@ -1002,8 +993,17 @@ in the fader's position, f 32;
 #X connect 20 0 21 0;
 #X connect 21 0 10 0;
 #X coords 0 -1 1 1 400 250 2 100 100;
-#X restore 562 298 pd sound_gen_amp_demo;
-#X text -75 -12 .;
+#X restore 615 299 pd sound_gen_amp_demo;
+#X text 7 314 Talking about amplitude as a linear system is a problem
+\, because our ear unfortunately doesn’t hear linearly \, our ears
+perceive sound LOGARITHMICALLY. This introduction to acoustics attempts
+to keep as much math out of the discussion as possible \, so I will
+(try) to convey this concept as succinctly as possible (my apologies
+to anyone with a solid background in mathematics). In the next module
+we will briefly introduce the concept of the logarithmic scale \, and
+then we will see how it applies to amplitude., f 98;
+#X text 7 394 Close this window to move on to the next module., f
+98;
 #X restore 125 279 pd 01_SOUND_PRESSURE_LEVEL_AND_AMPLITUDE;
 #N canvas 55 23 1264 388 04_FREQUENCY_AND_PITCH 0;
 #N canvas 1440 -29 1413 855 demonstration.wave 0;

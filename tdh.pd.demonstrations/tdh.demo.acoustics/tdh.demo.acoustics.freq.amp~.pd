@@ -518,9 +518,9 @@ these aspects and interact with hands on tools which will allow you
 to see these sound aspects in action. Additionally you can control
 a sound wave generator to the right of this text \, allowing you to
 manipulate the generator's frequency and amplitude., f 75;
-#N canvas 207 23 722 472 02_LINEAR_VS_LOGARITHMIC_SCALES 0;
-#X text -20 3 LINEAR VS. LOGARITHMIC PERCEPTION SCALES, f 73;
-#X text -20 23 Below are two graphs \, one of a linear scale and one
+#N canvas 207 23 641 463 02_LINEAR_VS_LOGARITHMIC_SCALES 1;
+#X text 12 4 LINEAR VS. LOGARITHMIC PERCEPTION SCALES, f 73;
+#X text 12 24 Below are two graphs \, one of a linear scale and one
 of a logarithmic scale (these graphs are strictly for demonstration
 \, and do not represent tested values). For both graphs the x-axis
 represents sound pressure level \, while the y-axis represents our
@@ -630,9 +630,7 @@ change in perceived level., f 98;
 #X connect 14 0 12 0;
 #X connect 15 0 1 0;
 #X coords 0 -1 1 1 570 200 2 100 100;
-#X restore -17 209 pd linear_log;
-#X obj 667 -19 declare -lib ggee;
-#X text -43 -18 .;
+#X restore 15 210 pd linear_log;
 #X restore 125 325 pd 02_LINEAR_VS_LOGARITHMIC_SCALES;
 #N canvas 207 23 1043 855 03_THE_DECIBEL 0;
 #X text -44 -17 THE DECIBEL, f 73;
@@ -2079,4 +2077,5 @@ module \, and elements of frequency in the SPECTRUM AND TIMBRE module.
 #X restore 125 595 pd 07_WAVELENGTH;
 #X text 126 247 AMPLITUDE;
 #X text 126 422 FREQUENCY;
+#X obj 1216 103 declare -lib ggee;
 #X coords 0 -1 1 1 1100 650 2 100 100;

@@ -1780,9 +1780,8 @@ this can be explained by investigating WAVELENGTH \, found in the next
 sub-module., f 98;
 #X text 10 5 5 Pitch and Octave;
 #X restore 125 549 pd 06_PITCH_AND_OCTAVE;
-#N canvas 1666 -19 1266 631 07_WAVELENGTH 0;
-#X text -46 13 PITCH AND OCTAVE, f 73;
-#X text -46 33 Why do two octave tones sound similar \, to the point
+#N canvas 74 55 1257 629 07_WAVELENGTH 0;
+#X text 3 22 Why do two octave tones sound similar \, to the point
 where musical sounds based on these frequencies sound as if they are
 the same pitch? This can be explored by discussing the element of a
 sound wave (and any wave \, for that matter) called WAVELENGTH. Wavelength
@@ -1802,8 +1801,7 @@ by 1.1 ft/s for every 1 degree change in Fahrenheit (2 ft/s for every
 2 degree change in Celsius). Now that we know the velocity of sound
 \, we can calculate the wavelength of a wave. So the wavelength of
 a sound at 440 Hz in a room that is 68 deg F is 2.56 feet., f 98;
-#X text -66 -39 .;
-#X text -46 212 Let’s look at some simpler waveforms. In the module
+#X text 3 201 Let’s look at some simpler waveforms. In the module
 labelled “OCTAVE AND WAVELENGTH DEMONSTRATION” \, there are 4 buttons
 \, 3 of which graph waveforms (one clears the graph). The graph is
 a fixed time period of 1 second. Click the button labelled “2 Hz”.
@@ -1817,9 +1815,9 @@ wavelength of 565 feet. That’s a VERY long waveform. Compare that
 with the wavelength of 440 Hz \, which is 2.56 feet. This tells us
 that as frequency gets lower \, wavelength gets longer \, and as frequency
 gets higher \, wavelength gets shorter., f 98;
-#X text -46 342 Clear the graph with the “Clear” button \, and
-now graph a wave at 4 Hz (note \, the wave’s amplitude has been set
-to 0.5 so that later we can compare the waves all on top of each other
+#X text 3 331 Clear the graph with the “Clear” button \, and now
+graph a wave at 4 Hz (note \, the wave’s amplitude has been set to
+0.5 so that later we can compare the waves all on top of each other
 in the graph). Now click the 2 Hz button again. What do you notice?
 One compression or rarefaction of the 2 Hz wave is exactly HALF its
 wavelength. A full cycle/wavelength of the 4 Hz wave (the octave above
@@ -2057,8 +2055,8 @@ be used as a replaceable element in message box \, which does not accept
 #X connect 72 0 73 0;
 #X connect 73 0 74 0;
 #X coords 0 -1 1 1 610 315 2 100 100;
-#X restore 565 88 pd octave_graph;
-#X text -46 534 Feel free to experiment with FREQUENCY using the sound
+#X restore 614 77 pd octave_graph;
+#X text 3 523 Feel free to experiment with FREQUENCY using the sound
 generator outside this module to get a further understand of how FREQUENCY
 works. Experiment with sounds \, with changing the frequency (and amplitude).
 See if you can make any interesting sound-based gestures with the module
@@ -2066,6 +2064,7 @@ See if you can make any interesting sound-based gestures with the module
 Below we will continue to explore elements of amplitude in the ENVELOPE
 module \, and elements of frequency in the SPECTRUM AND TIMBRE module.
 , f 98;
+#X text 3 2 7 WAVELENGTH, f 73;
 #X restore 125 595 pd 07_WAVELENGTH;
 #X text 126 247 AMPLITUDE;
 #X text 126 422 FREQUENCY;

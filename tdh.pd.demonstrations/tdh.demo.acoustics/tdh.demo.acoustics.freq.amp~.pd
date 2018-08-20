@@ -1162,8 +1162,8 @@ full cycles depicted \, over 2 seconds. If the graph instead represented
 the frequency is 2 Hz., f 98;
 #X text 4 2 FREQUENCY AND PITCH - INTRODUCTION, f 73;
 #X restore 125 457 pd 04_FREQUENCY_AND_PITCH;
-#N canvas 499 43 636 320 05_HUMAN_HEARING_LIMITS-FREQUENCY 0;
-#X text -46 13 HUMAN HEARING LIMITS: FREQUENCY, f 73;
+#N canvas 499 43 613 260 05_HUMAN_HEARING_LIMITS-FREQUENCY 0;
+#X text 5 3 HUMAN HEARING LIMITS: FREQUENCY, f 73;
 #N canvas 181 23 1259 697 frequency.test 0;
 #X obj 710 131 trigger b b;
 #X obj 635 526 osc~;
@@ -1255,26 +1255,25 @@ the frequency is 2 Hz., f 98;
 #X connect 42 0 34 0;
 #X connect 43 0 5 0;
 #X coords 0 -1 1 1 390 50 2 100 100;
-#X restore 42 193 pd frequency.test;
-#X text -46 33 Like with amplitude/SPL \, the human ear has limits
-to what frequencies it can hear. The human ear can only hear between
-approximately 20 Hz and 20 \, 0 Hz. Some people can hear a little bit
-higher and a little bit lower \, particularly younger people. As we
-get older \, the range shrinks a bit. Your playback system also determines
-what frequencies you can hear - your headphones may only playback 20
-Hz to 18 \, 0 Hz (hopefully your system can playback at least 20-20
-\, 0 Hz \, but it isn’t always guaranteed!). You can test your own
-ear’s frequency perception (or your playback system’s range) by
-using the module labelled “Frequency Test”. This module will play
-a sweep of frequencies from 0 Hz to 22000 Hz \, demonstrating this
-audible frequency range. It will first play a test tone that you should
-use to adjust your system settings (or use the volume slider) to set
-to a comfortable listening level. PLEASE NOTE that as the frequencies
+#X restore 93 183 pd frequency.test;
+#X text 5 23 Like with amplitude/SPL \, the human ear has limits to
+what frequencies it can hear. The human ear can only hear between approximately
+20 Hz and 20 \, 0 Hz. Some people can hear a little bit higher and
+a little bit lower \, particularly younger people. As we get older
+\, the range shrinks a bit. Your playback system also determines what
+frequencies you can hear - your headphones may only playback 20 Hz
+to 18 \, 0 Hz (hopefully your system can playback at least 20-20 \,
+0 Hz \, but it isn’t always guaranteed!). You can test your own ear’s
+frequency perception (or your playback system’s range) by using the
+module labelled “Frequency Test”. This module will play a sweep
+of frequencies from 0 Hz to 22000 Hz \, demonstrating this audible
+frequency range. It will first play a test tone that you should use
+to adjust your system settings (or use the volume slider) to set to
+a comfortable listening level. PLEASE NOTE that as the frequencies
 get very high \, they can be somewhat unpleasant to listen to. It is
 only for a brief moment \, but you should probably make sure there
 aren’t any other people or pets in the room if you are playing the
 test over speakers., f 98;
-#X text -66 279 .;
 #X restore 125 503 pd 05_HUMAN_HEARING_LIMITS-FREQUENCY;
 #N canvas 99 115 1270 736 06_PITCH_AND_OCTAVE 0;
 #X text -46 13 PITCH AND OCTAVE, f 73;

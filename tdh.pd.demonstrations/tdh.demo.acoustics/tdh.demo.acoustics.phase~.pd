@@ -1,5 +1,16 @@
-#N canvas 1526 -105 1357 855 10;
+#N canvas 2119 53 768 557 10;
 #X declare -lib ggee;
+#X obj 437 29 declare -lib ggee;
+#N canvas 224 97 612 101 01_INTRODUCTION 0;
+#X text 8 25 We have discussed amplitude and frequency for a sound
+wave \, and the remaining component of a sound we left to discuss is
+PHASE. Phase can be a tricky concept to discuss because \, for the
+most part \, it is inaudible. It is only we COMBINE sounds does phase
+become audible. Phase is also slightly confusing because it comes from
+trigonometry. Fortunately we will keep the math to a minimum and focus
+on how phase relates to sound., f 98;
+#X text 8 5 1 INTRODUCTION, f 73;
+#X restore 117 146 pd 01_INTRODUCTION;
 #X obj 1279 308 osc~ 440;
 #X obj 1279 332 *~;
 #X floatatom 1294 208 5 0 0 0 - - -, f 5;
@@ -20,7 +31,6 @@
 #X text 1339 275 Phase (0.0-1.0);
 #X obj 1336 310 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 1839 -65 receive~ sig3;
 #X obj 1427 499 send~ sig3;
 #X text 1581 8 Sound Wave Addition + Working with Phase;
 #X floatatom 1606 215 5 0 0 0 - - -, f 5;
@@ -61,56 +71,25 @@
 #X text 1316 18 1 = 360 degree phase shift;
 #X obj 1314 240 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 110 108 PHASE AND SIGNAL ADDITION;
-#X obj 383 17 declare -lib ggee;
-#X obj 274 667 ggee/image unit_circle_sinewave.jpg;
-#X obj 281 729 ggee/image unit_circle_sinewave.jpg;
-#N canvas 1638 -209 795 541 02_WHAT_IS_PHASE 0;
-#X text 60 21 2 WHAT IS PHASE?, f 73;
-#X obj 386 228 ggee/image unit_circle_sinewave.gif;
-#X text 80 41 Depicted to below is the most simple sound \, the sine
-wave \, which we have been using as our test tone. The sine wave can
-be mathematically generated through the movement of a point revolving
-counterclockwise around a circle. As shown in the diagram \, as the
-point revolves around the circle \, the smooth movement of the sound
-wave’s compression and rarefaction are made – when the point is
-at the 12:00 point of the circle \, we are at the apex of the compression
-\, and when the point is at the 6:00 point of the circle \, we are
-at the lowest point of the rarefaction., f 98;
-#X text 90 361 Now something else occurs when a sound wave follows
-this pattern. We create angles when we draw one line from the center
-of the circle to the 3:00 position on the circle \, and another line
-to the rotating point on the circle. When the point is at 12:00 \,
-we get a 90deg angle. When the point is at 9:00 \, we get a 180deg
-angle \, at 6:00 we get 270deg angle \, and once we complete the full
-circle we get 360deg but we restart the calculation at 0deg., f 98
-;
-#X text 90 441 We use these angles to associate points on the sine
-wave. These angles are known as the sound wave’s PHASE. So we say
-that the phase of the sine wave at the top of its compression is 90deg
-\, while at the bottom of its rarefaction is 270 deg., f 98;
-#X restore 116 181 pd 02_WHAT_IS_PHASE;
-#X connect 0 0 1 0;
-#X connect 1 0 13 0;
-#X connect 2 0 1 1;
-#X connect 2 0 58 0;
-#X connect 3 0 0 0;
-#X connect 7 0 8 0;
-#X connect 8 0 13 1;
-#X connect 9 0 8 1;
-#X connect 10 0 7 0;
-#X connect 13 0 20 0;
-#X connect 13 0 36 0;
-#X connect 14 0 0 1;
-#X connect 14 0 18 0;
-#X connect 16 0 7 1;
-#X connect 18 0 16 0;
-#X connect 19 0 4 0;
-#X connect 22 0 2 0;
-#X connect 23 0 3 0;
-#X connect 26 0 14 0;
-#X connect 28 0 9 0;
-#X connect 29 0 10 0;
-#X connect 32 0 16 0;
-#X connect 58 0 9 0;
-#X coords 0 -1 1 1 1100 450 1 100 100;
+#X connect 2 0 3 0;
+#X connect 3 0 15 0;
+#X connect 4 0 3 1;
+#X connect 4 0 59 0;
+#X connect 5 0 2 0;
+#X connect 9 0 10 0;
+#X connect 10 0 15 1;
+#X connect 11 0 10 1;
+#X connect 12 0 9 0;
+#X connect 15 0 21 0;
+#X connect 15 0 37 0;
+#X connect 16 0 2 1;
+#X connect 16 0 20 0;
+#X connect 18 0 9 1;
+#X connect 20 0 18 0;
+#X connect 23 0 4 0;
+#X connect 24 0 5 0;
+#X connect 27 0 16 0;
+#X connect 29 0 11 0;
+#X connect 30 0 12 0;
+#X connect 33 0 18 0;
+#X connect 59 0 11 0;

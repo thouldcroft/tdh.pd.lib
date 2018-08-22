@@ -1,4 +1,4 @@
-#N canvas 2119 53 768 557 10;
+#N canvas 1440 -209 1920 1035 10;
 #X declare -lib ggee;
 #X obj 437 29 declare -lib ggee;
 #N canvas 224 97 612 101 01_INTRODUCTION 0;
@@ -71,6 +71,82 @@ on how phase relates to sound., f 98;
 #X text 1316 18 1 = 360 degree phase shift;
 #X obj 1314 240 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
+#N canvas 224 97 1035 583 BLANK_MODULE 0;
+#X text 7 24 If you have ever plucked a guitar string or hit a drum
+\, you likely noticed that the harder you hit or plucked resulted in
+a louder sound. While if you plucked or hit the objects with less intensity
+\, it might have sounded softer. When a string is plucked harder \,
+this means when it vibrates it moves farther from its resting point
+(the point where it sits when not vibrating). This causes the string
+to push the air molecules around it farther \, creating a greater pressure
+build up. In our sound wave graph we map the amount of pressure above
+the atmospheric pressure caused by the vibrating object in the y axis
+\, depicting the wave’s compression and rarefaction. This aspect
+of the wave is known as the wave’s AMPLITUDE. When we talk about
+amplitude \, we often graph it abstractly between +1 and -1 \, at which
+these points are the MAXIMUM points that some system can have. This
+system can be our computer \, a recording studio \, or our ear \, it
+all depends on the context!, f 98;
+#X text 7 154 When mapping the sound pressure level to a scale of +1
+to -1 \, we call it LINEAR AMPLITUDE. It makes using computers to calculate
+it very easy \, and it also makes a lot of sense when we manipulate
+it (as we will see). For example \, we can set the sound wave to half
+its amplitude by setting the amplitude to 0.5 (or dividing all of the
+amplitude points by 2). When we discuss the amplitude of a wave at
+a certain point \, we talk about the absolute value max peak of a cycle.
+For example if a wave goes from +0.7 to -0.9 \, we are going to take
+the absolute value of those points and report the peak \, so this example
+wave would have an amplitude of 0.9., f 98;
+#X text 7 244 To the right is a small controllable sound generator.
+Press the “On” button to turn the generator on and adjust the wave’s
+amplitude with the fader labelled “AMP” by clicking and dragging
+on the middle line. You will see the wave displayed next to the fader.
+As the amplitude increases from 0 \, the sound will get louder. At
+1 the wave is as loud as your computer can handle \, so going above
+this level will create a very distorted sound., f 98;
+#X text 7 4 SOUND PRESSURE LEVEL AND AMPLITUDE, f 73;
+#N canvas 142 47 1920 855 demonstration.wave 0;
+#X coords 0 -1 1 1 400 275 2 100 100;
+#X restore 614 8 pd demonstration.wave;
+#N canvas 53 102 860 714 sound_gen_amp_demo 0;
+#X coords 0 -1 1 1 400 250 2 100 100;
+#X restore 615 299 pd sound_gen_amp_demo;
+#X text 7 314 Talking about amplitude as a linear system is a problem
+\, because our ear unfortunately doesn’t hear linearly \, our ears
+perceive sound LOGARITHMICALLY. This introduction to acoustics attempts
+to keep as much math out of the discussion as possible \, so I will
+(try) to convey this concept as succinctly as possible (my apologies
+to anyone with a solid background in mathematics). In the next module
+we will briefly introduce the concept of the logarithmic scale \, and
+then we will see how it applies to amplitude., f 98;
+#X text 7 394 Close this window to move on to the next module., f
+98;
+#X restore 892 28 pd BLANK_MODULE;
+#N canvas 1784 159 726 528 02_WHAT_IS_PHASE 0;
+#X text 69 366 Now something else occurs when a sound wave follows
+this pattern. We create angles when we draw one line from the center
+of the circle to the 3:00 position on the circle \, and another line
+to the rotating point on the circle. When the point is at 12:00 \,
+we get a 90deg angle. When the point is at 9:00 \, we get a 180deg
+angle \, at 6:00 we get 270deg angle \, and once we complete the full
+circle we get 360deg but we restart the calculation at 0deg., f 98
+;
+#X text 69 456 We use these angles to associate points on the sine
+wave. These angles are known as the sound wave’s PHASE. So we say
+that the phase of the sine wave at the top of its compression is 90deg
+\, while at the bottom of its rarefaction is 270 deg., f 98;
+#X text 59 6 2 WHAT IS PHASE?, f 73;
+#X text 59 26 Depicted below is the most simple sound \, the sine wave
+\, which we have been using as our test tone. The sine wave can be
+mathematically generated through the movement of a point revolving
+counterclockwise around a circle. As shown in the diagram \, as the
+point revolves around the circle \, the smooth movement of the sound
+wave’s compression and rarefaction are made – when the point is
+at the 12:00 point of the circle \, we are at the apex of the compression
+\, and when the point is at the 6:00 point of the circle \, we are
+at the lowest point of the rarefaction., f 98;
+#X obj 354 222 ggee/image unit_circle_sinewave.gif;
+#X restore 116 174 pd 02_WHAT_IS_PHASE;
 #X connect 2 0 3 0;
 #X connect 3 0 15 0;
 #X connect 4 0 3 1;

@@ -236,20 +236,20 @@ a textbook \, and each concept has hands on examples in the programs
 Of course if you run into ANY problems whatsoever \, contact me immediately!!
 , f 191;
 #X text 1376 2411 .;
-#X text 27 -85 ., f 65;
+#X text 27 -75 ., f 65;
 #X text 407 1401 Fig 3 - Prototype window for each Fundamentals of
 Acoustics chapter program, f 78;
 #X text 26 1456 Graphical User Interface Controls, f 37;
 #X text 447 2001 Fig 4 - Various interactive graphical user interface
 controls, f 84;
-#N canvas 27 23 450 300 initialize 1;
+#N canvas 27 23 450 300 initialize 0;
 #X obj 37 152 s \$0-num1;
 #X obj 163 149 s \$0-num2;
 #X obj 46 25 loadbang;
 #X msg 31 90 3;
 #X msg 171 88 3;
 #X obj 46 47 t b b;
-#N canvas 124 254 1416 585 vegas 1;
+#N canvas 27 254 1413 585 vegas 0;
 #X obj 168 60 r \$0-bang-r;
 #X obj 173 351 s \$0-button1-s;
 #X obj 484 350 s \$0-button4-s;

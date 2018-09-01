@@ -1,4 +1,4 @@
-#N canvas 2198 153 1290 855 12;
+#N canvas 150 23 1290 855 12;
 #X declare -path dependencies;
 #X obj 16 34 cnv 15 1250 60 empty empty empty 20 12 0 14 -261234 -66577
 0;
@@ -13,23 +13,16 @@ work? How does one person speaking travel from one point to our ears
 is in no way an exhaustive illustration of how sound works \, I hope
 you will leave with a little bit better understanding of how it functions.
 , f 176;
-#X text 19 176 Sound waves are created through the movement of a vibrating
-mass. An object vibrates enough to make sound through an excitation
-\; this excitation could be air passing over vocal cords \, a plectrum
-(pick) plucking a guitar string \, a stick hitting a drum head \, two
-hands snapping a carrot in half \, or a rock hitting pavement. This
-vibration creates a variation in the pressure of air molecules (or
-water molecules \, though not as easily) that travels as a WAVE that
-\, when it reaches our ears \, the brain amazingly interprets as sound!
-, f 176;
-#X text 19 246 How does this all work? Let’s use a guitar string
+#X obj 658 616 image lwav2_attr.gif;
+#X text 19 66 Chapter 1 - How Does Sound Work?, f 56;
+#X text 19 266 How does this all work? Let’s use a guitar string
 as an example as a vibrating mass. A guitar pick pulls the string back
 \, then releases it and the string starts to vibrate. The first movement
 of the vibration is a movement of the string opposite to the direction
-the pick pulled the strong. This movement pushes the air molecules
-around it. Sometimes these molecules are pushed far \, sometimes pushed
-just a little. Once the surrounding molecules get pushed \, a build-up
-of pressure (caused by an increase in the number of molecules for the
+the pick pulled the string This movement pushes the air molecules around
+it. Sometimes these molecules are pushed far \, sometimes pushed just
+a little. Once the surrounding molecules get pushed \, a build-up of
+pressure (caused by an increase in the number of molecules for the
 area) results. This pressure effects all of the molecules around the
 vibrating mass. As the pressure increases around the string \, the
 molecules increase the pressure of the molecules surrounding them.
@@ -53,7 +46,19 @@ plucked hard enough \, the cycle repeats again as the string swings
 back. This cycle of increasing and then decreasing of pressure at our
 ear drum is astoundingly interpreted by our brains as sound!, f 176
 ;
-#X obj 598 596 image lwav2_attr.gif;
+#X text 244 581 Vibrating mass (string \, drum \, metal bar \, branch
+splitting \, etc...), f 18;
+#X text 971 601 Ear Drum;
+#X text 19 176 Sound waves are created through the movement of a vibrating
+mass. An object vibrates enough to make sound through an excitation
+- this excitation could be air passing over vocal cords \, a plectrum
+(pick) plucking a guitar string \, a stick hitting a drum head \, two
+hands snapping a carrot in half \, or a rock hitting pavement. This
+vibration creates a variation in the pressure of air molecules (or
+water molecules \, though not as easily) that travels as a WAVE. In
+physics \, a wave is an occurrance that moves energy in a space \,
+and in the case of sound \, what we are moving is ACOUSTIC ENERGY.
+When the waveit reaches our ears \, the brain amazingly interprets
+this acoustic energy as sound!, f 176;
 #X obj 1070 68 declare -path dependencies;
-#X text 19 66 Chapter 1 - How Does Sound Work?, f 56;
 #X coords 0 855 1 854 1100 650 0;

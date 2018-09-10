@@ -1,4 +1,4 @@
-#N canvas 21 23 1413 855 10;
+#N canvas 1666 -126 1413 855 10;
 #X obj 759 444 tdh.util.scope~;
 #X obj 756 12 receive~ sig4;
 #X obj 782 277 bng 15 250 50 0 \$0-harmonicspec_a empty Harmonic_Spectrum_B_(Sawtooth_Wave)
@@ -1642,8 +1642,8 @@ back to 1);
 #X connect 9 0 5 0;
 #X connect 10 0 0 0;
 #X restore 1308 547 pd freq.calc.inharm;
-#N canvas 26 23 907 626 amp.calc.inharm 0;
-#X obj 546 566 send, f 5;
+#N canvas 2022 -10 907 626 amp.calc.inharm 0;
+#X obj 460 531 send, f 5;
 #X obj 428 119 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 428 215 float \$0;
@@ -1688,7 +1688,7 @@ signal won't be too loud), f 28;
 #X obj 283 370 random 101;
 #X obj 283 391 / 100;
 #X obj 267 518 f;
-#X obj 428 267 t b s;
+#X obj 437 310 t b s;
 #X obj 231 334 t b b;
 #X obj 199 370 random 101;
 #X obj 199 391 / 100;
@@ -1703,6 +1703,7 @@ send right number;
 #X obj 428 165 makefilename %%d-amp%da;
 #X obj 248 573 * 0.25;
 #X text 114 572 Scale all amplitudes to prevent clipping, f 20;
+#X msg 626 334 0.020833;
 #X connect 1 0 7 0;
 #X connect 2 0 4 0;
 #X connect 3 0 2 0;
@@ -1970,7 +1971,89 @@ to just "%d" so that we can use it as a replaceable element below;
 #X connect 26 0 9 0;
 #X connect 31 0 14 0;
 #X restore 1308 647 pd freq.calc.noise;
-#N canvas -1281 -280 847 767 amp.calc.noise 0;
+#X obj 782 329 bng 15 250 50 0 \$0-noise empty Noise_(Attempt_at_generating_white_noise_manually)
+17 7 0 10 -4032 -1 -1;
+#X obj 182 1329 noise~;
+#X text 1305 588 Continuous Noise;
+#X text 779 219 Preset Timbres -------------------------------------
+;
+#X obj 782 347 bng 15 250 50 0 \$0-idealnoise empty Idealized_Noise
+17 7 0 10 -4032 -1 -1;
+#X obj 212 1352 bng 15 250 50 0 empty \$0-idealnoise empty 17 7 0 10
+-262144 -1 -1;
+#X msg 212 1372 0 \, 0.8 250;
+#X obj 212 1393 line~;
+#X obj 183 1426 *~;
+#X obj 380 1345 bng 15 250 50 0 empty \$0-harmonicspec_a empty 17 7
+0 10 -262144 -1 -1;
+#X obj 357 1345 bng 15 250 50 0 empty \$0-harmonicspec_b empty 17 7
+0 10 -262144 -1 -1;
+#X obj 333 1346 bng 15 250 50 0 empty \$0-sine empty 17 7 0 10 -262144
+-1 -1;
+#X obj 400 1344 bng 15 250 50 0 empty \$0-harmonicspec_c empty 17 7
+0 10 -262144 -1 -1;
+#X obj 420 1345 bng 15 250 50 0 empty \$0-inharmonicspec empty 17 7
+0 10 -262144 -1 -1;
+#X obj 442 1344 bng 15 250 50 0 empty \$0-noise empty 17 7 0 10 -262144
+-1 -1;
+#X msg 331 1383 0;
+#X text 332 1312 If any other preset is triggered \, silence the noise
+oscillator immediately;
+#X text 102 122 All sound waves are actually composed of many individual
+simple sound waves called SINE WAVES. Turn on DSP at the top (if it
+isn’t on already). Click on the blue PRESET BUTTON labeled SINE WAVE
+to see and hear a sine wave on its own (you will likely recognize it
+from the Frequency and Amplitude module). On their own \, sine waves
+don't exist in nature \, they must by synthetically made. When a natural
+sound occurs \, it is composed of hundreds of sine waves that sum together
+to form a COMPLEX WAVE., f 108;
+#X text 102 192 These individual sine waves are known as partials or
+harmonics. Each partial within a complex wave has its own frequency
+and amplitude. You can manipulate 48 different sine waves below.,
+f 108;
+#X text 102 232 Complex waves are comprised of many sine waves. Try
+adding a second sine wave to what you hear. Set the second the second
+partial to a different frequency (number box labelled "f") and increase
+that partial's amplitude (number box labelled "a"). Notice the change
+in the displayed waveform as the two sine waves add together. This
+change in waveform is due to the phase interference of the many sine
+waves amongst each other., f 108;
+#X text 102 302 When sine waves sum together to create a complex wave
+that creates a musical tone \, we call this harmonic spectrum. A harmonic
+spectrum has sine waves that are related by whole number multiples
+(2x \, 3x \, etc.) based on the lowest frequency partial (known as
+the fundamental). This partial often has the highest amplitude as well.
+On the right are three different harmonic spectra that are commonly
+found on synthesizer instruments \, because they are easily designed
+through specified partials. Listen to the three spectra and notice
+the change in wave shape and the change in sound., f 108;
+#X text 102 382 A spectrum whose partials are not related by integer
+multiples are known as inharmonic spectrum. This is the spectrum of
+percussive sounds with little to no pitch. Depending on how many sine
+waves are present and how unrelated they are will determine how noisy
+the content will be. At the right is a preset button labelled INHARMONIC
+SPECTRUM. The resulting spectrum is a spectrum where every frequency
+and amplitude value is randomly chosen by the computer. Each click
+will choose a new spectrum., f 108;
+#X text 102 462 While the inharmonic spectrum is noisy \, it could
+be noisier. The noisiest spectrum is known (not surprisingly) as noise.
+In noise \, we have completely random frequencies and amplitudes \,
+sort of like our inharmonic spectrum \, except ideally we have EVERY
+audible frequency represented. The preset labelled NOISE attempts to
+simulate that by constantly changing the frequencies and amplitudes
+of each partial to random values. When the probability of every audible
+frequency is equal \, we have what is called WHITE NOISE. Noise actually
+comes in 3 colors: white \, pink \, and brown \, and each has its own
+statistics of how frequencies are present (their details are beyond
+the scope of this demonstration). While noise is difficult to develop
+with only 48 partials \, so a built in generator in Pd is available
+\, which is heard by the preset labelled IDEALIZED NOISE \, which gives
+an exact version of white noise., f 108;
+#X text 105 101 Spectrum and Timbre;
+#X text 1392 863 This is the old version that constantly tried to recalculate
+amplitudes \, because I erroneously thought white noise had random
+amplitudes \, but it actually has consistent amplitudes, f 28;
+#N canvas 26 23 847 767 amp.calc.noise.error 0;
 #X obj 296 675 send, f 5;
 #X obj 282 183 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -2063,98 +2146,77 @@ to just "%d" so that we can use it as a replaceable element below;
 #X connect 7 0 1 0;
 #X connect 8 0 25 0;
 #X connect 9 0 11 0;
-#X connect 11 0 31 0;
 #X connect 12 0 11 0;
 #X connect 14 0 11 0;
 #X connect 16 0 11 0;
 #X connect 18 0 11 0;
-#X connect 21 0 31 0;
 #X connect 25 0 3 0;
 #X connect 27 0 29 0;
 #X connect 29 0 30 0;
 #X connect 30 0 0 0;
 #X connect 31 0 8 0;
 #X connect 32 0 11 0;
-#X restore 1437 644 pd amp.calc.noise;
-#X obj 782 329 bng 15 250 50 0 \$0-noise empty Noise_(Continuously_Generated_Random_Freq_and_Amp)
-17 7 0 10 -4032 -1 -1;
-#X obj 182 1329 noise~;
-#X text 1305 588 Continuous Noise;
-#X text 779 219 Preset Timbres -------------------------------------
-;
-#X obj 782 347 bng 15 250 50 0 \$0-idealnoise empty Idealized_Noise
-17 7 0 10 -4032 -1 -1;
-#X obj 212 1352 bng 15 250 50 0 empty \$0-idealnoise empty 17 7 0 10
--262144 -1 -1;
-#X msg 212 1372 0 \, 0.8 250;
-#X obj 212 1393 line~;
-#X obj 183 1426 *~;
-#X obj 380 1345 bng 15 250 50 0 empty \$0-harmonicspec_a empty 17 7
-0 10 -262144 -1 -1;
-#X obj 357 1345 bng 15 250 50 0 empty \$0-harmonicspec_b empty 17 7
-0 10 -262144 -1 -1;
-#X obj 333 1346 bng 15 250 50 0 empty \$0-sine empty 17 7 0 10 -262144
+#X restore 1389 848 pd amp.calc.noise.error;
+#N canvas 2022 -10 907 626 amp.calc.noise 0;
+#X obj 460 531 send, f 5;
+#X obj 428 119 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 400 1344 bng 15 250 50 0 empty \$0-harmonicspec_c empty 17 7
-0 10 -262144 -1 -1;
-#X obj 420 1345 bng 15 250 50 0 empty \$0-inharmonicspec empty 17 7
-0 10 -262144 -1 -1;
-#X obj 442 1344 bng 15 250 50 0 empty \$0-noise empty 17 7 0 10 -262144
--1 -1;
-#X msg 331 1383 0;
-#X text 332 1312 If any other preset is triggered \, silence the noise
-oscillator immediately;
-#X text 102 122 All sound waves are actually composed of many individual
-simple sound waves called SINE WAVES. Turn on DSP at the top (if it
-isn’t on already). Click on the blue PRESET BUTTON labeled SINE WAVE
-to see and hear a sine wave on its own (you will likely recognize it
-from the Frequency and Amplitude module). On their own \, sine waves
-don't exist in nature \, they must by synthetically made. When a natural
-sound occurs \, it is composed of hundreds of sine waves that sum together
-to form a COMPLEX WAVE., f 108;
-#X text 102 192 These individual sine waves are known as partials or
-harmonics. Each partial within a complex wave has its own frequency
-and amplitude. You can manipulate 48 different sine waves below.,
-f 108;
-#X text 102 232 Complex waves are comprised of many sine waves. Try
-adding a second sine wave to what you hear. Set the second the second
-partial to a different frequency (number box labelled "f") and increase
-that partial's amplitude (number box labelled "a"). Notice the change
-in the displayed waveform as the two sine waves add together. This
-change in waveform is due to the phase interference of the many sine
-waves amongst each other., f 108;
-#X text 102 302 When sine waves sum together to create a complex wave
-that creates a musical tone \, we call this harmonic spectrum. A harmonic
-spectrum has sine waves that are related by whole number multiples
-(2x \, 3x \, etc.) based on the lowest frequency partial (known as
-the fundamental). This partial often has the highest amplitude as well.
-On the right are three different harmonic spectra that are commonly
-found on synthesizer instruments \, because they are easily designed
-through specified partials. Listen to the three spectra and notice
-the change in wave shape and the change in sound., f 108;
-#X text 102 382 A spectrum whose partials are not related by integer
-multiples are known as inharmonic spectrum. This is the spectrum of
-percussive sounds with little to no pitch. Depending on how many sine
-waves are present and how unrelated they are will determine how noisy
-the content will be. At the right is a preset button labelled INHARMONIC
-SPECTRUM. The resulting spectrum is a spectrum where every frequency
-and amplitude value is randomly chosen by the computer. Each click
-will choose a new spectrum., f 108;
-#X text 102 462 While the inharmonic spectrum is noisy \, it could
-be noisier. The noisiest spectrum is known (not surprisingly) as noise.
-In noise \, we have completely random frequencies and amplitudes \,
-sort of like our inharmonic spectrum \, except ideally we have EVERY
-audible frequency represented. The preset labelled NOISE attempts to
-simulate that by constantly changing the frequencies and amplitudes
-of each partial to random values. When the probability of every audible
-frequency is equal \, we have what is called WHITE NOISE. Noise actually
-comes in 3 colors: white \, pink \, and brown \, and each has its own
-statistics of how frequencies are present (their details are beyond
-the scope of this demonstration). While noise is difficult to develop
-with only 48 partials \, so a built in generator in Pd is available
-\, which is heard by the preset labelled IDEALIZED NOISE \, which gives
-an exact version of white noise., f 108;
-#X text 105 101 Spectrum and Timbre;
+#X obj 428 215 float \$0;
+#X obj 428 189 t b s;
+#X obj 428 241 makefilename;
+#X msg 489 217 set \$1;
+#X obj 428 94 inlet;
+#N canvas 25 23 869 484 for.loop.1-48 0;
+#X obj 54 111 until;
+#X obj 115 133 + 1;
+#X text 142 133 iterator \, increase by 1 each time [until] sends a
+"bang";
+#X text 341 207 this mechanism resets the iterator to "1" when the
+max iterations have occured, f 40;
+#X obj 328 233 loadbang;
+#X obj 54 160 trigger f f;
+#X text 131 157 send the iterator first to the loop mechanism \, then
+to the [sel] object to test if the loop is over (and reset the iterator
+back to 1);
+#X obj 54 88 t f f;
+#X obj 54 20 inlet;
+#X obj 117 244 outlet;
+#X obj 295 211 sel 48;
+#X msg 54 67 48;
+#X msg 295 233 1;
+#X obj 54 133 float 1;
+#X connect 0 0 13 0;
+#X connect 1 0 13 1;
+#X connect 4 0 12 0;
+#X connect 5 0 10 0;
+#X connect 5 1 9 0;
+#X connect 7 0 0 0;
+#X connect 8 0 11 0;
+#X connect 10 0 12 0;
+#X connect 11 0 7 0;
+#X connect 12 0 13 1;
+#X connect 13 0 1 0;
+#X connect 13 0 5 0;
+#X restore 428 142 pd for.loop.1-48;
+#X obj 437 310 t b s;
+#X obj 745 564 print;
+#X obj 737 520 pack f s;
+#X obj 428 165 makefilename %%d-amp%da;
+#X msg 384 414 0.020833;
+#X connect 1 0 7 0;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 3 1 5 0;
+#X connect 4 0 8 0;
+#X connect 5 0 4 0;
+#X connect 6 0 1 0;
+#X connect 7 0 11 0;
+#X connect 8 0 12 0;
+#X connect 8 1 0 1;
+#X connect 10 0 9 0;
+#X connect 11 0 3 0;
+#X connect 12 0 0 0;
+#X restore 1450 646 pd amp.calc.noise;
 #X connect 1 0 0 0;
 #X connect 3 0 12 0;
 #X connect 3 0 14 0;
@@ -2376,17 +2438,17 @@ an exact version of white noise., f 108;
 #X connect 627 0 623 0;
 #X connect 629 0 627 0;
 #X connect 631 0 632 0;
-#X connect 631 0 633 0;
-#X connect 635 0 642 0;
+#X connect 631 0 659 0;
+#X connect 634 0 641 0;
+#X connect 638 0 639 0;
 #X connect 639 0 640 0;
-#X connect 640 0 641 0;
-#X connect 641 0 642 1;
-#X connect 642 0 431 0;
-#X connect 643 0 649 0;
-#X connect 644 0 649 0;
-#X connect 645 0 649 0;
-#X connect 646 0 649 0;
-#X connect 647 0 649 0;
-#X connect 648 0 649 0;
-#X connect 649 0 641 0;
+#X connect 640 0 641 1;
+#X connect 641 0 431 0;
+#X connect 642 0 648 0;
+#X connect 643 0 648 0;
+#X connect 644 0 648 0;
+#X connect 645 0 648 0;
+#X connect 646 0 648 0;
+#X connect 647 0 648 0;
+#X connect 648 0 640 0;
 #X coords 0 -1 1 1 1100 775 2 100 100;

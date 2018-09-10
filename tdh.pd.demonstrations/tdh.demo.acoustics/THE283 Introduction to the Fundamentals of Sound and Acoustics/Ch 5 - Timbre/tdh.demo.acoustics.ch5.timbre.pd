@@ -1,4 +1,4 @@
-#N canvas 1952 -140 1277 821 12;
+#N canvas 89 23 1277 821 12;
 #X declare -lib dependencies;
 #X declare -path sounds;
 #N canvas 1440 -209 1920 1035 main 0;
@@ -3388,10 +3388,9 @@ of the spectrum \, with each sine having its own frequency \, amplitude
 \, and phase \, influences the way the sound is heard and the way it
 looks in an oscilloscope., f 98;
 #X restore 31 -168 pd 01_INTRODUCTION;
-#N canvas 1875 160 1157 423 02_FOURIER_TRANSFORM_AND_THE_SPECTROGRAPH
+#N canvas 52 189 1366 480 02_FOURIER_TRANSFORM_AND_THE_SPECTROGRAPH
 1;
-#N canvas 1643 -187 1413 855 demonstration.wave 1;
-#X obj 1180 933 metro 10;
+#N canvas 1958 -239 1413 855 demonstration.wave 0;
 #X obj 1179 909 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 1 1;
 #X obj 1180 866 loadbang;
@@ -3533,9 +3532,10 @@ per second. The graph is back on the main (parent) window.;
 used. (The others are determined by symmetry: they're complex conjugates
 of the first half \, in reverse order.) This takes 1/2 the CPU time
 of "fft".;
-#X obj 23 470 metro 50;
-#X obj 14 498 tabwrite~ \$0-main-amp-freq-demo-spectrum;
 #X obj 36 140 tabreceive~ \$0-hann1;
+#X obj 23 470 metro 250;
+#X msg 23 410 1;
+#X obj 14 498 tabwrite~ \$0-timbre_spectrograph1;
 #X connect 0 0 2 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
@@ -3544,16 +3544,17 @@ of "fft".;
 #X connect 2 1 4 1;
 #X connect 3 0 18 0;
 #X connect 4 0 18 1;
-#X connect 5 0 23 0;
-#X connect 6 0 7 0;
-#X connect 7 0 22 0;
+#X connect 5 0 25 0;
+#X connect 6 0 24 0;
+#X connect 7 0 23 0;
 #X connect 18 0 5 0;
-#X connect 22 0 23 0;
-#X connect 24 0 0 1;
+#X connect 22 0 0 1;
+#X connect 23 0 25 0;
+#X connect 24 0 7 0;
 #X restore 1094 205 pd fft-analysis;
-#N canvas 25 23 450 300 (subpatch) 0;
-#X array \$0-main-amp-freq-demo-spectrum 256 float 0;
-#X coords 0 128 255 0 500 100 1;
+#N canvas 26 23 450 300 (subpatch) 0;
+#X array \$0-timbre_spectrograph1 256 float 0;
+#X coords 0 128 255 0 500 100 1 0 0;
 #X restore 168 115 graph;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array \$0-hann1 512 float 1;
@@ -3716,115 +3717,108 @@ of "fft".;
 #X coords 0 -1 1 1 590 175 2 100 100;
 #X restore 239 123 pd box;
 #X obj 867 972 send~ \$0-timbre_spectro1;
-#X obj 1177 322 receive~ \$0-timbre_spectro1;
-#X connect 0 0 40 0;
-#X connect 1 0 0 0;
-#X connect 2 0 3 0;
-#X connect 3 0 1 0;
-#X connect 4 0 0 1;
-#X connect 8 0 13 0;
-#X connect 8 0 78 0;
-#X connect 9 0 11 0;
-#X connect 10 0 9 0;
-#X connect 11 0 8 0;
-#X connect 13 0 14 0;
-#X connect 14 0 16 0;
-#X connect 15 0 18 1;
-#X connect 16 0 17 0;
+#X obj 879 385 receive~ \$0-timbre_spectro1;
+#X obj 1180 933 metro 250;
+#X connect 0 0 84 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 84 1;
+#X connect 7 0 12 0;
+#X connect 7 0 77 0;
+#X connect 8 0 10 0;
+#X connect 9 0 8 0;
+#X connect 10 0 7 0;
+#X connect 12 0 13 0;
+#X connect 13 0 15 0;
+#X connect 14 0 17 1;
+#X connect 15 0 16 0;
+#X connect 17 0 18 0;
 #X connect 18 0 19 0;
-#X connect 19 0 20 0;
-#X connect 20 0 5 0;
-#X connect 20 0 40 0;
-#X connect 20 0 83 0;
-#X connect 20 1 18 0;
-#X connect 21 0 24 0;
-#X connect 21 0 76 0;
-#X connect 22 0 28 0;
-#X connect 23 0 22 0;
+#X connect 19 0 4 0;
+#X connect 19 0 39 0;
+#X connect 19 0 82 0;
+#X connect 19 1 17 0;
+#X connect 20 0 23 0;
+#X connect 20 0 75 0;
+#X connect 21 0 27 0;
+#X connect 22 0 21 0;
+#X connect 23 0 24 0;
 #X connect 24 0 25 0;
 #X connect 25 0 26 0;
-#X connect 26 0 27 0;
-#X connect 28 0 21 0;
-#X connect 29 0 30 1;
+#X connect 27 0 20 0;
+#X connect 28 0 29 1;
+#X connect 29 0 30 0;
 #X connect 30 0 31 0;
-#X connect 31 0 32 0;
-#X connect 32 0 40 0;
-#X connect 32 0 43 0;
-#X connect 32 0 83 0;
-#X connect 32 1 30 0;
+#X connect 31 0 39 0;
+#X connect 31 0 42 0;
+#X connect 31 0 82 0;
+#X connect 31 1 29 0;
+#X connect 32 0 33 0;
 #X connect 33 0 34 0;
-#X connect 34 0 35 0;
-#X connect 34 1 29 0;
-#X connect 35 0 31 0;
-#X connect 36 0 37 0;
-#X connect 36 1 15 0;
-#X connect 37 0 19 0;
-#X connect 38 0 36 0;
-#X connect 39 0 23 0;
-#X connect 39 0 10 0;
+#X connect 33 1 28 0;
+#X connect 34 0 30 0;
+#X connect 35 0 36 0;
+#X connect 35 1 14 0;
+#X connect 36 0 18 0;
+#X connect 37 0 35 0;
+#X connect 38 0 22 0;
+#X connect 38 0 9 0;
+#X connect 43 0 44 0;
 #X connect 44 0 45 0;
-#X connect 45 0 46 0;
-#X connect 46 0 5 0;
-#X connect 46 0 40 0;
-#X connect 46 0 83 0;
-#X connect 47 0 46 1;
-#X connect 48 0 44 0;
-#X connect 50 0 47 0;
-#X connect 51 0 5 0;
-#X connect 51 0 40 0;
-#X connect 51 0 83 0;
-#X connect 52 0 51 1;
-#X connect 53 0 56 0;
-#X connect 53 0 58 0;
-#X connect 55 0 52 0;
-#X connect 56 0 57 0;
-#X connect 57 0 58 1;
+#X connect 45 0 4 0;
+#X connect 45 0 39 0;
+#X connect 45 0 82 0;
+#X connect 46 0 45 1;
+#X connect 47 0 43 0;
+#X connect 49 0 46 0;
+#X connect 50 0 4 0;
+#X connect 50 0 39 0;
+#X connect 50 0 82 0;
+#X connect 51 0 50 1;
+#X connect 52 0 55 0;
+#X connect 52 0 57 0;
+#X connect 54 0 51 0;
+#X connect 55 0 56 0;
+#X connect 56 0 57 1;
+#X connect 57 0 58 0;
 #X connect 58 0 59 0;
-#X connect 59 0 60 0;
-#X connect 60 0 51 0;
-#X connect 61 0 5 0;
-#X connect 61 0 40 0;
-#X connect 61 0 83 0;
-#X connect 62 0 61 1;
+#X connect 59 0 50 0;
+#X connect 60 0 4 0;
+#X connect 60 0 39 0;
+#X connect 60 0 82 0;
+#X connect 61 0 60 1;
+#X connect 62 0 63 0;
 #X connect 63 0 64 0;
 #X connect 64 0 65 0;
 #X connect 65 0 66 0;
-#X connect 66 0 67 0;
+#X connect 66 0 60 0;
 #X connect 67 0 61 0;
-#X connect 68 0 62 0;
-#X connect 71 0 72 0;
-#X connect 72 0 5 0;
-#X connect 72 0 40 0;
-#X connect 72 0 83 0;
-#X connect 73 0 72 1;
-#X connect 74 0 73 0;
-#X connect 76 0 77 0;
-#X connect 77 0 75 0;
+#X connect 70 0 71 0;
+#X connect 71 0 4 0;
+#X connect 71 0 39 0;
+#X connect 71 0 82 0;
+#X connect 72 0 71 1;
+#X connect 73 0 72 0;
+#X connect 75 0 76 0;
+#X connect 76 0 74 0;
+#X connect 77 0 78 0;
 #X connect 78 0 79 0;
-#X connect 79 0 80 0;
+#X connect 83 0 80 0;
+#X connect 84 0 39 0;
 #X coords 0 -1 1 1 750 400 2 100 100;
-#X restore 711 63 pd demonstration.wave;
-#X text 9 210 Changing the phase actually doesn’t affect how a sound
-is heard. Why? Because changing the phase doesn’t change the frequency
-of a sound – there are still the same number of cycles per second.
-It also doesn’t change the overall amplitude of the sound \, as the
-same displacement occurs \, the only difference is that what once was
-a compression is now a rarefaction \, and vice versa., f 98;
-#X text 9 430 Finally \, you can choose any arbitrary phase shift with
-the slider \, from 0 to 359 degrees. Do you notice any change with
-any of these phases?, f 98;
-#X text 9 10 5.2 THE FOURIER TRANSFORM AND THE SPECTROGRAPH, f 73
+#X restore 588 10 pd demonstration.wave;
+#X text 10 13 5.2 THE FOURIER TRANSFORM AND THE SPECTROGRAPH, f 73
 ;
-#X text 9 30 Mathematicians developed a way to break down a sound into
-its individual spectral components with the process known as the FOURIER
-TRANSFORM. It was the development of computers that has allowed us
-to view the spectrum \, and also manipulate the spectrum to produce
+#X text 10 33 Mathematicians developed a way to break down a sound
+into its individual spectral components with the process known as the
+FOURIER TRANSFORM. It was the development of computers that has allowed
+us to view the spectrum \, and also manipulate the spectrum to produce
 interesting and helpful results \, such as auto-tune and noise removal.
-, f 98;
-#X text 9 100 When we process a signal with the Fourier transform \,
-what is produced is each sine wave of a signal \, its amplitude \,
-and its phase. This is what we see when we look at a spectrograph \,
-such as seen in the discussion of the octave. You will see a spike
+, f 79;
+#X text 10 123 When we process a signal with the Fourier transform
+\, what is produced is each sine wave of a signal \, its amplitude
+\, and its phase. This is what we see when we look at a spectrograph
+\, such as seen in the discussion of the octave. You will see a spike
 at the point of the frequency for each sine wave \, and the spike’s
 height determines the sine wave’s amplitude. You will notice that
 the spike isn’t a perfectly straight line. This is because the transform
@@ -3832,14 +3826,14 @@ isn’t perfect \, and compromises have to be made when taking the
 transform – some compromises make the frequency resolution better
 (how accurate the detected frequencies are) \, at the expense of the
 time resolution (how accurate the graph depicts frequency change over
-time) \, and vice versa., f 98;
-#X text 9 280 To the right are 4 buttons \, each that play a synthetic
+time) \, and vice versa., f 79;
+#X text 10 283 To the right are 4 buttons \, each that play a synthetic
 tone \, but these synthetic tones have a spectral makeup. You will
 see the spectral content of the tone you play \, as well as the wave’s
 shape in the oscilloscope. When you play the sine wave \, you get a
 single spike in the spectrograph. As you play the other three tones
 \, you will notice that each tone sounds different \, visually the
 waves are much different \, the spectrum of each eave has much more
-to it than the sine wave., f 98;
+to it than the sine wave., f 79;
 #X restore 32 -128 pd 02_FOURIER_TRANSFORM_AND_THE_SPECTROGRAPH;
 #X coords 0 821 1 820 1100 775 0;

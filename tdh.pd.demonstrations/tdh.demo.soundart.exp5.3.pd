@@ -1,0 +1,131 @@
+#N canvas 1880 -261 1362 1166 10;
+#X obj 106 404 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 106 426 metro;
+#N canvas 26 23 642 346 counter 0;
+#X obj 28 276 outlet;
+#X obj 28 200 % 8;
+#X obj 84 151 + 1;
+#X floatatom 28 240 5 0 0 0 - - -;
+#X obj 28 150 float 0;
+#X obj 178 24 inlet;
+#X obj 178 61 t f b;
+#X msg 204 85 0;
+#X obj 31 23 inlet;
+#X obj 28 90 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 70 23 "bang" to count;
+#X text 223 23 Set the count max (and also restart the count to 0)
+;
+#X text 119 152 store and increment number;
+#X connect 1 0 3 0;
+#X connect 2 0 4 1;
+#X connect 3 0 0 0;
+#X connect 4 0 2 0;
+#X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 1;
+#X connect 6 1 7 0;
+#X connect 7 0 4 1;
+#X connect 8 0 9 0;
+#X connect 9 0 4 0;
+#X restore 100 916 pd counter;
+#X floatatom 100 942 5 0 0 0 - - -;
+#X obj 96 508 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 96 528 openpanel;
+#X msg 96 549 read -resize \$1 sound1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array sound1 100 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 93 667 graph;
+#X obj 161 427 select;
+#X obj 277 527 tabplay~ sound1;
+#X obj 98 1007 dac~ 1 2;
+#X text 95 472 These objects will need to be duplicated to accomodate
+other arrays:, f 45;
+#X text 94 617 You will need to use the "Put" menu to add more arrays
+for more sounds:, f 45;
+#X text 96 26 Sound Experiment 5.3: DIY Drum Machine;
+#X text 89 116 ALMOST all of the objects you need are supplied below.
+To build this algorithm \, you will need to follow this process (written
+in generic terms):, f 158;
+#X text 101 136 - Use an object that outputs messages on a regular
+basis;
+#X floatatom 269 427 5 0 0 0 - - -;
+#X floatatom 222 427 5 0 0 0 - - -;
+#X text 101 160 - Use the custom made [counter] object to count how
+many messages it has received (it will loop from 0 to loopsize-1 \,
+repeating those numbers. It is currently set to loopsize=8 \, which
+is a typical loop size for a drum machine), f 141;
+#X text 101 204 - Use an object that outputs a message whever a certain
+number from the counter is produced, f 125;
+#X text 101 224 - Use the message output by the above object that outputs
+a message from a certain number \, to trigger a sound, f 125;
+#X text 85 256 In order to load and play a sound \, you must read a
+soundfile into an array. One array has been created for you \, along
+with the objects needed to read the sound file into the array. *You
+will need to 3 more arrays with the "Put" menu command \, give them
+different names \, and duplicate the file reading and playinh code
+\, changing the names in the original code to your newly created arrays.*
+, f 158;
+#X text 87 39 --------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 158;
+#X text 87 9 --------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 158;
+#X text 87 329 --------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 158;
+#X text 87 449 --------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 158;
+#X text 87 829 --------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 158;
+#X text 89 66 For this experiment \, you will use some of the more
+fundamental aspects of our lecture on working with sound files to build
+your own DIY drum machine with four different drum sounds., f 158
+;
+#X text 101 340 These objects are needed (note that you can use arguments
+instead of number boxes to set values for these objects... one of these
+objects might make more sense to use arguments \, otherwise you might
+need multiple copies of one of the objects below if you use the number
+box) :;
+#X text 97 855 This [object] accepts the "bang" message at its inlet
+and counts the number of times it receives that message up to "loopsize-1"
+and then it restarts the count. You can change the loopsize by sending
+a message to the right inlet. The default is set to loopsize = 8 \,
+so it will produce the numbers 0-7 when it receives "bang" messages.
+, f 155;
+#X text 650 1495 bottom;
+#X text 167 1000 You will connect all of your sound generating objects
+to both inlets of the [dac~] object to hear the sounds;
+#X text 87 969 --------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 158;
+#X text 87 1039 --------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 158;
+#X text 101 1059 Hints and tips:;
+#X text 101 1079 - Make sure you turn on DSP to hear the sounds;
+#X text 101 1099 - The object that produces a message when it receives
+a certain number will trigger sounds... so you probably want that object
+to produce a message when different numbers between 0 and loopsize-1
+are sent. You could think of these messages being sent and counted
+as counts in two bars of a beat... so the kick drum will likely be
+the first sound triggered \, then maybe the snare is triggered. You
+can also create rests by not triggering sounds from certain numbers.
+, f 156;
+#X text 101 1149 - The object that produces a message when it receives
+a certain number can function in two ways: one way is where you don't
+give it an argumemnt \, and then you supply the number it is looking
+for through a message to its right inlet. This means if you are using
+this object to trigger certain sounds \, you will need a copy of this
+object for every sound to trigger. The second way to use it is to supply
+numbers to look for as ARGUMENTS (vallues typed in after the object
+name). In this way \, when a number that the object is looking for
+is received \, a message out a corresponding outlet to the argument
+is produced., f 156;
+#X connect 0 0 1 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;

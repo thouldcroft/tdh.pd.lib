@@ -2,19 +2,21 @@
 #X declare -lib dependencies;
 #X declare -path sounds;
 #X declare -path sounds;
-#N canvas 1440 -209 1920 1035 main 0;
+#X declare -path sounds;
+#X declare -path sounds;
+#N canvas 27 23 1413 855 main 0;
 #X obj 1362 487 receive~ sig4;
-#X obj 120 498 bng 15 250 50 0 \$0-harmonicspec_a empty Harmonic_Spectrum_B_(Sawtooth_Wave)
+#X obj 185 485 bng 15 250 50 0 \$0-harmonicspec_a empty Harmonic_Spectrum_B_(Sawtooth_Wave)
 17 7 0 12 -4032 -1 -1;
 #X obj 1484 566 bng 15 250 50 0 empty \$0-harmonicspec_a empty 17 7
 0 10 -262144 -1 -1;
-#X obj 120 464 bng 15 250 50 0 \$0-sine empty Sine_Wave 17 7 0 12 -4032
+#X obj 185 451 bng 15 250 50 0 \$0-sine empty Sine_Wave 17 7 0 12 -4032
 -1 -1;
 #X obj 1482 457 bng 15 250 50 0 empty \$0-harmonicspec_b empty 17 7
 0 10 -262144 -1 -1;
-#X obj 120 481 bng 15 250 50 0 \$0-harmonicspec_b empty Harmonic_Spectrum_A_(Triangle_Wave)
+#X obj 185 468 bng 15 250 50 0 \$0-harmonicspec_b empty Harmonic_Spectrum_A_(Triangle_Wave)
 17 7 0 12 -4032 -1 -1;
-#X obj 120 515 bng 15 250 50 0 \$0-harmonicspec_c empty Harmonic_Spectrum_C_(Rectangle_Wave)
+#X obj 185 502 bng 15 250 50 0 \$0-harmonicspec_c empty Harmonic_Spectrum_C_(Rectangle_Wave)
 17 7 0 12 -4032 -1 -1;
 #X text -325 286 All frequency and amplitude controls in the user interface
 remotely receive from the preset freq and amp values to the right using
@@ -23,10 +25,10 @@ also remotely send to the number boxes below \, which actually set
 the oscillators to develop the various timbre. These use the remote
 send symbol "\$0-freq#b" and "\$0-amp#b". All remote send and receive
 symbols can be seen in each object's properties., f 24;
-#X text 118 601 Individual Partials/Harmonics:;
+#X text 183 588 Individual Partials/Harmonics:;
 #X text 1480 350 Sine Wave preset (silences all partials other than
 the first), f 62;
-#X obj 120 532 bng 15 250 50 0 \$0-inharmonicspec empty Inharmonic_Spectrum_(different_every_time)
+#X obj 185 519 bng 15 250 50 0 \$0-inharmonicspec empty Inharmonic_Spectrum_(different_every_time)
 17 7 0 12 -4032 -1 -1;
 #X obj 1484 591 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -1019,7 +1021,7 @@ number), f 61;
 #X obj 81 1586 *~;
 #X obj 189 1583 / 127;
 #X obj 192 1560 hsl 128 15 0 127 0 0 empty \$0-gainslider empty -2
--8 0 10 -262144 -1 -1 3342 1;
+-8 0 10 -262144 -1 -1 0 1;
 #X text 329 1558 gain;
 #X obj 91 1334 osc~ 440;
 #X floatatom 106 1304 5 0 0 0 - #0-amp25b -, f 5;
@@ -1737,8 +1739,8 @@ send right number;
 #X obj 81 1219 throw~ additive;
 #X obj 82 1628 clip~ -0.99 0.99;
 #X obj 91 1385 throw~ additive;
-#X obj 513 467 vsl 15 115 0 127 0 1 \$0-gainslider empty Gain/Volume
--25 -10 0 12 -4032 -1 -1 3000 1;
+#X obj 578 454 vsl 15 115 0 127 0 1 \$0-gainslider empty Gain/Volume
+-25 -10 0 12 -4032 -1 -1 0 1;
 #X obj 347 1670 dac~ 1 2;
 #X text 1482 433 Harmonic Spectrum A (Triangle Wave) Preset;
 #X text 1484 542 Harmonic Spectrum B (Sawtooth Wave) Preset;
@@ -1971,11 +1973,11 @@ to just "%d" so that we can use it as a replaceable element below;
 #X connect 26 0 9 0;
 #X connect 31 0 14 0;
 #X restore 1488 947 pd freq.calc.noise;
-#X obj 120 550 bng 15 250 50 0 \$0-noise empty Noise_(Attempt_at_generating_white_noise_manually)
+#X obj 185 537 bng 15 250 50 0 \$0-noise empty Noise_(Attempt_at_generating_white_noise_manually)
 17 7 0 12 -4032 -1 -1;
 #X obj 232 1419 noise~;
 #X text 1485 888 Continuous Noise;
-#X obj 120 568 bng 15 250 50 0 \$0-idealnoise empty Idealized_Noise
+#X obj 185 555 bng 15 250 50 0 \$0-idealnoise empty Idealized_Noise
 17 7 0 12 -4032 -1 -1;
 #X obj 262 1442 bng 15 250 50 0 empty \$0-idealnoise empty 17 7 0 10
 -262144 -1 -1;
@@ -2198,12 +2200,214 @@ back to 1);
 #X connect 6 0 5 0;
 #X connect 8 0 7 0;
 #X coords 0 -1 1 1 450 325 2 100 100;
-#X restore 891 565 pd scope;
-#N canvas 26 23 450 300 spectroscope 0;
-#X obj 46 135 inlet~;
-#X coords 0 -1 1 1 450 325 2 100 100;
-#X restore 892 181 pd spectroscope;
-#X text 117 420 Preset Timbres ------------------------------------------------
+#X restore 833 568 pd scope;
+#N canvas 27 23 1200 687 spectroscope 0;
+#X obj 110 39 inlet~;
+#N canvas 123 39 1142 661 spectrograph 0;
+#N canvas 491 173 651 544 fft-analysis 0;
+#X obj 15 164 *~;
+#X obj 14 99 inlet~;
+#X obj 15 218 rfft~;
+#X obj 14 306 *~;
+#X obj 56 306 *~;
+#X obj 15 356 sqrt~;
+#X obj 23 386 loadbang;
+#X obj 23 449 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X obj 15 8 block~ 512;
+#X text 225 131 tabreceive~ outputs array contents \,;
+#X text 225 149 constantly \, every block. Here it's;
+#X text 223 169 used to get the Hann window to;
+#X text 225 187 multiply by the input.;
+#X text 120 7 block~ object does no computation but declares this;
+#X text 120 24 window to be operating at a different block size from
+;
+#X text 122 58 Fourier transform.;
+#X text 121 40 the parent window. This determines the size of the;
+#X text 76 99 The inlet~ automatically re-blocks to the new block size.
+;
+#X obj 15 332 +~;
+#X text 94 308 Take the magnitude by squaring real and imaginary part
+\, adding and taking square root.;
+#X text 110 424 periodically graph the output. It appears every 512
+samples (about 12 milliseconds) but we only update the graph 4 times
+per second. The graph is back on the main (parent) window.;
+#X text 82 215 forward real FFT. Like "fft~" \, but only one inlet
+(for the real part) and only the first half of the output signals are
+used. (The others are determined by symmetry: they're complex conjugates
+of the first half \, in reverse order.) This takes 1/2 the CPU time
+of "fft".;
+#X obj 23 470 metro 250;
+#X msg 23 410 1;
+#X obj 35 140 tabreceive~ \$0-hann0;
+#X obj 14 498 tabwrite~ \$0-timbre_spectrograph0;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 2 1 4 0;
+#X connect 2 1 4 1;
+#X connect 3 0 18 0;
+#X connect 4 0 18 1;
+#X connect 5 0 25 0;
+#X connect 6 0 23 0;
+#X connect 7 0 22 0;
+#X connect 18 0 5 0;
+#X connect 22 0 25 0;
+#X connect 23 0 7 0;
+#X connect 24 0 0 1;
+#X restore 1094 205 pd fft-analysis;
+#N canvas 26 23 450 300 (subpatch) 0;
+#X array \$0-timbre_spectrograph0 256 float 0;
+#X coords 0 128 255 0 500 100 1 0 0;
+#X restore 168 115 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-hann0 512 float 1;
+#A 0 0 3.76403e-05 0.000150591 0.000338793 0.000602275 0.000940949
+0.00135478 0.00184369 0.00240764 0.00304651 0.00376022 0.00454867 0.00541174
+0.0063493 0.00736117 0.00844723 0.00960734 0.0108413 0.0121489 0.01353
+0.0149843 0.0165117 0.0181119 0.0197847 0.0215298 0.0233469 0.0252359
+0.0271963 0.0292279 0.0313304 0.0335035 0.0357469 0.0380601 0.040443
+0.042895 0.0454159 0.0480052 0.0506626 0.0533877 0.05618 0.0590392
+0.0619648 0.0649563 0.0680134 0.0711355 0.0743222 0.077573 0.0808874
+0.0842649 0.0877051 0.0912073 0.0947711 0.0983959 0.102081 0.105826
+0.109631 0.113494 0.117416 0.121395 0.125431 0.129524 0.133672 0.137876
+0.142134 0.146446 0.150811 0.155229 0.159699 0.16422 0.168792 0.173413
+0.178084 0.182803 0.18757 0.192384 0.197244 0.20215 0.2071 0.212095
+0.217133 0.222214 0.227337 0.2325 0.237704 0.242948 0.24823 0.25355
+0.258907 0.264301 0.26973 0.275194 0.280691 0.286222 0.291785 0.297379
+0.303003 0.308658 0.314341 0.320052 0.32579 0.331555 0.337344 0.343159
+0.348997 0.354857 0.36074 0.366643 0.372567 0.37851 0.384471 0.390449
+0.396444 0.402455 0.40848 0.414519 0.420571 0.426635 0.432709 0.438794
+0.444889 0.450991 0.457101 0.463218 0.46934 0.475466 0.481596 0.487729
+0.493864 0.5 0.506136 0.512271 0.518404 0.524534 0.53066 0.536782 0.542899
+0.549009 0.555111 0.561205 0.56729 0.573365 0.579429 0.585481 0.59152
+0.597545 0.603556 0.609551 0.615529 0.62149 0.627433 0.633357 0.63926
+0.645143 0.651003 0.656841 0.662656 0.668445 0.67421 0.679948 0.685659
+0.691342 0.696997 0.702621 0.708215 0.713778 0.719309 0.724806 0.73027
+0.735699 0.741092 0.74645 0.75177 0.757052 0.762295 0.767499 0.772663
+0.777786 0.782867 0.787905 0.7929 0.79785 0.802756 0.807616 0.812431
+0.817197 0.821916 0.826587 0.831209 0.83578 0.840301 0.844771 0.849189
+0.853554 0.857866 0.862124 0.866328 0.870476 0.874569 0.878605 0.882584
+0.886506 0.890369 0.894174 0.897919 0.901605 0.905229 0.908793 0.912295
+0.915736 0.919113 0.922428 0.925678 0.928865 0.931987 0.935044 0.938036
+0.940961 0.94382 0.946613 0.949338 0.951995 0.954585 0.957106 0.959558
+0.96194 0.964254 0.966497 0.96867 0.970773 0.972804 0.974765 0.976654
+0.978471 0.980216 0.981889 0.983489 0.985016 0.98647 0.987852 0.989159
+0.990393 0.991553 0.992639 0.993651 0.994589 0.995452 0.99624 0.996954
+0.997593 0.998156 0.998645 0.999059 0.999398 0.999661 0.999849 0.999962
+1 0.999962 0.999849 0.999661 0.999398 0.999059 0.998645 0.998156 0.997592
+0.996953 0.996239 0.995451 0.994588 0.99365 0.992638 0.991552 0.990392
+0.989158 0.987851 0.986469 0.985015 0.983488 0.981887 0.980215 0.978469
+0.976652 0.974763 0.972803 0.970771 0.968669 0.966495 0.964252 0.961939
+0.959556 0.957104 0.954583 0.951993 0.949336 0.946611 0.943818 0.940959
+0.938034 0.935042 0.931985 0.928863 0.925676 0.922425 0.919111 0.915733
+0.912293 0.908791 0.905227 0.901602 0.897917 0.894171 0.890367 0.886503
+0.882582 0.878602 0.874566 0.870473 0.866325 0.862121 0.857863 0.853551
+0.849186 0.844768 0.840298 0.835777 0.831205 0.826584 0.821913 0.817194
+0.812427 0.807613 0.802753 0.797847 0.792896 0.787901 0.782863 0.777782
+0.77266 0.767496 0.762292 0.757048 0.751766 0.746446 0.741089 0.735695
+0.730266 0.724802 0.719305 0.713774 0.708211 0.702617 0.696993 0.691338
+0.685655 0.679944 0.674206 0.668441 0.662652 0.656837 0.650999 0.645139
+0.639256 0.633353 0.627429 0.621486 0.615525 0.609547 0.603552 0.597541
+0.591516 0.585477 0.579425 0.573361 0.567286 0.561201 0.555107 0.549004
+0.542894 0.536778 0.530656 0.52453 0.518399 0.512266 0.506131 0.499996
+0.49386 0.487725 0.481592 0.475462 0.469335 0.463213 0.457097 0.450987
+0.444884 0.43879 0.432705 0.42663 0.420566 0.414515 0.408476 0.40245
+0.39644 0.390445 0.384466 0.378505 0.372563 0.366639 0.360736 0.354853
+0.348993 0.343155 0.33734 0.331551 0.325786 0.320048 0.314337 0.308654
+0.302999 0.297375 0.291781 0.286218 0.280687 0.27519 0.269726 0.264297
+0.258904 0.253547 0.248226 0.242944 0.237701 0.232497 0.227333 0.222211
+0.21713 0.212092 0.207097 0.202146 0.19724 0.19238 0.187566 0.182799
+0.17808 0.17341 0.168788 0.164217 0.159696 0.155226 0.150808 0.146443
+0.142131 0.137873 0.133669 0.129521 0.125428 0.121392 0.117413 0.113491
+0.109628 0.105823 0.102078 0.0983929 0.0947681 0.0912043 0.0877021
+0.084262 0.0808845 0.0775701 0.0743194 0.0711327 0.0680107 0.0649537
+0.0619622 0.0590366 0.0561775 0.0533852 0.0506602 0.0480028 0.0454136
+0.0428927 0.0404407 0.038058 0.0357447 0.0335014 0.0313284 0.0292259
+0.0271944 0.025234 0.0233451 0.0215281 0.019783 0.0181103 0.0165102
+0.0149829 0.0135286 0.0121476 0.01084 0.00960615 0.0084461 0.0073601
+0.00634828 0.00541082 0.00454783 0.00375944 0.00304583 0.00240701 0.00184315
+0.00135431 0.000940561 0.000601947 0.000338584 0.000150442 3.75807e-05
+;
+#X coords 0 1 511 0 200 120 1 0 0;
+#X restore 1399 132 graph;
+#X msg 1341 130 0;
+#X obj 1235 179 osc~;
+#X obj 1235 131 samplerate~;
+#X obj 1235 202 *~ -0.5;
+#X obj 1235 225 +~ 0.5;
+#X text 1385 124 1;
+#X text 1378 242 0;
+#X text 1394 255 0;
+#X obj 1235 155 / 512;
+#X obj 1228 70 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 1504 109 Hann window;
+#X text 1283 177 period 512;
+#X text 1260 64 recalculate Hann;
+#X text 1284 77 window table;
+#X text 1580 258 511;
+#X obj 1227 40 inlet;
+#X obj 1054 232 outlet~;
+#X obj 1054 28 inlet~;
+#X text 1108 234 Thru;
+#X obj 1330 34 loadbang;
+#X text 155 226 20;
+#X text 171 226 500;
+#X text 186 238 1000;
+#X text 200 226 2000;
+#X text 244 225 4000;
+#X text 164 238 250;
+#X text 163 213 |;
+#X text 177 213 |;
+#X text 187 213 |;
+#X text 209 213 |;
+#X text 254 213 |;
+#X text 300 213 |;
+#X text 291 225 6000;
+#X text 349 213 |;
+#X text 338 225 8000;
+#X text 391 213 |;
+#X text 380 225 10000;
+#X text 436 213 |;
+#X text 425 225 12000;
+#X text 482 213 |;
+#X text 471 225 14000;
+#X text 528 213 |;
+#X text 517 225 16000;
+#X text 574 213 |;
+#X text 563 225 18000;
+#X text 617 213 |;
+#X text 606 225 20000;
+#X text 664 213 |;
+#X text 653 225 22000;
+#X text 354 253 Frequency in Hz;
+#X text 101 155 Magni-tude, f 6;
+#X text 147 158 0.5-;
+#X text 154 108 1;
+#X text 154 205 0;
+#X text 170 213 |;
+#X obj 1227 250 tabwrite~ \$0-hann0;
+#X connect 3 0 4 1;
+#X connect 4 0 6 0;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 7 0 58 0;
+#X connect 11 0 4 0;
+#X connect 12 0 5 0;
+#X connect 12 0 3 0;
+#X connect 12 0 58 0;
+#X connect 18 0 12 0;
+#X connect 20 0 0 0;
+#X connect 20 0 19 0;
+#X connect 22 0 12 0;
+#X coords 0 -1 1 1 590 175 2 100 100;
+#X restore 109 113 pd spectrograph;
+#X connect 0 0 1 0;
+#X coords 0 -1 1 1 625 200 2 100 100;
+#X restore 721 354 pd spectroscope;
+#X text 182 407 Preset Timbres ------------------------------------------------
 , f 64;
 #X obj 102 103 cnv 15 1250 60 empty empty empty 20 12 0 14 -261234
 -66577 0;
@@ -2215,7 +2419,7 @@ and decrease of air pressure caused by the vibration of a mass. This
 creates a sound wave that travels from the vibrating mass to our ears.
 But how does this vibration make one source sound different than another?
 The aspect of a sound wave that makes sounds unique is known as TIMBRE.
-, f 107;
+, f 73;
 #X obj 349 1612 catch~ \$0-dac;
 #X connect 0 0 650 0;
 #X connect 0 0 649 0;
@@ -2454,9 +2658,9 @@ The aspect of a sound wave that makes sounds unique is known as TIMBRE.
 #X connect 656 0 618 0;
 #X connect 656 0 618 1;
 #X coords 0 -1 1 1 1255 800 2 100 100;
-#X restore 5 7 pd main;
+#X restore 5 -11 pd main;
 #X obj 1056 17 declare -lib dependencies;
-#N canvas 307 81 1109 654 06_TIMBRE_AND_WAVESHAPE 0;
+#N canvas 118 51 1191 636 06_TIMBRE_AND_WAVESHAPE 0;
 #N canvas 84 31 1920 855 demonstration.wave 0;
 #X floatatom 847 302 0 0 0 0 - - -;
 #X obj 846 228 trigger f f;
@@ -3349,11 +3553,42 @@ f 18;
 #X connect 332 0 333 0;
 #X connect 332 0 149 0;
 #X coords 0 -1 1 1 625 500 2 100 100;
-#X restore 466 17 pd demonstration.wave;
-#X restore 22 -30 pd 06_TIMBRE_AND_WAVESHAPE;
-#X text 226 -204 comment;
-#N canvas 2120 89 720 445 01_INTRODUCTION 0;
-#X text 8 5 4.1 INTRODUCTION, f 73;
+#X restore 531 26 pd demonstration.wave;
+#X text 18 37 You have seen now that different timbres produce different
+waveshapes. Why does this happen? Think back to the chapter on phase.
+When sound waves are mixed together \, their amplitudes add and subtract
+against each other. So it makes sense that if we are adding 50+ sine
+waves together \, they are going to add or subtract against each other.
+, f 69;
+#X text 18 147 The module to the right shows three sound wave graphs.
+The first is the fundamental of the signal we are going to build \,
+which as a frequency of 2 Hz. The left of this graph are buttons which
+allow you to load a partial into the “Partial To Be Added” graph.
+All of the partials that can be added are interger multiples of the
+fundamental \, and their corresponding amplitudes are the inverse of
+their partial number (i.e. the second partial is ½ the amplitude of
+the fundamental \, the third partial is 1/3 the amplitude of the fundamental
+\, etc.). Click the button labelled “Sum” to added the loaded partial
+to the summed signal. Try this with Partial 2 What do you notice? The
+Summed signal gains these peaks which have more of a point (as compared
+to the original sine wave) and we also see these plateaus in the center
+of the cycle. Compare where these peaks and plateaus line up with on
+the original and added partial. The peaks are formed through in-phase
+addition \, where the compression of the added partial sums with the
+compression of the first partial. However \, as the added partial moves
+to a rarefaction \, the compression of the first partial gets subtracted
+from \, causing the rarefaction to start earlier in the summed signal
+\, but then as the compression of the added partial begins again \,
+the first partial has a rarefaction \, summing to 0 and creating the
+plateau. Then the entire process repeats \, but flipped., f 69;
+#X text 16 495 Add more partials \, and you will see the waveshape
+continue to change due to in-phase and anti-phase addition. The spectrum
+of integer multiples of the fundamental with inverse amplitudes is
+the spectrum of a sawtooth wave \, and you should see that the wave
+is starting to take on the slant of the sawtooth., f 69;
+#X text 18 17 5.6 TIMBRE AND WAVESHAPE, f 69;
+#X restore 21 264 pd 06_TIMBRE_AND_WAVESHAPE;
+#N canvas 151 106 720 445 01_INTRODUCTION 0;
 #X text 8 25 We have seen and heard a few different sound waves so
 far in our examples. The sound wave we have seen the most is the sine
 wave – a smooth wave the oscillations are developed (mathematically)
@@ -3388,7 +3623,8 @@ spectrum defines the sound’s TIMBRE. So every time you hear a sound
 of the spectrum \, with each sine having its own frequency \, amplitude
 \, and phase \, influences the way the sound is heard and the way it
 looks in an oscilloscope., f 98;
-#X restore 31 -198 pd 01_INTRODUCTION;
+#X text 8 5 5.1 INTRODUCTION, f 73;
+#X restore 21 149 pd 01_INTRODUCTION;
 #N canvas 28 270 1366 480 02_FOURIER_TRANSFORM_AND_THE_SPECTROGRAPH
 0;
 #N canvas 1958 -239 1413 855 demonstration.wave 0;
@@ -3732,14 +3968,14 @@ single spike in the spectrograph. As you play the other three tones
 \, you will notice that each tone sounds different \, visually the
 waves are much different \, the spectrum of each eave has much more
 to it than the sine wave., f 79;
-#X restore 32 -168 pd 02_FOURIER_TRANSFORM_AND_THE_SPECTROGRAPH;
-#N canvas 2034 -219 1340 940 03_HARMONIC_SPECTRUM 0;
-#X text 14 35 Spectrum and its resulting timbre is the reason why a
+#X restore 21 172 pd 02_FOURIER_TRANSFORM_AND_THE_SPECTROGRAPH;
+#N canvas 63 23 1340 855 03_HARMONIC_SPECTRUM 0;
+#X text 10 21 Spectrum and its resulting timbre is the reason why a
 clarinet \, piano \, guitar \, and trumpet can all play the same exact
 note \, but our ears can tell that each note is played by a different
 instrument. It is also how we can tell one person speaking from another
 person \, or identify two people singing together., f 79;
-#X text 14 105 If you have ever played in an orchestra or wind ensemble
+#X text 10 91 If you have ever played in an orchestra or wind ensemble
 \, you may have heard people refer to “A 440” \, which is the note
 most orchestra’s tune to. But how can we ascribe a single frequency
 to a note played on an instrument \, when there are actually many sine
@@ -3755,7 +3991,7 @@ that frequency to the note. So the note “A” above middle C on the
 piano has a sine wave of 440 Hz as its lowest frequency \, and that
 sine wave also has the highest amplitude. We refer to this frequency
 as the FUNDAMENTAL FREQUENCY., f 79;
-#X text 14 315 A harmonic spectrum doesn’t just have a high amplitude
+#X text 10 301 A harmonic spectrum doesn’t just have a high amplitude
 for its lowest frequency. The other aspect that makes a spectrum harmonic
 is that each sine wave above the fundamental is related to the fundamental.
 The frequency for every sine wave above the fundamental is related
@@ -3769,7 +4005,7 @@ example. In addition to the frequencies of the sine waves being related
 division of fundamental’s amplitude. So the amplitude of the second
 sine wave would be ½ the amplitude of the fundamental \, the third
 would be 1/3 the amplitude \, etc., f 79;
-#X text 14 505 A note on the terminology of the sine waves in a spectrum.
+#X text 10 491 A note on the terminology of the sine waves in a spectrum.
 Three names have developed when discussing the sine waves that make
 up the spectrum of a signal. One of the most universal is “partial”.
 So when we say “the second partial” \, we are talking about the
@@ -3784,7 +4020,7 @@ this term and “harmonic” and “partial” is that overtones describe
 all sine waves ABOVE (*over*) the fundamental frequency. So the first
 overtone is the second partial/harmonic. Unfortunately confusing \,
 but all three of these terms are used interchangeably and in equal
-amount., f 79;
+amount., f 101;
 #N canvas 1958 -239 1413 855 demonstration.wave 0;
 #X obj 1179 909 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 1 1;
@@ -4115,9 +4351,9 @@ of "fft".;
 #X obj 879 385 receive~ \$0-timbre_spectro1;
 #X obj 1180 933 metro 250;
 #X obj 140 200 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq_timbre3-r empty Frequency
-0 -8 0 12 -204800 -1 -1 220 256;
+0 -8 0 12 -204800 -1 -1 0 256;
 #X obj 139 232 nbx 5 14 0 1.5 0 0 \$0-amp_timbre3-r empty Amplitude
-0 -8 0 12 -204800 -1 -1 1 256;
+0 -8 0 12 -204800 -1 -1 0 256;
 #N canvas 27 23 450 300 box 0;
 #X coords 0 -1 1 1 100 175 2 100 100;
 #X restore 124 173 pd box;
@@ -4132,7 +4368,7 @@ of "fft".;
 #X obj 1401 722 *~ 1;
 #X obj 1042 749 *~ 1;
 #X obj 141 417 nbx 5 14 0 2 0 0 \$0-samp_amp_timbre3-r empty Amplitude
-0 -8 0 12 -204800 -1 -1 1.83 256;
+0 -8 0 12 -204800 -1 -1 0 256;
 #X obj 1238 622 r \$0-samp_amp_timbre3-r;
 #X obj -146 553 r \$0-amp_timbre3-r;
 #X connect 0 0 84 0;
@@ -4238,9 +4474,8 @@ of "fft".;
 #X connect 98 0 92 1;
 #X connect 98 0 93 1;
 #X coords 0 -1 1 1 750 400 2 100 100;
-#X restore 577 42 pd demonstration.wave;
-#X text 14 15 5.2 HARMONIC SPECTRUM, f 73;
-#X text 14 725 Click on a toggle to hear and display a harmonic spectrum
+#X restore 573 28 pd demonstration.wave;
+#X text 10 671 Click on a toggle to hear and display a harmonic spectrum
 – the synthetic tones from the previous section \, as well as two
 sustained cello and guitar tones. For the synthetic tones \, you can
 change the fundamental frequency of the tone. Notice how the partials
@@ -4253,6 +4488,654 @@ This is one of the many reasons why it is difficult to recreate natural
 sounds using synthetic tones \, because natural sounds have random
 inconsistencies that make it difficult to predict and thus recreate.
 However \, there should still be somewhat of a visible harmonic spectrum
-in the spectrograph., f 79;
-#X restore 32 -138 pd 03_HARMONIC_SPECTRUM;
+in the spectrograph., f 101;
+#X text 10 1 5.3 HARMONIC SPECTRUM, f 73;
+#X restore 21 195 pd 03_HARMONIC_SPECTRUM;
+#N canvas 49 57 1340 759 04_HARMONIC_SPECTRUM_AND_THE_OCTAVE 0;
+#N canvas 27 23 1413 855 demonstration.wave 0;
+#X obj 1034 826 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 1035 783 loadbang;
+#X msg 1035 804 1;
+#X floatatom 1080 826 5 0 0 0 - - -, f 5;
+#X obj 921 879 throw~ \$0-dac;
+#X obj 1134 -255 declare -path sounds;
+#X obj 730 618 -~ 0.5;
+#X obj 732 738 *~;
+#X obj 749 710 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 123 39 1142 661 spectrograph 0;
+#N canvas 491 173 651 544 fft-analysis 0;
+#X obj 15 164 *~;
+#X obj 14 99 inlet~;
+#X obj 15 218 rfft~;
+#X obj 14 306 *~;
+#X obj 56 306 *~;
+#X obj 15 356 sqrt~;
+#X obj 23 386 loadbang;
+#X obj 23 449 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X obj 15 8 block~ 512;
+#X text 225 131 tabreceive~ outputs array contents \,;
+#X text 225 149 constantly \, every block. Here it's;
+#X text 223 169 used to get the Hann window to;
+#X text 225 187 multiply by the input.;
+#X text 120 7 block~ object does no computation but declares this;
+#X text 120 24 window to be operating at a different block size from
+;
+#X text 122 58 Fourier transform.;
+#X text 121 40 the parent window. This determines the size of the;
+#X text 76 99 The inlet~ automatically re-blocks to the new block size.
+;
+#X obj 15 332 +~;
+#X text 94 308 Take the magnitude by squaring real and imaginary part
+\, adding and taking square root.;
+#X text 110 424 periodically graph the output. It appears every 512
+samples (about 12 milliseconds) but we only update the graph 4 times
+per second. The graph is back on the main (parent) window.;
+#X text 82 215 forward real FFT. Like "fft~" \, but only one inlet
+(for the real part) and only the first half of the output signals are
+used. (The others are determined by symmetry: they're complex conjugates
+of the first half \, in reverse order.) This takes 1/2 the CPU time
+of "fft".;
+#X obj 23 470 metro 250;
+#X msg 23 410 1;
+#X obj 14 498 tabwrite~ \$0-timbre_spectrograph4;
+#X obj 36 140 tabreceive~ \$0-hann4;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 2 1 4 0;
+#X connect 2 1 4 1;
+#X connect 3 0 18 0;
+#X connect 4 0 18 1;
+#X connect 5 0 24 0;
+#X connect 6 0 23 0;
+#X connect 7 0 22 0;
+#X connect 18 0 5 0;
+#X connect 22 0 24 0;
+#X connect 23 0 7 0;
+#X connect 25 0 0 1;
+#X restore 1094 205 pd fft-analysis;
+#N canvas 26 23 450 300 (subpatch) 0;
+#X array \$0-timbre_spectrograph4 256 float 0;
+#X coords 0 128 255 0 500 100 1 0 0;
+#X restore 168 115 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-hann4 512 float 1;
+#A 0 0 3.76403e-05 0.000150591 0.000338793 0.000602275 0.000940949
+0.00135478 0.00184369 0.00240764 0.00304651 0.00376022 0.00454867 0.00541174
+0.0063493 0.00736117 0.00844723 0.00960734 0.0108413 0.0121489 0.01353
+0.0149843 0.0165117 0.0181119 0.0197847 0.0215298 0.0233469 0.0252359
+0.0271963 0.0292279 0.0313304 0.0335035 0.0357469 0.0380601 0.040443
+0.042895 0.0454159 0.0480052 0.0506626 0.0533877 0.05618 0.0590392
+0.0619648 0.0649563 0.0680134 0.0711355 0.0743222 0.077573 0.0808874
+0.0842649 0.0877051 0.0912073 0.0947711 0.0983959 0.102081 0.105826
+0.109631 0.113494 0.117416 0.121395 0.125431 0.129524 0.133672 0.137876
+0.142134 0.146446 0.150811 0.155229 0.159699 0.16422 0.168792 0.173413
+0.178084 0.182803 0.18757 0.192384 0.197244 0.20215 0.2071 0.212095
+0.217133 0.222214 0.227337 0.2325 0.237704 0.242948 0.24823 0.25355
+0.258907 0.264301 0.26973 0.275194 0.280691 0.286222 0.291785 0.297379
+0.303003 0.308658 0.314341 0.320052 0.32579 0.331555 0.337344 0.343159
+0.348997 0.354857 0.36074 0.366643 0.372567 0.37851 0.384471 0.390449
+0.396444 0.402455 0.40848 0.414519 0.420571 0.426635 0.432709 0.438794
+0.444889 0.450991 0.457101 0.463218 0.46934 0.475466 0.481596 0.487729
+0.493864 0.5 0.506136 0.512271 0.518404 0.524534 0.53066 0.536782 0.542899
+0.549009 0.555111 0.561205 0.56729 0.573365 0.579429 0.585481 0.59152
+0.597545 0.603556 0.609551 0.615529 0.62149 0.627433 0.633357 0.63926
+0.645143 0.651003 0.656841 0.662656 0.668445 0.67421 0.679948 0.685659
+0.691342 0.696997 0.702621 0.708215 0.713778 0.719309 0.724806 0.73027
+0.735699 0.741092 0.74645 0.75177 0.757052 0.762295 0.767499 0.772663
+0.777786 0.782867 0.787905 0.7929 0.79785 0.802756 0.807616 0.812431
+0.817197 0.821916 0.826587 0.831209 0.83578 0.840301 0.844771 0.849189
+0.853554 0.857866 0.862124 0.866328 0.870476 0.874569 0.878605 0.882584
+0.886506 0.890369 0.894174 0.897919 0.901605 0.905229 0.908793 0.912295
+0.915736 0.919113 0.922428 0.925678 0.928865 0.931987 0.935044 0.938036
+0.940961 0.94382 0.946613 0.949338 0.951995 0.954585 0.957106 0.959558
+0.96194 0.964254 0.966497 0.96867 0.970773 0.972804 0.974765 0.976654
+0.978471 0.980216 0.981889 0.983489 0.985016 0.98647 0.987852 0.989159
+0.990393 0.991553 0.992639 0.993651 0.994589 0.995452 0.99624 0.996954
+0.997593 0.998156 0.998645 0.999059 0.999398 0.999661 0.999849 0.999962
+1 0.999962 0.999849 0.999661 0.999398 0.999059 0.998645 0.998156 0.997592
+0.996953 0.996239 0.995451 0.994588 0.99365 0.992638 0.991552 0.990392
+0.989158 0.987851 0.986469 0.985015 0.983488 0.981887 0.980215 0.978469
+0.976652 0.974763 0.972803 0.970771 0.968669 0.966495 0.964252 0.961939
+0.959556 0.957104 0.954583 0.951993 0.949336 0.946611 0.943818 0.940959
+0.938034 0.935042 0.931985 0.928863 0.925676 0.922425 0.919111 0.915733
+0.912293 0.908791 0.905227 0.901602 0.897917 0.894171 0.890367 0.886503
+0.882582 0.878602 0.874566 0.870473 0.866325 0.862121 0.857863 0.853551
+0.849186 0.844768 0.840298 0.835777 0.831205 0.826584 0.821913 0.817194
+0.812427 0.807613 0.802753 0.797847 0.792896 0.787901 0.782863 0.777782
+0.77266 0.767496 0.762292 0.757048 0.751766 0.746446 0.741089 0.735695
+0.730266 0.724802 0.719305 0.713774 0.708211 0.702617 0.696993 0.691338
+0.685655 0.679944 0.674206 0.668441 0.662652 0.656837 0.650999 0.645139
+0.639256 0.633353 0.627429 0.621486 0.615525 0.609547 0.603552 0.597541
+0.591516 0.585477 0.579425 0.573361 0.567286 0.561201 0.555107 0.549004
+0.542894 0.536778 0.530656 0.52453 0.518399 0.512266 0.506131 0.499996
+0.49386 0.487725 0.481592 0.475462 0.469335 0.463213 0.457097 0.450987
+0.444884 0.43879 0.432705 0.42663 0.420566 0.414515 0.408476 0.40245
+0.39644 0.390445 0.384466 0.378505 0.372563 0.366639 0.360736 0.354853
+0.348993 0.343155 0.33734 0.331551 0.325786 0.320048 0.314337 0.308654
+0.302999 0.297375 0.291781 0.286218 0.280687 0.27519 0.269726 0.264297
+0.258904 0.253547 0.248226 0.242944 0.237701 0.232497 0.227333 0.222211
+0.21713 0.212092 0.207097 0.202146 0.19724 0.19238 0.187566 0.182799
+0.17808 0.17341 0.168788 0.164217 0.159696 0.155226 0.150808 0.146443
+0.142131 0.137873 0.133669 0.129521 0.125428 0.121392 0.117413 0.113491
+0.109628 0.105823 0.102078 0.0983929 0.0947681 0.0912043 0.0877021
+0.084262 0.0808845 0.0775701 0.0743194 0.0711327 0.0680107 0.0649537
+0.0619622 0.0590366 0.0561775 0.0533852 0.0506602 0.0480028 0.0454136
+0.0428927 0.0404407 0.038058 0.0357447 0.0335014 0.0313284 0.0292259
+0.0271944 0.025234 0.0233451 0.0215281 0.019783 0.0181103 0.0165102
+0.0149829 0.0135286 0.0121476 0.01084 0.00960615 0.0084461 0.0073601
+0.00634828 0.00541082 0.00454783 0.00375944 0.00304583 0.00240701 0.00184315
+0.00135431 0.000940561 0.000601947 0.000338584 0.000150442 3.75807e-05
+;
+#X coords 0 1 511 0 200 120 1 0 0;
+#X restore 1399 132 graph;
+#X msg 1341 130 0;
+#X obj 1235 179 osc~;
+#X obj 1235 131 samplerate~;
+#X obj 1235 202 *~ -0.5;
+#X obj 1235 225 +~ 0.5;
+#X text 1385 124 1;
+#X text 1378 242 0;
+#X text 1394 255 0;
+#X obj 1235 155 / 512;
+#X obj 1228 70 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 1504 109 Hann window;
+#X text 1283 177 period 512;
+#X text 1260 64 recalculate Hann;
+#X text 1284 77 window table;
+#X text 1580 258 511;
+#X obj 1227 40 inlet;
+#X obj 1054 232 outlet~;
+#X obj 1054 28 inlet~;
+#X text 1108 234 Thru;
+#X obj 1330 34 loadbang;
+#X text 155 226 20;
+#X text 171 226 500;
+#X text 186 238 1000;
+#X text 200 226 2000;
+#X text 244 225 4000;
+#X text 164 238 250;
+#X text 163 213 |;
+#X text 177 213 |;
+#X text 187 213 |;
+#X text 209 213 |;
+#X text 254 213 |;
+#X text 300 213 |;
+#X text 291 225 6000;
+#X text 349 213 |;
+#X text 338 225 8000;
+#X text 391 213 |;
+#X text 380 225 10000;
+#X text 436 213 |;
+#X text 425 225 12000;
+#X text 482 213 |;
+#X text 471 225 14000;
+#X text 528 213 |;
+#X text 517 225 16000;
+#X text 574 213 |;
+#X text 563 225 18000;
+#X text 617 213 |;
+#X text 606 225 20000;
+#X text 664 213 |;
+#X text 653 225 22000;
+#X text 354 253 Frequency in Hz;
+#X text 101 155 Magni-tude, f 6;
+#X text 147 158 0.5-;
+#X text 154 108 1;
+#X text 154 205 0;
+#X text 170 213 |;
+#X obj 1227 250 tabwrite~ \$0-hann4;
+#X connect 3 0 4 1;
+#X connect 4 0 6 0;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 7 0 58 0;
+#X connect 11 0 4 0;
+#X connect 12 0 5 0;
+#X connect 12 0 3 0;
+#X connect 12 0 58 0;
+#X connect 18 0 12 0;
+#X connect 20 0 0 0;
+#X connect 20 0 19 0;
+#X connect 22 0 12 0;
+#X coords 0 -1 1 1 590 175 2 100 100;
+#X restore 239 310 pd spectrograph;
+#N canvas 416 23 1024 542 box 0;
+#N canvas 25 23 450 278 (subpatch) 0;
+#X array \$0-fourier_spectrogram_demo_scope4 256 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 255 -1 500 100 1 0 0;
+#X restore 181 135 graph;
+#X text 396 246 Time;
+#X text 108 172 Amplitude;
+#X coords 0 -1 1 1 590 175 2 100 100;
+#X restore 239 123 pd box;
+#X obj 1035 850 metro 250;
+#X obj 879 385 receive~ \$0-timbre_spectro4;
+#X obj 1035 877 tabwrite~ \$0-fourier_spectrogram_demo_scope4;
+#X obj 720 879 send~ \$0-timbre_spectro4;
+#X obj 126 135 tgl 15 0 \$0-timbre_440_on-r empty 440_Hz 17 7 0 12
+-204800 -1 -1 0 1;
+#X obj 530 618 -~ 0.5;
+#X obj 530 642 *~ 2;
+#X obj 532 738 *~;
+#X obj 549 710 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 126 165 tgl 15 0 \$0-timbre_880_on-r empty 880_Hz 17 7 0 12
+-204800 -1 -1 0 1;
+#X obj 260 618 -~ 0.5;
+#X obj 260 642 *~ 2;
+#X obj 262 738 *~;
+#X obj 279 710 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 70 618 -~ 0.5;
+#X obj 70 642 *~ 2;
+#X obj 72 738 *~;
+#X obj 89 710 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 126 195 tgl 15 0 \$0-timbre_1046_4_on-r empty 1046.4_Hz 17 7
+0 12 -204800 -1 -1 0 1;
+#X obj 126 225 tgl 15 0 \$0-timbre_2092_8_on-r empty 2092.8_Hz 17 7
+0 12 -204800 -1 -1 0 1;
+#X obj 730 642 *~ 2;
+#X obj 730 594 phasor~ 440;
+#X obj 530 594 phasor~ 880;
+#X obj 549 680 r \$0-timbre_880_on-r;
+#X obj 749 680 r \$0-timbre_440_on-r;
+#X obj 260 594 phasor~ 1046.4;
+#X obj 70 594 phasor~ 2092.8;
+#X obj 89 680 r \$0-timbre_2092_8_on-r;
+#X obj 279 680 r \$0-timbre_1046_4_on-r;
+#X connect 0 0 11 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 11 1;
+#X connect 6 0 31 0;
+#X connect 7 0 4 0;
+#X connect 7 0 13 0;
+#X connect 7 0 14 0;
+#X connect 8 0 7 1;
+#X connect 11 0 13 0;
+#X connect 12 0 9 0;
+#X connect 16 0 17 0;
+#X connect 17 0 18 0;
+#X connect 18 0 14 0;
+#X connect 18 0 4 0;
+#X connect 18 0 13 0;
+#X connect 19 0 18 1;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 23 0 13 0;
+#X connect 23 0 4 0;
+#X connect 23 0 14 0;
+#X connect 24 0 23 1;
+#X connect 25 0 26 0;
+#X connect 26 0 27 0;
+#X connect 27 0 13 0;
+#X connect 27 0 4 0;
+#X connect 27 0 14 0;
+#X connect 28 0 27 1;
+#X connect 31 0 7 0;
+#X connect 32 0 6 0;
+#X connect 33 0 16 0;
+#X connect 34 0 19 0;
+#X connect 35 0 8 0;
+#X connect 36 0 21 0;
+#X connect 37 0 25 0;
+#X connect 38 0 28 0;
+#X connect 39 0 24 0;
+#X coords 0 -1 1 1 750 400 2 100 100;
+#X restore 577 42 pd demonstration.wave;
+#X text 14 35 As mentioned in the frequency chapter \, our perception
+of the phenomenon known as the octave becomes further reinforced by
+harmonic spectra. How does this factor into our perception of the octave?
+Let’s look at some harmonic spectrum to see., f 79;
+#X text 14 105 Click on the toggle marked “A4 440 Hz”. This plays
+a harmonic spectrum tone (specifically \, a sawtooth wave) with a fundamental
+frequency of 440 Hz. Let’s say that the amplitude the fundamental
+is 1 (in actually I have scaled the amplitude slightly \, as 1 could
+distort speakers). For a sawtooth wave \, the frequencies and amplitudes
+of partials 2-10 would be:, f 79;
+#X text 12 333 Now click on the toggle marked “A5 880 Hz”. Your
+ear likely hears this as the same pitch class \, one octave higher.
+Let’s look at the partials for this note. Partials 2-6 has the following
+frequencies and amplitudes:, f 79;
+#X text 215 388 1760 - 0.5 \, 2640 - 0.33 \, 3520 - 0.25 \, 4400 -
+0.2 \, 5280 - 0.166 \, 6160 - 0.142 \, 7040 - 0.125 \, 7920 - 0.111
+\, 8800 - 0.1., f 14;
+#X text 213 191 880 - 0.5 \, 1320 - 0.33 \, 1760 - 0.25 \, 2200 - 0.2
+\, 2640 - 0.166 \, 3080 - 0.142 \, 3520 - 0.125 \, 3960 - 0.111 \,
+4400 - 0.1, f 13;
+#X text 16 534 As you can see \, the first four partials of the “A5”
+note with a fundamental of 880 Hz appear in the partials of the “A4”
+note with a fundamental of 440 Hz. If we kept calculating the partials
+of A4 we would see that even more partials would line up. This pattern
+holds true for ALL octaves. If we had compared the first 10 partials
+of A3 (220 Hz) to A4 \, we would have seen the first 4 partials of
+A4 appear in A3. Or if we compared C6 (1046.4 Hz) to C7 (2092.8) we
+would see the same pattern again. Test this on your own by listening
+to them. You can also see the overlap in partials when playing the
+two octaves simultaneously - certain partials will spike up in the
+spectrograph when both are played together \, and those are partials
+shared by both notes., f 78;
+#X text 14 15 5.4 HARMONIC SPECTRUM AND THE OCTAVE, f 73;
+#X restore 21 218 pd 04_HARMONIC_SPECTRUM_AND_THE_OCTAVE;
+#N canvas 55 23 1330 802 05_INHARMONIC_SPECTRUM 0;
+#N canvas 27 23 1413 855 demonstration.wave 0;
+#X obj 973 516 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 974 473 loadbang;
+#X msg 974 494 1;
+#X floatatom 1019 516 5 0 0 0 - - -, f 5;
+#X obj 1134 -255 declare -path sounds;
+#N canvas 123 39 1142 661 spectrograph 0;
+#N canvas 491 173 651 544 fft-analysis 0;
+#X obj 15 164 *~;
+#X obj 14 99 inlet~;
+#X obj 15 218 rfft~;
+#X obj 14 306 *~;
+#X obj 56 306 *~;
+#X obj 15 356 sqrt~;
+#X obj 23 386 loadbang;
+#X obj 23 449 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X obj 15 8 block~ 512;
+#X text 225 131 tabreceive~ outputs array contents \,;
+#X text 225 149 constantly \, every block. Here it's;
+#X text 223 169 used to get the Hann window to;
+#X text 225 187 multiply by the input.;
+#X text 120 7 block~ object does no computation but declares this;
+#X text 120 24 window to be operating at a different block size from
+;
+#X text 122 58 Fourier transform.;
+#X text 121 40 the parent window. This determines the size of the;
+#X text 76 99 The inlet~ automatically re-blocks to the new block size.
+;
+#X obj 15 332 +~;
+#X text 94 308 Take the magnitude by squaring real and imaginary part
+\, adding and taking square root.;
+#X text 110 424 periodically graph the output. It appears every 512
+samples (about 12 milliseconds) but we only update the graph 4 times
+per second. The graph is back on the main (parent) window.;
+#X text 82 215 forward real FFT. Like "fft~" \, but only one inlet
+(for the real part) and only the first half of the output signals are
+used. (The others are determined by symmetry: they're complex conjugates
+of the first half \, in reverse order.) This takes 1/2 the CPU time
+of "fft".;
+#X obj 23 470 metro 250;
+#X msg 23 410 1;
+#X obj 36 140 tabreceive~ \$0-hann5;
+#X obj 14 498 tabwrite~ \$0-timbre_spectrograph5;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 2 1 4 0;
+#X connect 2 1 4 1;
+#X connect 3 0 18 0;
+#X connect 4 0 18 1;
+#X connect 5 0 25 0;
+#X connect 6 0 23 0;
+#X connect 7 0 22 0;
+#X connect 18 0 5 0;
+#X connect 22 0 25 0;
+#X connect 23 0 7 0;
+#X connect 24 0 0 1;
+#X restore 1094 205 pd fft-analysis;
+#N canvas 26 23 450 300 (subpatch) 0;
+#X array \$0-timbre_spectrograph5 256 float 0;
+#X coords 0 128 255 0 500 100 1 0 0;
+#X restore 168 115 graph;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-hann5 512 float 1;
+#A 0 0 3.76403e-05 0.000150591 0.000338793 0.000602275 0.000940949
+0.00135478 0.00184369 0.00240764 0.00304651 0.00376022 0.00454867 0.00541174
+0.0063493 0.00736117 0.00844723 0.00960734 0.0108413 0.0121489 0.01353
+0.0149843 0.0165117 0.0181119 0.0197847 0.0215298 0.0233469 0.0252359
+0.0271963 0.0292279 0.0313304 0.0335035 0.0357469 0.0380601 0.040443
+0.042895 0.0454159 0.0480052 0.0506626 0.0533877 0.05618 0.0590392
+0.0619648 0.0649563 0.0680134 0.0711355 0.0743222 0.077573 0.0808874
+0.0842649 0.0877051 0.0912073 0.0947711 0.0983959 0.102081 0.105826
+0.109631 0.113494 0.117416 0.121395 0.125431 0.129524 0.133672 0.137876
+0.142134 0.146446 0.150811 0.155229 0.159699 0.16422 0.168792 0.173413
+0.178084 0.182803 0.18757 0.192384 0.197244 0.20215 0.2071 0.212095
+0.217133 0.222214 0.227337 0.2325 0.237704 0.242948 0.24823 0.25355
+0.258907 0.264301 0.26973 0.275194 0.280691 0.286222 0.291785 0.297379
+0.303003 0.308658 0.314341 0.320052 0.32579 0.331555 0.337344 0.343159
+0.348997 0.354857 0.36074 0.366643 0.372567 0.37851 0.384471 0.390449
+0.396444 0.402455 0.40848 0.414519 0.420571 0.426635 0.432709 0.438794
+0.444889 0.450991 0.457101 0.463218 0.46934 0.475466 0.481596 0.487729
+0.493864 0.5 0.506136 0.512271 0.518404 0.524534 0.53066 0.536782 0.542899
+0.549009 0.555111 0.561205 0.56729 0.573365 0.579429 0.585481 0.59152
+0.597545 0.603556 0.609551 0.615529 0.62149 0.627433 0.633357 0.63926
+0.645143 0.651003 0.656841 0.662656 0.668445 0.67421 0.679948 0.685659
+0.691342 0.696997 0.702621 0.708215 0.713778 0.719309 0.724806 0.73027
+0.735699 0.741092 0.74645 0.75177 0.757052 0.762295 0.767499 0.772663
+0.777786 0.782867 0.787905 0.7929 0.79785 0.802756 0.807616 0.812431
+0.817197 0.821916 0.826587 0.831209 0.83578 0.840301 0.844771 0.849189
+0.853554 0.857866 0.862124 0.866328 0.870476 0.874569 0.878605 0.882584
+0.886506 0.890369 0.894174 0.897919 0.901605 0.905229 0.908793 0.912295
+0.915736 0.919113 0.922428 0.925678 0.928865 0.931987 0.935044 0.938036
+0.940961 0.94382 0.946613 0.949338 0.951995 0.954585 0.957106 0.959558
+0.96194 0.964254 0.966497 0.96867 0.970773 0.972804 0.974765 0.976654
+0.978471 0.980216 0.981889 0.983489 0.985016 0.98647 0.987852 0.989159
+0.990393 0.991553 0.992639 0.993651 0.994589 0.995452 0.99624 0.996954
+0.997593 0.998156 0.998645 0.999059 0.999398 0.999661 0.999849 0.999962
+1 0.999962 0.999849 0.999661 0.999398 0.999059 0.998645 0.998156 0.997592
+0.996953 0.996239 0.995451 0.994588 0.99365 0.992638 0.991552 0.990392
+0.989158 0.987851 0.986469 0.985015 0.983488 0.981887 0.980215 0.978469
+0.976652 0.974763 0.972803 0.970771 0.968669 0.966495 0.964252 0.961939
+0.959556 0.957104 0.954583 0.951993 0.949336 0.946611 0.943818 0.940959
+0.938034 0.935042 0.931985 0.928863 0.925676 0.922425 0.919111 0.915733
+0.912293 0.908791 0.905227 0.901602 0.897917 0.894171 0.890367 0.886503
+0.882582 0.878602 0.874566 0.870473 0.866325 0.862121 0.857863 0.853551
+0.849186 0.844768 0.840298 0.835777 0.831205 0.826584 0.821913 0.817194
+0.812427 0.807613 0.802753 0.797847 0.792896 0.787901 0.782863 0.777782
+0.77266 0.767496 0.762292 0.757048 0.751766 0.746446 0.741089 0.735695
+0.730266 0.724802 0.719305 0.713774 0.708211 0.702617 0.696993 0.691338
+0.685655 0.679944 0.674206 0.668441 0.662652 0.656837 0.650999 0.645139
+0.639256 0.633353 0.627429 0.621486 0.615525 0.609547 0.603552 0.597541
+0.591516 0.585477 0.579425 0.573361 0.567286 0.561201 0.555107 0.549004
+0.542894 0.536778 0.530656 0.52453 0.518399 0.512266 0.506131 0.499996
+0.49386 0.487725 0.481592 0.475462 0.469335 0.463213 0.457097 0.450987
+0.444884 0.43879 0.432705 0.42663 0.420566 0.414515 0.408476 0.40245
+0.39644 0.390445 0.384466 0.378505 0.372563 0.366639 0.360736 0.354853
+0.348993 0.343155 0.33734 0.331551 0.325786 0.320048 0.314337 0.308654
+0.302999 0.297375 0.291781 0.286218 0.280687 0.27519 0.269726 0.264297
+0.258904 0.253547 0.248226 0.242944 0.237701 0.232497 0.227333 0.222211
+0.21713 0.212092 0.207097 0.202146 0.19724 0.19238 0.187566 0.182799
+0.17808 0.17341 0.168788 0.164217 0.159696 0.155226 0.150808 0.146443
+0.142131 0.137873 0.133669 0.129521 0.125428 0.121392 0.117413 0.113491
+0.109628 0.105823 0.102078 0.0983929 0.0947681 0.0912043 0.0877021
+0.084262 0.0808845 0.0775701 0.0743194 0.0711327 0.0680107 0.0649537
+0.0619622 0.0590366 0.0561775 0.0533852 0.0506602 0.0480028 0.0454136
+0.0428927 0.0404407 0.038058 0.0357447 0.0335014 0.0313284 0.0292259
+0.0271944 0.025234 0.0233451 0.0215281 0.019783 0.0181103 0.0165102
+0.0149829 0.0135286 0.0121476 0.01084 0.00960615 0.0084461 0.0073601
+0.00634828 0.00541082 0.00454783 0.00375944 0.00304583 0.00240701 0.00184315
+0.00135431 0.000940561 0.000601947 0.000338584 0.000150442 3.75807e-05
+;
+#X coords 0 1 511 0 200 120 1 0 0;
+#X restore 1399 132 graph;
+#X msg 1341 130 0;
+#X obj 1235 179 osc~;
+#X obj 1235 131 samplerate~;
+#X obj 1235 202 *~ -0.5;
+#X obj 1235 225 +~ 0.5;
+#X text 1385 124 1;
+#X text 1378 242 0;
+#X text 1394 255 0;
+#X obj 1235 155 / 512;
+#X obj 1228 70 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 1504 109 Hann window;
+#X text 1283 177 period 512;
+#X text 1260 64 recalculate Hann;
+#X text 1284 77 window table;
+#X text 1580 258 511;
+#X obj 1227 40 inlet;
+#X obj 1054 232 outlet~;
+#X obj 1054 28 inlet~;
+#X text 1108 234 Thru;
+#X obj 1330 34 loadbang;
+#X text 155 226 20;
+#X text 171 226 500;
+#X text 186 238 1000;
+#X text 200 226 2000;
+#X text 244 225 4000;
+#X text 164 238 250;
+#X text 163 213 |;
+#X text 177 213 |;
+#X text 187 213 |;
+#X text 209 213 |;
+#X text 254 213 |;
+#X text 300 213 |;
+#X text 291 225 6000;
+#X text 349 213 |;
+#X text 338 225 8000;
+#X text 391 213 |;
+#X text 380 225 10000;
+#X text 436 213 |;
+#X text 425 225 12000;
+#X text 482 213 |;
+#X text 471 225 14000;
+#X text 528 213 |;
+#X text 517 225 16000;
+#X text 574 213 |;
+#X text 563 225 18000;
+#X text 617 213 |;
+#X text 606 225 20000;
+#X text 664 213 |;
+#X text 653 225 22000;
+#X text 354 253 Frequency in Hz;
+#X text 101 155 Magni-tude, f 6;
+#X text 147 158 0.5-;
+#X text 154 108 1;
+#X text 154 205 0;
+#X text 170 213 |;
+#X obj 1227 250 tabwrite~ \$0-hann5;
+#X connect 3 0 4 1;
+#X connect 4 0 6 0;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 7 0 58 0;
+#X connect 11 0 4 0;
+#X connect 12 0 5 0;
+#X connect 12 0 3 0;
+#X connect 12 0 58 0;
+#X connect 18 0 12 0;
+#X connect 20 0 0 0;
+#X connect 20 0 19 0;
+#X connect 22 0 12 0;
+#X coords 0 -1 1 1 590 175 2 100 100;
+#X restore 279 310 pd spectrograph;
+#N canvas 416 23 1024 542 box 0;
+#N canvas 25 23 450 278 (subpatch) 0;
+#X array \$0-fourier_spectrogram_demo_scope5 256 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 255 -1 500 100 1 0 0;
+#X restore 181 135 graph;
+#X text 396 246 Time;
+#X text 108 172 Amplitude;
+#X coords 0 -1 1 1 590 175 2 100 100;
+#X restore 279 123 pd box;
+#X obj 974 540 metro 250;
+#X obj 974 567 tabwrite~ \$0-fourier_spectrogram_demo_scope5;
+#X obj 919 385 receive~ sig4;
+#X obj 122 137 bng 15 250 50 0 \$0-inharmonicspec empty Inharmonic_Spectrum
+17 7 0 12 -204800 -1 -1;
+#X obj 122 155 bng 15 250 50 0 \$0-noise empty Noise_(Attempt) 17 7
+0 12 -204800 -1 -1;
+#X obj 122 173 bng 15 250 50 0 \$0-idealnoise empty Idealized_Noise
+17 7 0 12 -204800 -1 -1;
+#X obj 919 409 *~;
+#X obj 984 286 r \$0-gainslider;
+#X msg 1107 352;
+#X floatatom 1069 324 5 0 0 0 - - -, f 5;
+#X msg 1057 246;
+#X floatatom 1011 346 5 0 0 0 - - -, f 5;
+#X obj 984 310 / 64;
+#X obj 119 223 hsl 128 15 0 127 0 0 \$0-gainslider empty Amplitude
+-2 -8 0 10 -204800 -1 -1 0 1;
+#X connect 0 0 7 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 3 0 7 1;
+#X connect 7 0 8 0;
+#X connect 9 0 13 0;
+#X connect 13 0 5 0;
+#X connect 13 0 8 0;
+#X connect 14 0 16 0;
+#X connect 14 0 19 0;
+#X connect 18 0 13 1;
+#X connect 19 0 18 0;
+#X coords 0 -1 1 1 800 400 2 100 100;
+#X restore 519 41 pd demonstration.wave;
+#X text 14 35 A Harmonic spectrum produces a timbre that we identify
+as a musical note notes \, and the opposite \, an INHARMONIC SPECTUM
+\, produces a timbre that we cannot tie to a note. This is the spectra
+of non-pitched musical sounds \, such as percussion instruments \,
+as well as sounds found in nature: the crunch of leaves underneath
+your feet \, the crash of a wave against the shore \, the crack of
+thunder. The most rigid of harmonic spectra we call notes \, but the
+most inharmonic of spectra we call NOISE., f 69;
+#X text 14 165 An inharmonic spectrum for the most part is the opposite
+of a harmonic spectrum \, though it can vary a bit. The most defining
+aspect of an inharmonic spectrum is that the frequency of the partials
+not related by integer multiples. The frequencies often vary from partial
+to partial – one partial could be 1.8x the lowest partial \, the
+next could be 3.2x the lowest partial \, while mixed within the spectrum
+could be a partial that is 6x the lowest partial \, but because none
+of the other partials are related \, this partial is heard as unrelated.
+An inharmonic spectrum’s lowest frequency partial doesn’t have
+the highest amplitude \, and if it does \, we still likely don’t
+hear a pitch because the other partials are unrelated to this frequency.
+, f 69;
+#X text 12 343 The most inharmonic of spectra is known as WHITE NOISE.
+White noise is generated mathematically using probability. We define
+white noise as a sound in which the frequencies of the partials of
+the sound are completely random \, and so random that the probability
+of ANY frequency (within the audible range) is 100%. Additionally \,
+the amplitudes of every partial is constant \, so no single frequency
+is heard dominant over the other., f 69;
+#X text 16 474 The buttons on the right produce different types of
+inharmonic spectra. The first button generates a different inharmonic
+spectrum every time you click the button \, by generating 48 random
+frequencies for 48 sine tone generators \, and 48 random amplitudes
+for those 48 sine tones. You may find that at times you almost get
+a sense of pitch \, because you get a strong high amplitude frequency
+that rises out of the mass. Other times it is very discordant and noisy.
+Additionally \, all the frequencies are whole numbers – if we also
+opened the random values to non-whole numbers (which would take some
+additional coding that I wasn’t able to finish!) we would lose even
+more sense of pitch. The next button is an attempt to create white
+noise with those same 48 sine tone generators. This white noise isn’t
+ideal \, as \, like the inharmonic spectrum \, we are limited to a
+100% random probability for whole numbers only. However the sound is
+close to white noise. The last button is idealized white noise \, created
+through a built in computer algorithm. This spectrum is perfectly random
+\, and you will see in the spectroscope that the spectrum is a straight
+line \, because ALL frequencies are represented at an equal amplitude.
+, f 68;
+#X text 14 15 5.5 INHARMONIC SPECTRUM, f 73;
+#X restore 21 241 pd 05_INHARMONIC_SPECTRUM;
 #X coords 0 821 1 820 1100 775 0;

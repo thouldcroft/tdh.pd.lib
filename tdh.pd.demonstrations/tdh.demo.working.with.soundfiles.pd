@@ -1,10 +1,9 @@
-#N canvas 386 23 939 855 10;
-#X obj 366 297 soundfiler;
+#N canvas 236 23 939 855 10;
+#X obj 366 337 soundfiler;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array sound 193108 float 2;
 #X coords 0 1 193108 -1 200 140 1 0 0;
 #X restore 461 79 graph;
-#X msg 366 271 read -resize ../Audio_Test_Files/monkey.wav sound;
 #X obj 8 267 readsf~;
 #X obj 8 306 dac~ 1 2;
 #X msg 45 221 1;
@@ -24,23 +23,23 @@ it "sound" in the name creation dialog, f 46;
 , f 42;
 #X text 366 251 [ read -resize ../yourFolder/yourSound.wav sound (
 ;
-#X obj 369 434 dac~ 1 2;
-#X obj 369 411 tabplay~ sound;
-#X obj 369 346 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 370 442 dac~ 1 2;
+#X obj 370 419 tabplay~ sound;
+#X obj 370 391 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X text 364 314 3 Create a [tabplay~] object \, with the argument "sound
+#X text 364 354 3 Create a [tabplay~] object \, with the argument "sound
 \, and send it a "bang", f 47;
-#X msg 464 379 500 3000;
+#X msg 433 392 500 3000;
 #X obj 384 797 tabread4~ sound;
 #X obj 384 827 dac~ 1 2;
 #X msg 758 587 193108;
 #X obj 758 608 / 44100;
-#X floatatom 758 629 5 0 0 0 - - -, f 5;
-#X text 533 366 You can also define a block of time in samples that
+#X floatatom 758 629 5 0 0 0 - - -;
+#X text 533 386 You can also define a block of time in samples that
 you want to read from by defining a starting sample and then how many
 samples past that you want to read, f 41;
 #X obj 758 648 * 1000;
-#X floatatom 758 673 5 0 0 0 - - -, f 5;
+#X floatatom 758 673 5 0 0 0 - - -;
 #X text 373 490 [tabread4~] gives you more control over the speed of
 playback;
 #X text 782 1423 I need my space;
@@ -68,9 +67,9 @@ array at a faster or slower speed than "normal" speed;
 but you need to do the math from above (and determine the total number
 of samples in your chunk) to playback at "normal" speed;
 #X obj 1165 1044 / 44100;
-#X floatatom 1165 1065 5 0 0 0 - - -, f 5;
+#X floatatom 1165 1065 5 0 0 0 - - -;
 #X obj 1165 1084 * 1000;
-#X floatatom 1165 1109 5 0 0 0 - - -, f 5;
+#X floatatom 1165 1109 5 0 0 0 - - -;
 #X text 1044 1042 sample rate -->;
 #X text 947 1064 array duration in seconds -->;
 #X text 968 1083 convert to millseconds -->;
@@ -104,38 +103,44 @@ it will stay on that number. This little trick will reset [line~] back
 to 0 \; it essentially sends two messages: first it sends 0 (resetting
 line back to 0) \, then says ramp to 193108 over 4378 ms (NOTE THAT
 THE ARRAY SIZE AND TIME IN MS WILL DIFFER FOR EACH SOUND FILE);
-#X connect 2 0 0 0;
-#X connect 3 0 4 0;
-#X connect 3 0 4 1;
-#X connect 5 0 3 0;
-#X connect 6 0 3 0;
+#X msg 366 311 read -resize \$1 sound;
+#X obj 367 268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 367 288 openpanel;
+#X connect 2 0 3 0;
+#X connect 2 0 3 1;
+#X connect 4 0 2 0;
+#X connect 5 0 2 0;
+#X connect 16 0 15 0;
+#X connect 16 0 15 1;
 #X connect 17 0 16 0;
-#X connect 17 0 16 1;
-#X connect 18 0 17 0;
-#X connect 20 0 17 0;
-#X connect 21 0 22 0;
-#X connect 21 0 22 1;
+#X connect 19 0 16 0;
+#X connect 20 0 21 0;
+#X connect 20 0 21 1;
+#X connect 22 0 23 0;
 #X connect 23 0 24 0;
-#X connect 24 0 25 0;
-#X connect 25 0 27 0;
-#X connect 27 0 28 0;
-#X connect 31 0 21 0;
-#X connect 34 0 31 0;
-#X connect 35 0 36 0;
-#X connect 35 0 36 1;
-#X connect 37 0 35 0;
-#X connect 38 0 37 0;
-#X connect 39 0 40 0;
-#X connect 39 0 40 1;
-#X connect 41 0 39 0;
-#X connect 42 0 41 0;
-#X connect 44 0 45 0;
-#X connect 44 0 45 1;
-#X connect 46 0 44 0;
+#X connect 24 0 26 0;
+#X connect 26 0 27 0;
+#X connect 30 0 20 0;
+#X connect 33 0 30 0;
+#X connect 34 0 35 0;
+#X connect 34 0 35 1;
+#X connect 36 0 34 0;
+#X connect 37 0 36 0;
+#X connect 38 0 39 0;
+#X connect 38 0 39 1;
+#X connect 40 0 38 0;
+#X connect 41 0 40 0;
+#X connect 43 0 44 0;
+#X connect 43 0 44 1;
+#X connect 45 0 43 0;
+#X connect 47 0 48 0;
 #X connect 48 0 49 0;
 #X connect 49 0 50 0;
-#X connect 50 0 51 0;
-#X connect 57 0 48 0;
-#X connect 58 0 46 0;
-#X connect 60 0 32 0;
-#X connect 63 0 3 0;
+#X connect 56 0 47 0;
+#X connect 57 0 45 0;
+#X connect 59 0 31 0;
+#X connect 62 0 2 0;
+#X connect 70 0 0 0;
+#X connect 71 0 72 0;
+#X connect 72 0 70 0;

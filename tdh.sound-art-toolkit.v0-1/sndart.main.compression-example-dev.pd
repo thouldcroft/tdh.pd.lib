@@ -1,0 +1,18 @@
+#N canvas 1934 -300 1514 1221 10;
+#X declare -path dependencies;
+#X declare -path dependencies;
+#X obj 225 24 tdh.satk.seq;
+#X obj 214 394 tdh.satk.oscil~;
+#X obj 396 844 tdh.satk.channelstrip~;
+#X obj 396 1182 tdh.satk.audioout~;
+#X obj 213 692 tdh.satk.mmfilt~;
+#X obj 755 820 moog~;
+#X obj 687 1000 tdh.satk.record~;
+#X connect 0 0 1 6;
+#X connect 0 1 1 7;
+#X connect 1 0 4 0;
+#X connect 2 0 3 0;
+#X connect 2 0 6 0;
+#X connect 2 1 3 1;
+#X connect 2 1 6 1;
+#X connect 4 0 2 0;

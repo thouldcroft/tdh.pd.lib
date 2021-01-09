@@ -1,0 +1,377 @@
+#N canvas 25 23 1255 732 12;
+#X text 10 98 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 20 277 What is Pure Data?, f 24;
+#X obj 246 416 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-num1 empty 0 -8
+0 10 -262144 -1 -1 3 256 0;
+#X obj 288 476 +;
+#X obj 338 416 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-num2 empty 0 -8
+0 10 -262144 -1 -1 3 256 0;
+#X obj 288 548 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 6 256 0;
+#X text 11 328 Pure Data (abbreviated Pd) is actually a COMPUTER PROGRAMMING
+LANGUAGE for media \, with a long history in the sound and electronic
+music communities. It has become particularly popular with artists
+because instead of requiring one to create computer code using a text
+editor and actual codes for what the processes happening \, you connect
+boxes that perform certain functions through lines that represent the
+signal/data flow. For example \, below is what Pd code for adding the
+numbers 2 and 3 together looks like \, with a text based psuedo-code
+(i.e. not code from an actual programming language) \, like what you
+would find in a traditional programmign language \, next to it:, f
+192;
+#X text 11 649 That may seem trivial \, because adding two numbers
+together is a very simply task. But if what if you wanted to change
+the numbers? In the traditional code you would need to need to delete
+the numbers typed in \, type new numbers \, and then run the whole
+program again. In Pd \, simply click and drag in the number boxes to
+change the numbers! And when you click and drag in the right side box
+\, you will see the results produced immediately in real-time (the
+left hand box doesn't trigger the calculation to happen \, it stores
+the number and waits for the right hand number to be sent). In fact
+(almost) everything in Pd happens in real time., f 192;
+#X text 11 767 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 22 786 Pure Data? Purr Data? Pd-l2ork??????, f 37;
+#X text 11 720 Pd is also very popular because it is FREE and OPEN
+SOURCE. This means there is (for the most part) no central author \,
+and interested parties can contribute to it \, write extensions for
+it \, and even develop their own take on the software... which brings
+us to our next topic., f 192;
+#X text 6 1248 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 6 1318 As you work through the Acoustics demonstrations I have
+built for you \, you will find the following conventions used:, f
+192;
+#X text 16 1267 The Chapters Interface, f 37;
+#X text -1 1829 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X obj 118 1962 vsl 15 128 0 127 0 1 \$0-vsl-r empty empty 0 -9 0 10
+-204800 -1 -1 4800 1;
+#X obj 165 2005 hsl 128 15 0 127 0 1 \$0-hsl-r empty empty -2 -8 0
+10 -204800 -1 -1 4600 1;
+#X obj 118 2096 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-vsl-r empty 0 -8
+0 10 -262144 -1 -1 48 256 0;
+#X obj 162 2022 nbx 5 14 -1e+37 1e+37 0 0 empty \$0-hsl-r empty 0 -8
+0 10 -262144 -1 -1 46 256 0;
+#X text 164 2123 Sliders;
+#X text 73 2224 Most sliders will have a numerical display of the value
+it is outputting. The values output can be a wide range of numbers
+\, all depending on the slider's function., f 40;
+#X text 476 2125 Number Boxes;
+#X text 415 2180 Click and drag in them and you will change AND output
+an integer value., f 36;
+#X text 415 2225 Hold SHIFT while clicking and dragging and you will
+output floating point decimal numbers., f 37;
+#X text 414 2280 Finally \, click inside the number box \, (it will
+turn red in Pd-Vanilla) type your desired number via the computer keyboard
+\, then hit RETURN (*not* enter) \, and the number will be output and
+displayed., f 37;
+#X obj 475 2002 nbx 8 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -204800 -1 -1 0 256 0;
+#X text 807 2120 Buttons;
+#X text 728 2142 Click them \, something will happen!;
+#X obj 786 2022 bng 15 250 50 0 \$0-bang-r \$0-bang-r empty 17 7 0
+10 -204800 -1 -1;
+#X text 1078 2118 Toggles;
+#X text 1003 2140 Toggles can be one state (on \, checked \, etc) \,
+or another (off \, unchecked). I usually use these for choices., f
+33;
+#X obj 1025 2022 tgl 15 0 \$0-toggle-r empty empty 17 7 0 10 -204800
+-1 -1 0 1;
+#X text 12 2463 Other Notes:, f 37;
+#N canvas 134 93 920 694 pseudocode 0;
+#X text 133 219 c = a + b;
+#X text 113 239 output = c;
+#X text 113 133 function: add_numbers;
+#X text 133 175 variable integer b = 2;
+#X text 133 197 variable integer c = 0;
+#X text 133 155 variable integer a = 3;
+#X coords 0 -1 1 1 200 180 2 100 100;
+#X restore 807 416 pd pseudocode;
+#X obj 101 1351 cnv 15 1125 425 empty empty empty 20 12 0 14 -253822
+-66577 0;
+#X text 105 1361 Title of the "Chapter" Will Go Here;
+#N canvas 195 340 450 266 big_demo 0;
+#X text 190 303 Inside this box will be interactive tools to explore
+ALL of the concepts covered in this chapter. These tools alone could
+be used for sound art!!;
+#X coords 0 -1 1 1 550 400 2 100 100;
+#X restore 652 1363 pd big_demo;
+#N canvas 27 23 638 314 01_SUBSECTION_TITLE 0;
+#N canvas 0 22 450 300 subsection_demo 0;
+#X text 135 188 Interactive demonstration of the concept of the subsection
+would go here., f 30;
+#X coords 0 -1 1 1 250 250 2 100 100;
+#X restore 342 10 pd subsection_demo;
+#X text 29 11 1 SUBSECTION TITLE;
+#X text 28 43 Descriptive text goes here;
+#X restore 117 1435 pd 01_SUBSECTION_TITLE;
+#X text 106 1394 Some introductory remarks will go here.;
+#X text -1 1899 Asides from clicking on boxes that contain subwindows
+for chapter subsections \, you will interact with real-time demonstrations.
+For the interactive demonstrations \, you will typically be clicking
+\, clicking and dragging \, or typing numbers into the following constructs.
+Any control that is intended to be interactive will be shaded blue.
+Feel free to click any of the controls below., f 191;
+#X obj 777 2069 bng 15 250 50 0 empty \$0-button1-s empty 17 7 0 10
+-262144 -1 -1;
+#X text 810 2021 <-Click me;
+#X obj 807 2069 bng 15 250 50 0 empty \$0-button2-s empty 17 7 0 10
+-262144 -1 -1;
+#X obj 837 2069 bng 15 250 50 0 empty \$0-button3-s empty 17 7 0 10
+-262144 -1 -1;
+#X obj 867 2069 bng 15 250 50 0 empty \$0-button4-s empty 17 7 0 10
+-262144 -1 -1;
+#X obj 1032 2069 cnv 15 25 25 empty \$0-colorful_canvas1-s empty 20
+12 0 14 -166441 -262144 0;
+#X obj 1072 2069 cnv 15 25 25 empty \$0-colorful_canvas2-s empty 20
+12 0 14 -166441 -262144 0;
+#X obj 1112 2069 cnv 15 25 25 empty \$0-colorful_canvas3-s empty 20
+12 0 14 -166441 -262144 0;
+#X obj 1152 2069 cnv 15 25 25 empty \$0-colorful_canvas4-s empty 20
+12 0 14 -166441 -262144 0;
+#X obj 475 2071 + 15;
+#X obj 475 2092 nbx 8 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 0 256 0;
+#X text 145 1980 CLick and drag to move sliders;
+#X text 440 1968 Click and drag or click and type to enter a number.
+, f 27;
+#X text 1047 2021 <- Click to toggle on/off, f 29;
+#X text -1 2439 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text -1 2479 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 10 298 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 11 807 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 6 1288 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text -1 1869 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X obj 11 35 cnv 15 1350 60 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 14 54 Travis Houldcroft \, 2018, f 24;
+#X text 1359 2834 .;
+#X text 10 7 ., f 65;
+#X text 390 1793 Fig 3 - Prototype window for each Fundamentals of
+Acoustics chapter program, f 78;
+#X text 9 1848 Graphical User Interface Controls, f 37;
+#X text 430 2393 Fig 4 - Various interactive graphical user interface
+controls, f 84;
+#N canvas 27 23 450 300 initialize 0;
+#X obj 37 152 s \$0-num1;
+#X obj 163 149 s \$0-num2;
+#X obj 46 25 loadbang;
+#X msg 31 90 3;
+#X msg 171 88 3;
+#X obj 46 47 t b b;
+#N canvas 27 254 1413 585 vegas 0;
+#X obj 168 60 r \$0-bang-r;
+#X obj 173 351 s \$0-button1-s;
+#X obj 484 350 s \$0-button4-s;
+#X obj 384 349 s \$0-button3-s;
+#X obj 281 350 s \$0-button2-s;
+#X obj 168 125 t b b;
+#X obj 173 291 select 0;
+#X obj 283 291 select 1;
+#X obj 383 291 select 2;
+#X obj 482 288 select 3;
+#X obj 179 321 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 280 321 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 381 321 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 481 321 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 174 208 metro 50;
+#X obj 174 235 random 4;
+#X floatatom 211 260 5 0 0 0 - - -, f 5;
+#X msg 216 170 0;
+#X msg 168 146 1;
+#X obj 174 186 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 175 92 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 216 149 del 5000;
+#X obj 682 60 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 680 32 r \$0-toggle-r;
+#X obj 682 129 random 30;
+#X obj 682 150 pack float \$0;
+#X msg 686 185 \; \$2-colorful_canvas1-s color \$1;
+#X obj 902 129 random 30;
+#X obj 902 150 pack float \$0;
+#X obj 1112 129 random 30;
+#X obj 1112 150 pack float \$0;
+#X obj 1332 129 random 30;
+#X obj 1332 150 pack float \$0;
+#X msg 906 185 \; \$2-colorful_canvas2-s color \$1;
+#X msg 1116 185 \; \$2-colorful_canvas3-s color \$1;
+#X msg 1336 185 \; \$2-colorful_canvas4-s color \$1;
+#X obj 682 102 metro 100;
+#X obj 902 102 metro 80;
+#X obj 1112 102 metro 90;
+#X obj 1332 102 metro 70;
+#X obj 998 26 loadbang;
+#X msg 998 50 1;
+#X connect 0 0 20 0;
+#X connect 5 0 18 0;
+#X connect 5 1 21 0;
+#X connect 6 0 10 0;
+#X connect 7 0 11 0;
+#X connect 8 0 12 0;
+#X connect 9 0 13 0;
+#X connect 10 0 1 0;
+#X connect 11 0 4 0;
+#X connect 12 0 3 0;
+#X connect 13 0 2 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 15 0 6 0;
+#X connect 15 0 7 0;
+#X connect 15 0 8 0;
+#X connect 15 0 9 0;
+#X connect 17 0 19 0;
+#X connect 18 0 19 0;
+#X connect 19 0 14 0;
+#X connect 20 0 5 0;
+#X connect 21 0 17 0;
+#X connect 22 0 36 0;
+#X connect 22 0 37 0;
+#X connect 22 0 38 0;
+#X connect 22 0 39 0;
+#X connect 23 0 22 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 27 0 28 0;
+#X connect 28 0 33 0;
+#X connect 29 0 30 0;
+#X connect 30 0 34 0;
+#X connect 31 0 32 0;
+#X connect 32 0 35 0;
+#X connect 36 0 24 0;
+#X connect 37 0 27 0;
+#X connect 38 0 29 0;
+#X connect 39 0 31 0;
+#X connect 40 0 41 0;
+#X connect 41 0 30 0;
+#X connect 41 0 32 0;
+#X connect 41 0 28 0;
+#X connect 41 0 25 0;
+#X restore 334 39 pd vegas;
+#X connect 2 0 5 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 5 0 3 0;
+#X connect 5 1 4 0;
+#X restore 1262 62 pd initialize;
+#X text 212 599 Fig 1 - Pd Code for Adding Two Numbers;
+#X text 622 599 Fig 2 - Pseudo-Code for Adding Two Numbers in a "Traditional"
+Programming Language, f 85;
+#X text 14 74 THE283 Sound Art, f 24;
+#X text 10 257 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 10 141 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 20 120 Introduction, f 24;
+#X text 15 37 Pd Basics for the "Fundamentals of Acoustics" Interactive
+Text, f 76;
+#X text 11 165 In order to be able to create art with a medium \, you
+need to understand how that medium works. When we paint \, we understand
+that combining blue and yellow will give us a resulting color that
+is a shade of green. It is just as important to understand how sound
+works \, in order create sound art. For the first area of study in
+this course \, we will investigate acoustics and psychoacoustics \,
+which examines the physical properties of sound and the way sound is
+perceived. But instead of reading a text on these topics \, I have
+developed interactive texts which allow you to actively experiment
+and investigate these aspects of sound \, in order to illustrate the
+concepts more vividly. The interactive texts were developed in a programming
+language called Pure Data \, and this introductory text will go over
+some of the basics of Pure Data \, and how to interact with the elements
+in the interactive text., f 192;
+#X text 11 860 For years Pd started as one \, very sparse \, light-weight
+environment \, that guaranteed that all programs would work as new
+versions came out (backward compatability) \, it worked for Mac \,
+PC \, and Linux \, and \, with recent developments \, the language
+could run as the audio code for applications built for iOS \, Android
+\, Unity \, the Web \, and more., f 192;
+#X text 11 1200 For the introductory acoustics demonstrations for our
+class \, you should use Purr Data as that is guaranteed to open the
+files (though a Pure Data Vanilla version of the files is included
+with every download)., f 192;
+#X text 11 835 -------- Pure Data Vanilla --------;
+#X text 8 912 The only downside to these rather strict rules \, is
+that the development isn't drastic. In fact visually it looks very
+plain \, and from a usability standpoint \, its not the easiest software
+to pick up., f 192;
+#X text 10 960 -------- Pd-Extended --------;
+#X text 6 991 To make up for the downsides of Pure Data \, Pd-Extended
+was developed \, and it had a better-looking interface and it included
+nearly EVERY possible extension developed for it by 3rd parties \,
+and it was much easier to use. With this development \, the original
+Pd \, became known colloquially as Pd Vanilla., f 192;
+#X text 8 1042 As a non-commercial software \, Pd-Extended fell into
+disrepair because not enough volunteers were developing it (open-source
+software doesn't make a lot of money \, so it can't really pay its
+developers)., f 192;
+#X text 7 1123 A few years ago \, a group of computer science and electronic
+music scholars at Virgina Tech started to develop their own flavor
+of Pd \, that would be tailored specifically for the V-Tech Linux Laptop
+Orchestra (or l2Ork). This version was a lot like Pd-Extended \, but
+it was kept in development. For years this branch of Pd was Linux only
+\, and was called Pd-l2ork (catchy right?). But in the past two years
+Pd-l2ork has been ported over Mac and Windows \, and has been given
+the Purr Data \, because it sounds like "Pure Data" \, and the internet
+loves cats. Note that the name Pd-l2Ork is still used for some areas
+of Purr Data \, so you should understand that the two are the same
+programs., f 193;
+#X text 10 1089 -------- Pd-l2ork a.k.a. Purr Data --------;
+#X text 282 1436 <-Click on this box to open up a new window that will
+discuss the first subsection of the chapter, f 33;
+#X text 74 2145 Click and drag inside the rectangle to move the small
+dark line that emulates a slider's knob like on a physical controller.
+, f 40;
+#X text 416 2147 Number boxes work in three ways:;
+#X text 2 2514 Audio Engine: In Pd you need to turn audio processing
+on to hear sounds. The demonstrations I build for you SHOULD turn the
+audio on automatically (i.e. I have built a mechanism to turn it on
+for you). However you may need to set your audio output. In Purr Data
+you need to go to the Edit menu and choose "Preferences" and then set
+the audio driver and channel in the "Audio" tab. In the lab we have
+audio interfaces \, and so you will want to choose the Behringer UMC
+interfaces in order to connect your headhphones \, but at home you
+likely want to use the built in audio. To set audio in Pd Vanilla:
+Go to the MEDIA menu and choose "Audio Settings" \, then in the pop
+up window choose your output driver (Core Audio for Mac \, ASIO for
+Windows \, ??? for Linux (Jack??)) \, and then the output channel (usually
+headphones is ideal)., f 191;
+#X text 2 2615 Edit mode: Technically a Pd program is also working
+Pd code. The way Pd code is written is that you insert objects into
+the blank canvas \, then you LOCK or DISABLE EDIT/EDIT MODE. If for
+some reason you unlock the patch \, or I have forgotten to save it
+in the locked state \, go to the Edit Menu and disable "Edit" or "Edit
+Mode". You will be able to tell if you are in edit mode because you
+also won't be able to change any user interface controls \, they will
+react to you clicking by assuming you are editing them! If you accidentally
+make edits \, and then accidentally save the file \, DON'T PANIC. Just
+delete the file(s) and re-download them from Blackboard., f 191;
+#X text 2 2698 Disclaimer: The programs developed for this class are
+early iterations of the programs. There is VERY likely bugs in the
+programs. I tried to test them the best I could \, but they were all
+completed from very different and much more basic programs from previous
+semesters. There will likely be typos. They also haven't been tested
+on many platforms \, mostly just my own computer. That being said \,
+I think this way is a much more intuitive way to read about acoustics
+over me having you read a textbook \, and each concept has hands on
+examples in the programs \, so I think this will be a very powerful
+way to learn these concepts! Of course if you run into ANY problems
+whatsoever \, contact me immediately!!, f 191;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 3 1;
+#X connect 25 0 49 0;
+#X connect 49 0 50 0;

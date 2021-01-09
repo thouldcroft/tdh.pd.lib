@@ -1,4 +1,4 @@
-#N canvas 435 48 1000 588 10;
+#N canvas 2145 19 1000 611 10;
 #N canvas 789 23 651 544 fft-analysis 0;
 #X obj 15 164 *~;
 #X obj 14 99 inlet~;
@@ -49,13 +49,13 @@ of "fft".;
 #X connect 8 0 24 0;
 #X connect 19 0 6 0;
 #X connect 24 0 23 0;
-#X restore 1094 205 pd fft-analysis;
-#N canvas 0 0 450 300 (subpatch) 0;
-#X array \$0-spectrum 256 float 0;
-#X coords 0 128 255 0 500 100 1 0 0;
+#X restore 754 205 pd fft-analysis;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-spectrum 256 float 0 black black;
+#X coords 0 128 255 0 500 100 1;
 #X restore 170 116 graph;
-#N canvas 0 0 450 300 (subpatch) 0;
-#X array \$0-hann 512 float 1;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-hann 512 float 1 black black;
 #A 0 0 3.76403e-05 0.000150591 0.000338793 0.000602275 0.000940949
 0.00135478 0.00184369 0.00240764 0.00304651 0.00376022 0.00454867 0.00541174
 0.0063493 0.00736117 0.00844723 0.00960734 0.0108413 0.0121489 0.01353
@@ -124,29 +124,29 @@ of "fft".;
 0.00135431 0.000940561 0.000601947 0.000338584 0.000150442 3.75807e-05
 ;
 #X coords 0 1 511 0 200 120 1;
-#X restore 1399 132 graph;
-#X msg 1341 130 0;
-#X obj 1235 179 osc~;
-#X obj 1235 131 samplerate~;
-#X obj 1235 202 *~ -0.5;
-#X obj 1235 225 +~ 0.5;
-#X obj 1227 250 tabwrite~ \$0-hann;
-#X text 1385 124 1;
-#X text 1378 242 0;
-#X text 1394 255 0;
-#X obj 1235 155 / 512;
-#X obj 1228 70 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+#X restore 1059 132 graph;
+#X msg 1001 130 0;
+#X obj 895 179 osc~;
+#X obj 895 131 samplerate~;
+#X obj 895 202 *~ -0.5;
+#X obj 895 225 +~ 0.5;
+#X obj 887 250 tabwrite~ \$0-hann;
+#X text 1045 124 1;
+#X text 1038 242 0;
+#X text 1054 255 0;
+#X obj 895 155 / 512;
+#X obj 888 70 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
 -1;
-#X text 1504 109 Hann window;
-#X text 1283 177 period 512;
-#X text 1260 64 recalculate Hann;
-#X text 1284 77 window table;
-#X text 1580 258 511;
-#X obj 1227 40 inlet;
-#X obj 1054 232 outlet~;
-#X obj 1054 28 inlet~;
-#X text 1108 234 Thru;
-#X obj 1330 34 loadbang;
+#X text 1164 109 Hann window;
+#X text 943 177 period 512;
+#X text 920 64 recalculate Hann;
+#X text 944 77 window table;
+#X text 1240 258 511;
+#X obj 887 40 inlet;
+#X obj 714 232 outlet~;
+#X obj 714 28 inlet~;
+#X text 768 234 Thru;
+#X obj 990 34 loadbang;
 #X text 155 230 20;
 #X text 174 230 500;
 #X text 188 243 1000;

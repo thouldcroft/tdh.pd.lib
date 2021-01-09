@@ -1,0 +1,64 @@
+#N canvas 150 23 1290 855 12;
+#X declare -path dependencies;
+#X obj 16 34 cnv 15 1250 60 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#X text 14 5 ., f 65;
+#X text 19 35 Introduction to the Fundamentals of Sound and Acoustics
+, f 56;
+#X text 19 106 Sound is something that most humans are inherently familiar
+with. In fact it is one of the first senses that develops \, with the
+ability to hear developing in utero. However \, how does sound actually
+work? How does one person speaking travel from one point to our ears
+\, and how does it get understood as sound? While this series of demonstrations
+is in no way an exhaustive illustration of how sound works \, I hope
+you will leave with a little bit better understanding of how it functions.
+, f 176;
+#X obj 658 616 image lwav2_attr.gif;
+#X text 19 66 Chapter 1 - How Does Sound Work?, f 56;
+#X text 19 266 How does this all work? Let’s use a guitar string
+as an example as a vibrating mass. A guitar pick pulls the string back
+\, then releases it and the string starts to vibrate. The first movement
+of the vibration is a movement of the string opposite to the direction
+the pick pulled the string This movement pushes the air molecules around
+it. Sometimes these molecules are pushed far \, sometimes pushed just
+a little. Once the surrounding molecules get pushed \, a build-up of
+pressure (caused by an increase in the number of molecules for the
+area) results. This pressure effects all of the molecules around the
+vibrating mass. As the pressure increases around the string \, the
+molecules increase the pressure of the molecules surrounding them.
+This pushes other molecules out away from the string. This causes a
+chain reaction that produces an increase in pressure that travels all
+the way to your ear drums (or to a microphone) \, with some loss of
+energy. This pressure pushes your ear drum in \, directly analogous
+to the string vibration. This increase in pressure on the ear drum
+is known as the sound wave’s COMPRESSION. Back at the string \, the
+string can only move so far in one direction \, and so it will then
+swing back the other way. This leaves empty space with lower pressure
+\, and all molecules attract to areas with a lower pressure \, so they
+will fill in the space where the string was \, and in fact they travel
+past where the space they initially had occupied. This causes an opposite
+chain reaction \, where all of the molecules \, including those pushing
+against your ear drum \, reverse direction to seek an area of less
+pressure \, and all involved \, including the ear drum \, swing past
+the place of initial rest \, and in fact build up pressure in the opposite
+direction. We call this the wave’s RAREFACTION. If the string is
+plucked hard enough \, the cycle repeats again as the string swings
+back. This cycle of increasing and then decreasing of pressure at our
+ear drum is astoundingly interpreted by our brains as sound!, f 176
+;
+#X text 244 581 Vibrating mass (string \, drum \, metal bar \, branch
+splitting \, etc...), f 18;
+#X text 971 601 Ear Drum;
+#X text 19 176 Sound waves are created through the movement of a vibrating
+mass. An object vibrates enough to make sound through an excitation
+- this excitation could be air passing over vocal cords \, a plectrum
+(pick) plucking a guitar string \, a stick hitting a drum head \, two
+hands snapping a carrot in half \, or a rock hitting pavement. This
+vibration creates a variation in the pressure of air molecules (or
+water molecules \, though not as easily) that travels as a WAVE. In
+physics \, a wave is an occurrance that moves energy in a space \,
+and in the case of sound \, what we are moving is ACOUSTIC ENERGY.
+When the waveit reaches our ears \, the brain amazingly interprets
+this acoustic energy as sound!, f 176;
+#X obj 1070 68 declare -path dependencies;
+#X coords 0 855 1 854 1100 650 0;

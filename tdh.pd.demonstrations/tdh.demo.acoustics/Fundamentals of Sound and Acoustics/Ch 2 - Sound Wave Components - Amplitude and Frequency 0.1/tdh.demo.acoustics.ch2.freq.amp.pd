@@ -1,6 +1,6 @@
 #N canvas 25 23 1255 755 12;
 #X declare -path dependencies;
-#N canvas 27 23 1413 855 sound_gen_amp_demo 0;
+#N canvas 25 23 1255 755 sound_gen_amp_demo 0;
 #X obj 226 130 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 1104 669 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 1 1;
@@ -12,13 +12,13 @@
 #X obj 1072 336 tgl 15 0 empty \$0-main-freq-demo-on_off empty 17 7
 0 10 -4032 -1 -1 0 1;
 #X obj 904 60 vsl 15 128 20 20000 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 267 1;
+-1 -1 228 1;
 #X obj 904 217 line;
 #X obj 1145 488 line~;
 #X msg 904 196 \$1 100;
 #X obj 1104 692 metro 250;
 #X obj 1038 177 vsl 15 128 0 2 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 635 1;
+-1 -1 880 1;
 #X msg 1146 465 \$1 100;
 #X floatatom 1038 313 5 0 0 0 - - -;
 #X obj 1066 429 spigot;
@@ -32,9 +32,9 @@ amplitude value.;
 #X obj 127 106 tgl 15 0 \$0-main-freq-demo-on_off empty empty 17 7
 0 10 -204800 -1 -1 0 1;
 #X obj 127 130 vsl 15 120 0 22500 0 0 \$0-main-freq-demo-slider empty
-empty 0 -9 0 10 -204800 -1 -1 233 1;
+empty 0 -9 0 10 -204800 -1 -1 200 1;
 #X obj 118 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq-demo-numbox empty
-empty 0 -8 0 10 -204800 -1 -1 440 256;
+empty 0 -8 0 10 -204800 -1 -1 378.151 256;
 #X msg -63 271 set \$1;
 #X msg -63 154 set \$1;
 #X text 115 282 Frequency;
@@ -44,9 +44,9 @@ empty 0 -8 0 10 -204800 -1 -1 440 256;
 #X msg -65 221 set \$1;
 #X msg -61 102 set \$1;
 #X obj 208 130 vsl 15 120 0 1.5 0 0 \$0-main-amp-demo-slider empty
-empty 0 -9 0 10 -204800 -1 -1 793 1;
+empty 0 -9 0 10 -204800 -1 -1 1193 1;
 #X obj 203 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-amp-demo-numbox empty
-empty 0 -8 0 10 -204800 -1 -1 0.1 256;
+empty 0 -8 0 10 -204800 -1 -1 0.138655 256;
 #N canvas 564 462 450 300 init 0;
 #X obj 117 22 loadbang;
 #X msg 108 110 0;
@@ -507,9 +507,9 @@ the start to the end point will be heard \, over the specified duration.
 #X connect 135 0 111 0;
 #X coords 0 -1 1 1 600 625 2 100 100;
 #X restore 581 9 pd sound_gen_amp_demo;
-#N canvas 1547 29 725 554 02_LINEAR_VS_LOGARITHMIC_SCALES 1;
+#N canvas 285 36 742 703 02_LINEAR_VS_LOGARITHMIC_SCALES 0;
 #X text 12 4 2.2 LINEAR VS. LOGARITHMIC PERCEPTION SCALES, f 73;
-#N canvas 1414 -56 1477 755 lineargraph 0;
+#N canvas 25 23 1255 755 lineargraph 0;
 #N canvas 25 23 450 278 (subpatch) 0;
 #X array linear 100 float 3;
 #A 0 0.8 1.6 2.8 3.6 4.8 5.6 6.8 7.6 8.8 9.6 10.8 11.6 12.8 13.6 14.8
@@ -594,13 +594,9 @@ curve, f 22;
 #X connect 10 0 9 0;
 #X connect 10 0 4 0;
 #X connect 11 0 21 0;
-#X connect 12 0 13 0;
-#X connect 12 0 14 0;
 #X connect 12 0 22 0;
-#X connect 16 0 25 0;
 #X connect 17 0 20 1;
 #X connect 18 0 20 0;
-#X connect 19 0 25 1;
 #X connect 20 0 17 0;
 #X connect 20 0 19 0;
 #X connect 21 2 18 0;
@@ -622,8 +618,9 @@ measured data!, f 98;
 I couldn't figure out a way to depict it with a graph in pure data!).
 The curves are approximations and sholdn't be taken as amy actually
 measured data!, f 98;
+#X text 690 667 _;
 #X restore 58 226 pd 02_LINEAR_VS_LOGARITHMIC_SCALES;
-#N canvas 164 74 1232 760 03_THE_DECIBEL 0;
+#N canvas 41 23 1232 755 03_THE_DECIBEL 0;
 #X text 11 470 The other point where we use decibels in digital audio
 is when we are working in a DIGITAL AUDIO WORKSTATION (DAW). A DAW
 is a type of audio software that contains an entire virtual recording
@@ -643,7 +640,7 @@ below \, this time with what we call a METER \, a device that indicates
 signal level in dB FS. Turn the sound generator and adjust the generator’s
 linear amplitude with the fader \, and watch the corresponding level
 in dB FS as indicated by the meter., f 97;
-#N canvas 1493 22 860 714 sound_gen_amp_demo 0;
+#N canvas 1583 -22 1228 728 sound_gen_amp_demo 0;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array amp-demo-scope-wdbfs-\$0 250 float 3;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -670,27 +667,30 @@ in dB FS as indicated by the meter., f 97;
 #X obj 117 105 tgl 15 0 amp-demo-onoff-0 empty empty 17 7 0 10 -4032
 -1 -1 0 1;
 #X text 139 104 Sound Generator On/Off;
-#X obj 117 130 vsl 15 120 0 2 0 0 \$0-amp_demo empty empty 0 -9 0 10
--4032 -1 -1 595 1;
-#X obj 699 50 vsl 15 128 0 2 0 1 empty \$0-amp_demo empty 0 -9 0 10
--262144 -1 -1 0 1;
+#X obj 117 130 vsl 15 120 0 2 0 0 \$0-dblin-slider empty empty 0 -9
+0 10 -4032 -1 -1 3575 1;
+#X obj 699 50 vsl 15 128 0 2 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 3735 1;
 #X obj 699 207 line;
 #X obj 647 341 line~;
 #X msg 647 314 \$1 250;
 #X msg 699 186 \$1 50;
 #X obj 44 22 loadbang;
 #X msg 73 43 0;
-#X obj 108 257 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 0 256;
-#X text 104 304 Note: Typed in numbers will not be reflected by a change
+#X obj 110 259 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0.588235 256;
+#X text 202 305 Note: Typed in numbers will not be reflected by a change
 in the fader's position, f 32;
 #X obj 697 439 tabwrite~ amp-demo-scope-wdbfs-\$0;
-#N canvas 3321 201 450 300 linamptodbfs 0;
+#N canvas 748 209 450 300 linamptodbfs 0;
 #X obj 133 125 log;
 #X obj 133 146 / 2.303;
 #X obj 133 167 * 20;
 #X obj 133 74 inlet;
 #X obj 133 224 outlet;
+#X text 17 249 I have no idea where I found this equation or why it
+works! It is also possible I just messed around with numbers until
+I got results that made sense!;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 4 0;
@@ -700,14 +700,18 @@ in the fader's position, f 32;
 #X text 105 285 (Linear);
 #X obj 209 129 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X obj 745 208 s dbfs-\$0;
-#X obj 198 257 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
--204800 -1 -1 -8684.33 256;
-#X obj 624 186 s linamp-\$0;
-#X obj 20 228 r linamp-\$0;
+#X obj 204 260 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 -4.60815 256;
+#X obj 595 197 s linamp-\$0;
+#X obj 7 226 r linamp-\$0;
 #X obj 20 152 r dbfs-\$0;
 #X msg 44 68 0.1;
 #X text 195 272 Amplitude;
 #X text 199 285 (dB FS);
+#X obj 699 23 r \$0-dblin-slider;
+#X msg 31 276 set \$1;
+#X msg 209 443 hello;
+#X msg 151 408 set \$1;
 #X connect 1 0 3 0;
 #X connect 3 0 22 0;
 #X connect 4 0 5 0;
@@ -718,6 +722,7 @@ in the fader's position, f 32;
 #X connect 8 0 2 1;
 #X connect 8 0 22 0;
 #X connect 9 0 16 0;
+#X connect 12 0 36 0;
 #X connect 13 0 17 0;
 #X connect 13 0 23 0;
 #X connect 13 0 29 0;
@@ -728,11 +733,14 @@ in the fader's position, f 32;
 #X connect 18 0 19 0;
 #X connect 18 0 32 0;
 #X connect 19 0 10 0;
+#X connect 20 0 12 0;
 #X connect 23 0 27 0;
-#X connect 30 0 20 0;
-#X connect 31 0 26 0;
 #X connect 31 0 28 0;
+#X connect 31 0 26 0;
 #X connect 32 0 12 0;
+#X connect 35 0 13 0;
+#X connect 36 0 20 0;
+#X connect 38 0 37 0;
 #X coords 0 -1 1 1 400 250 2 100 100;
 #X restore 752 470 pd sound_gen_amp_demo;
 #X text 3 51 Sound pressure level can be measured in a multitude of
@@ -762,7 +770,7 @@ softest sound. We mark this as 0 dB SPL. This scale goes from this
 threshold to the threshold of pain \, around 140 dB SPL. This is the
 point where sounds can damage the ear. Below is a chart of sounds and
 their associated SPL in dB., f 97;
-#X obj 944 196 image db_spl_edit.gif ;
+#X obj 944 196 image db_spl_edit.gif;
 #X restore 58 272 pd 03_THE_DECIBEL;
 #N canvas 58 57 1167 662 01_SOUND_PRESSURE_LEVEL_AND_AMPLITUDE 0;
 #X text 7 24 If you have ever plucked a guitar string or hit a drum
@@ -1002,7 +1010,7 @@ then we will see how it applies to amplitude., f 98;
 98;
 #X text 7 4 2.1 SOUND PRESSURE LEVEL AND AMPLITUDE, f 73;
 #X restore 58 180 pd 01_SOUND_PRESSURE_LEVEL_AND_AMPLITUDE;
-#N canvas 142 255 1140 509 04_FREQUENCY_AND_PITCH 0;
+#N canvas 76 206 1140 509 04_FREQUENCY_AND_PITCH 0;
 #N canvas 80 171 1413 855 demonstration.wave 0;
 #X floatatom 779 416 0 0 0 0 - - -;
 #X obj 934 337 trigger f f;
@@ -1165,7 +1173,7 @@ full cycles depicted \, over 2 seconds. If the graph instead represented
 the frequency is 2 Hz., f 98;
 #X text 4 2 2.4 FREQUENCY AND PITCH - INTRODUCTION, f 73;
 #X restore 58 358 pd 04_FREQUENCY_AND_PITCH;
-#N canvas 3660 362 703 338 05_HUMAN_HEARING_LIMITS-FREQUENCY 0;
+#N canvas 577 362 703 338 05_HUMAN_HEARING_LIMITS-FREQUENCY 0;
 #N canvas 181 23 1259 697 frequency.test 0;
 #X obj 710 131 trigger b b;
 #X obj 635 526 osc~;
@@ -1278,8 +1286,8 @@ aren’t any other people or pets in the room if you are playing the
 test over speakers., f 98;
 #X text 5 3 2.5 HUMAN HEARING LIMITS: FREQUENCY, f 73;
 #X restore 58 404 pd 05_HUMAN_HEARING_LIMITS-FREQUENCY;
-#N canvas 26 23 1371 832 06_PITCH_AND_OCTAVE 0;
-#N canvas 135 23 832 855 sound_gen_freq_demo 0;
+#N canvas 25 23 1255 755 06_PITCH_AND_OCTAVE 1;
+#N canvas 1774 -160 832 755 sound_gen_freq_demo 0;
 #N canvas 26 23 450 278 (subpatch) 0;
 #X array freq-demo-scope-\$0 445 float 1;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -1297,7 +1305,7 @@ test over speakers., f 98;
 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0;
 #X coords 0 1 444 -1 500 100 1;
-#X restore 180 324 graph;
+#X restore 175 374 graph;
 #X obj 1104 669 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
 1 1;
 #X obj 904 720 dac~ 1 2;
@@ -1315,7 +1323,7 @@ test over speakers., f 98;
 -1 -1 267 1;
 #X obj 904 217 line;
 #X obj 1145 488 line~;
-#X obj 108 286 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq-demo-numbox empty
+#X obj 117 286 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq-demo-numbox empty
 empty 0 -8 0 10 -204800 -1 -1 440 256;
 #X obj 985 719 tabwrite~ freq-demo-scope-\$0;
 #X msg -40 242 set \$1;
@@ -1327,16 +1335,16 @@ empty 0 -8 0 10 -204800 -1 -1 440 256;
 #X msg 904 196 \$1 100;
 #X obj 1104 692 metro 250;
 #X text 104 126 Frequency;
-#X text 165 286 Hz;
-#X text 358 126 Amplitude;
+#X text 180 284 Hz;
+#X text 424 120 Amplitude;
 #X text 139 104 On/Off;
-#X obj 220 160 bng 15 250 50 0 \$0-220hz empty 220Hz 17 7 0 10 -204800
+#X obj 258 162 bng 15 250 50 0 \$0-220hz empty 220Hz 17 7 0 10 -204800
 -1 -1;
-#X obj 220 200 bng 15 250 50 0 \$0-440hz empty 440Hz 17 7 0 10 -204800
+#X obj 258 222 bng 15 250 50 0 \$0-440hz empty 440Hz 17 7 0 10 -204800
 -1 -1;
-#X obj 220 240 bng 15 250 50 0 \$0-880hz empty 880Hz 17 7 0 10 -204800
+#X obj 258 282 bng 15 250 50 0 \$0-880hz empty 880Hz 17 7 0 10 -204800
 -1 -1;
-#X obj 220 220 bng 15 250 50 0 \$0-600hz empty 600Hz 17 7 0 10 -204800
+#X obj 258 252 bng 15 250 50 0 \$0-600hz empty 600Hz 17 7 0 10 -204800
 -1 -1;
 #X obj 16 -195 bng 15 250 50 0 empty \$0-220hz 220Hz 17 7 0 10 -204800
 -1 -1;
@@ -1548,14 +1556,14 @@ of "fft".;
 #X connect 21 0 20 0;
 #X connect 23 0 13 0;
 #X coords 0 -1 1 1 590 175 2 100 100;
-#X restore 111 484 pd spectrograph;
+#X restore 111 564 pd spectrograph;
 #X msg 720 242 set \$1;
 #X msg 720 105 set \$1;
 #X obj 720 84 r \$0-amp-demo-numbox;
 #X obj 720 219 r \$0-amp-demo-slider;
-#X obj 377 147 vsl 15 128 0 1.5 0 0 \$0-amp-demo-slider empty empty
+#X obj 448 145 vsl 15 128 0 1.5 0 0 \$0-amp-demo-slider empty empty
 0 -9 0 10 -204800 -1 -1 847 1;
-#X obj 368 284 nbx 5 14 -1e+37 1e+37 0 0 \$0-amp-demo-numbox empty
+#X obj 447 285 nbx 5 14 -1e+37 1e+37 0 0 \$0-amp-demo-numbox empty
 empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 #X obj 1038 177 vsl 15 128 0 2 0 1 empty empty empty 0 -9 0 10 -4032
 -1 -1 635 1;
@@ -1563,7 +1571,7 @@ empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 #X obj 1051 149 r \$0-amp-demo-numbox;
 #X msg 1146 465 \$1 100;
 #X obj 959 625 send~ \$0-sig;
-#X obj -25 454 receive~ \$0-sig;
+#X obj -30 464 receive~ \$0-sig;
 #N canvas 564 462 450 300 init 0;
 #X obj 117 22 loadbang;
 #X msg 108 110 0;
@@ -1581,24 +1589,24 @@ empty 0 -8 0 10 -204800 -1 -1 0.1 256;
 #X restore 338 37 pd init;
 #N canvas 27 23 450 300 blank 0;
 #X coords 0 -1 1 1 590 175 2 100 100;
-#X restore 110 304 pd blank;
+#X restore 105 354 pd blank;
 #X obj 1220 963 list \$0;
 #X obj 1220 942 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X floatatom 1038 313 5 0 0 0 - - -;
-#X text 159 340 0.5-;
-#X text 154 390 -0.5-;
-#X text 153 414 -1;
-#X text 159 316 1;
-#X text 666 435 0.01;
-#X text 406 435 0.005;
-#X text 416 421 |;
-#X text 675 421 |;
-#X text 176 421 |;
-#X text 168 435 0;
-#X text 158 365 0.0-;
-#X text 382 454 Time (Seconds);
-#X text 110 359 Ampli-tude, f 6;
+#X text 154 390 0.5-;
+#X text 149 440 -0.5-;
+#X text 148 464 -1;
+#X text 154 366 1;
+#X text 661 485 0.01;
+#X text 401 485 0.005;
+#X text 411 471 |;
+#X text 670 471 |;
+#X text 171 471 |;
+#X text 163 485 0;
+#X text 153 415 0.0-;
+#X text 377 504 Time (Seconds);
+#X text 105 409 Ampli-tude, f 6;
 #X obj 1066 429 spigot;
 #X obj 1038 397 float;
 #X obj 1072 356 t b f;
@@ -1624,24 +1632,24 @@ amplitude value.;
 #X msg 83 -96 2000;
 #X msg 83 -24 5000;
 #X msg 83 -3 5100;
-#X obj 280 160 bng 15 250 50 0 \$0-2000hz empty 2000Hz 17 7 0 10 -204800
+#X obj 330 162 bng 15 250 50 0 \$0-2000hz empty 2000Hz 17 7 0 10 -204800
 -1 -1;
-#X obj 280 180 bng 15 250 50 0 \$0-2100hz empty 2100Hz 17 7 0 10 -204800
+#X obj 330 192 bng 15 250 50 0 \$0-2100hz empty 2100Hz 17 7 0 10 -204800
 -1 -1;
-#X obj 280 220 bng 15 250 50 0 \$0-5000hz empty 5000Hz 17 7 0 10 -204800
+#X obj 330 252 bng 15 250 50 0 \$0-5000hz empty 5000Hz 17 7 0 10 -204800
 -1 -1;
-#X obj 280 240 bng 15 250 50 0 \$0-5100hz empty 5100Hz 17 7 0 10 -204800
+#X obj 330 282 bng 15 250 50 0 \$0-5100hz empty 5100Hz 17 7 0 10 -204800
 -1 -1;
-#X obj 220 180 bng 15 250 50 0 \$0-320hz empty 320Hz 17 7 0 10 -204800
+#X obj 258 192 bng 15 250 50 0 \$0-320hz empty 320Hz 17 7 0 10 -204800
 -1 -1;
 #X obj 83 24 s \$0-frequencies_from_buttons;
 #X obj -37 59 r \$0-frequencies_from_buttons;
 #X obj 17 -51 bng 15 250 50 0 empty \$0-4000hz 4000Hz 17 7 0 10 -204800
 -1 -1;
 #X msg 83 -51 4000;
-#X obj 280 200 bng 15 250 50 0 \$0-4000hz empty 4000Hz 17 7 0 10 -204800
+#X obj 330 222 bng 15 250 50 0 \$0-4000hz empty 4000Hz 17 7 0 10 -204800
 -1 -1;
-#X text 231 126 Frequency Presets, f 10;
+#X text 253 124 Frequency Presets, f 10;
 #X connect 1 0 22 0;
 #X connect 3 0 4 0;
 #X connect 4 0 1 0;
@@ -1706,9 +1714,9 @@ amplitude value.;
 #X connect 94 0 9 0;
 #X connect 95 0 96 0;
 #X connect 96 0 93 0;
-#X coords 0 -1 1 1 610 570 2 100 100;
-#X restore 722 286 pd sound_gen_freq_demo;
-#X text 10 35 As mentioned earlier \, frequency is a major influence
+#X coords 0 -1 1 1 610 650 2 100 100;
+#X restore 621 31 pd sound_gen_freq_demo;
+#X text 10 25 As mentioned earlier \, frequency is a major influence
 on the perception of pitch. To the right is a sound generating module
 that allows you to change the frequency of a test tone. You can change
 the tone’s frequency with either the slider or by clicking and typing
@@ -1718,9 +1726,9 @@ value to around 800 Hz. Which frequency sounds lower in pitch? Which
 frequency sounds higher? Most people perceive 800 Hz to be higher in
 pitch than 150 Hz. Therefore \, when a musical or natural sound has
 a lower or higher pitch \, this means that the vibration of the mass
-that is making the sound is vibrating at a certain frequency., f 98
+that is making the sound is vibrating at a certain frequency., f 84
 ;
-#X text 10 215 In the sound generator box is graphic representations
+#X text 9 180 In the sound generator box is graphic representations
 of the frequency. One graph is the graph we have seen before \, showing
 the change of amplitude over time. In order to visibly see the very
 high frequencies \, the time scale is VERY short \, approximately 1/100th
@@ -1728,8 +1736,8 @@ of a second. You can still count the cycles \, just multiple the number
 of cycles by 100 to get the actual frequency in Hertz. 500 Hz is a
 good frequency to test the accuracy of the graph. The other is a graph
 that marks the actual frequency as a spike in the graph. This is called
-a SPECTRAL PLOT \, and it will be of more use later., f 98;
-#X text 10 385 One interesting element of our perception of pitch is
+a SPECTRAL PLOT \, and it will be of more use later., f 84;
+#X text 10 318 One interesting element of our perception of pitch is
 the OCTAVE. So far we have talked about pitch as being higher or lower
 than another pitch. This is specifically known as RELATIVE PITCH \,
 because we are simply determining if a sound (such as our test tone)
@@ -1755,8 +1763,8 @@ is in fact an octave lower than 440 Hz. Look at the 3 frequencies suggested:
 higher is a doubling of the frequency (220 * 2 = 440 \, 440 * 2 = 880)
 \, and to get an octave lower \, we divide by 2 This is true for ALL
 frequencies. To get the octave above or below a frequency \, simply
-multiply or divide by 2, f 98;
-#X text 10 739 The octave can help us illustrate another interesting
+multiply or divide by 2, f 84;
+#X text 12 656 The octave can help us illustrate another interesting
 component of our perception of frequency and pitch. Set the tone generator
 to 220 Hz using the preset button. Now set the tone generator to 320
 Hz. You likely heard a major difference in pitch \, from a change in
@@ -1777,11 +1785,14 @@ again \, but this time \, the change in frequency is 2000 Hz. This
 is important to keep in mind when you start to develop sound projects
 – the mid to upper reaches of hearing in regards to frequency take
 a greater amount of change in frequency to actually be heard as change.
-, f 98;
-#X text 10 1025 Why does our ear hear these tones as similar? Some
-of this can be explained by investigating WAVELENGTH \, found in the
-next sub-module., f 98;
+, f 84;
+#X text 11 929 Why does our ear hear these tones as similar? Some of
+this can be explained by investigating WAVELENGTH \, found in the next
+sub-module., f 84;
 #X text 10 5 2.6 Pitch and Octave;
+#X text 651 698 (Text Continues);
+#X text 700 714 |;
+#X text 700 724 v;
 #X restore 58 450 pd 06_PITCH_AND_OCTAVE;
 #N canvas 25 23 1255 755 07_WAVELENGTH 0;
 #X text 3 22 Why do two octave tones sound similar \, to the point

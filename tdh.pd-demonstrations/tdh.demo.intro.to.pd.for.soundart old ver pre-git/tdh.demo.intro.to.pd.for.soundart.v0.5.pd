@@ -1,0 +1,435 @@
+#N canvas 1800 86 1259 855 10;
+#X obj 286 626 +;
+#X obj 281 677 metro;
+#X obj 286 563;
+#X obj 481 3319 vsl 15 128 0 127 0 1 empty empty empty 0 -9 0 10 -262144
+-1 -1 6100 1;
+#X obj 281 727 print;
+#X msg 469 2077 55;
+#X obj 516 1180 +;
+#X obj 523 1310 print;
+#X obj 533 1435 +;
+#X obj 533 1496 print;
+#X obj 537 1569 +;
+#X obj 537 1630 print;
+#X obj 469 2098 print;
+#X obj 617 2096 print;
+#X msg 617 2075 hello world!;
+#X obj 586 3008 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 22 85 Pure Data is actually a COMPUTER PROGRAMMING LANGUAGE
+for media. It developed out of work at IRCAM in Paris by Miller Puckette
+\, where it was called MAX. In the 1990's MAX was developed into a
+commercial product \, so Miller Puckette decided to split off and continue
+to develop MAX as a free \, open source language called PURE DATA.
+It was first developed to control sound parameters of external hardware
+sound generators \, but soon developed the ability to control and generate
+sounds from within the environment. Pd can even generate visuals \,
+play movies \, and create animations. You may be wondering why we are
+using a programming language (you also might be slightly intimidated
+by that term). First rest easy because Pd isn’t like a typical programming
+language. Second \, the reason why we are using it is because Pd allows
+you to do things that many sound software platforms don’t let you
+do… and the point of sound art is to do things with sound that reach
+down to the core of what sound is. FINALLY \, Pd can be run on a computer
+\, on a phone \, a tablet \, or even a RaspberriPi \, which makes it
+really convenient when developing a sound installation \; say you want
+sounds played into a public space and you don’t want to leave your
+computer out and running \, you can run your sound program off an old
+phone or a RPi., f 192;
+#X text 356 722 The [print] object prints any data you send to it in
+the console \, known as the Pd WINDOW. This is the first window that
+opens when you open Pd. You can get to it from the menu "Window > Pd
+window"., f 90;
+#X text 22 1255 Objects receive information at their inlets \, the
+small black bars on the top of an object. Some objects have more than
+one inlet. The leftmost inlet is (almost) always what we call the "hot"
+inlet. Data to this inlet sets parameters and causes output. Other
+inlets are cold inlets \, which don't cause output \, but do set parameters.
+, f 188;
+#X text 24 192 Pd As a Programming Language;
+#X text 24 222 Pd as a Programming Language Pd is unlike most computer
+languages \, in that it isn't purely text based. However \, Pd contains
+almost all of the elements one would look for in a programming language
+\; such as data storage structures \, variable \, and the ability to
+develop algorithms., f 192;
+#X text 24 253 To program in Pd you connect boxes \, known as objects
+\, together to form an algorithm. Some objects are plain objects that
+don't do much other than process information \, while other objects
+allow you to click on them and interact with them (which makes Pd much
+more accessible than a text based programming language)., f 192;
+#X text 22 424 Editing and Pd Objects;
+#X floatatom 509 368 5 0 0 0 - - -, f 5;
+#X msg 509 316 2;
+#X obj 509 342 + 2;
+#X obj 509 295 bng 15 250 50 0 empty \$0-loadbang empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 2152 298 977 313 initialize 1;
+#X obj 33 2 loadbang;
+#X obj 30 172 send \$0-loadbang;
+#X msg 152 75 12345;
+#X obj 152 172 send \$0-loadbang1;
+#X msg 264 75 123.4;
+#X obj 265 172 send \$0-loadbang2;
+#X msg 409 75 -1234;
+#X obj 409 172 send \$0-loadbang3;
+#X obj 549 172 send \$0-loadbang4;
+#X obj 679 172 send \$0-loadbang5;
+#X msg 674 75 3.14;
+#X msg 547 75 64;
+#X connect 0 0 1 0;
+#X connect 0 0 2 0;
+#X connect 0 0 4 0;
+#X connect 0 0 6 0;
+#X connect 0 0 11 0;
+#X connect 0 0 10 0;
+#X connect 2 0 3 0;
+#X connect 4 0 5 0;
+#X connect 6 0 7 0;
+#X connect 10 0 9 0;
+#X connect 11 0 8 0;
+#X restore 1097 9 pd initialize;
+#X text 456 387 Fig. 1 Example Pd Code;
+#X text 326 563 <--;
+#X text 326 624 <--;
+#X text 326 674 <--;
+#X text 326 729 <--;
+#X text 396 777 Fig. 2 New Pd object \, [+] object \, [metro] object
+\, [print] object, f 66;
+#X text 21 0 Pure Data Fundamentals for Sound Art, f 65;
+#X text 21 14 Travis Houldcroft \, 2018, f 24;
+#X text 21 35 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 21 175 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 21 405 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 21 1095 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 21 1735 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 21 1855 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 21 54 Introduction, f 24;
+#X text 22 1114 Object Communication;
+#X text 26 1154 Objects communicate by sending messages to each other.
+To send a message \, an object must output a message from its outlet
+\, which is the small black bar at the bottom of the object., f 188
+;
+#X text 486 1217 Fig. 3 Object outlet;
+#X text 520 1293 v---- inlet;
+#X text 517 1199 ^---- outlet;
+#X text 485 1331 Fig. 4 Object inlet;
+#X text 22 444 To edit Pd code \, you must go into edit mode \, via
+the menu "Edit>Edit Mode". You will notice that the cursor will turn
+into a pointing hand \, and the title bar will now say "*edit*" next
+to the file's name., f 189;
+#X text 357 549 Here is a plain empty object box. It doesn't do anything
+until you type the name of the function you want the object to take
+on. If you forget the name of an object \, "Help>List of Objects..."
+lists all of the objects that come with Pd. You insert the empty object
+box by using the "Put" menu \, "Put>Object", f 90;
+#X text 360 676 [metro] \, a metronome object \, which sends out a
+message a regular interval (example: every 500 ms), f 90;
+#X text 357 623 [+] \, an addition object \, which you get from typing
+the "+" symbol into an empty object box. This object adds two numbers
+together., f 90;
+#X text 23 814 One of the best things about Pd is that every object
+has an associated Help file that will explain how an object works.
+To access an object's help file \, RIGHT-CLICK on the object and choose
+"Help". NOTE that if you accidentally click outside the object \, you
+will get the List of Objects page \, not the object's help page. Unfortunately
+some of the help files are written with the assumption that you are
+well versed in media programming \, so while helpful as a reminder
+\, some help files will take some time for you to decipher., f 189
+;
+#X text 485 1531 Fig. 5 Object inlet;
+#X text 23 474 Objects are inserted into the Pd canvas using the "Put"
+menu. There in the menu are all the primitive Pd objects available.
+These are objects that can only be placed into Pd with this menu. All
+other objects that we will use in Pd can be called by typing the name
+of the object into a "blank" object box via "Put>Object". All objects
+referred to by text will be surrounded by brackets ([]) to indicate
+that we are discussing an object (example: [print] refers to an object
+box with "print" typed into it)., f 189;
+#X text 457 1656 Fig. 6 Try it yourself. Unlock the patch and connect
+a patch cord from the [+] object to the [print] object., f 37;
+#X text 29 1754 Comments;
+#X text 26 1782 You will see that one of the primitives in the "Put"
+menu is called "comment". All of this text (and all text in this patch)
+was created using the comment object. Comments don't do anything besides
+display text \, but they are helpful for reminding you of code you
+wrote \, or to tell an outside user what is happening. Or for typing
+text to explain Pd from within a Pd patch! Inserting a [comment] object
+will put a small line of text with the word "comment" into your patch
+\, highlighted in blue. Click on the word to edit this text and you
+can type any character you like (emojis unfortuately are currently
+unsupported). Comments can be moved around the patch by clicking,
+f 192;
+#X text 22 1354 To connect two objects \, go into edit mode \, place
+the mouse over an outlet until the cursor turns into a circle. Click
+and drag and what is known as a PATCH CABLE will follow the mouse.
+Hold down the mouse button until you are over the inlet of another
+object \, and release the mouse button. The outlet is now connected
+to the inlet. The connecting cables are called patch cables because
+in analog studios \, devices would be "patched" together using cables
+called patch cables. This why a Pd file is actually called a PATCH
+\, and where we edit code has traditionally been called the PATCHER
+in the software predecessors for Pd (and Max) \, though Pd often refers
+to this editing as the CANVAS. It is also common to refer to edit mode
+as an UNLOCKED PATCHER \, and when not in edit mode \, the patcher
+is LOCKED., f 189;
+#X text 26 878 Try out inserting objects for yourself below. Unlock
+the patch (Edit>Edit Mode). Use "Put>Object" to place an empty object
+box in the white space below \, know as the CANVAS or (historically)
+the PATCHER (see below). You will see that the empty object box follows
+the mouse around. Click to place the object below. You will then see
+a flashing cursor inside the box. Type the name of one of the object
+above \, and then click outside the object. You will see that the object
+has now taken on the form of the object whose name you typed in \,
+with the correct number of inlets and outlets (see below) that are
+associated with that object., f 187;
+#X obj 535 2287 print;
+#X floatatom 535 2263 5 0 0 0 - - -, f 5;
+#X text 244 1964 Message;
+#X text 244 1989 You type a message \, either text or number \, into
+this box \, and clicking on the box sends the message. Note how it
+looks different than a regular object. It still has inlets and outlets
+though. Any text that references a message object either with typed
+in text or with text you should type into the message object will be
+written like this "[55(". With the patcher LOCKED \, click on the message
+objects below. You will see the border of the objects darken \, indicating
+that you have clicked on them. Then look at the Pd window (Window>Pd
+Window) \, where you will see the messages printed., f 119;
+#X text 244 2128 Number;
+#N canvas 394 188 894 530 double.click.for.numberbox.limits 0;
+#X obj 239 267 print;
+#X floatatom 239 243 5 0 0 0 - - -, f 5;
+#X obj 299 267 print;
+#X floatatom 299 243 5 0 0 0 - - -, f 5;
+#X obj 359 267 print;
+#X floatatom 359 243 5 0 0 0 - - -, f 5;
+#X obj 509 267 print;
+#X floatatom 509 243 5 0 0 0 - - -, f 5;
+#N canvas 26 23 450 300 initialize2 0;
+#X obj 89 107 loadbang;
+#X obj 87 213 outlet;
+#X obj 207 212 outlet;
+#X obj 146 212 outlet;
+#X msg 88 176 12345;
+#X msg 143 176 123.4;
+#X msg 207 174 -1234;
+#X obj 89 138 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 7 0;
+#X connect 4 0 1 0;
+#X connect 5 0 3 0;
+#X connect 6 0 2 0;
+#X connect 7 0 6 0;
+#X connect 7 0 5 0;
+#X connect 7 0 4 0;
+#X restore 240 215 pd initialize2;
+#X text 24 14 Number;
+#X text 16 57 The [number] object can only display up to 5 characters
+\, which includes the decimal point and negitive sign. Pd can handle
+numbers between XXXXXX and XXXXXXX \, so you will see the number box
+change to only displaying "+" when the number goes beyond 99999 and
+"-" when a number goes below -9999 Note that when typing in a number
+that goes beyond the display and results in "+" or "-" \, can cannot
+click and drag to change the number like you can with numbers within
+range. When clicking and dragging outside the range you can reverse
+your drag back into display range. When a number has a decimal point
+that is beyond the 5th character \, the number box will display the
+whole number part of the number \, and allow you to click and drag
+until you go beyond -999.9 or 9999.9., f 119;
+#X connect 1 0 0 0;
+#X connect 3 0 2 0;
+#X connect 5 0 4 0;
+#X connect 7 0 6 0;
+#X connect 8 0 1 0;
+#X connect 8 1 3 0;
+#X connect 8 2 5 0;
+#X restore 655 2274 pd double.click.for.numberbox.limits;
+#X text 244 2153 The [number] box is another object to send or display
+numbers. You can enter numbers by clicking and dragging in the [number]
+box \, or you can click once inside the box and type a number \, hitting
+RETURN when you are done. The number object can display both integer
+numbers (whole numbers) and floating-point numbers (decimal numbers).
+To get a floating point value in the number box \, hold shift while
+dragging up or down \, or type the decimal point in when entering the
+number from the keyboard. Unlike other computer programming languages
+(including MAX) \, Pd only deals with floating-point numbers. So even
+when you type "15" \, Pd will interpret this as "15.0". There are limits
+to the range of numbers Pd can handle \, approximately in the range
+of -xxxxxx.0 to xxxxxx.0. The number box can only display 5 characters
+\, after that it loses its accuracy. If you are interested in exploring
+the limits of the number box \, double-click the box to the right and
+a new window will open demonstrating some of these limits., f 119
+;
+#X text 23 1908 Some objects are meant for you to manipulate. These
+are called USER INTERFACE (UI) objects. They are a part of the GRAPHICAL
+USER INTERFACE \, or GUI. GUI objects can be created by typing their
+name into an empty object or by using the "Put" menu. In edit mode
+\, GUI objects can be edited \, but GUI objects can only be controlled
+by the user when you are out of edit mode. When you are not in edit
+mode \, we say the patch is LOCKED. Below are a couple of objects we
+will see in the next lesson:, f 192;
+#X text 31 1884 User Interface Objects;
+#X text 244 2364 Bang;
+#X text 244 2389 "bang" is a unique message that is used in Pd and
+Max. Many objects respond to the message "bang" \, other objects output
+the message "bang". You can think of it generally as a message that
+tells an object "hey \, do what you do" and the object does it., f
+119;
+#X text 245 2439 The "bang" message can be issued by the [bang] user
+interface object. It is useful for: issuing the "bang" message to another
+object \, showing when a "bang" message is sent (it flashes when it
+receives a "bang" \, or often I will use it as a generic button that
+a user can click on. Below are some other uses for the object \, and
+also shows objects that output "bang"., f 119;
+#X obj 548 2507 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 497 2116 Fig. 7 Message boxes, f 25;
+#X text 497 2316 Fig. 8 Number box;
+#X obj 548 2527 print;
+#X text 381 2551 Fig. 9 The bang interface button (click to send the
+message "bang", f 66;
+#X text 301 2864 Fig. 10 Objects that send or recieve "bang". Click
+on the topmost object in each group to interact., f 102;
+#X obj 806 2646 metro 500;
+#X msg 806 2619 1;
+#X obj 806 2673 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 441 2617 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 441 2658 5 0 0 0 - - -, f 5;
+#X obj 441 2637 random 500;
+#X text 650 2621 The message that the [metro] object outputs is "bang".
+Click the "1" message to start the metronome. (Click "0" to turn off)
+, f 24;
+#X msg 856 2619 0;
+#X obj 461 2723 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 441 2762 hello;
+#X msg 495 2762 world;
+#X obj 441 2794 print;
+#X obj 496 2794 print;
+#X obj 563 2720 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 552 2794 print;
+#X obj 602 2794 print;
+#X msg 601 2762 up;
+#X msg 551 2762 whats;
+#X text 286 2713 Message boxes output their message when they receive
+"bang". This is useful for sending two messages at once. Be careful
+though \, its hard to tell which message will get sent first (the "bang"
+reaches whichever object was connected first). Check the order in the
+Pd window., f 24;
+#X text 699 2752 Works for number boxes too., f 15;
+#X obj 839 2710 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 870 2758 5 0 0 0 - - -, f 5;
+#X floatatom 805 2758 5 0 0 0 - - -, f 5;
+#X obj 805 2801 print;
+#X obj 870 2801 print;
+#N canvas 26 23 450 300 another.intialze 0;
+#X obj 84 226 outlet;
+#X obj 184 227 outlet;
+#X msg 80 183 440;
+#X msg 182 181 3.14;
+#X obj 129 127 loadbang;
+#X connect 2 0 0 0;
+#X connect 3 0 1 0;
+#X connect 4 0 3 0;
+#X connect 4 0 2 0;
+#X coords 0 0 1 0.2 0 0 0;
+#X restore 1078 2743 pd another.intialze;
+#X text 1085 2699 (ignore this... its for intializaton), f 15;
+#X text 244 2934 Toggle;
+#X text 244 2959 Toggle is really helpful in using as a button that
+has to stay in one state or another. Click once \, its checked (on).
+Click again \, its unchecked (off). It sends a "1" when checked \,
+a "0" when unchecked., f 119;
+#X floatatom 586 3035 5 0 0 0 - - -, f 5;
+#X text 517 3060 Fig. 11 Toggle and its output., f 102;
+#X obj 411 3089 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 386 3177 Fig. 12 Toggle controlling [metro] \, toggle showing
+output from comparison object., f 102;
+#X text 283 2614 [random] generates a random integer when it receives
+"bang". Click the button to generate a random value., f 22;
+#X obj 411 3130 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 411 3109 metro 500;
+#X text 274 3098 Toggle is a more elegant way to turn [metro] on and
+off, f 19;
+#X text 638 3080 Comparison objects tell if an input number is greater
+\, less \, equal etc. to the number typed into the object. Toggle can
+indicate visually if the comparison is correct or not., f 30;
+#X msg 863 3077 1000;
+#X obj 865 3114 > 500;
+#X msg 915 3077 25;
+#X obj 865 3145 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 244 3244 Sliders;
+#X text 245 3269 Sliders are nice objects to have because the feel
+a lot like a scroll bar to a window \, or a fader on a mixer. They
+come in horizontal or vertical flavors \, and output numbers from a
+low number to a high number. You can set the number by right-clicking
+on the object and choosing "Properties" and changing the range. The
+default is 0-127., f 119;
+#X text 349 3510 Fig. 12 Horizontal and vertical sliders \, one outputs
+the default range \, the other has a custom range., f 102;
+#X floatatom 481 3455 5 0 0 0 - - -, f 5;
+#X obj 649 3357 hsl 128 15 0 1 0 1 empty empty empty -2 -8 0 10 -262144
+-1 -1 6200 1;
+#X floatatom 646 3386 5 0 0 0 - - -, f 5;
+#X text 67 3543 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 69 3562 Conclusion;
+#X text 68 3582 Now you know the basics of Pure Data \, and will be
+able to interact with custom patches that demonstrate elements of sound
+and acoustics. This only scratches the surface of Pd \, and with Pd
+you can even extend the environment by downloading new libraries from
+other programmers on the internet. You can do things such as communicate
+with robotics via an Arduino board \, create interactive visuals \,
+make cool music or make experimental sound art. Pd is your sandbox.
+, f 189;
+#X text 67 3653 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+, f 192;
+#X text 1139 3798 ver 0.5;
+#X connect 3 0 124 0;
+#X connect 5 0 12 0;
+#X connect 8 0 9 0;
+#X connect 14 0 13 0;
+#X connect 15 0 108 0;
+#X connect 24 0 25 0;
+#X connect 25 0 23 0;
+#X connect 26 0 24 0;
+#X connect 62 0 61 0;
+#X connect 73 0 76 0;
+#X connect 79 0 81 0;
+#X connect 80 0 79 0;
+#X connect 82 0 84 0;
+#X connect 84 0 83 0;
+#X connect 86 0 79 0;
+#X connect 87 0 88 0;
+#X connect 87 0 89 0;
+#X connect 88 0 90 0;
+#X connect 89 0 91 0;
+#X connect 92 0 95 0;
+#X connect 92 0 96 0;
+#X connect 95 0 94 0;
+#X connect 96 0 93 0;
+#X connect 99 0 100 0;
+#X connect 99 0 101 0;
+#X connect 100 0 103 0;
+#X connect 101 0 102 0;
+#X connect 104 0 101 0;
+#X connect 104 1 100 0;
+#X connect 110 0 114 0;
+#X connect 114 0 113 0;
+#X connect 117 0 118 0;
+#X connect 118 0 120 0;
+#X connect 119 0 118 0;
+#X connect 125 0 126 0;

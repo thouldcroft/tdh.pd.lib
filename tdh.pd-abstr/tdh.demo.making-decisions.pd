@@ -1,0 +1,145 @@
+#N canvas 2167 -60 1413 855 10;
+#X obj -68 -5 cnv 15 775 48 empty empty Making_Decisions 20 12 0 14
+-233017 -66577 0;
+#X text -59 942 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -59 1434 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -60 1923 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -61 2400 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -60 2891 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -62 3378 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -60 3861 ________________________________________________________________________________________________________________________________
+, f 128;
+#X obj -68 18 cnv 15 775 28 empty empty THE283\\\ -\\\ Sound\\\ Art
+20 12 0 14 -233017 -66577 0;
+#X obj -62 478 cnv 15 775 31 empty empty True_or_False 20 12 0 14 -233017
+-66577 0;
+#X obj -60 965 cnv 15 775 31 empty empty If..._then... 20 12 0 14 -233017
+-66577 0;
+#X obj -60 1460 cnv 15 775 31 empty empty Messages 20 12 0 14 -233017
+-66577 0;
+#X obj -60 1950 cnv 15 775 31 empty empty Bang(!) 20 12 0 14 -233017
+-66577 0;
+#N canvas 567 48 450 300 init 0;
+#X obj 61 63 loadbang;
+#X restore 660 20 pd init;
+#X obj -60 2430 cnv 15 775 31 empty empty Object\\\ Types 20 12 0 14
+-233017 -66577 0;
+#X obj -60 2910 cnv 15 775 31 empty empty Object\\\ Types\\\ (2) 20
+12 0 14 -233017 -66577 0;
+#X obj -60 3410 cnv 15 775 31 empty empty Messages 20 12 0 14 -233017
+-66577 0;
+#X obj -60 3880 cnv 15 775 31 empty empty Help\\\ Files 20 12 0 14
+-233017 -66577 0;
+#X text -55 1500 •, f 128;
+#X text -59 1985 • Text, f 128;
+#X text -57 2467 • Text, f 128;
+#X text -60 2948 • Text, f 109;
+#X text -64 3444 • Text, f 128;
+#X text 810 4310 _;
+#X text -63 3916 • Text, f 128;
+#X text -65 48 • Computer programs truly come "alive" and have much
+more purpose when you have them make very simple decisions (or complex
+decisions \, in the case of AI), f 128;
+#X text -65 78 • Pd provides you with all of the classic decision
+making tools that you find in a more traditional coding language \,
+though they don't always come in as similar of a package., f 128;
+#X text -65 108 • This decision-making is what makes a Pd patch stand
+out - it is often the main reason to use Pd (or Max) vs a DAW, f 128
+;
+#X text -15 128 • Not too surprising \, but DAWs don't often try
+to make decisions for you!, f 128;
+#X text -65 148 • Along with randomization \, decision-making also
+allows you to add variation to a repeated gesture, f 128;
+#X text -65 168 • Decision-making also allows you to start a process
+\, and have it go until a certain element happens, f 128;
+#X text -61 514 • Computers PREFER to work in absolutes (humans do
+too \, but life isn't like that!), f 128;
+#X text -62 531 • TRUE or FALSE works really well because you can
+code it in binary numbers - "1" for true \, "0" for false, f 128;
+#X text -21 547 • Pd Binary Operators work in the same way, f 121
+;
+#X obj 3 631 >;
+#X obj 153 630 <;
+#X obj 308 630 >=;
+#X obj 446 629 <=;
+#X floatatom -30 602 5 0 0 0 - - -;
+#X floatatom 41 601 5 0 0 0 - - -;
+#X floatatom 126 602 5 0 0 0 - - -;
+#X floatatom 177 601 5 0 0 0 - - -;
+#X floatatom 283 601 5 0 0 0 - - -;
+#X floatatom 336 601 5 0 0 0 - - -;
+#X floatatom 423 601 5 0 0 0 - - -;
+#X floatatom 476 601 5 0 0 0 - - -;
+#X floatatom 556 600 5 0 0 0 - - -;
+#X floatatom 609 600 5 0 0 0 - - -;
+#X obj 579 628 ==;
+#X text -40 670 Is a greater than b;
+#X text 110 669 Is a less than b;
+#X text 281 669 Is a greater than or equal tob, f 13;
+#X text 411 671 Is a less than or equal to b, f 14;
+#X text 543 668 Is a equal to b;
+#X text -62 564 • Most binary operators are the functions we have
+been using since elementary school \, maybe written SLIGHTLY different:
+, f 128;
+#X floatatom 3 652 5 0 0 0 - - -;
+#X floatatom 153 651 5 0 0 0 - - -;
+#X floatatom 308 651 5 0 0 0 - - -;
+#X floatatom 446 650 5 0 0 0 - - -;
+#X floatatom 579 649 5 0 0 0 - - -;
+#X text -35 709 • These objects will report 1 or 0 \, if the statement
+is true or false. These objects also follow the hot inlet rule \, so
+you must send a value to the right inlet first \, THEN the left inlet
+, f 123;
+#X text -62 740 • An object that gets used A LOT is the [select]
+object - it will only report true if the input number (or symbol) matches
+the argument (or value supplied to its right inlet), f 128;
+#X text -31 774 • Since it only reports "true" \, it doesn't use
+1 & 0 \, it uses BANG, f 120;
+#X obj 7 840 select 56;
+#X floatatom 7 816 5 0 0 0 - - -;
+#X obj 411 848 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 411 825 select play;
+#X text -58 1002 • A common programming statement is "If (this) is
+true \, then (do that) \, else (do something else), f 128;
+#X floatatom 104 814 5 0 0 0 - - -;
+#X obj 4 914 print;
+#X obj 99 939 print;
+#X msg 6 876 play;
+#X msg 104 910 stop;
+#X obj 104 834 select 99;
+#X obj 158 869 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 328 807 symbol play;
+#X msg 459 803 symbol stop;
+#X connect 34 0 55 0;
+#X connect 35 0 56 0;
+#X connect 36 0 57 0;
+#X connect 37 0 58 0;
+#X connect 38 0 34 0;
+#X connect 39 0 34 1;
+#X connect 40 0 35 0;
+#X connect 41 0 35 1;
+#X connect 42 0 36 0;
+#X connect 43 0 36 1;
+#X connect 44 0 37 0;
+#X connect 45 0 37 1;
+#X connect 46 0 48 0;
+#X connect 47 0 48 1;
+#X connect 48 0 59 0;
+#X connect 63 0 71 0;
+#X connect 64 0 63 0;
+#X connect 66 0 65 0;
+#X connect 68 0 73 0;
+#X connect 71 0 69 0;
+#X connect 72 0 70 0;
+#X connect 73 0 74 0;
+#X connect 73 0 72 0;
+#X connect 75 0 66 0;
+#X connect 76 0 66 0;

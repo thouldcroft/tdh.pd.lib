@@ -1,0 +1,48 @@
+#N canvas 223 180 913 332 10;
+#X obj 43 103 cursor;
+#X obj 43 63 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1 1
+;
+#X obj 43 187 route x y;
+#X floatatom 43 229 5 0 0 0 - - -;
+#X floatatom 126 229 5 0 0 0 - - -;
+#X obj 523 69 key;
+#X obj 522 131 keyup;
+#X obj 520 189 keyname;
+#X floatatom 523 99 5 0 0 0 - - -;
+#X floatatom 522 161 5 0 0 0 - - -;
+#X floatatom 520 219 5 0 0 0 - - -;
+#X symbolatom 562 219 10 0 0 0 - - -;
+#X text 41 24 Mouse Input;
+#X obj 43 145 route motion mousewheel button;
+#X text 76 228 x pos;
+#X text 161 228 y pos;
+#X floatatom 207 229 5 0 0 0 - - -;
+#X text 245 228 mousewheel;
+#X obj 330 188 route 1 2 3;
+#X obj 330 229 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 378 229 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 416 229 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 348 228 left;
+#X text 397 228 2;
+#X text 436 229 3;
+#X text 519 26 Keyboard Input;
+#X text 582 65 ASCII code of key down;
+#X text 579 128 ascii code of key press up;
+#X text 593 186 key press status (0/1) and name (symbol);
+#X connect 0 0 13 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 5 0 8 0;
+#X connect 6 0 9 0;
+#X connect 7 0 10 0;
+#X connect 7 1 11 0;
+#X connect 13 0 2 0;
+#X connect 13 1 16 0;
+#X connect 13 2 18 0;
+#X connect 18 0 19 0;
+#X connect 18 1 20 0;
+#X connect 18 2 21 0;

@@ -1,0 +1,47 @@
+#N canvas 1825 212 1064 709 10;
+#X obj 32 307 osc~ 440;
+#X obj 32 393 *~;
+#X floatatom 109 314 5 0 1 0 - - -, f 5;
+#X obj 333 161 tdh.util.scope~;
+#X text 110 205 Frequency;
+#X text 120 271 Amplitude (0.0-1.0);
+#X obj 32 532 send~ sig1;
+#X obj 333 66 receive~ sig1;
+#X obj 53 347 / 127;
+#X obj 112 224 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 109 290 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 109 243 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 35 238 / 127;
+#X text -178 349 This brings slider's range to 0.0-1.0;
+#X text -198 233 This brings slider's range to 0.0-1.0;
+#X obj -24 503 outlet~;
+#X text -94 533 Send to oscilloscope;
+#X text -165 503 Send out the subpatch;
+#X text -148 190 Sliders output whole numbers from 0-127;
+#X text 113 107 Frequency & Amplitude;
+#X text 107 145 Parameters can either be set through;
+#X text 107 159 sliders or typing/dragging in number;
+#X text 107 171 boxes;
+#X text -203 263 This brings slider's range to 0-20000 \,;
+#X text -204 276 which is the range of human hearing for;
+#X text -206 288 frequency. Then we send that value to;
+#X text -204 301 the left inlet of [osc~];
+#X text -196 381 We can control a signal's amplitude;
+#X text -196 395 by scaling it from 0-1 by multiplying;
+#X text -198 409 it by a range of number from 0-1;
+#X obj 35 270 * 20000;
+#X connect 0 0 1 0;
+#X connect 1 0 6 0;
+#X connect 1 0 15 0;
+#X connect 2 0 1 1;
+#X connect 7 0 3 0;
+#X connect 8 0 2 0;
+#X connect 9 0 12 0;
+#X connect 10 0 8 0;
+#X connect 11 0 0 0;
+#X connect 12 0 30 0;
+#X connect 30 0 11 0;
+#X coords 0 -1 1 1 725 450 2 100 100;

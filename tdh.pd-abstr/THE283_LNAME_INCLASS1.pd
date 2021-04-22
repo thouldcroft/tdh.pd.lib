@@ -1,0 +1,57 @@
+#N canvas 27 23 1413 855 10;
+#X obj 8 -14 cnv 15 1000 30 empty empty IN-CLASS1 20 12 0 14 -233017
+-66577 0;
+#X text 70 32 Insert the following objects into the patch:;
+#X text 92 64 tdh.satk.channelstrip~;
+#X text 92 92 tdh.satk.audiofile~;
+#X text 92 156 metro;
+#X text 92 187 toggle;
+#X text 39 32 A);
+#X text 36 266 B);
+#X text 65 349 Connect the output of [metro] to the "play" input of
+[tdh.satk.audiofile], f 78;
+#X text 35 350 C);
+#X text 36 430 D);
+#X text 92 122 tdh.satk.audioout~;
+#X text 66 266 Set [metro] to output a bang every 500 ms \, using an
+argument;
+#X text 65 429 Load one of the drum sounds into [tdh.satk.audiofile~]
+, f 78;
+#X text 63 496 Connect the output of [audiofile~] to the input of [channelstrip~]
+\, and connect the output of [channelstrip~] to the input of [audioout~]
+, f 78;
+#X text 34 497 E);
+#X text 34 567 F);
+#X text 63 566 Connect [toggle] to the on/off inlet of [metro] \, turn
+on [metro] and hear the drum sound!, f 78;
+#X text 33 621 F);
+#X text 61 620 Duplicate this and add a second drum sound, f 78;
+#X obj 1193 884 tdh.satk.audioout~;
+#X obj 696 551 tdh.satk.channelstrip~;
+#X obj 697 234 tdh.satk.audiofile~;
+#X obj 864 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X floatatom 949 146 5 0 0 0 - - -;
+#X obj 866 145 delay;
+#X obj 867 190 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 864 63 trigger bang bang bang;
+#X obj 1034 112 random 500;
+#X obj 1035 138 + 1;
+#X floatatom 1037 177 5 0 0 0 - - -;
+#X obj 892 109 random 1000;
+#X obj 373 76 pdcontrol;
+#X connect 21 0 20 0;
+#X connect 21 1 20 1;
+#X connect 22 0 21 0;
+#X connect 23 0 27 0;
+#X connect 25 0 26 0;
+#X connect 26 0 22 0;
+#X connect 27 0 25 0;
+#X connect 27 1 31 0;
+#X connect 27 2 28 0;
+#X connect 28 0 29 0;
+#X connect 29 0 22 4;
+#X connect 29 0 30 0;
+#X connect 31 0 24 0;
+#X connect 31 0 25 1;

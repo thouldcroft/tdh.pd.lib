@@ -1,0 +1,73 @@
+#N canvas 353 23 927 755 10;
+#X text -100 -624 Travis Houldcroft || travishouldcroft.com;
+#X obj -120 -660 cnv 15 919 27 empty empty tdh.util.audiofile~ 20 12
+0 14 -233017 -66577 0;
+#X obj -119 -600 cnv 15 919 8 empty empty Inlets 20 15 0 14 -233017
+-66577 0;
+#X text -99 -571 0;
+#X text -77 -571 -;
+#X obj -119 -470 cnv 15 919 8 empty empty Outlets 20 15 0 14 -233017
+-66577 0;
+#X text -99 -441 0;
+#X text -77 -441 -;
+#X obj -120 -410 cnv 15 919 10 empty empty Note 20 15 0 14 -233017
+-66577 0;
+#X text -55 -571 (bang) plays audio file stored in arry;
+#X text -77 -551 -;
+#X text -99 -551 1;
+#X text -55 -551 (float) file playback start point in ms;
+#X text -77 -531 -;
+#X text -99 -531 2;
+#X text -55 -531 (float) file playback end point in ms;
+#X text -77 -511 -;
+#X text -99 -511 3;
+#X text -55 -511 (float) timestretch playback factor 0.1-500;
+#X text -55 -441 (sig) signal;
+#X text -101 -378 Dependencies: tdh.util.ms2samp~;
+#X obj 12 -240 tdh.util.audiofile~;
+#X obj 12 -319 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 224 -282 5 0 0 0 - - -;
+#X floatatom 366 -280 5 0 0 0 - - -;
+#X floatatom 521 -280 5 0 0 0 - - -;
+#X text 32 -319 Send "bang" to play;
+#X text 264 -282 Playback start in ms, f 13;
+#X text 406 -280 Playback endpoint in ms, f 15;
+#X text 562 -280 Playback speed from 0.1 to 500 where;
+#X text 562 -265 100 = normal speed;
+#X text 562 -250 < 100 faster speed;
+#X text 562 -235 > 100 slower speed;
+#X text -84 -185 Load a file -->;
+#X text -84 -208 Play a file -->;
+#X text -102 -163 Normalize file -->;
+#X text -113 -128 Display duration -->;
+#X text -102 -91 Playback start -->;
+#X text -91 -38 Playback end -->;
+#X obj 12 175 dac~ 1 2;
+#X obj 40 85 hsl 128 15 0 1 0 0 empty empty Gain -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 40 108 5 0 0 0 - - -;
+#X obj 12 134 *~;
+#X obj -100 -343 tgl 15 0 empty empty DSP_On/Off 17 7 0 10 -262144
+-1 -1 0 1;
+#X msg -100 -320 \; pd dsp \$1;
+#X obj -120 -350 cnv 15 919 2 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X text 530 -30 <-- Plaback speed with presets;
+#X floatatom 534 84 5 0 0 0 - - -;
+#X obj 56 -277 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 76 -277 Send "bang" to stop;
+#X connect 21 0 42 0;
+#X connect 21 1 47 0;
+#X connect 22 0 21 0;
+#X connect 23 0 21 2;
+#X connect 24 0 21 3;
+#X connect 25 0 21 4;
+#X connect 40 0 41 0;
+#X connect 41 0 42 1;
+#X connect 42 0 39 0;
+#X connect 42 0 39 1;
+#X connect 43 0 44 0;
+#X connect 48 0 21 1;
+#X coords 0 0 1 1 516 261 0;

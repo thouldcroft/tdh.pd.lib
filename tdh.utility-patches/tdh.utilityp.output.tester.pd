@@ -1,0 +1,77 @@
+#N canvas 374 61 854 642 10;
+#X obj 14 339 *~ 0.1;
+#X obj 16 411 dac~ 1 2 3 4 5 6 7 8 9 10 11 12, f 82;
+#X obj 48 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 65 312 1;
+#X obj 85 337 *~ 0.1;
+#X obj 118 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 155 337 *~ 0.1;
+#X obj 188 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 225 337 *~ 0.1;
+#X obj 258 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 295 337 *~ 0.1;
+#X obj 328 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 365 337 *~ 0.1;
+#X obj 398 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 435 337 *~ 0.1;
+#X obj 468 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 505 337 *~ 0.1;
+#X obj 538 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 135 312 2;
+#X text 205 312 3;
+#X text 275 312 4;
+#X text 345 312 5;
+#X text 415 312 6;
+#X text 485 312 7;
+#X text 555 312 8;
+#X obj 585 337 *~ 0.1;
+#X obj 618 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 655 337 *~ 0.1;
+#X obj 688 313 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 635 312 9;
+#X text 705 312 10;
+#X obj 14 165 osc~ 440;
+#X obj 574 25 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 574 64 \; pd dsp \$1;
+#X connect 0 0 1 0;
+#X connect 2 0 0 1;
+#X connect 4 0 1 1;
+#X connect 5 0 4 1;
+#X connect 6 0 1 2;
+#X connect 7 0 6 1;
+#X connect 8 0 1 3;
+#X connect 9 0 8 1;
+#X connect 10 0 1 4;
+#X connect 11 0 10 1;
+#X connect 12 0 1 5;
+#X connect 13 0 12 1;
+#X connect 14 0 1 6;
+#X connect 15 0 14 1;
+#X connect 16 0 1 7;
+#X connect 17 0 16 1;
+#X connect 25 0 1 8;
+#X connect 26 0 25 1;
+#X connect 27 0 1 9;
+#X connect 28 0 27 1;
+#X connect 31 0 0 0;
+#X connect 31 0 4 0;
+#X connect 31 0 6 0;
+#X connect 31 0 8 0;
+#X connect 31 0 10 0;
+#X connect 31 0 12 0;
+#X connect 31 0 14 0;
+#X connect 31 0 16 0;
+#X connect 31 0 25 0;
+#X connect 31 0 27 0;
+#X connect 32 0 33 0;

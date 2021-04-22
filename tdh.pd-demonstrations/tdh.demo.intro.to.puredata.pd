@@ -1,0 +1,409 @@
+#N canvas 1280 -209 1920 1035 10;
+#X text -65 62 - We have already had a brief intro to Pd in order to
+learn how to interact with the Interactive Acoustics Texts, f 128
+;
+#X text -65 84 - We will go deeper into Pd for this introduction,
+f 128;
+#X text -64 106 - Almost all discussion will be agnostic of Vanilla
+or Purr \, unless specifically noted, f 128;
+#X text -61 514 - In Pd \, objects are boxes that have specific functions
+(they aren't exactly like objects in object oriented programming like
+C++ and Java... but then sometimes they are, f 128;
+#X text -61 550 - A Pd file is called a patch \, and the editor is
+called the Patcher (not sure if that is 100% true \, but thats what
+they are called in Max, f 128;
+#X text -59 587 - You place objects in the patcher with the put menu
+(Put->Object) \, the object follows the mouse until you click in blank
+space, f 128;
+#X obj -39 663;
+#X text 1 662 <-- empty object;
+#X text -59 609 - From this point you can type the name of an object
+OR click away and place an empty object in the patcher. Click again
+on the blank box to type an object's name., f 128;
+#X text -58 1002 - Objects pass information to each other through patch
+cords \, which are lines drawn between objects \, linking them., f
+128;
+#X text -58 1027 - Objects may have inlets \, the small rectangles
+at the top of their box that are used for receiving data from another
+object \, while an object may also have outlets \, small rectanbles
+on the bottom of the box \, used for sending information., f 128;
+#X obj -20 1096 +;
+#X text -20 1123 ^-- outlet(s);
+#X text -20 1067 v-- inlet(s);
+#X text -58 1152 - You connect outlets to inlets by placing the cursor
+over an outlet \, in which case the cursor will change its icon \,
+then you click and drag (the icon will change again \, indicating that
+you are currently dragging a patch cable) \, until you reach an inlet
+\, where the cursor will change its icon again \, and then you can
+release the mouse and a line will be drawn between the two objects.
+, f 128;
+#X text -59 701 - Every object has a name. To see a list of the built
+in objects \, click Help->List of objects (vanilla) or Help->Quick
+Reference (Purr). When referring to an object \, it will be written
+in brackets: [objectname], f 128;
+#X text -58 1213 - Below are four objects \, one which is our [+] object
+\, the other three are known as NUMBER BOXES (in Pd \, they aren't
+actually objects... at least they aren't objects you can call by name
+in a blank object \, like you can in Max). Number boxes are tools which
+let us interactively change and send numbers \, as well as display
+numbers., f 128;
+#X text -58 1261 - Connect the number box labelled "A" to the left
+inlet of the [+] object \, collect the box labelled "B" to the right
+inlet of [+] \, and connect the outlet of [+] to the inlet of the box
+labelled "C". You have now built an addition algorithm! Leave edit
+mode and you can click and drag the number boxes. Click and drag on
+the box labelled "B" \, then click and drag on "A" \, and the sum will
+print in "C"., f 128;
+#X floatatom -25 1339 5 0 0 0 - - -, f 5;
+#X floatatom 56 1337 5 0 0 0 - - -, f 5;
+#X obj 16 1373 +;
+#X floatatom 16 1410 5 0 0 0 - - -, f 5;
+#X text -41 1338 A;
+#X text 93 1338 B;
+#X text 52 1408 C;
+#X obj -68 -5 cnv 15 775 48 empty empty Introduction\ to\ Pure\ Data
+20 12 0 14 #e0e0e0 #404040 0;
+#X text -57 2467 - Pd contains two major object types: objects that
+report their data at CONTROL RATE \, and objects that report their
+data at SIGNAL RATE, f 128;
+#X text -57 2563 - Objects that receive and output at signal rate are
+denoted with a tilde (~) at the end of their name. They ONLY function
+if the "DSP" switch is checked in the Pd main window. Also \, once
+DSP is turned on \, these objects are constantly sending out data at
+signal rate \, even if they have no data to output \, and are simply
+outputting "0"., f 128;
+#X text -57 2502 - Objects that report at signal rate report based
+on the sample rate. So when the sampling rate is 48000 samp/sec \,
+then data is output every 1/48000 of a second. Well \, almost. Pd will
+transmit these data points as audio blocks \, which by default is 64
+samples \, so really the rate is 64 samples per 1/750 of a second.
+Signal rate objects are generally used for conveying audio signals
+\, though they can also be used to transmit any data where speed is
+needed., f 128;
+#X text -57 2611 - Objects that output at control rate output slower
+than signal rate objects. The speed at which they can output varies
+\, but the maximum speed is once after every audio block. So while
+signal rate objects transmit 64samp/1/750sec \, control rate objects
+output one data point every 1/750th of a second., f 128;
+#X text -57 2659 - Objects that output at control rate do not have
+a tilde at the end of their name. They also only output data when prompted
+\, typically through a message from another object., f 128;
+#X floatatom -14 1629 5 0 0 0 - - -, f 5;
+#X obj 164 1627 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 #fcfcfc #000000 #000000 0 256 0;
+#X text 37 1626 <- Number;
+#X text 226 1624 <- Number2 (shows more digits);
+#X text -55 1500 - You have already seen one way to send a a number
+as a message \, through the number box (Put-> Number or Number2). You
+can click and drag to change the number \, or shift and drag to change
+it by a fractional part. Or you can click on the box and type a new
+number in \, hitting RETURN will produce the number out the outlet.
+All numbers in Pd are signed floating point numbers., f 128;
+#X obj -14 1671 print;
+#X obj 164 1670 print;
+#X text 223 1671 <-- The [print] object will print anything it recieves
+in the Pd console., f 74;
+#X text -55 1718 - A more general purpose tool for sending messages
+is the Message box. It can store numbers \, symbols \, lists \, and
+more. Insert a message box through Put-> Message, f 128;
+#X obj -30 1805 print;
+#X obj 140 1801 print;
+#X obj 325 1800 print;
+#X text 9 1782 <-- number;
+#X text 181 1778 <-- symbol;
+#X text 398 1779 <-- list;
+#X msg -30 1783 33;
+#X msg 140 1779 hello;
+#X msg 325 1778 hi 5 guys;
+#X text -55 2001 - One message that gets sent/used a lot is the message
+"Bang". It is a unique message to Pd and Max \, and it means "Hey \,
+do something". Certain objects respond to "bang" \, other objects output
+a bang \, as illustrated below:, f 128;
+#X obj -19 2061 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 7 2059 <-- Bang object (Put-> Bang) is a UI object that issues
+a "bang" message, f 34;
+#X obj -19 2107 print;
+#X obj 275 2060 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 275 2110 random 10;
+#X floatatom 275 2132 5 0 0 0 - - -, f 5;
+#X text 299 2057 <-- the [random] object responds to the "bang" message
+, f 22;
+#X msg 513 2059 1;
+#X obj 513 2111 metro 500;
+#X obj 513 2143 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X text 551 2057 <-- [metro] outputs a bang every x ms when it is activated
+, f 21;
+#X obj 376 2716 osc~ 440;
+#X obj 375 2738 snapshot~ 10;
+#N canvas 0 22 450 300 setup 0;
+#X obj 129 146 outlet;
+#X obj 130 68 loadbang;
+#X msg 130 90 1;
+#X obj 130 112 metro 10;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X restore 454 2716 pd setup;
+#X floatatom 375 2760 5 0 0 0 - - -, f 5;
+#X text -6 2716 This is an oscillator object. It doesn't do anything
+until you turn DSP on \, and then it outputs signal (even when we aren't
+listening to it);
+#X text 349 2716 -->;
+#X obj 60 2811 +~;
+#X obj -6 2812 +;
+#X text 132 2810 Some objects have signal and control counterparts.
+You need to make sure you use the right ones!;
+#X text 104 2811 <--;
+#X obj 76 3134 osc~;
+#N canvas 0 22 450 300 vibrato 0;
+#X obj 144 225 outlet~;
+#X obj 142 163 osc~ 5;
+#X connect 1 0 0 0;
+#X restore 111 3014 pd vibrato;
+#X obj 111 3043 *~;
+#X obj -60 3020 hsl 128 15 0 20000 0 0 empty empty empty -2 -8 0 10
+#fcfcfc #000000 #000000 0 1;
+#X obj -59 3047 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 #fcfcfc #000000 #000000 0 256 0;
+#X obj 185 2999 hsl 128 15 0 1000 0 0 empty empty empty -2 -8 0 10
+#fcfcfc #000000 #000000 0 1;
+#X floatatom 185 3019 5 0 0 0 - - -, f 5;
+#X text -62 2994 Frequency;
+#X obj 72 3170 dac~ 1 2;
+#X text -50 2948 - Some signal rate objects accept control rate input
+AND signal rate input, f 109;
+#X text -55 1548 - Also note the [print] object. This is a SUPER handy
+object for displaying messages \, calculations \, and general debugging.
+For the most part \, anything you send to [print] will appear the in
+the Pd Window (the window you see when you start Pd \, or Window->Pd
+Window ... note that in Purr Data the window is labelled "Purr Data"
+but is still called the Pd Window in the menu)., f 128;
+#X obj -69 3080 cnv 15 327 46 empty empty empty 20 12 0 14 #00fc80
+#404040 0;
+#X obj 73 3094 +~;
+#X text 103 3094 <-- signal rate input;
+#X text -64 3095 control rate input-->;
+#X obj 469 3133 osc~;
+#N canvas 0 22 450 300 vibrato 0;
+#X obj 144 225 outlet~;
+#X obj 108 91 osc~ 5;
+#X connect 1 0 0 0;
+#X restore 326 2978 pd vibrato;
+#X obj 326 3050 *~;
+#X obj 550 3017 hsl 128 15 0 20000 0 0 empty empty empty -2 -8 0 10
+#fcfcfc #000000 #000000 0 1;
+#X obj 551 3042 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 #fcfcfc #000000 #000000 0 256 0;
+#X obj 408 3005 hsl 128 15 0 1000 0 0 empty empty empty -2 -8 0 10
+#fcfcfc #000000 #000000 0 1;
+#X floatatom 408 3025 5 0 0 0 - - -, f 5;
+#X text 548 2989 Frequency;
+#X obj 465 3169 dac~ 1 2;
+#X obj 324 3079 cnv 15 327 46 empty empty empty 20 12 0 14 #00fc80
+#404040 0;
+#X obj 466 3093 +~;
+#X text 496 3093 <-- control rate input;
+#X text 329 3094 signal rate input-->;
+#X text 184 2975 Vibrato Amount;
+#X text 407 2981 Vibrato Amount;
+#X obj 263 3086 cnv 15 56 34 empty empty empty 20 12 0 14 #fc8000 #404040
+0;
+#X text 283 3094 ==;
+#X text 0 3044 <-- outputs data at control rate, f 16;
+#X text -64 3444 - You may have noticed that some objects have additional
+information typed into their boxes other than their names, f 128;
+#X text -64 3466 - This additional information is known as an ARGUMENT
+, f 128;
+#X text -24 3488 - An argument is a setting for an object that is set
+at the object's creation., f 121;
+#X text -24 3510 - An argument technically can never be changed \,
+as it is defined at the object's instantiation. However \, MANY arguments
+can be overridden by information sent to an object's inlets:, f 121
+;
+#X obj 43 3562 osc~ 440;
+#X obj 43 3615 *~;
+#X obj 43 3694 dac~ 1 2;
+#X obj 111 3593 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#N canvas 0 22 450 300 vol 0;
+#X obj 205 56 inlet;
+#X obj 205 78 / 127;
+#X obj 205 100 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 111 3614 pd vol;
+#X floatatom 111 3636 5 0 0 0 - - -, f 5;
+#X obj 390 3585 osc~ 440;
+#X obj 390 3658 *~;
+#X obj 390 3717 dac~ 1 2;
+#X obj 458 3636 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#N canvas 0 22 450 300 vol 0;
+#X obj 205 56 inlet;
+#X obj 205 78 / 127;
+#X obj 205 100 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 458 3657 pd vol;
+#X floatatom 458 3679 5 0 0 0 - - -, f 5;
+#X floatatom 389 3557 5 0 0 0 - - -, f 5;
+#X text 111 3556 <-- [osc~] object with its frequency set with an argument
+of 440, f 37;
+#X text 249 3592 Volume;
+#X text 595 3636 Volume;
+#X text 455 3563 <-- [osc~] object with its frequency set with an argument
+of 440 \, but its frequency can be overridden by a number sent to its
+leftmost inlet, f 37;
+#X text -63 3916 - How do you know what an object's arguments are?
+Or what the inlets and outlets do? The HELP files for each object explain
+all of this information., f 128;
+#X text -63 3951 - To view an object's help file \, right click on
+an object (locked or unlocked) and a new window will pop-up with a
+working Pd patch that demonstrates many of the fundamental aspects
+of an object, f 128;
+#X text -63 4026 - Vanilla vs Purr Data, f 128;
+#X text -23 4048 - The reason I have beginners start with Purr Data
+is that the help files are incredibly more thorough and clear than
+Vanilla's help files, f 121;
+#X text 17 4083 - On a side note \, help files are also why I steer
+people towards Max (if they can afford it) \, because they are even
+more through and helpful than Purr Data's help files. This is also
+why I tend to work in Max more than Pd!, f 114;
+#X text -24 4126 - The reason I have beginners start with Purr Data
+is that the help files are incredibly more thorough and clear than
+Vanilla's help files, f 121;
+#X text -24 4168 - Pd comes with a set of tutorials \, which often
+explains a LOT more about an object than is conveyed in the vanilla
+help file \, and so Purr Data helps to bridge some of this with the
+more complicated objects by hosting links in help files to clarification
+patches \, as well as tutorial patches that would help beginners understand
+the objects better., f 121;
+#X text -64 3986 - Help files are 90% of why I use Pd/Max over traditional
+programming languages... the references are right there \, and the
+speed in which I can remind myself of how an object works far surpasses
+that of a text based language, f 128;
+#X obj 167 663 metro;
+#X text 208 662 <-- [metro] object;
+#X text -59 942 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -59 1434 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -60 1923 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -61 2400 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text 144 3044 <-- outputs a signal at signal rate, f 20;
+#X text -60 2891 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -62 3378 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -60 3861 ________________________________________________________________________________________________________________________________
+, f 128;
+#X obj -68 18 cnv 15 775 28 empty empty THE283\ -\ Sound\ Art 20 12
+0 14 #e0e0e0 #404040 0;
+#X obj -62 478 cnv 15 775 31 empty empty Objects 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj -60 965 cnv 15 775 31 empty empty Object\ Communication 20 12
+0 14 #e0e0e0 #404040 0;
+#X obj -60 1460 cnv 15 775 31 empty empty Messages 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj -60 1950 cnv 15 775 31 empty empty Bang(!) 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj -20 2220 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj -20 2270 float 3.14;
+#X floatatom -20 2310 5 0 0 0 - - -, f 5;
+#X text 10 2210 "Bang" causes the [float] object to output its stored
+number, f 24;
+#X obj 270 2220 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X obj 270 2260 select 64;
+#X obj 270 2300 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X floatatom 310 2240 5 0 0 0 - - -, f 5;
+#X text 350 2260 [select] outputs a "bang" when the number it is looking
+for is sent, f 34;
+#N canvas 0 22 450 300 init 0;
+#X obj 61 63 loadbang;
+#X msg 60 90 1;
+#X obj 59 134 s \$0-metro-tog1;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X restore 660 20 pd init;
+#X obj -60 2430 cnv 15 775 31 empty empty Object\ Types 20 12 0 14
+#e0e0e0 #404040 0;
+#X obj -60 2910 cnv 15 775 31 empty empty Object\ Types\ (2) 20 12
+0 14 #e0e0e0 #404040 0;
+#X obj -60 3410 cnv 15 775 31 empty empty Messages 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj 30 3780 tgl 15 0 empty \$0-metro-tog1 empty 17 7 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X obj 30 3803 metro 1000;
+#X obj 30 3828 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 180 3777 tgl 15 0 empty \$0-metro-tog1 empty 17 7 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X obj 180 3825 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 180 3800 metro 500;
+#X text 300 3790 This object here is the metronome object \, and after
+the name is typed \, the RATE that the metrome will send out a tick
+is determined by the number typed next to the object name;
+#X obj -60 3880 cnv 15 775 31 empty empty Help\ Files 20 12 0 14 #e0e0e0
+#404040 0;
+#X connect 31 0 36 0;
+#X connect 32 0 37 0;
+#X connect 46 0 40 0;
+#X connect 47 0 41 0;
+#X connect 48 0 42 0;
+#X connect 50 0 52 0;
+#X connect 53 0 54 0;
+#X connect 54 0 55 0;
+#X connect 57 0 58 0;
+#X connect 58 0 59 0;
+#X connect 61 0 62 0;
+#X connect 62 0 64 0;
+#X connect 63 0 62 0;
+#X connect 71 0 79 0;
+#X connect 71 0 79 1;
+#X connect 72 0 73 0;
+#X connect 73 0 83 1;
+#X connect 74 0 75 0;
+#X connect 75 0 83 0;
+#X connect 76 0 77 0;
+#X connect 77 0 73 1;
+#X connect 83 0 71 0;
+#X connect 86 0 94 0;
+#X connect 86 0 94 1;
+#X connect 87 0 88 0;
+#X connect 88 0 96 0;
+#X connect 89 0 90 0;
+#X connect 90 0 96 1;
+#X connect 91 0 92 0;
+#X connect 92 0 88 1;
+#X connect 96 0 86 0;
+#X connect 108 0 109 0;
+#X connect 109 0 110 0;
+#X connect 109 0 110 1;
+#X connect 111 0 112 0;
+#X connect 112 0 113 0;
+#X connect 113 0 109 1;
+#X connect 114 0 115 0;
+#X connect 115 0 116 0;
+#X connect 115 0 116 1;
+#X connect 117 0 118 0;
+#X connect 118 0 119 0;
+#X connect 119 0 115 1;
+#X connect 120 0 114 0;
+#X connect 148 0 149 0;
+#X connect 149 0 150 0;
+#X connect 152 0 153 0;
+#X connect 152 0 155 0;
+#X connect 153 0 154 0;
+#X connect 161 0 162 0;
+#X connect 162 0 163 0;
+#X connect 164 0 166 0;
+#X connect 166 0 165 0;

@@ -1,0 +1,145 @@
+#N canvas 25 23 1008 755 10;
+#X text 19 -78 Travis Houldcroft || travishouldcroft.com;
+#X obj 3 -112 cnv 15 997 30 empty empty tdh.satk.adsr~ 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj 3 -54 cnv 8 995 8 empty empty Inlets 20 15 0 14 #e0e0e0 #404040
+0;
+#X text 23 -25 0;
+#X text 45 -25 -;
+#X obj 3 126 cnv 8 996 8 empty empty Outlets 20 15 0 14 #e0e0e0 #404040
+0;
+#X text 23 159 0;
+#X text 45 159 -;
+#X obj 3 296 cnv 8 997 8 empty empty Note 20 15 0 14 #e0e0e0 #404040
+0;
+#X obj 3 368 cnv 3 995 8 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 3 236 cnv 8 995 8 empty empty Arguments 20 15 0 14 #e0e0e0 #404040
+0;
+#X text 23 268 None;
+#X text 67 -25 (float) gate signal to start the envelope \, 0 starts
+\, 1 stops;
+#X text 45 -4 -;
+#X text 23 -4 1;
+#X text 67 -4 (float) attack time in ms for envelope to ramp from 0
+to 1;
+#X text 45 15 -;
+#X text 45 48 -;
+#X text 23 15 2;
+#X text 67 15 (float) decay time in ms for envelope to ramp from 1
+(end of attack phase) to the sustain level, f 96;
+#X text 67 48 (float) sustain level in linear amplitude for signal
+to sustain at after the attack and decay phases until receiving the
+gate signal, f 134;
+#X text 23 48 3;
+#X text 45 78 -;
+#X text 23 78 4;
+#X text 67 78 (float) release time in ms for signal to ramp from sustain
+level to 0 Triggered by the gate off signal., f 104;
+#X text 21 328 Ramp of values is currently 0 to 1 \, but changing the
+range of values to another scale linearly is moderately easy to do
+and outlined below, f 138;
+#X text 0 1090 _;
+#X obj 100 540 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X floatatom 160 590 5 0 0 0 - - -, f 5;
+#X floatatom 221 630 5 0 0 0 - - -, f 5;
+#X floatatom 282 680 5 0 0 0 - - -, f 5;
+#X floatatom 343 740 5 0 0 0 - - -, f 5;
+#X text 120 540 Gate - (1) starts the envelope and then remains at
+the sustain stage \, (0) ends the envelope by ramping from the sustain
+to 0, f 62;
+#X text 360 820 All parameters/controls can be set through inlets or
+GUI, f 23;
+#X obj 20 900 osc~ 440;
+#X obj 20 930 *~;
+#X text 70 160 (float) ramp of values from 0 to 1 and then back down
+to 0 at signal rate, f 71;
+#X text 45 191 -;
+#X text 70 192 (float) ramp of values from 0 to 1 and then back down
+to 0 at data rate, f 71;
+#X text 23 191 1;
+#X obj 20 958 dac~ 1 2;
+#X obj 831 1055 dac~ 1 2;
+#X obj 831 995 osc~ 220;
+#X obj 552 783 dac~ 1 2;
+#X obj 552 721 osc~ 220;
+#X obj 552 640 *~ 1540;
+#X obj 552 685 +~ 220;
+#X text 612 640 Maximum value minus starting value (produces 0 to (max_val
+- start_val) ), f 61;
+#X text 610 690 Starting value (produces start_val to max_val), f
+61;
+#X text 642 600 <-- 0 to 1;
+#X obj 552 750 *~, f 15;
+#X text 522 510 Using the envelope change the oscillator's frequency
+from 220 Hz to 1760 Hz, f 17;
+#X text 660 740 Using the same envelope to also change the volume of
+the oscillator (otherwise you would hear it done on when you open the
+help patch!), f 35;
+#X text 10 380 An envelope in synthesizer terminology is a ramp of
+values \, typically from a minimum to a maximum \, and then back down
+to a minimum. An ADSR envelope has four stages in its ramp from start
+to finish \, and the start is triggered by a gate signal to start (a
+number greater than 0 in this case) \, and then a gate signal to end
+(a 0 in this case)., f 81;
+#X text 10 380 An envelope in synthesizer terminology is a ramp of
+values \, typically from a minimum to a maximum \, and then back down
+to a minimum. An ADSR envelope has four stages in its ramp from start
+to finish \, and the start is triggered by a gate signal to start (a
+number greater than 0 in this case) \, and then a gate signal to end
+(a 0 in this case)., f 81;
+#X text 10 460 When the envelope module receives a "1" at its GATE
+inlet (or from the graphic control) \, it ramps up from 0 to 1 over
+the ATTACK time \, in ms. Once it hits 1 it ramps to the SUSTAIN LEVEL
+over the DECAY TIME in ms. The envelope will then remain at the sustain
+level until the module receives a "0" \, when it will then ramp from
+the SUSTAIN LEVEL to 0 over the RELEASE time., f 81;
+#X text 200 590 Attack Time - Determines the time in ms that the envelope
+ramps from 0 to 1, f 49;
+#X text 260 630 Decay Time - Determines the time the envelope ramps
+from 1 to the sustain level, f 39;
+#X text 320 680 Sustain Level - The level the envelope will sustain
+at following the release until the gate signal is 0, f 29;
+#X text 380 740 Release Time - Time in ms to ramp from the sustain
+level to 0, f 19;
+#X obj 100 776 tdh.satk.adsr~;
+#X obj 547 855 tdh.satk.adsr~;
+#X obj 640 437 tdh.satk.adsr~;
+#X obj 831 1027 *~ 0.5;
+#X obj 831 975 mtof;
+#X obj 918 975 / 127;
+#X obj 831 950 makenote 64 150;
+#X obj 831 924 * 80;
+#X text 586 398 You can use the ramp of envelope values 0 to 1 as a
+scalar by multiplying a fixed value (produces 0 to fixed-value);
+#X text 550 817 Also outputs envelope at data rate \, so you can use
+it to control MIDI if you want to!;
+#X text 810 866 (Using the envelope ramp to change MIDI pitch with
+[makenote], f 26;
+#X connect 27 0 60 0;
+#X connect 28 0 60 1;
+#X connect 29 0 60 2;
+#X connect 30 0 60 3;
+#X connect 31 0 60 4;
+#X connect 34 0 35 0;
+#X connect 35 0 40 0;
+#X connect 35 0 40 1;
+#X connect 42 0 63 0;
+#X connect 44 0 50 0;
+#X connect 45 0 46 0;
+#X connect 46 0 44 0;
+#X connect 50 0 43 0;
+#X connect 50 0 43 1;
+#X connect 60 0 35 1;
+#X connect 61 1 67 0;
+#X connect 62 0 45 0;
+#X connect 62 0 50 1;
+#X connect 63 0 41 0;
+#X connect 63 0 41 1;
+#X connect 64 0 42 0;
+#X connect 65 0 63 1;
+#X connect 66 0 64 0;
+#X connect 66 1 65 0;
+#X connect 67 0 66 0;
+#X coords 0 0 1 1 250 150 0;

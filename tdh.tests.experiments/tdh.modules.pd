@@ -1,8 +1,0 @@
-#N canvas -1440 180 1440 878 10;
-#X obj 445 317 tdh.sigproc.overdrive~;
-#X obj 11 80 tdh.synth.2op.fm~;
-#X obj 445 424 tdh.sigproc.ringmod~;
-#X obj 961 317 tdh.synth.adsr~;
-#X obj 963 425 tdh.synth.lfo~;
-#X obj 444 207 tdh.sigproc.delay~;
-#X obj 444 105 tdh.sigproc.mmfilt~;

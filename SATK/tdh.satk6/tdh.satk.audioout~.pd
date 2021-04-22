@@ -1,0 +1,52 @@
+#N canvas 233 105 582 549 10;
+#X obj 103 112 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X msg -28 157 \; pd dsp \$1;
+#X text 121 112 DSP On/Off;
+#X obj 379 104 inlet~;
+#X text 11 -61 Travis Houldcroft / thouldcroft@gmail.com / travishouldcroft.com
+, f 65;
+#X text 11 -4 EXTERNAL DEVELOPER'S NOTE: You may edit and adapt this
+code AS LONG AS any distribution of the modified code is done with
+a new \, unique title AND some small attribution to the original author(s)
+is made.;
+#X text 100 90 Ch1 In;
+#X text 149 90 Ch2 In;
+#X obj 424 104 inlet~;
+#X obj 379 178 dac~ 1 2;
+#X text 11 -126 //// SOUND ART TOOLKIT /////////////////////////////////////////////////////////////////
+, f 89;
+#X text 11 -82 tdh.satk.output~.pd;
+#X obj 103 143 hsl 109 17 0 1 0 0 empty empty Volume -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X msg 45 198 set \$1;
+#X floatatom 226 144 5 0 0 0 - - -, f 5;
+#X msg 45 229 set \$1;
+#X obj 379 139 *~;
+#X obj 422 139 *~;
+#X text 11 -98 OUTPUT - A DAC output plus DSP toggle and gain in a
+single module, f 84;
+#X obj 492 99 inlet;
+#X text 203 90 DSP;
+#X text 233 90 Gain;
+#X obj 558 100 inlet;
+#X text 11 66 TO DO: Comments;
+#X obj 102 169 cnv 15 157 30 empty empty Audio\ Out 20 12 0 14 #e0e0e0
+#404040 0;
+#X text 777 284 comment;
+#X connect 0 0 1 0;
+#X connect 3 0 16 0;
+#X connect 8 0 17 0;
+#X connect 12 0 13 0;
+#X connect 12 0 16 1;
+#X connect 12 0 17 1;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 14 0 16 1;
+#X connect 14 0 17 1;
+#X connect 15 0 12 0;
+#X connect 16 0 9 0;
+#X connect 17 0 9 1;
+#X connect 19 0 0 0;
+#X connect 22 0 12 0;
+#X coords 0 -1 1 1 164 115 2 99 88;

@@ -1,0 +1,2072 @@
+#N canvas 27 23 1413 855 10;
+#X declare -lib ggee;
+#X text 101 102 AMPLITUDE AND FREQUENCY;
+#N canvas 119 23 1920 855 sound_gen_amp_demo 0;
+#X obj 226 130 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 1104 669 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 904 720 dac~ 1 2;
+#X obj 1104 623 loadbang;
+#X msg 1104 644 1;
+#X obj 904 253 osc~ 440;
+#X obj 904 593 *~;
+#X obj 1072 336 tgl 15 0 empty \$0-main-freq-demo-on_off empty 17 7
+0 10 -4032 -1 -1 0 1;
+#X obj 904 60 vsl 15 128 20 20000 0 1 empty empty empty 0 -9 0 10 -4032
+-1 -1 267 1;
+#X obj 904 217 line;
+#X obj 1145 488 line~;
+#X msg 904 196 \$1 100;
+#X obj 1104 692 metro 250;
+#X obj 1038 177 vsl 15 128 0 2 0 1 empty empty empty 0 -9 0 10 -4032
+-1 -1 635 1;
+#X msg 1146 465 \$1 100;
+#X floatatom 1038 313 5 0 0 0 - - -, f 5;
+#X obj 1066 429 spigot;
+#X obj 1038 397 float;
+#X obj 1072 356 t b f;
+#X obj 1146 396 sel 0;
+#X msg 1146 417 0;
+#X text 1122 318 When toggle is off \, ramp down to silence and close
+the gate. When toggle is on \, open the gate and ramp to the current
+amplitude value.;
+#X obj 127 106 tgl 15 0 \$0-main-freq-demo-on_off empty empty 17 7
+0 10 -204800 -1 -1 0 1;
+#X obj 127 130 vsl 15 120 0 22500 0 0 \$0-main-freq-demo-slider empty
+empty 0 -9 0 10 -204800 -1 -1 233 1;
+#X obj 118 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq-demo-numbox empty
+empty 0 -8 0 10 -204800 -1 -1 440 256;
+#X msg -63 271 set \$1;
+#X msg -63 154 set \$1;
+#X text 115 282 Frequency;
+#X text 175 267 Hz;
+#X text 200 284 Amplitude;
+#X text 149 105 On/Off;
+#X msg -65 221 set \$1;
+#X msg -61 102 set \$1;
+#X obj 208 130 vsl 15 120 0 1.5 0 0 \$0-main-amp-demo-slider empty
+empty 0 -9 0 10 -204800 -1 -1 793 1;
+#X obj 203 267 nbx 5 14 -1e+37 1e+37 0 0 \$0-amp-demo-numbox empty
+empty 0 -8 0 10 -204800 -1 -1 0.1 256;
+#N canvas 564 462 450 300 init 0;
+#X obj 117 22 loadbang;
+#X msg 108 110 0;
+#X obj 98 191 outlet;
+#X obj 205 188 outlet;
+#X msg 203 117 440;
+#X msg 300 122 0.1;
+#X obj 300 143 outlet;
+#X connect 0 0 1 0;
+#X connect 0 0 4 0;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X restore 114 13 pd init;
+#X obj 208 67 else/vu~;
+#N canvas 27 23 450 278 (subpatch) 0;
+#X array main-amp-freq-demo-scope-\$0 445 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0;
+#X coords 0 1 444 -1 500 100 1 0 0;
+#X restore 178 385 graph;
+#N canvas 123 39 1142 661 spectrograph 0;
+#N canvas 789 23 651 544 fft-analysis 0;
+#X obj 15 164 *~;
+#X obj 14 99 inlet~;
+#X obj 15 218 rfft~;
+#X obj 36 140 tabreceive~ \$0-hann;
+#X obj 14 306 *~;
+#X obj 56 306 *~;
+#X obj 15 356 sqrt~;
+#X obj 23 386 loadbang;
+#X obj 23 449 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X obj 15 8 block~ 512;
+#X text 225 131 tabreceive~ outputs array contents \,;
+#X text 225 149 constantly \, every block. Here it's;
+#X text 223 169 used to get the Hann window to;
+#X text 225 187 multiply by the input.;
+#X text 120 7 block~ object does no computation but declares this;
+#X text 120 24 window to be operating at a different block size from
+;
+#X text 122 58 Fourier transform.;
+#X text 121 40 the parent window. This determines the size of the;
+#X text 76 99 The inlet~ automatically re-blocks to the new block size.
+;
+#X obj 15 332 +~;
+#X text 94 308 Take the magnitude by squaring real and imaginary part
+\, adding and taking square root.;
+#X text 110 424 periodically graph the output. It appears every 512
+samples (about 12 milliseconds) but we only update the graph 4 times
+per second. The graph is back on the main (parent) window.;
+#X text 82 215 forward real FFT. Like "fft~" \, but only one inlet
+(for the real part) and only the first half of the output signals are
+used. (The others are determined by symmetry: they're complex conjugates
+of the first half \, in reverse order.) This takes 1/2 the CPU time
+of "fft".;
+#X obj 23 470 metro 50;
+#X obj 14 498 tabwrite~ \$0-main-amp-freq-demo-spectrum;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 2 0 4 1;
+#X connect 2 1 5 0;
+#X connect 2 1 5 1;
+#X connect 3 0 0 1;
+#X connect 4 0 19 0;
+#X connect 5 0 19 1;
+#X connect 6 0 24 0;
+#X connect 7 0 8 0;
+#X connect 8 0 23 0;
+#X connect 19 0 6 0;
+#X connect 23 0 24 0;
+#X restore 1094 205 pd fft-analysis;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-main-amp-freq-demo-spectrum 256 float 0;
+#X coords 0 128 255 0 500 100 1 0 0;
+#X restore 168 115 graph;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-hann1 512 float 1;
+#A 0 0 3.76403e-05 0.000150591 0.000338793 0.000602275 0.000940949
+0.00135478 0.00184369 0.00240764 0.00304651 0.00376022 0.00454867 0.00541174
+0.0063493 0.00736117 0.00844723 0.00960734 0.0108413 0.0121489 0.01353
+0.0149843 0.0165117 0.0181119 0.0197847 0.0215298 0.0233469 0.0252359
+0.0271963 0.0292279 0.0313304 0.0335035 0.0357469 0.0380601 0.040443
+0.042895 0.0454159 0.0480052 0.0506626 0.0533877 0.05618 0.0590392
+0.0619648 0.0649563 0.0680134 0.0711355 0.0743222 0.077573 0.0808874
+0.0842649 0.0877051 0.0912073 0.0947711 0.0983959 0.102081 0.105826
+0.109631 0.113494 0.117416 0.121395 0.125431 0.129524 0.133672 0.137876
+0.142134 0.146446 0.150811 0.155229 0.159699 0.16422 0.168792 0.173413
+0.178084 0.182803 0.18757 0.192384 0.197244 0.20215 0.2071 0.212095
+0.217133 0.222214 0.227337 0.2325 0.237704 0.242948 0.24823 0.25355
+0.258907 0.264301 0.26973 0.275194 0.280691 0.286222 0.291785 0.297379
+0.303003 0.308658 0.314341 0.320052 0.32579 0.331555 0.337344 0.343159
+0.348997 0.354857 0.36074 0.366643 0.372567 0.37851 0.384471 0.390449
+0.396444 0.402455 0.40848 0.414519 0.420571 0.426635 0.432709 0.438794
+0.444889 0.450991 0.457101 0.463218 0.46934 0.475466 0.481596 0.487729
+0.493864 0.5 0.506136 0.512271 0.518404 0.524534 0.53066 0.536782 0.542899
+0.549009 0.555111 0.561205 0.56729 0.573365 0.579429 0.585481 0.59152
+0.597545 0.603556 0.609551 0.615529 0.62149 0.627433 0.633357 0.63926
+0.645143 0.651003 0.656841 0.662656 0.668445 0.67421 0.679948 0.685659
+0.691342 0.696997 0.702621 0.708215 0.713778 0.719309 0.724806 0.73027
+0.735699 0.741092 0.74645 0.75177 0.757052 0.762295 0.767499 0.772663
+0.777786 0.782867 0.787905 0.7929 0.79785 0.802756 0.807616 0.812431
+0.817197 0.821916 0.826587 0.831209 0.83578 0.840301 0.844771 0.849189
+0.853554 0.857866 0.862124 0.866328 0.870476 0.874569 0.878605 0.882584
+0.886506 0.890369 0.894174 0.897919 0.901605 0.905229 0.908793 0.912295
+0.915736 0.919113 0.922428 0.925678 0.928865 0.931987 0.935044 0.938036
+0.940961 0.94382 0.946613 0.949338 0.951995 0.954585 0.957106 0.959558
+0.96194 0.964254 0.966497 0.96867 0.970773 0.972804 0.974765 0.976654
+0.978471 0.980216 0.981889 0.983489 0.985016 0.98647 0.987852 0.989159
+0.990393 0.991553 0.992639 0.993651 0.994589 0.995452 0.99624 0.996954
+0.997593 0.998156 0.998645 0.999059 0.999398 0.999661 0.999849 0.999962
+1 0.999962 0.999849 0.999661 0.999398 0.999059 0.998645 0.998156 0.997592
+0.996953 0.996239 0.995451 0.994588 0.99365 0.992638 0.991552 0.990392
+0.989158 0.987851 0.986469 0.985015 0.983488 0.981887 0.980215 0.978469
+0.976652 0.974763 0.972803 0.970771 0.968669 0.966495 0.964252 0.961939
+0.959556 0.957104 0.954583 0.951993 0.949336 0.946611 0.943818 0.940959
+0.938034 0.935042 0.931985 0.928863 0.925676 0.922425 0.919111 0.915733
+0.912293 0.908791 0.905227 0.901602 0.897917 0.894171 0.890367 0.886503
+0.882582 0.878602 0.874566 0.870473 0.866325 0.862121 0.857863 0.853551
+0.849186 0.844768 0.840298 0.835777 0.831205 0.826584 0.821913 0.817194
+0.812427 0.807613 0.802753 0.797847 0.792896 0.787901 0.782863 0.777782
+0.77266 0.767496 0.762292 0.757048 0.751766 0.746446 0.741089 0.735695
+0.730266 0.724802 0.719305 0.713774 0.708211 0.702617 0.696993 0.691338
+0.685655 0.679944 0.674206 0.668441 0.662652 0.656837 0.650999 0.645139
+0.639256 0.633353 0.627429 0.621486 0.615525 0.609547 0.603552 0.597541
+0.591516 0.585477 0.579425 0.573361 0.567286 0.561201 0.555107 0.549004
+0.542894 0.536778 0.530656 0.52453 0.518399 0.512266 0.506131 0.499996
+0.49386 0.487725 0.481592 0.475462 0.469335 0.463213 0.457097 0.450987
+0.444884 0.43879 0.432705 0.42663 0.420566 0.414515 0.408476 0.40245
+0.39644 0.390445 0.384466 0.378505 0.372563 0.366639 0.360736 0.354853
+0.348993 0.343155 0.33734 0.331551 0.325786 0.320048 0.314337 0.308654
+0.302999 0.297375 0.291781 0.286218 0.280687 0.27519 0.269726 0.264297
+0.258904 0.253547 0.248226 0.242944 0.237701 0.232497 0.227333 0.222211
+0.21713 0.212092 0.207097 0.202146 0.19724 0.19238 0.187566 0.182799
+0.17808 0.17341 0.168788 0.164217 0.159696 0.155226 0.150808 0.146443
+0.142131 0.137873 0.133669 0.129521 0.125428 0.121392 0.117413 0.113491
+0.109628 0.105823 0.102078 0.0983929 0.0947681 0.0912043 0.0877021
+0.084262 0.0808845 0.0775701 0.0743194 0.0711327 0.0680107 0.0649537
+0.0619622 0.0590366 0.0561775 0.0533852 0.0506602 0.0480028 0.0454136
+0.0428927 0.0404407 0.038058 0.0357447 0.0335014 0.0313284 0.0292259
+0.0271944 0.025234 0.0233451 0.0215281 0.019783 0.0181103 0.0165102
+0.0149829 0.0135286 0.0121476 0.01084 0.00960615 0.0084461 0.0073601
+0.00634828 0.00541082 0.00454783 0.00375944 0.00304583 0.00240701 0.00184315
+0.00135431 0.000940561 0.000601947 0.000338584 0.000150442 3.75807e-05
+;
+#X coords 0 1 511 0 200 120 1 0 0;
+#X restore 1399 132 graph;
+#X msg 1341 130 0;
+#X obj 1235 179 osc~;
+#X obj 1235 131 samplerate~;
+#X obj 1235 202 *~ -0.5;
+#X obj 1235 225 +~ 0.5;
+#X text 1385 124 1;
+#X text 1378 242 0;
+#X text 1394 255 0;
+#X obj 1235 155 / 512;
+#X obj 1228 70 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 1504 109 Hann window;
+#X text 1283 177 period 512;
+#X text 1260 64 recalculate Hann;
+#X text 1284 77 window table;
+#X text 1580 258 511;
+#X obj 1227 40 inlet;
+#X obj 1054 232 outlet~;
+#X obj 1054 28 inlet~;
+#X text 1108 234 Thru;
+#X obj 1330 34 loadbang;
+#X text 155 226 20;
+#X text 171 226 500;
+#X text 186 238 1000;
+#X text 200 226 2000;
+#X text 244 225 4000;
+#X text 164 238 250;
+#X text 163 213 |;
+#X text 170 213 |;
+#X text 177 213 |;
+#X text 187 213 |;
+#X text 209 213 |;
+#X text 254 213 |;
+#X text 300 213 |;
+#X text 291 225 6000;
+#X text 349 213 |;
+#X text 338 225 8000;
+#X text 391 213 |;
+#X text 380 225 10000;
+#X text 436 213 |;
+#X text 425 225 12000;
+#X text 482 213 |;
+#X text 471 225 14000;
+#X text 528 213 |;
+#X text 517 225 16000;
+#X text 574 213 |;
+#X text 563 225 18000;
+#X text 617 213 |;
+#X text 606 225 20000;
+#X text 664 213 |;
+#X text 653 225 22000;
+#X text 354 253 Frequency in Hz;
+#X text 101 155 Magni-tude, f 6;
+#X text 147 158 0.5-;
+#X text 154 108 1;
+#X text 154 205 0;
+#X obj 1227 250 tabwrite~ \$0-hann1;
+#X connect 3 0 4 1;
+#X connect 4 0 6 0;
+#X connect 5 0 11 0;
+#X connect 6 0 7 0;
+#X connect 7 0 58 0;
+#X connect 11 0 4 0;
+#X connect 12 0 5 0;
+#X connect 12 0 3 0;
+#X connect 12 0 58 0;
+#X connect 18 0 12 0;
+#X connect 20 0 0 0;
+#X connect 20 0 19 0;
+#X connect 22 0 12 0;
+#X coords 0 -1 1 1 590 175 2 100 100;
+#X restore 105 543 pd spectrograph;
+#N canvas 27 23 450 300 blank 0;
+#X coords 0 -1 1 1 590 175 2 100 100;
+#X restore 105 358 pd blank;
+#X text 157 401 0.5-;
+#X text 152 451 -0.5-;
+#X text 151 475 -1;
+#X text 157 377 1;
+#X text 664 496 0.01;
+#X text 404 496 0.005;
+#X text 414 482 |;
+#X text 673 482 |;
+#X text 174 482 |;
+#X text 166 496 0;
+#X text 156 426 0.0-;
+#X text 380 515 Time (Seconds);
+#X text 108 420 Ampli-tude, f 6;
+#X text 200 324 Amplitude;
+#X obj 203 307 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X text 258 265 linear;
+#X text 261 306 dB FS;
+#X obj 73 309 + 3;
+#X obj 985 719 tabwrite~ main-amp-freq-demo-scope-\$0;
+#X obj -61 81 r \$0-main-amp-demo-numbox;
+#X obj -63 133 r \$0-main-freq-demo-numbox;
+#X obj -66 198 r \$0-main-amp-demo-slider;
+#X obj -63 248 r \$0-main-freq-demo-slider;
+#X obj 904 38 r \$0-main-freq-demo-slider;
+#X obj 932 59 r \$0-main-freq-demo-numbox;
+#X obj 1038 128 r \$0-main-amp-demo-slider;
+#X obj 1051 149 r \$0-main-amp-demo-numbox;
+#X obj 958 633 send~ \$0-main-sig1;
+#X obj -42 489 receive~ \$0-main-sig1;
+#X obj 208 42 receive~ \$0-main-sig1;
+#X obj 1544 40 bng 15 250 50 0 empty \$0-main-220hz 220Hz 17 7 0 10
+-204800 -1 -1;
+#X obj 1544 60 bng 15 250 50 0 empty \$0-main-440hz 440Hz 17 7 0 10
+-204800 -1 -1;
+#X obj 1544 120 bng 15 250 50 0 empty \$0-main-880hz 880Hz 17 7 0 10
+-204800 -1 -1;
+#X obj 1544 100 bng 15 250 50 0 empty \$0-main-600hz 600Hz 17 7 0 10
+-204800 -1 -1;
+#X msg 1610 40 220;
+#X msg 1610 61 440;
+#X msg 1611 119 880;
+#X msg 1610 100 600;
+#X obj 1544 78 bng 15 250 50 0 empty \$0-main-320hz 320Hz 17 7 0 10
+-204800 -1 -1;
+#X obj 1545 160 bng 15 250 50 0 empty \$0-main-2100hz 2100Hz 17 7 0
+10 -204800 -1 -1;
+#X msg 1610 79 320;
+#X obj 1545 139 bng 15 250 50 0 empty \$0-main-2000hz 2000Hz 17 7 0
+10 -204800 -1 -1;
+#X msg 1611 160 2100;
+#X obj 1545 232 bng 15 250 50 0 empty \$0-main-5100hz 5100Hz 17 7 0
+10 -204800 -1 -1;
+#X obj 1545 211 bng 15 250 50 0 empty \$0-main-5000hz 5000Hz 17 7 0
+10 -204800 -1 -1;
+#X msg 1611 139 2000;
+#X msg 1611 211 5000;
+#X msg 1611 232 5100;
+#X obj 1545 184 bng 15 250 50 0 empty \$0-main-4000hz 4000Hz 17 7 0
+10 -204800 -1 -1;
+#X msg 1611 184 4000;
+#X obj 1611 259 s \$0-main-frequencies_from_buttons;
+#X obj 203 14 r \$0-main-frequencies_from_buttons;
+#X obj 320 152 bng 15 250 50 0 \$0-main-220hz empty 220Hz 17 7 0 10
+-204800 -1 -1;
+#X obj 320 192 bng 15 250 50 0 \$0-main-440hz empty 440Hz 17 7 0 10
+-204800 -1 -1;
+#X obj 320 232 bng 15 250 50 0 \$0-main-880hz empty 880Hz 17 7 0 10
+-204800 -1 -1;
+#X obj 320 212 bng 15 250 50 0 \$0-main-600hz empty 600Hz 17 7 0 10
+-204800 -1 -1;
+#X obj 380 152 bng 15 250 50 0 \$0-main-2000hz empty 2000Hz 17 7 0
+10 -204800 -1 -1;
+#X obj 380 172 bng 15 250 50 0 \$0-main-2100hz empty 2100Hz 17 7 0
+10 -204800 -1 -1;
+#X obj 380 212 bng 15 250 50 0 \$0-main-5000hz empty 5000Hz 17 7 0
+10 -204800 -1 -1;
+#X obj 380 232 bng 15 250 50 0 \$0-main-5100hz empty 5100Hz 17 7 0
+10 -204800 -1 -1;
+#X obj 320 172 bng 15 250 50 0 \$0-main-320hz empty 320Hz 17 7 0 10
+-204800 -1 -1;
+#X obj 380 192 bng 15 250 50 0 \$0-main-4000hz empty 4000Hz 17 7 0
+10 -204800 -1 -1;
+#X text 331 118 Frequency Presets, f 10;
+#X obj 1619 796 nbx 5 14 -1e+37 1e+37 0 0 \$0-main-start-freq empty
+empty 0 -8 0 10 -204800 -1 -1 0 256;
+#X obj 1619 814 nbx 5 14 -1e+37 1e+37 0 0 \$0-main-end-freq empty empty
+0 -8 0 10 -204800 -1 -1 0 256;
+#X obj 1877 487 r \$0-main-start-freq;
+#X obj 1884 511 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 0 256;
+#X obj 1587 506 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 0 256;
+#X obj 1580 484 r \$0-main-end-freq;
+#X text 1545 16 Frequency Presets;
+#X text 1702 347 Frequency Ramp;
+#X obj 1851 533 float;
+#X obj 1553 531 float;
+#X obj 1619 854 bng 15 250 50 0 \$0-main-freq-ramp-go empty empty 17
+7 0 10 -204800 -1 -1;
+#X obj 1602 393 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1602 371 r \$0-main-freq-ramp-go;
+#X text 1675 794 Frequency Start;
+#X text 1676 813 Frequency End;
+#X obj 1619 834 nbx 5 14 -1e+37 1e+37 0 0 \$0-main-freq-ramp-dur empty
+empty 0 -8 0 10 -204800 -1 -1 0 256;
+#X obj 1720 486 r \$0-main-freq-ramp-dur;
+#X obj 1732 507 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 0 256;
+#X obj 1693 525 float;
+#X obj 1602 413 t b b b;
+#X msg 1851 554 \$1 20;
+#X obj 1621 436 del 20;
+#X msg 1617 594 \$1 \$2;
+#X obj 1616 568 pack f f;
+#X text 1676 833 Duration in MS;
+#X text 1774 790 Type in a starting frequency \, an ending frequency
+\, and a duration \, and then click GO and a sweep of frequencies from
+the start to the end point will be heard \, over the specified duration.
+, f 30;
+#X text 1714 771 Frequency Sweep;
+#X obj 480 47 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 433 14 r \$0-main-freq-sweep;
+#X obj 1629 675 s \$0-main-freq-sweep;
+#X obj 1610 627 line;
+#X obj 1911 558 print;
+#X obj 1864 435 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1709 431 print;
+#X text 1612 741 UI:;
+#X text 1655 311 TO BE IMPLEMENTED;
+#X connect 0 0 57 0;
+#X connect 1 0 12 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
+#X connect 6 0 2 1;
+#X connect 6 0 58 0;
+#X connect 6 0 67 0;
+#X connect 7 0 18 0;
+#X connect 8 0 11 0;
+#X connect 9 0 5 0;
+#X connect 10 0 6 1;
+#X connect 11 0 9 0;
+#X connect 12 0 58 0;
+#X connect 13 0 15 0;
+#X connect 14 0 10 0;
+#X connect 15 0 17 0;
+#X connect 16 0 14 0;
+#X connect 17 0 16 0;
+#X connect 18 0 17 0;
+#X connect 18 1 16 1;
+#X connect 18 1 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 14 0;
+#X connect 25 0 24 0;
+#X connect 26 0 23 0;
+#X connect 31 0 34 0;
+#X connect 32 0 33 0;
+#X connect 35 0 22 0;
+#X connect 35 1 23 0;
+#X connect 35 2 33 0;
+#X connect 36 0 0 0;
+#X connect 36 1 0 1;
+#X connect 57 0 54 0;
+#X connect 59 0 32 0;
+#X connect 60 0 26 0;
+#X connect 61 0 31 0;
+#X connect 62 0 25 0;
+#X connect 63 0 8 0;
+#X connect 64 0 8 0;
+#X connect 65 0 13 0;
+#X connect 66 0 13 0;
+#X connect 68 0 38 0;
+#X connect 69 0 36 0;
+#X connect 70 0 74 0;
+#X connect 71 0 75 0;
+#X connect 72 0 76 0;
+#X connect 73 0 77 0;
+#X connect 74 0 90 0;
+#X connect 75 0 90 0;
+#X connect 76 0 90 0;
+#X connect 77 0 90 0;
+#X connect 78 0 80 0;
+#X connect 79 0 82 0;
+#X connect 80 0 90 0;
+#X connect 81 0 85 0;
+#X connect 82 0 90 0;
+#X connect 83 0 87 0;
+#X connect 84 0 86 0;
+#X connect 85 0 90 0;
+#X connect 86 0 90 0;
+#X connect 87 0 90 0;
+#X connect 88 0 89 0;
+#X connect 89 0 90 0;
+#X connect 91 0 23 0;
+#X connect 105 0 106 0;
+#X connect 105 0 111 1;
+#X connect 108 0 107 0;
+#X connect 108 0 112 1;
+#X connect 111 0 123 0;
+#X connect 111 0 134 0;
+#X connect 112 0 126 0;
+#X connect 114 0 122 0;
+#X connect 115 0 114 0;
+#X connect 119 0 120 0;
+#X connect 119 0 121 1;
+#X connect 121 0 126 1;
+#X connect 122 0 112 0;
+#X connect 122 1 124 0;
+#X connect 122 2 111 0;
+#X connect 122 2 136 0;
+#X connect 123 0 133 0;
+#X connect 124 0 121 0;
+#X connect 125 0 133 0;
+#X connect 126 0 125 0;
+#X connect 131 0 130 0;
+#X connect 131 0 23 0;
+#X connect 133 0 132 0;
+#X connect 135 0 111 0;
+#X coords 0 -1 1 1 600 625 2 100 100;
+#X restore 578 108 pd sound_gen_amp_demo;
+#X text 101 133 In the sub-modules below you will explore two fundamental
+components of a sound wave: it's amplitude and it's frequency. Click
+on a module (a box labelled "pd" with a section title) to read about
+these aspects and interact with hands on tools which will allow you
+to see these sound aspects in action. Additionally you can control
+a sound wave generator to the right of this text \, allowing you to
+manipulate the generator's frequency and amplitude., f 75;
+#N canvas 207 23 641 463 02_LINEAR_VS_LOGARITHMIC_SCALES 0;
+#X text 12 4 LINEAR VS. LOGARITHMIC PERCEPTION SCALES, f 73;
+#X text 12 24 Below are two graphs \, one of a linear scale and one
+of a logarithmic scale (these graphs are strictly for demonstration
+\, and do not represent tested values). For both graphs the x-axis
+represents sound pressure level \, while the y-axis represents our
+perception of the sound pressure level. We will look at the linear
+graph first. On the x-axis \, trace a straight line vertically from
+the sound pressure level of 50 until you hit the graphed line. Now
+trace a line left horizontally until you reach the labelled y-axis.
+You will find that the line you trace lands right around 50 on the
+perceived level scale. So if our ears heard linearly \, then a sound
+pressure level of 50 would be perceived as a sound pressure level of
+50 However \, our ears do not hear this way \, our ears hear more like
+the logarithmic graph. Trace the same line as you did on the linear
+graph \, this time on the logarithmic graph. You will find that a sound
+pressure level of 50 results in a perceived level of around 25 While
+this graph is for demonstration only \, it does give us a rough estimate
+of how our ears hear sound pressure level. On the lower end of sound
+pressure levels \, large changes in SPL don’t register as drastic
+of a change in perceived level. However \, as sound pressure levels
+increase \, change in sound pressure level show a much more dramatic
+change in perceived level., f 98;
+#N canvas 2240 -72 1379 796 linear_log 0;
+#X msg 1140 208 100 5000;
+#X obj 1140 250 t f f;
+#X obj 1140 273 tabwrite linear;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array linear 100 float 3;
+#A 0 0.8 1.6 2.8 3.6 4.8 5.6 6.8 7.6 8.8 9.6 10.8 11.6 12.8 13.6 14.8
+15.6 16.8 17.6 18.8 19.6 20.8 21.6 22.8 23.6 24.8 25.6 26.8 27.6 28.8
+29.6 30.8 31.6 32.8 33.6 34.8 35.6 36.8 37.6 38.8 39.6 40.8 41.6 42.8
+43.6 44.8 45.6 46.8 47.6 48.8 49.6 50.8 51.6 52.8 53.6 54.8 55.6 56.8
+57.6 58.8 59.6 60.8 61.6 62.8 63.6 64.8 65.6 66.8 67.6 68.8 69.6 70.8
+71.6 72.8 73.6 74.8 75.6 76.8 77.6 78.8 79.6 80.8 81.6 82.8 83.6 84.8
+85.6 86.8 87.6 88.8 89.6 90.8 91.6 92.8 93.6 94.8 95.6 96.8 97.6 98.8
+100;
+#X coords 0 100 100 0 200 140 1 0 0;
+#X restore 178 121 graph;
+#X msg 1256 256 \; linear yticks 0 25 5;
+#X obj 1256 206 loadbang;
+#X msg 1140 428 100 5000;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array logarithmic 100 float 3;
+#A 0 0.64 2.56 7.84 12.96 23.04 31.36 46.24 57.76 77.44 92.16 116.64
+134.56 163.84 184.96 219.04 243.36 282.24 309.76 353.44 384.16 432.64
+466.56 519.84 556.96 615.04 655.36 718.24 761.76 829.44 876.16 948.64
+998.56 1075.84 1128.96 1211.04 1267.36 1354.24 1413.76 1505.44 1568.16
+1664.64 1730.56 1831.84 1900.96 2007.04 2079.36 2190.24 2265.76 2381.44
+2460.16 2580.64 2662.56 2787.84 2872.96 3003.04 3091.36 3226.24 3317.76
+3457.44 3552.16 3696.64 3794.56 3943.84 4044.96 4199.04 4303.36 4462.24
+4569.76 4733.44 4844.16 5012.64 5126.56 5299.84 5416.96 5595.04 5715.36
+5898.24 6021.76 6209.44 6336.16 6528.64 6658.56 6855.84 6988.96 7191.04
+7327.36 7534.24 7673.76 7885.44 8028.16 8244.64 8390.56 8611.84 8760.96
+8987.04 9139.36 9370.24 9525.76 9761.44 10000;
+#X coords 0 10000 100 0 200 140 2 0 0;
+#X restore 462 120 graph;
+#X obj 1256 426 loadbang;
+#X obj 1140 515 t f b;
+#X obj 1192 541 f;
+#X obj 1140 493 *;
+#X obj 1140 470 t f f f;
+#X obj 1140 566 tabwrite logarithmic;
+#X obj 1140 449 line 0;
+#X obj 1140 229 line 0;
+#X msg 1256 447 \; logarithmic xticks 0 25 5;
+#X msg 1256 479 \; logarithmic yticks 0 500 5;
+#X msg 1256 225 \; linear xticks 0 25 10;
+#X text 457 262 0;
+#X text 220 262 25;
+#X text 269 262 50;
+#X text 319 262 75;
+#X text 364 262 100;
+#X text 449 250 0;
+#X text 443 216 25;
+#X text 443 180 50;
+#X text 443 147 75;
+#X text 438 114 100;
+#X text 173 263 0;
+#X text 165 253 0;
+#X text 159 219 25;
+#X text 159 183 50;
+#X text 159 148 75;
+#X text 154 116 100;
+#X text 500 262 25;
+#X text 549 261 50;
+#X text 599 261 75;
+#X text 644 261 100;
+#X text 103 173 Perceived;
+#X text 103 185 Level;
+#X text 383 173 Perceived;
+#X text 383 185 Level;
+#X text 211 278 Sound Pressure Level;
+#X text 491 278 Sound Pressure Level;
+#X connect 0 0 15 0;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 5 0 18 0;
+#X connect 5 0 4 0;
+#X connect 6 0 14 0;
+#X connect 8 0 16 0;
+#X connect 8 0 17 0;
+#X connect 9 0 13 0;
+#X connect 9 1 10 0;
+#X connect 10 0 13 1;
+#X connect 11 0 9 0;
+#X connect 12 0 11 0;
+#X connect 12 1 11 1;
+#X connect 12 2 10 1;
+#X connect 14 0 12 0;
+#X connect 15 0 1 0;
+#X coords 0 -1 1 1 570 200 2 100 100;
+#X restore 15 210 pd linear_log;
+#X restore 125 325 pd 02_LINEAR_VS_LOGARITHMIC_SCALES;
+#N canvas 207 23 1037 832 03_THE_DECIBEL 0;
+#X text 3 1 THE DECIBEL, f 73;
+#X text 3 104 The tricky element of the decibel is that it doesn’t
+actually represent a physical quantity \, it represents a ratio between
+a measured quantity and a reference level. Therefore \, when we use
+decibels we need to know what this reference level is. This sounds
+confusing \, but fortunately with digital audio we generally only deal
+with 2 different decibel scales. When we reference a decibel scale
+it should be followed an abbreviation telling us what the reference
+is. The first decibel scale we will discuss is dB SPL \, which we know
+from above stands for sound pressure level. With dB SPL \, the reference
+level is the threshold of human hearing \, i.e. the point at which
+we can hear the softest sound. We mark this as 0 dB SPL. This scale
+goes from this threshold to the threshold of pain \, around 140 dB
+SPL. This is the point where sounds can damage the ear. Below is a
+chart of sounds and their associated SPL in dB., f 97;
+#X text 3 671 The other point where we use decibels in digital audio
+is when we are working in a DIGITAL AUDIO WORKSTATION (DAW). A DAW
+is a type of audio software that contains an entire virtual recording
+studio inside a computer – complete with tracks to record to and
+faders to mix with. We will use the DAW REAPER later in the semester.
+When we are monitoring how loud a signal is in \, our DAW will report
+its level in dB. However \, DAWs as well as digital audio mixers don’t
+report signals in dB SPL. Instead they use a decibel scale called DIGITAL
+FULL SCALE \, abbreviated FS. With dB FS \, our digital workstation
+reports maximum level our digital device can handle as 0 dB FS. This
+is the same level as the linear amplitude value of 1 We will discuss
+digital audio in another class \, but all digital audio systems have
+a max level they can handle \, and this is represented as 0 dB FS.
+In a DAW \, all signals below this will have a negative number \, usually
+going as low as -60 or -90 dB FS. A second sound generator is found
+below \, this time with what we call a METER \, a device that indicates
+signal level in dB FS. Turn the sound generator and adjust the generator’s
+linear amplitude with the fader \, and watch the corresponding level
+in dB FS as indicated by the meter., f 97;
+#N canvas 1493 -130 860 714 sound_gen_amp_demo 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array amp-demo-scope-wdbfs-\$0 250 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 250 -1 200 140 1 0 0;
+#X restore 292 120 graph;
+#X obj 785 369 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 614 490 dac~ 1 2;
+#X obj 785 392 metro 100;
+#X obj 785 323 loadbang;
+#X msg 785 344 1;
+#X obj 614 33 osc~ 440;
+#X obj 614 264 *~;
+#X obj 614 363 *~;
+#X obj 647 288 tgl 15 0 empty amp-demo-onoff-0 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 117 105 tgl 15 0 amp-demo-onoff-0 empty empty 17 7 0 10 -4032
+-1 -1 0 1;
+#X text 139 104 Sound Generator On/Off;
+#X obj 117 130 vsl 15 120 0 2 0 0 \$0-amp_demo empty empty 0 -9 0 10
+-4032 -1 -1 595 1;
+#X obj 699 50 vsl 15 128 0 2 0 1 empty \$0-amp_demo empty 0 -9 0 10
+-262144 -1 -1 635 1;
+#X obj 699 207 line;
+#X obj 647 341 line~;
+#X msg 647 314 \$1 250;
+#X msg 699 186 \$1 50;
+#X obj 44 22 loadbang;
+#X msg 73 43 0;
+#X obj 108 257 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0.1 256;
+#X text 104 308 Note: Typed in numbers will not be reflected by a change
+in the fader's position, f 32;
+#X obj 697 439 tabwrite~ amp-demo-scope-wdbfs-\$0;
+#N canvas 3321 201 450 300 linamptodbfs 0;
+#X obj 133 125 log;
+#X obj 133 146 / 2.303;
+#X obj 133 167 * 20;
+#X obj 133 74 inlet;
+#X obj 133 224 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 0 0;
+#X restore 745 185 pd linamptodbfs;
+#X text 105 272 Amplitude;
+#X text 105 282 (Linear);
+#X obj 209 129 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 745 208 s dbfs-\$0;
+#X obj 198 257 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 -19.9964 256;
+#X obj 624 186 s linamp-\$0;
+#X obj 20 228 r linamp-\$0;
+#X obj 20 152 r dbfs-\$0;
+#X msg 44 68 0.1;
+#X text 195 272 Amplitude;
+#X text 199 282 (dB FS);
+#X connect 1 0 3 0;
+#X connect 3 0 22 0;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 2 0;
+#X connect 8 0 2 1;
+#X connect 8 0 22 0;
+#X connect 9 0 16 0;
+#X connect 13 0 17 0;
+#X connect 13 0 23 0;
+#X connect 13 0 29 0;
+#X connect 14 0 7 1;
+#X connect 15 0 8 1;
+#X connect 16 0 15 0;
+#X connect 17 0 14 0;
+#X connect 18 0 19 0;
+#X connect 18 0 32 0;
+#X connect 19 0 10 0;
+#X connect 23 0 27 0;
+#X connect 30 0 20 0;
+#X connect 31 0 26 0;
+#X connect 31 0 28 0;
+#X connect 32 0 12 0;
+#X coords 0 -1 1 1 400 250 2 100 100;
+#X restore 607 576 pd sound_gen_amp_demo;
+#X text 3 21 Sound pressure level can be measured in a multitude of
+ways \, and since level is a physical quantity \, these levels will
+be a linear reading \, because a measurement tool is simply reporting
+changes in sound pressure level. While actual sound pressure levels
+are measured linearly \, our ears do not hear these levels linearly.
+Therefore \, acousticians developed a scale that better reflects how
+we hear \, called the DECIBEL. The decibel scale (abbreviated dB) tames
+the huge scale of numbers that are recorded when monitoring sound pressure
+levels with measurement equipment and shifts these linear readings
+into a logarithmic scale., f 97;
+#X text 96 619 https://www.quora.com/How-much-sound-do-we-bear-in-decibels-What-are-the-levels-of-sound-in-DB-produced-by-planes-trains-crackers-guitar-etc
+;
+#X obj 281 415 ggee/image db_spl_edit.gif;
+#X restore 125 371 pd 03_THE_DECIBEL;
+#N canvas 224 97 1035 583 01_SOUND_PRESSURE_LEVEL_AND_AMPLITUDE 0;
+#X text 7 24 If you have ever plucked a guitar string or hit a drum
+\, you likely noticed that the harder you hit or plucked resulted in
+a louder sound. While if you plucked or hit the objects with less intensity
+\, it might have sounded softer. When a string is plucked harder \,
+this means when it vibrates it moves farther from its resting point
+(the point where it sits when not vibrating). This causes the string
+to push the air molecules around it farther \, creating a greater pressure
+build up. In our sound wave graph we map the amount of pressure above
+the atmospheric pressure caused by the vibrating object in the y axis
+\, depicting the wave’s compression and rarefaction. This aspect
+of the wave is known as the wave’s AMPLITUDE. When we talk about
+amplitude \, we often graph it abstractly between +1 and -1 \, at which
+these points are the MAXIMUM points that some system can have. This
+system can be our computer \, a recording studio \, or our ear \, it
+all depends on the context!, f 98;
+#X text 7 154 When mapping the sound pressure level to a scale of +1
+to -1 \, we call it LINEAR AMPLITUDE. It makes using computers to calculate
+it very easy \, and it also makes a lot of sense when we manipulate
+it (as we will see). For example \, we can set the sound wave to half
+its amplitude by setting the amplitude to 0.5 (or dividing all of the
+amplitude points by 2). When we discuss the amplitude of a wave at
+a certain point \, we talk about the absolute value max peak of a cycle.
+For example if a wave goes from +0.7 to -0.9 \, we are going to take
+the absolute value of those points and report the peak \, so this example
+wave would have an amplitude of 0.9., f 98;
+#X text 7 244 To the right is a small controllable sound generator.
+Press the “On” button to turn the generator on and adjust the wave’s
+amplitude with the fader labelled “AMP” by clicking and dragging
+on the middle line. You will see the wave displayed next to the fader.
+As the amplitude increases from 0 \, the sound will get louder. At
+1 the wave is as loud as your computer can handle \, so going above
+this level will create a very distorted sound., f 98;
+#X text 7 4 SOUND PRESSURE LEVEL AND AMPLITUDE, f 73;
+#N canvas 1440 -209 1920 1035 demonstration.wave 0;
+#X floatatom 690 375 0 0 0 0 - - -;
+#X obj 845 296 trigger f f;
+#X obj 945 383 + 1;
+#X obj 908 347 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 845 237 line;
+#X obj 908 382 f 0;
+#X msg 945 348 0;
+#X obj 945 270 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 845 216 0 \, 1000 10000;
+#X obj 980 188 loadbang;
+#X obj 845 188 loadbang;
+#X obj 690 347 expr sin(2 * 3.14159 * $f1 / 360);
+#X text 251 340 0.5;
+#X text 332 340 1;
+#X text 403 340 1.5;
+#X text 483 340 2;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array demo_soundwave_freq-amp 360 float 1;
+#A 0 0.0348995 0.0697564 0.104528 0.139173 0.173648 0.207912 0.241922
+0.275637 0.309017 0.34202 0.374606 0.406736 0.438371 0.469471 0.5 0.529919
+0.559192 0.587785 0.615661 0.642787 0.66913 0.694658 0.719339 0.743144
+0.766044 0.78801 0.809017 0.829037 0.848048 0.866025 0.882947 0.898794
+0.913545 0.927184 0.939692 0.951056 0.961261 0.970295 0.978147 0.984808
+0.990268 0.994522 0.997564 0.999391 1 0.999391 0.997564 0.994522 0.990268
+0.984808 0.978148 0.970296 0.961262 0.951057 0.939693 0.927184 0.913546
+0.898795 0.882948 0.866026 0.848049 0.829039 0.809018 0.788012 0.766046
+0.743146 0.719341 0.69466 0.669132 0.642789 0.615663 0.587787 0.559195
+0.529921 0.500002 0.469473 0.438373 0.406739 0.374609 0.342022 0.309019
+0.27564 0.241924 0.207914 0.173651 0.139175 0.104531 0.0697588 0.0349018
+2.53518e-06 -0.034897 -0.069754 -0.104526 -0.139171 -0.173645 -0.207909
+-0.241919 -0.275635 -0.309014 -0.342017 -0.374604 -0.406734 -0.438368
+-0.469469 -0.499997 -0.529917 -0.55919 -0.587783 -0.615659 -0.642785
+-0.669128 -0.694656 -0.719338 -0.743143 -0.766042 -0.788009 -0.809015
+-0.829036 -0.848046 -0.866024 -0.882946 -0.898792 -0.913544 -0.927183
+-0.939691 -0.951055 -0.961261 -0.970295 -0.978147 -0.984807 -0.990268
+-0.994521 -0.997564 -0.999391 -1 -0.999391 -0.997564 -0.994522 -0.990269
+-0.984808 -0.978148 -0.970297 -0.961263 -0.951058 -0.939694 -0.927185
+-0.913547 -0.898796 -0.88295 -0.866027 -0.848051 -0.82904 -0.809019
+-0.788013 -0.766047 -0.743148 -0.719343 -0.694662 -0.669134 -0.642791
+-0.615665 -0.587789 -0.559197 -0.529923 -0.500004 -0.469476 -0.438375
+-0.406741 -0.374611 -0.342025 -0.309021 -0.275642 -0.241926 -0.207917
+-0.173653 -0.139178 -0.104533 -0.0697611 -0.0349048 -5.07036e-06 0.0348942
+0.0697515 0.104524 0.139168 0.173643 0.207906 0.241917 0.275632 0.309012
+0.342015 0.374602 0.406732 0.438366 0.469467 0.499995 0.529914 0.559188
+0.587781 0.615657 0.642783 0.669126 0.694654 0.719336 0.743141 0.766041
+0.788007 0.809013 0.829034 0.848045 0.866023 0.882945 0.898791 0.913543
+0.927182 0.939691 0.951055 0.96126 0.970294 0.978146 0.984807 0.990267
+0.994521 0.997564 0.999391 1 0.999391 0.997564 0.994523 0.990269 0.984809
+0.978149 0.970297 0.961264 0.951058 0.939695 0.927186 0.913548 0.898797
+0.882951 0.866029 0.848052 0.829041 0.809021 0.788015 0.766049 0.743149
+0.719345 0.694663 0.669136 0.642793 0.615667 0.587791 0.559199 0.529925
+0.500006 0.469478 0.438377 0.406743 0.374613 0.342027 0.309024 0.275644
+0.241929 0.207919 0.173656 0.139181 0.104535 0.0697637 0.0349069 7.60554e-06
+-0.0348917 -0.0697485 -0.104521 -0.139166 -0.173641 -0.207904 -0.241914
+-0.27563 -0.30901 -0.342013 -0.374599 -0.406729 -0.438364 -0.469465
+-0.499993 -0.529913 -0.559186 -0.587779 -0.615656 -0.642782 -0.669124
+-0.694652 -0.719334 -0.743139 -0.766039 -0.788005 -0.809012 -0.829033
+-0.848044 -0.866022 -0.882944 -0.89879 -0.913542 -0.927181 -0.93969
+-0.951054 -0.961259 -0.970294 -0.978146 -0.984806 -0.990267 -0.994521
+-0.997563 -0.999391 -1 -0.999391 -0.997565 -0.994523 -0.990269 -0.984809
+-0.978149 -0.970298 -0.961264 -0.95106 -0.939696 -0.927188 -0.913549
+-0.898798 -0.882952 -0.86603 -0.848053 -0.829043 -0.809022 -0.788016
+-0.76605 -0.743152 -0.719347 -0.694665 -0.669138 -0.642795 -0.615669
+-0.587793 -0.559201 -0.529927 -0.500008 -0.46948 -0.438381 -0.406746
+-0.374616 -0.34203 -0.309027 -0.275647 -0.241931 -0.207921 -0.173657
+-0.139182 -0.104538 -0.0697671 -0.0349104 -0.98481;
+#X array demo_soundwave_freq-amp1 360 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 359 -1 300 200 1 0 0;
+#X restore 187 138 graph;
+#X obj 981 118 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 184 340 0;
+#X text 293 354 Time (Seconds);
+#X text 167 329 -1;
+#X text 155 280 -0.5;
+#X text 172 133 1;
+#X text 160 181 0.5;
+#X text 172 231 0;
+#X text 101 226 Amplitude;
+#X text 104 237 (Linear);
+#X text 869 115 Initialization:;
+#X obj 719 414 tabwrite demo_soundwave_freq-amp;
+#X msg 980 219 \; demo_soundwave_freq-amp xticks 0 90 1;
+#X msg 981 262 \; demo_soundwave_freq-amp yticks 0 0.1 5;
+#X msg 1018 313 \; demo_soundwave_freq-amp1 const 0;
+#X connect 0 0 28 0;
+#X connect 1 0 11 0;
+#X connect 1 1 3 0;
+#X connect 2 0 5 1;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;
+#X connect 5 0 2 0;
+#X connect 5 0 28 1;
+#X connect 6 0 5 1;
+#X connect 7 0 6 0;
+#X connect 8 0 4 0;
+#X connect 8 0 7 0;
+#X connect 9 0 29 0;
+#X connect 9 0 30 0;
+#X connect 10 0 8 0;
+#X connect 11 0 0 0;
+#X connect 17 0 8 0;
+#X connect 17 0 29 0;
+#X connect 17 0 31 0;
+#X coords 0 -1 1 1 400 275 2 100 100;
+#X restore 614 8 pd demonstration.wave;
+#N canvas 1493 -130 860 714 sound_gen_amp_demo 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array amp-demo-scope-\$0 250 float 3;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 250 -1 200 140 1 0 0;
+#X restore 292 120 graph;
+#X obj 785 369 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 614 490 dac~ 1 2;
+#X obj 785 392 metro 100;
+#X obj 785 323 loadbang;
+#X msg 785 344 1;
+#X obj 614 33 osc~ 440;
+#X obj 614 264 *~;
+#X obj 614 363 *~;
+#X obj 647 288 tgl 15 0 empty amp-demo-onoff-0 empty 17 7 0 10 -262144
+-1 -1 0 1;
+#X obj 117 105 tgl 15 0 amp-demo-onoff-0 empty empty 17 7 0 10 -4032
+-1 -1 0 1;
+#X text 139 104 Sound Generator On/Off;
+#X obj 117 130 vsl 15 128 0 2 0 0 \$0-amp_demo empty empty 0 -9 0 10
+-4032 -1 -1 0 1;
+#X obj 699 50 vsl 15 128 0 2 0 1 empty \$0-amp_demo empty 0 -9 0 10
+-262144 -1 -1 635 1;
+#X obj 699 207 line;
+#X obj 647 341 line~;
+#X msg 647 314 \$1 250;
+#X msg 699 186 \$1 50;
+#X text 105 282 Amplitude;
+#X obj 697 439 tabwrite~ amp-demo-scope-\$0;
+#X obj 73 22 loadbang;
+#X msg 73 43 0;
+#X obj 108 267 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0.1 256;
+#X text 104 304 Note: Typed in numbers will not be reflected by a change
+in the fader's position, f 32;
+#X connect 1 0 3 0;
+#X connect 3 0 19 0;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 2 0;
+#X connect 8 0 2 1;
+#X connect 8 0 19 0;
+#X connect 9 0 16 0;
+#X connect 13 0 17 0;
+#X connect 13 0 22 0;
+#X connect 14 0 7 1;
+#X connect 15 0 8 1;
+#X connect 16 0 15 0;
+#X connect 17 0 14 0;
+#X connect 20 0 21 0;
+#X connect 21 0 10 0;
+#X coords 0 -1 1 1 400 250 2 100 100;
+#X restore 615 299 pd sound_gen_amp_demo;
+#X text 7 314 Talking about amplitude as a linear system is a problem
+\, because our ear unfortunately doesn’t hear linearly \, our ears
+perceive sound LOGARITHMICALLY. This introduction to acoustics attempts
+to keep as much math out of the discussion as possible \, so I will
+(try) to convey this concept as succinctly as possible (my apologies
+to anyone with a solid background in mathematics). In the next module
+we will briefly introduce the concept of the logarithmic scale \, and
+then we will see how it applies to amplitude., f 98;
+#X text 7 394 Close this window to move on to the next module., f
+98;
+#X restore 125 279 pd 01_SOUND_PRESSURE_LEVEL_AND_AMPLITUDE;
+#N canvas 55 23 1035 370 04_FREQUENCY_AND_PITCH 0;
+#N canvas 80 171 1413 855 demonstration.wave 0;
+#X floatatom 779 416 0 0 0 0 - - -;
+#X obj 934 337 trigger f f;
+#X obj 1034 424 + 1;
+#X obj 997 388 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 934 278 line;
+#X obj 997 423 f 0;
+#X msg 1034 389 0;
+#X obj 1034 311 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 934 257 0 \, 1000 10000;
+#X obj 1069 229 loadbang;
+#X obj 934 229 loadbang;
+#X obj 779 388 expr sin(2 * 3.14159 * $f1 / 360);
+#X text 251 340 0.5;
+#X text 332 340 1;
+#X text 403 340 1.5;
+#X text 483 340 2;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array demo_soundwave_freq-amp-\$0 360 float 1;
+#A 0 0.0348995 0.0697564 0.104528 0.139173 0.173648 0.207912 0.241922
+0.275637 0.309017 0.34202 0.374606 0.406736 0.438371 0.469471 0.5 0.529919
+0.559192 0.587785 0.615661 0.642787 0.66913 0.694658 0.719339 0.743144
+0.766044 0.78801 0.809017 0.829037 0.848048 0.866025 0.882947 0.898794
+0.913545 0.927184 0.939692 0.951056 0.961261 0.970295 0.978147 0.984808
+0.990268 0.994522 0.997564 0.999391 1 0.999391 0.997564 0.994522 0.990268
+0.984808 0.978148 0.970296 0.961262 0.951057 0.939693 0.927184 0.913546
+0.898795 0.882948 0.866026 0.848049 0.829039 0.809018 0.788012 0.766046
+0.743146 0.719341 0.69466 0.669132 0.642789 0.615663 0.587787 0.559195
+0.529921 0.500002 0.469473 0.438373 0.406739 0.374609 0.342022 0.309019
+0.27564 0.241924 0.207914 0.173651 0.139175 0.104531 0.0697588 0.0349018
+2.53518e-06 -0.034897 -0.069754 -0.104526 -0.139171 -0.173645 -0.207909
+-0.241919 -0.275635 -0.309014 -0.342017 -0.374604 -0.406734 -0.438368
+-0.469469 -0.499997 -0.529917 -0.55919 -0.587783 -0.615659 -0.642785
+-0.669128 -0.694656 -0.719338 -0.743143 -0.766042 -0.788009 -0.809015
+-0.829036 -0.848046 -0.866024 -0.882946 -0.898792 -0.913544 -0.927183
+-0.939691 -0.951055 -0.961261 -0.970295 -0.978147 -0.984807 -0.990268
+-0.994521 -0.997564 -0.999391 -1 -0.999391 -0.997564 -0.994522 -0.990269
+-0.984808 -0.978148 -0.970297 -0.961263 -0.951058 -0.939694 -0.927185
+-0.913547 -0.898796 -0.88295 -0.866027 -0.848051 -0.82904 -0.809019
+-0.788013 -0.766047 -0.743148 -0.719343 -0.694662 -0.669134 -0.642791
+-0.615665 -0.587789 -0.559197 -0.529923 -0.500004 -0.469476 -0.438375
+-0.406741 -0.374611 -0.342025 -0.309021 -0.275642 -0.241926 -0.207917
+-0.173653 -0.139178 -0.104533 -0.0697611 -0.0349048 -5.07036e-06 0.0348942
+0.0697515 0.104524 0.139168 0.173643 0.207906 0.241917 0.275632 0.309012
+0.342015 0.374602 0.406732 0.438366 0.469467 0.499995 0.529914 0.559188
+0.587781 0.615657 0.642783 0.669126 0.694654 0.719336 0.743141 0.766041
+0.788007 0.809013 0.829034 0.848045 0.866023 0.882945 0.898791 0.913543
+0.927182 0.939691 0.951055 0.96126 0.970294 0.978146 0.984807 0.990267
+0.994521 0.997564 0.999391 1 0.999391 0.997564 0.994523 0.990269 0.984809
+0.978149 0.970297 0.961264 0.951058 0.939695 0.927186 0.913548 0.898797
+0.882951 0.866029 0.848052 0.829041 0.809021 0.788015 0.766049 0.743149
+0.719345 0.694663 0.669136 0.642793 0.615667 0.587791 0.559199 0.529925
+0.500006 0.469478 0.438377 0.406743 0.374613 0.342027 0.309024 0.275644
+0.241929 0.207919 0.173656 0.139181 0.104535 0.0697637 0.0349069 7.60554e-06
+-0.0348917 -0.0697485 -0.104521 -0.139166 -0.173641 -0.207904 -0.241914
+-0.27563 -0.30901 -0.342013 -0.374599 -0.406729 -0.438364 -0.469465
+-0.499993 -0.529913 -0.559186 -0.587779 -0.615656 -0.642782 -0.669124
+-0.694652 -0.719334 -0.743139 -0.766039 -0.788005 -0.809012 -0.829033
+-0.848044 -0.866022 -0.882944 -0.89879 -0.913542 -0.927181 -0.93969
+-0.951054 -0.961259 -0.970294 -0.978146 -0.984806 -0.990267 -0.994521
+-0.997563 -0.999391 -1 -0.999391 -0.997565 -0.994523 -0.990269 -0.984809
+-0.978149 -0.970298 -0.961264 -0.95106 -0.939696 -0.927188 -0.913549
+-0.898798 -0.882952 -0.86603 -0.848053 -0.829043 -0.809022 -0.788016
+-0.76605 -0.743152 -0.719347 -0.694665 -0.669138 -0.642795 -0.615669
+-0.587793 -0.559201 -0.529927 -0.500008 -0.46948 -0.438381 -0.406746
+-0.374616 -0.34203 -0.309027 -0.275647 -0.241931 -0.207921 -0.173657
+-0.139182 -0.104538 -0.0697671 -0.0349104 -0.98481;
+#X array demo_soundwave_freq_amp-\$0 360 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 359 -1 300 200 2 0 0;
+#X restore 187 138 graph;
+#X text 184 340 0;
+#X text 293 354 Time (Seconds);
+#X text 167 329 -1;
+#X text 155 280 -0.5;
+#X text 172 133 1;
+#X text 160 181 0.5;
+#X text 172 231 0;
+#X text 101 226 Amplitude;
+#X text 104 237 (Linear);
+#X text 869 115 Initialization:;
+#X obj 1069 253 list \$0;
+#X text 1134 235 [list] trick where \, when receiving a bang \, it
+creates a list with just the element that is the argument. This can
+be used as a replaceable element in message box \, which does not accept
+\$0;
+#X msg 1100 304 \; demo_soundwave_freq-amp-\$1 xticks 0 90 1;
+#X msg 1069 442 \; demo_soundwave_freq-amp-\$1 yticks 0 0.1 5;
+#X obj 808 455 tabwrite demo_soundwave_freq-amp-\$0;
+#X msg 1125 381 \; demo_soundwave_freq-amp-\$1 const 1;
+#X connect 0 0 31 0;
+#X connect 1 0 11 0;
+#X connect 1 1 3 0;
+#X connect 2 0 5 1;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;
+#X connect 5 0 2 0;
+#X connect 5 0 31 1;
+#X connect 6 0 5 1;
+#X connect 7 0 6 0;
+#X connect 8 0 4 0;
+#X connect 8 0 7 0;
+#X connect 9 0 27 0;
+#X connect 10 0 8 0;
+#X connect 11 0 0 0;
+#X connect 27 0 29 0;
+#X connect 27 0 30 0;
+#X connect 27 0 32 0;
+#X coords 0 -1 1 1 400 275 2 100 100;
+#X restore 611 6 pd demonstration.wave;
+#X text 4 22 When graphing the sound wave \, the horizontal/x axis
+is labelled “Time”. As we learned in the previous module \, the
+y-axis depicts amplitude \, so when we graph a sound wave like this
+we are graphing the change in amplitude over time. We call this type
+of graphical representation of a sound wave as the TIME DOMAIN \, and
+we will learn of another representation later. Time has a very strong
+effect on our perception of a sound. The change in amplitude over time
+is a major signifier in how we determine a sound’s source (more about
+that in the “Envelope” module)., f 98;
+#X text 4 102 Another element that is highly dependent on time is the
+sound’s PITCH. Pitch is a purely perceptual (i.e. not scientifically
+quantifiable) element of sound that allows us to order sounds as higher
+or lower in pitch. A vivid example of this is in music: some sounds
+are pitched higher (such as flute playing a note) while other sounds
+are pitched lower (a tuba playing a note). This also exists with natural
+sounds. The cracking sounds from two branches that snap off a tree
+due to heavy snowfall may sound different in pitch because the branches
+are different sizes. Animal calls differ in pitch \, from the melodies
+of bird calls to the drastic different in pitch between the calls of
+a lion and a domestic cat. How does time play into our perception of
+pitch? It is very closely tied to the time dependent element of sound
+wave called FREQUENCY., f 98;
+#X text 4 217 As mentioned earlier \, pitch cannot be easily quantified
+\, and it is based primarily on perception. However \, pitch is predominantly
+influenced by an element of a sound wave that is quantifiable: the
+sound wave’s FREQUENCY. Frequency is based on sound wave’s CYCLE.
+When a wave’s amplitude makes a full compression and rarefaction
+and then returns to 0 \, we call this cycle. A wave’s frequency is
+the number of full cycles it completed in one second. We use the unit
+Hertz (Hz) to describe the number of cycles per second a sound wave
+exhibits. Look at the graph to the right of and trace an imaginary
+line up from the 1 second mark \, and then check how many full cycles
+of the sound wave happen in that one second. You will notice that only
+one full cycle is completed in one second. Therefore \, this sound
+wave has a frequency of 1 Hz. You will notice that the graph has two
+full cycles depicted \, over 2 seconds. If the graph instead represented
+1 whole second \, but still had the two cycles \, then we would say
+the frequency is 2 Hz., f 98;
+#X text 4 2 FREQUENCY AND PITCH - INTRODUCTION, f 73;
+#X restore 125 457 pd 04_FREQUENCY_AND_PITCH;
+#N canvas 499 43 613 260 05_HUMAN_HEARING_LIMITS-FREQUENCY 0;
+#X text 5 3 HUMAN HEARING LIMITS: FREQUENCY, f 73;
+#N canvas 181 23 1259 697 frequency.test 0;
+#X obj 710 131 trigger b b;
+#X obj 635 526 osc~;
+#X obj 635 635 dac~ 1 2;
+#X obj 635 559 *~ 0.5;
+#X msg 929 282 440;
+#X obj 874 498 line;
+#X obj 710 238 trigger b b b b b, f 37;
+#X msg 819 368 0 50;
+#X obj 819 339 del 5000;
+#X obj 764 397 del 5050;
+#X obj 635 481 line;
+#X obj 764 432 del 5;
+#X text 906 497 Amp envelope;
+#X text 962 296 1 Calibration tone for 5 sec;
+#X obj 719 556 sel 22000;
+#X obj 719 577 delay 100;
+#X msg 719 598 0 100;
+#X obj 105 127 bng 15 250 50 0 start_test empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 101 103 Frequency Test;
+#X obj 176 127 nbx 5 15 -1e+37 1e+37 0 0 empty current_frequency empty
+15 10 0 10 -262144 -1 -1 0 256;
+#X obj 458 534 send current_frequency;
+#X msg 635 456 0 \, 22000 30000;
+#X obj 709 98 bng 15 250 50 0 empty start_test empty 17 7 0 10 -262144
+-1 -1;
+#X text 779 553 silence oscillator & turn off dsp when done;
+#X obj 710 152 del 100;
+#X text 126 127 Start;
+#X obj 331 128 hsl 64 15 0 10 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1260 1;
+#X obj 635 600 *~ 0.3;
+#X obj 458 571 receive \$0-volume;
+#X obj 458 592 / 10;
+#X floatatom 510 613 5 0 0 0 - - -, f 5;
+#X msg 764 453 1 50;
+#X obj 327 52 loadbang;
+#X msg 327 73 2;
+#X obj 457 643 line;
+#X text 234 122 Current;
+#X text 234 133 Frequency (Hz);
+#X floatatom 405 128 5 0 0 0 - - -, f 5;
+#X msg 405 67 set \$1;
+#X msg 405 166 set \$1;
+#X obj 328 199 send \$0-volume;
+#X text 441 127 Volume;
+#X msg 458 613 \$1 100;
+#X msg 874 313 0 100 \, 1 100;
+#X connect 0 0 24 0;
+#X connect 1 0 3 0;
+#X connect 3 0 27 0;
+#X connect 4 0 1 0;
+#X connect 4 0 20 0;
+#X connect 5 0 3 1;
+#X connect 6 1 9 0;
+#X connect 6 2 8 0;
+#X connect 6 3 43 0;
+#X connect 6 4 4 0;
+#X connect 7 0 5 0;
+#X connect 8 0 7 0;
+#X connect 9 0 11 0;
+#X connect 9 0 21 0;
+#X connect 10 0 1 0;
+#X connect 10 0 14 0;
+#X connect 10 0 20 0;
+#X connect 11 0 31 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 0 5 0;
+#X connect 21 0 10 0;
+#X connect 22 0 0 0;
+#X connect 24 0 6 0;
+#X connect 26 0 38 0;
+#X connect 26 0 40 0;
+#X connect 27 0 2 0;
+#X connect 27 0 2 1;
+#X connect 28 0 29 0;
+#X connect 29 0 30 0;
+#X connect 29 0 42 0;
+#X connect 31 0 5 0;
+#X connect 32 0 33 0;
+#X connect 33 0 26 0;
+#X connect 34 0 27 1;
+#X connect 37 0 40 0;
+#X connect 37 0 39 0;
+#X connect 38 0 37 0;
+#X connect 39 0 26 0;
+#X connect 42 0 34 0;
+#X connect 43 0 5 0;
+#X coords 0 -1 1 1 390 50 2 100 100;
+#X restore 93 183 pd frequency.test;
+#X text 5 23 Like with amplitude/SPL \, the human ear has limits to
+what frequencies it can hear. The human ear can only hear between approximately
+20 Hz and 20 \, 0 Hz. Some people can hear a little bit higher and
+a little bit lower \, particularly younger people. As we get older
+\, the range shrinks a bit. Your playback system also determines what
+frequencies you can hear - your headphones may only playback 20 Hz
+to 18 \, 0 Hz (hopefully your system can playback at least 20-20 \,
+0 Hz \, but it isn’t always guaranteed!). You can test your own ear’s
+frequency perception (or your playback system’s range) by using the
+module labelled “Frequency Test”. This module will play a sweep
+of frequencies from 0 Hz to 22000 Hz \, demonstrating this audible
+frequency range. It will first play a test tone that you should use
+to adjust your system settings (or use the volume slider) to set to
+a comfortable listening level. PLEASE NOTE that as the frequencies
+get very high \, they can be somewhat unpleasant to listen to. It is
+only for a brief moment \, but you should probably make sure there
+aren’t any other people or pets in the room if you are playing the
+test over speakers., f 98;
+#X restore 125 503 pd 05_HUMAN_HEARING_LIMITS-FREQUENCY;
+#N canvas 99 115 1250 687 06_PITCH_AND_OCTAVE 0;
+#N canvas 135 23 832 855 sound_gen_freq_demo 0;
+#N canvas 26 23 450 278 (subpatch) 0;
+#X array freq-demo-scope-\$0 445 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0;
+#X coords 0 1 444 -1 500 100 1 0 0;
+#X restore 180 324 graph;
+#X obj 1104 669 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 904 720 dac~ 1 2;
+#X obj 1104 623 loadbang;
+#X msg 1104 644 1;
+#X obj 904 253 osc~ 440;
+#X obj 904 593 *~;
+#X obj 1072 336 tgl 15 0 empty \$0-freq-demo-on_off empty 17 7 0 10
+-4032 -1 -1 0 1;
+#X obj 117 105 tgl 15 0 \$0-freq-demo-on_off empty empty 17 7 0 10
+-204800 -1 -1 0 1;
+#X obj 117 149 vsl 15 128 0 22500 0 0 \$0-freq-demo-slider empty empty
+0 -9 0 10 -204800 -1 -1 248 1;
+#X obj 904 60 vsl 15 128 20 20000 0 1 empty empty empty 0 -9 0 10 -4032
+-1 -1 267 1;
+#X obj 904 217 line;
+#X obj 1145 488 line~;
+#X obj 108 286 nbx 5 14 -1e+37 1e+37 0 0 \$0-freq-demo-numbox empty
+empty 0 -8 0 10 -204800 -1 -1 440 256;
+#X obj 985 719 tabwrite~ freq-demo-scope-\$0;
+#X msg -40 242 set \$1;
+#X obj 904 38 r \$0-freq-demo-slider;
+#X obj -40 219 r \$0-freq-demo-slider;
+#X msg -40 105 set \$1;
+#X obj -40 84 r \$0-freq-demo-numbox;
+#X obj 933 59 r \$0-freq-demo-numbox;
+#X msg 904 196 \$1 100;
+#X obj 1104 692 metro 250;
+#X text 104 126 Frequency;
+#X text 165 286 Hz;
+#X text 358 126 Amplitude;
+#X text 139 104 On/Off;
+#X obj 220 160 bng 15 250 50 0 \$0-220hz empty 220Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 220 200 bng 15 250 50 0 \$0-440hz empty 440Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 220 240 bng 15 250 50 0 \$0-880hz empty 880Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 220 220 bng 15 250 50 0 \$0-600hz empty 600Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 16 -195 bng 15 250 50 0 empty \$0-220hz 220Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 16 -175 bng 15 250 50 0 empty \$0-440hz 440Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 16 -115 bng 15 250 50 0 empty \$0-880hz 880Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 16 -135 bng 15 250 50 0 empty \$0-600hz 600Hz 17 7 0 10 -204800
+-1 -1;
+#X msg 82 -195 220;
+#X msg 82 -174 440;
+#X msg 83 -116 880;
+#X msg 82 -135 600;
+#N canvas 123 39 1142 661 spectrograph 0;
+#N canvas 789 23 651 544 fft-analysis 0;
+#X obj 15 164 *~;
+#X obj 14 99 inlet~;
+#X obj 15 218 rfft~;
+#X obj 36 140 tabreceive~ \$0-hann;
+#X obj 14 306 *~;
+#X obj 56 306 *~;
+#X obj 15 356 sqrt~;
+#X obj 23 386 loadbang;
+#X obj 23 449 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1 1
+;
+#X obj 15 8 block~ 512;
+#X text 225 131 tabreceive~ outputs array contents \,;
+#X text 225 149 constantly \, every block. Here it's;
+#X text 223 169 used to get the Hann window to;
+#X text 225 187 multiply by the input.;
+#X text 120 7 block~ object does no computation but declares this;
+#X text 120 24 window to be operating at a different block size from
+;
+#X text 122 58 Fourier transform.;
+#X text 121 40 the parent window. This determines the size of the;
+#X text 76 99 The inlet~ automatically re-blocks to the new block size.
+;
+#X obj 15 332 +~;
+#X text 94 308 Take the magnitude by squaring real and imaginary part
+\, adding and taking square root.;
+#X text 110 424 periodically graph the output. It appears every 512
+samples (about 12 milliseconds) but we only update the graph 4 times
+per second. The graph is back on the main (parent) window.;
+#X text 82 215 forward real FFT. Like "fft~" \, but only one inlet
+(for the real part) and only the first half of the output signals are
+used. (The others are determined by symmetry: they're complex conjugates
+of the first half \, in reverse order.) This takes 1/2 the CPU time
+of "fft".;
+#X obj 14 498 tabwrite~ \$0-spectrum;
+#X obj 23 470 metro 50;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 4 0;
+#X connect 2 0 4 1;
+#X connect 2 1 5 0;
+#X connect 2 1 5 1;
+#X connect 3 0 0 1;
+#X connect 4 0 19 0;
+#X connect 5 0 19 1;
+#X connect 6 0 23 0;
+#X connect 7 0 8 0;
+#X connect 8 0 24 0;
+#X connect 19 0 6 0;
+#X connect 24 0 23 0;
+#X restore 1094 205 pd fft-analysis;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-spectrum 256 float 0;
+#X coords 0 128 255 0 500 100 1 0 0;
+#X restore 168 115 graph;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array \$0-hann 512 float 1;
+#A 0 0 3.76403e-05 0.000150591 0.000338793 0.000602275 0.000940949
+0.00135478 0.00184369 0.00240764 0.00304651 0.00376022 0.00454867 0.00541174
+0.0063493 0.00736117 0.00844723 0.00960734 0.0108413 0.0121489 0.01353
+0.0149843 0.0165117 0.0181119 0.0197847 0.0215298 0.0233469 0.0252359
+0.0271963 0.0292279 0.0313304 0.0335035 0.0357469 0.0380601 0.040443
+0.042895 0.0454159 0.0480052 0.0506626 0.0533877 0.05618 0.0590392
+0.0619648 0.0649563 0.0680134 0.0711355 0.0743222 0.077573 0.0808874
+0.0842649 0.0877051 0.0912073 0.0947711 0.0983959 0.102081 0.105826
+0.109631 0.113494 0.117416 0.121395 0.125431 0.129524 0.133672 0.137876
+0.142134 0.146446 0.150811 0.155229 0.159699 0.16422 0.168792 0.173413
+0.178084 0.182803 0.18757 0.192384 0.197244 0.20215 0.2071 0.212095
+0.217133 0.222214 0.227337 0.2325 0.237704 0.242948 0.24823 0.25355
+0.258907 0.264301 0.26973 0.275194 0.280691 0.286222 0.291785 0.297379
+0.303003 0.308658 0.314341 0.320052 0.32579 0.331555 0.337344 0.343159
+0.348997 0.354857 0.36074 0.366643 0.372567 0.37851 0.384471 0.390449
+0.396444 0.402455 0.40848 0.414519 0.420571 0.426635 0.432709 0.438794
+0.444889 0.450991 0.457101 0.463218 0.46934 0.475466 0.481596 0.487729
+0.493864 0.5 0.506136 0.512271 0.518404 0.524534 0.53066 0.536782 0.542899
+0.549009 0.555111 0.561205 0.56729 0.573365 0.579429 0.585481 0.59152
+0.597545 0.603556 0.609551 0.615529 0.62149 0.627433 0.633357 0.63926
+0.645143 0.651003 0.656841 0.662656 0.668445 0.67421 0.679948 0.685659
+0.691342 0.696997 0.702621 0.708215 0.713778 0.719309 0.724806 0.73027
+0.735699 0.741092 0.74645 0.75177 0.757052 0.762295 0.767499 0.772663
+0.777786 0.782867 0.787905 0.7929 0.79785 0.802756 0.807616 0.812431
+0.817197 0.821916 0.826587 0.831209 0.83578 0.840301 0.844771 0.849189
+0.853554 0.857866 0.862124 0.866328 0.870476 0.874569 0.878605 0.882584
+0.886506 0.890369 0.894174 0.897919 0.901605 0.905229 0.908793 0.912295
+0.915736 0.919113 0.922428 0.925678 0.928865 0.931987 0.935044 0.938036
+0.940961 0.94382 0.946613 0.949338 0.951995 0.954585 0.957106 0.959558
+0.96194 0.964254 0.966497 0.96867 0.970773 0.972804 0.974765 0.976654
+0.978471 0.980216 0.981889 0.983489 0.985016 0.98647 0.987852 0.989159
+0.990393 0.991553 0.992639 0.993651 0.994589 0.995452 0.99624 0.996954
+0.997593 0.998156 0.998645 0.999059 0.999398 0.999661 0.999849 0.999962
+1 0.999962 0.999849 0.999661 0.999398 0.999059 0.998645 0.998156 0.997592
+0.996953 0.996239 0.995451 0.994588 0.99365 0.992638 0.991552 0.990392
+0.989158 0.987851 0.986469 0.985015 0.983488 0.981887 0.980215 0.978469
+0.976652 0.974763 0.972803 0.970771 0.968669 0.966495 0.964252 0.961939
+0.959556 0.957104 0.954583 0.951993 0.949336 0.946611 0.943818 0.940959
+0.938034 0.935042 0.931985 0.928863 0.925676 0.922425 0.919111 0.915733
+0.912293 0.908791 0.905227 0.901602 0.897917 0.894171 0.890367 0.886503
+0.882582 0.878602 0.874566 0.870473 0.866325 0.862121 0.857863 0.853551
+0.849186 0.844768 0.840298 0.835777 0.831205 0.826584 0.821913 0.817194
+0.812427 0.807613 0.802753 0.797847 0.792896 0.787901 0.782863 0.777782
+0.77266 0.767496 0.762292 0.757048 0.751766 0.746446 0.741089 0.735695
+0.730266 0.724802 0.719305 0.713774 0.708211 0.702617 0.696993 0.691338
+0.685655 0.679944 0.674206 0.668441 0.662652 0.656837 0.650999 0.645139
+0.639256 0.633353 0.627429 0.621486 0.615525 0.609547 0.603552 0.597541
+0.591516 0.585477 0.579425 0.573361 0.567286 0.561201 0.555107 0.549004
+0.542894 0.536778 0.530656 0.52453 0.518399 0.512266 0.506131 0.499996
+0.49386 0.487725 0.481592 0.475462 0.469335 0.463213 0.457097 0.450987
+0.444884 0.43879 0.432705 0.42663 0.420566 0.414515 0.408476 0.40245
+0.39644 0.390445 0.384466 0.378505 0.372563 0.366639 0.360736 0.354853
+0.348993 0.343155 0.33734 0.331551 0.325786 0.320048 0.314337 0.308654
+0.302999 0.297375 0.291781 0.286218 0.280687 0.27519 0.269726 0.264297
+0.258904 0.253547 0.248226 0.242944 0.237701 0.232497 0.227333 0.222211
+0.21713 0.212092 0.207097 0.202146 0.19724 0.19238 0.187566 0.182799
+0.17808 0.17341 0.168788 0.164217 0.159696 0.155226 0.150808 0.146443
+0.142131 0.137873 0.133669 0.129521 0.125428 0.121392 0.117413 0.113491
+0.109628 0.105823 0.102078 0.0983929 0.0947681 0.0912043 0.0877021
+0.084262 0.0808845 0.0775701 0.0743194 0.0711327 0.0680107 0.0649537
+0.0619622 0.0590366 0.0561775 0.0533852 0.0506602 0.0480028 0.0454136
+0.0428927 0.0404407 0.038058 0.0357447 0.0335014 0.0313284 0.0292259
+0.0271944 0.025234 0.0233451 0.0215281 0.019783 0.0181103 0.0165102
+0.0149829 0.0135286 0.0121476 0.01084 0.00960615 0.0084461 0.0073601
+0.00634828 0.00541082 0.00454783 0.00375944 0.00304583 0.00240701 0.00184315
+0.00135431 0.000940561 0.000601947 0.000338584 0.000150442 3.75807e-05
+;
+#X coords 0 1 511 0 200 120 1;
+#X restore 1399 132 graph;
+#X msg 1341 130 0;
+#X obj 1235 179 osc~;
+#X obj 1235 131 samplerate~;
+#X obj 1235 202 *~ -0.5;
+#X obj 1235 225 +~ 0.5;
+#X obj 1227 250 tabwrite~ \$0-hann;
+#X text 1385 124 1;
+#X text 1378 242 0;
+#X text 1394 255 0;
+#X obj 1235 155 / 512;
+#X obj 1228 70 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X text 1504 109 Hann window;
+#X text 1283 177 period 512;
+#X text 1260 64 recalculate Hann;
+#X text 1284 77 window table;
+#X text 1580 258 511;
+#X obj 1227 40 inlet;
+#X obj 1054 232 outlet~;
+#X obj 1054 28 inlet~;
+#X text 1108 234 Thru;
+#X obj 1330 34 loadbang;
+#X text 155 226 20;
+#X text 171 226 500;
+#X text 186 238 1000;
+#X text 200 226 2000;
+#X text 244 225 4000;
+#X text 164 238 250;
+#X text 163 213 |;
+#X text 170 213 |;
+#X text 177 213 |;
+#X text 187 213 |;
+#X text 209 213 |;
+#X text 254 213 |;
+#X text 300 213 |;
+#X text 291 225 6000;
+#X text 349 213 |;
+#X text 338 225 8000;
+#X text 391 213 |;
+#X text 380 225 10000;
+#X text 436 213 |;
+#X text 425 225 12000;
+#X text 482 213 |;
+#X text 471 225 14000;
+#X text 528 213 |;
+#X text 517 225 16000;
+#X text 574 213 |;
+#X text 563 225 18000;
+#X text 617 213 |;
+#X text 606 225 20000;
+#X text 664 213 |;
+#X text 653 225 22000;
+#X text 354 253 Frequency in Hz;
+#X text 101 155 Magni-tude, f 6;
+#X text 147 158 0.5-;
+#X text 154 108 1;
+#X text 154 205 0;
+#X connect 3 0 4 1;
+#X connect 4 0 6 0;
+#X connect 5 0 12 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 12 0 4 0;
+#X connect 13 0 5 0;
+#X connect 13 0 3 0;
+#X connect 13 0 8 0;
+#X connect 19 0 13 0;
+#X connect 21 0 0 0;
+#X connect 21 0 20 0;
+#X connect 23 0 13 0;
+#X coords 0 -1 1 1 590 175 2 100 100;
+#X restore 111 484 pd spectrograph;
+#X msg 720 242 set \$1;
+#X msg 720 105 set \$1;
+#X obj 720 84 r \$0-amp-demo-numbox;
+#X obj 720 219 r \$0-amp-demo-slider;
+#X obj 377 147 vsl 15 128 0 1.5 0 0 \$0-amp-demo-slider empty empty
+0 -9 0 10 -204800 -1 -1 847 1;
+#X obj 368 284 nbx 5 14 -1e+37 1e+37 0 0 \$0-amp-demo-numbox empty
+empty 0 -8 0 10 -204800 -1 -1 0.1 256;
+#X obj 1038 177 vsl 15 128 0 2 0 1 empty empty empty 0 -9 0 10 -4032
+-1 -1 635 1;
+#X obj 1038 128 r \$0-amp-demo-slider;
+#X obj 1051 149 r \$0-amp-demo-numbox;
+#X msg 1146 465 \$1 100;
+#X obj 959 625 send~ \$0-sig;
+#X obj -25 454 receive~ \$0-sig;
+#N canvas 564 462 450 300 init 0;
+#X obj 117 22 loadbang;
+#X msg 108 110 0;
+#X obj 98 191 outlet;
+#X obj 205 188 outlet;
+#X msg 203 117 440;
+#X msg 300 122 0.1;
+#X obj 300 143 outlet;
+#X connect 0 0 1 0;
+#X connect 0 0 4 0;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X restore 338 37 pd init;
+#N canvas 27 23 450 300 blank 0;
+#X coords 0 -1 1 1 590 175 2 100 100;
+#X restore 110 304 pd blank;
+#X obj 1220 963 list \$0;
+#X obj 1220 942 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 1038 313 5 0 0 0 - - -, f 5;
+#X text 159 340 0.5-;
+#X text 154 390 -0.5-;
+#X text 153 414 -1;
+#X text 159 316 1;
+#X text 666 435 0.01;
+#X text 406 435 0.005;
+#X text 416 421 |;
+#X text 675 421 |;
+#X text 176 421 |;
+#X text 168 435 0;
+#X text 158 365 0.0-;
+#X text 382 454 Time (Seconds);
+#X text 110 359 Ampli-tude, f 6;
+#X obj 1066 429 spigot;
+#X obj 1038 397 float;
+#X obj 1072 356 t b f;
+#X obj 1146 396 sel 0;
+#X msg 1146 417 0;
+#X obj 1219 919 loadbang;
+#X text 1122 318 When toggle is off \, ramp down to silence and close
+the gate. When toggle is on \, open the gate and ramp to the current
+amplitude value.;
+#X msg 1220 984 \; freq-demo-scope-\$1 const 0;
+#X obj 16 -157 bng 15 250 50 0 empty \$0-320hz 320Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 17 -75 bng 15 250 50 0 empty \$0-2100hz 2100Hz 17 7 0 10 -204800
+-1 -1;
+#X msg 82 -156 320;
+#X obj 17 -96 bng 15 250 50 0 empty \$0-2000hz 2000Hz 17 7 0 10 -204800
+-1 -1;
+#X msg 83 -75 2100;
+#X obj 17 -3 bng 15 250 50 0 empty \$0-5100hz 5100Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 17 -24 bng 15 250 50 0 empty \$0-5000hz 5000Hz 17 7 0 10 -204800
+-1 -1;
+#X msg 83 -96 2000;
+#X msg 83 -24 5000;
+#X msg 83 -3 5100;
+#X obj 280 160 bng 15 250 50 0 \$0-2000hz empty 2000Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 280 180 bng 15 250 50 0 \$0-2100hz empty 2100Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 280 220 bng 15 250 50 0 \$0-5000hz empty 5000Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 280 240 bng 15 250 50 0 \$0-5100hz empty 5100Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 220 180 bng 15 250 50 0 \$0-320hz empty 320Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 83 24 s \$0-frequencies_from_buttons;
+#X obj -37 59 r \$0-frequencies_from_buttons;
+#X obj 17 -51 bng 15 250 50 0 empty \$0-4000hz 4000Hz 17 7 0 10 -204800
+-1 -1;
+#X msg 83 -51 4000;
+#X obj 280 200 bng 15 250 50 0 \$0-4000hz empty 4000Hz 17 7 0 10 -204800
+-1 -1;
+#X text 231 126 Frequency Presets, f 10;
+#X connect 1 0 22 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 5 0 6 0;
+#X connect 6 0 2 0;
+#X connect 6 0 2 1;
+#X connect 6 0 14 0;
+#X connect 6 0 50 0;
+#X connect 7 0 72 0;
+#X connect 10 0 21 0;
+#X connect 11 0 5 0;
+#X connect 12 0 6 1;
+#X connect 15 0 13 0;
+#X connect 16 0 10 0;
+#X connect 17 0 15 0;
+#X connect 18 0 9 0;
+#X connect 19 0 18 0;
+#X connect 20 0 10 0;
+#X connect 21 0 11 0;
+#X connect 22 0 14 0;
+#X connect 31 0 35 0;
+#X connect 32 0 36 0;
+#X connect 33 0 37 0;
+#X connect 34 0 38 0;
+#X connect 35 0 93 0;
+#X connect 36 0 93 0;
+#X connect 37 0 93 0;
+#X connect 38 0 93 0;
+#X connect 40 0 45 0;
+#X connect 41 0 44 0;
+#X connect 42 0 41 0;
+#X connect 43 0 40 0;
+#X connect 46 0 56 0;
+#X connect 47 0 46 0;
+#X connect 48 0 46 0;
+#X connect 49 0 12 0;
+#X connect 51 0 39 0;
+#X connect 52 0 8 0;
+#X connect 52 1 9 0;
+#X connect 52 2 44 0;
+#X connect 54 0 77 0;
+#X connect 55 0 54 0;
+#X connect 56 0 71 0;
+#X connect 70 0 49 0;
+#X connect 71 0 70 0;
+#X connect 72 0 71 0;
+#X connect 72 1 70 1;
+#X connect 72 1 73 0;
+#X connect 73 0 74 0;
+#X connect 74 0 49 0;
+#X connect 75 0 55 0;
+#X connect 78 0 80 0;
+#X connect 79 0 82 0;
+#X connect 80 0 93 0;
+#X connect 81 0 85 0;
+#X connect 82 0 93 0;
+#X connect 83 0 87 0;
+#X connect 84 0 86 0;
+#X connect 85 0 93 0;
+#X connect 86 0 93 0;
+#X connect 87 0 93 0;
+#X connect 94 0 9 0;
+#X connect 95 0 96 0;
+#X connect 96 0 93 0;
+#X coords 0 -1 1 1 610 570 2 100 100;
+#X restore 612 73 pd sound_gen_freq_demo;
+#X text 10 35 As mentioned earlier \, frequency is a major influence
+on the perception of pitch. To the right is a sound generating module
+that allows you to change the frequency of a test tone. You can change
+the tone’s frequency with either the slider or by clicking and typing
+in the number box below the slider. Turn the module on \, and set the
+frequency to a a low valued \, around 150 Hz. Now increase the frequency
+value to around 800 Hz. Which frequency sounds lower in pitch? Which
+frequency sounds higher? Most people perceive 800 Hz to be higher in
+pitch than 150 Hz. Therefore \, when a musical or natural sound has
+a lower or higher pitch \, this means that the vibration of the mass
+that is making the sound is vibrating at a certain frequency., f 98
+;
+#X text 10 135 In the sound generator box is graphic representations
+of the frequency. One graph is the graph we have seen before \, showing
+the change of amplitude over time. In order to visibly see the very
+high frequencies \, the time scale is VERY short \, approximately 1/100th
+of a second. You can still count the cycles \, just multiple the number
+of cycles by 100 to get the actual frequency in Hertz. 500 Hz is a
+good frequency to test the accuracy of the graph. The other is a graph
+that marks the actual frequency as a spike in the graph. This is called
+a SPECTRAL PLOT \, and it will be of more use later., f 98;
+#X text 10 235 One interesting element of our perception of pitch is
+the OCTAVE. So far we have talked about pitch as being higher or lower
+than another pitch. This is specifically known as RELATIVE PITCH \,
+because we are simply determining if a sound (such as our test tone)
+is higher or lower in relation to another sound. Pitch can also be
+discussed in more absolute terms \, specifically in music. The octave
+assists us in these absolute terms. This will be clearer through audio
+examples. Next to the frequency slider there are 4 blue buttons that
+automatically set the sound generator to the labelled frequency. Click
+the button labelled “440 Hz” (this is the standard frequency which
+orchestra’s tune to). Listen to this tone for a few seconds. Now
+press the button labelled “880 Hz”. You may have noticed that these
+two frequencies sound related. They are in fact related \, and many
+people hear these two frequencies as having the same absolute pitch
+\, or PITCH CLASS \, while being in different REGISTERS. To In the
+early explorations of sound it was discovered that tones (musical sounds)
+had relationships like this \, among others. The phenomenon of the
+octave led to the development of a musical system that relies on a
+total of 11 pitch classes \, in differing octaves/registers. Listen
+to 440 Hz again. Now drop the frequency down to 220 Hz. These two are
+likely to be heard as the same pitch class \, because this frequency
+is in fact an octave lower than 440 Hz. Look at the 3 frequencies suggested:
+220 Hz \, 440 Hz \, 880 Hz. You may recognize a pattern: each octave
+higher is a doubling of the frequency (220 * 2 = 440 \, 440 * 2 = 880)
+\, and to get an octave lower \, we divide by 2 This is true for ALL
+frequencies. To get the octave above or below a frequency \, simply
+multiply or divide by 2, f 98;
+#X text 10 459 The octave can help us illustrate another interesting
+component of our perception of frequency and pitch. Set the tone generator
+to 220 Hz using the preset button. Now set the tone generator to 320
+Hz. You likely heard a major difference in pitch \, from a change in
+100 Hz. Now set the tone generator to 1000 Hz using the preset button.
+Now change it to 1100 Hz. You most likely heard a change in pitch \,
+but did it seem as drastic as the change from 220 to 320 Hz? The change
+in frequency was only 100 Hz \, same as 220-320 Hz. Try this again
+at 5000 Hz. Now change to 5100 Hz. Did the change seem even less pronounced?
+This is because \, like sound pressure level \, our ear hears frequency
+logarithmically. Small changes in frequency that occur in the lower
+limits of frequency have a much more drastic effect on our perception
+of pitch versus changes in the mid to upper ranges of frequency. So
+a change from 220 to 320 Hz is going to sound much more drastic than
+a change from 5000 to 5100 Hz. This can also be seen in octaves. 220
+Hz to 440 Hz is an octave. The change in Hertz here is 220 Hz. Listen
+to 2000 Hz now. Next change it to 4000 Hz. You should hear an octave
+again \, but this time \, the change in frequency is 2000 Hz. This
+is important to keep in mind when you start to develop sound projects
+– the mid to upper reaches of hearing in regards to frequency take
+a greater amount of change in frequency to actually be heard as change.
+, f 98;
+#X text 10 645 Why does our ear hear these tones as similar? Some of
+this can be explained by investigating WAVELENGTH \, found in the next
+sub-module., f 98;
+#X text 10 5 5 Pitch and Octave;
+#X restore 125 549 pd 06_PITCH_AND_OCTAVE;
+#N canvas 74 55 1257 629 07_WAVELENGTH 0;
+#X text 3 22 Why do two octave tones sound similar \, to the point
+where musical sounds based on these frequencies sound as if they are
+the same pitch? This can be explored by discussing the element of a
+sound wave (and any wave \, for that matter) called WAVELENGTH. Wavelength
+is the distance (we generally use feet) of a single cycle of a waveform.
+Now wavelength affects many elements of sound \, most of which we won’t
+cover much here. But wavelength may give us some indication why octave
+frequencies sound so similar. To calculate the wavelength of a sound
+wave \, you divide the velocity of a soundwave by its frequency. The
+velocity of a sound wave is the speed of sound in a specific direction.
+Since we don’t need to get so technical as to calculate the speed
+of sound in every possible direction \, we will generalize it. The
+speed of sound is dependent on temperature \, but a good average is
+the temperature most indoor rooms hover around \, which is 68 deg F
+(20 deg C). Sound waves travel 1130 ft/sec (344 meters/sec) in a 68
+deg F room. Just for completion sake \, this speed increases or decreases
+by 1.1 ft/s for every 1 degree change in Fahrenheit (2 ft/s for every
+2 degree change in Celsius). Now that we know the velocity of sound
+\, we can calculate the wavelength of a wave. So the wavelength of
+a sound at 440 Hz in a room that is 68 deg F is 2.56 feet., f 98;
+#X text 3 201 Let’s look at some simpler waveforms. In the module
+labelled “OCTAVE AND WAVELENGTH DEMONSTRATION” \, there are 4 buttons
+\, 3 of which graph waveforms (one clears the graph). The graph is
+a fixed time period of 1 second. Click the button labelled “2 Hz”.
+In the graph \, a sound wave with two cycles is drawn. Since this graph
+represents 1 second \, then a sound wave with 2 cycles during that
+second will have a frequency of 2 Hz. Now click the blue box labelled
+“Frequency in Hz” \, type “2” \, then press return \, or use
+the markings on the x-axis of the graph to see the wavelength of graphed
+wave. You will see that a sound wave with a frequency of 2 Hz has a
+wavelength of 565 feet. That’s a VERY long waveform. Compare that
+with the wavelength of 440 Hz \, which is 2.56 feet. This tells us
+that as frequency gets lower \, wavelength gets longer \, and as frequency
+gets higher \, wavelength gets shorter., f 98;
+#X text 3 331 Clear the graph with the “Clear” button \, and now
+graph a wave at 4 Hz (note \, the wave’s amplitude has been set to
+0.5 so that later we can compare the waves all on top of each other
+in the graph). Now click the 2 Hz button again. What do you notice?
+One compression or rarefaction of the 2 Hz wave is exactly HALF its
+wavelength. A full cycle/wavelength of the 4 Hz wave (the octave above
+2 Hz) fits EXACTLY into half of the cycle/wavelength of 2 Hz. Use the
+“Calculate wavelength” box by typing in 4 and pressing return \,
+or use the x-axis markings to see the wavelength for 4 Hz in feet.
+You will find that the wavelength is exactly half the length of the
+2 Hz wave. Now look at the graph and note where each wave’s amplitude
+ramps down to or up to 0 We call this the ZERO-CROSSING point. For
+the 4 Hz wave \, every other zero-crossing point coincides with a zero-crossing
+point of the 2 Hz wave. If we could hear these tones (remember \, humans
+can’t hear tones below 20 Hz \, but the SAME pattern holds true for
+440 Hz \, its just easier to see what’s happening with lower frequencies)
+\, this pattern would cause our ear to hear these tones as similar
+\, and often as octave equivalents (especially when it comes to musical
+tones from instruments \, which we will see later). Sound carries on
+in this pattern as the frequencies go up. You should be able to predict
+the result of clicking the 8 Hz wave. This pattern causes it to be
+(hypothetically) heard as an octave above 4 Hz \, and 2 octaves above
+2 Hz., f 98;
+#N canvas 1556 -173 1711 977 octave_graph 0;
+#X obj 913 691 trigger f f;
+#X obj 1013 738 + 1;
+#X obj 976 712 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 913 672 line;
+#X obj 976 737 f 0;
+#X msg 1013 713 0;
+#X obj 1013 672 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1065 152 loadbang;
+#X obj 913 764 expr sin(2 * 3.14159 * $f1 / 360);
+#N canvas 192 62 450 278 (subpatch) 0;
+#X array \$0-demo_soundwave_harmonic 360 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X array \$0-demo_soundwave_harmonic1 360 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X array \$0-demo_soundwave_harmonic2 360 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X array \$0-demo_soundwave_harmonic3 360 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 1 359 -1 300 200 1 0 0;
+#X restore 397 148 graph;
+#X text 394 350 0;
+#X text 503 364 Time (Seconds);
+#X text 377 339 -1;
+#X text 365 290 -0.5;
+#X text 382 143 1;
+#X text 370 191 0.5;
+#X text 382 241 0;
+#X text 311 236 Amplitude;
+#X text 314 247 (Linear);
+#X obj 1041 179 list \$0;
+#X text 1127 150 [list] trick where \, when receiving a bang \, it
+creates a list with just the element that is the argument. This can
+be used as a replaceable element in message box \, which does not accept
+\$0;
+#X obj 913 597 bng 15 250 50 0 empty \$0-2hz empty 17 7 0 10 -204800
+-1 -1;
+#X msg 913 651 0 \, 1000 10000;
+#X obj 913 789 tabwrite \$0-demo_soundwave_harmonic;
+#X msg 1041 213 \; \$1-demo_soundwave_harmonic xticks 0 90 1;
+#X obj 616 786 tabwrite \$0-demo_soundwave_harmonic1;
+#X msg 1041 248 \; \$1-demo_soundwave_harmonic yticks 0 0.1 5;
+#X obj 1041 153 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 616 762 expr 0.5 * sin(2 * 3.14159 * $f1 / 180);
+#X obj 315 765 expr 0.25 * sin(2 * 3.14159 * $f1 / 90);
+#X obj 315 792 tabwrite \$0-demo_soundwave_harmonic2;
+#X msg 1041 383 \; \$1-demo_soundwave_harmonic1 const 0;
+#X msg 1041 421 \; \$1-demo_soundwave_harmonic2 const 0;
+#X obj 616 690 trigger f f;
+#X obj 716 741 + 1;
+#X obj 679 714 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 616 669 line;
+#X obj 679 740 f 0;
+#X msg 716 715 0;
+#X obj 716 672 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 1158 -15 Initialization:;
+#X obj 616 607 bng 15 250 50 0 empty \$0-4hz empty 17 7 0 10 -204800
+-1 -1;
+#X msg 616 648 0 \, 1000 10000;
+#X obj 616 627 t b b;
+#X obj 315 690 trigger f f;
+#X obj 415 741 + 1;
+#X obj 378 714 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 315 669 line;
+#X obj 378 740 f 0;
+#X msg 415 715 0;
+#X obj 415 672 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 315 607 bng 15 250 50 0 empty \$0-8hz empty 17 7 0 10 -204800
+-1 -1;
+#X msg 315 648 0 \, 1000 10000;
+#X obj 315 627 t b b;
+#X obj 913 617 t b b;
+#X text 813 121 Initialization---------------------------------------------------------------------------------------------------
+, f 115;
+#X text 948 593 2 Hz;
+#X text 648 593 4 Hz;
+#X text 338 593 8 Hz;
+#X obj 109 216 bng 15 250 50 0 \$0-2hz empty 2Hz 17 7 0 10 -204800
+-1 -1;
+#X msg 1041 343 \; \$1-demo_soundwave_harmonic const 0;
+#X obj 109 236 bng 15 250 50 0 \$0-4hz empty 4Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 109 256 bng 15 250 50 0 \$0-8hz empty 8Hz 17 7 0 10 -204800
+-1 -1;
+#X obj 940 307 bng 15 250 50 0 empty \$0-clear Clear 17 7 0 10 -204800
+-1 -1;
+#X obj 109 197 bng 15 250 50 0 \$0-clear empty Clear 17 7 0 10 -204800
+-1 -1;
+#X obj 940 329 list \$0;
+#X msg 1127 303 \; \$1-demo_soundwave_harmonic3 const 0;
+#X text 1354 307 This array is strictly for the horizontal line at
+0;
+#X text 461 350 0.25;
+#X text 542 350 0.5;
+#X text 613 350 0.75;
+#X text 693 350 1;
+#X obj 107 321 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-204800 -1 -1 0 256;
+#X obj 2 331 expr 1130 / $f1;
+#X obj 107 342 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262130 -1 -1 0 256;
+#X text 169 319 Frequency in Hz;
+#X text 168 341 Wavelength in Feet;
+#X text 105 303 Wavelength = V/f;
+#X text 0 292 Velocity of sound @ 68 F, f 13;
+#X text 105 177 Graph soundwaves:;
+#X text 104 289 Calculate wavelength:;
+#X text 106 103 OCTAVE AND WAVELENGTH DEMONSTRATION;
+#X text 394 380 0;
+#X text 539 394 Feet;
+#X text 682 380 1130;
+#X text 610 380 847.5;
+#X text 541 380 565;
+#X text 458 380 282.5;
+#X connect 0 0 8 0;
+#X connect 0 1 2 0;
+#X connect 1 0 4 1;
+#X connect 2 0 4 0;
+#X connect 3 0 0 0;
+#X connect 4 0 1 0;
+#X connect 4 0 23 1;
+#X connect 5 0 4 1;
+#X connect 6 0 5 0;
+#X connect 7 0 19 0;
+#X connect 8 0 23 0;
+#X connect 19 0 24 0;
+#X connect 19 0 32 0;
+#X connect 19 0 31 0;
+#X connect 19 0 60 0;
+#X connect 19 0 66 0;
+#X connect 21 0 54 0;
+#X connect 22 0 3 0;
+#X connect 27 0 19 0;
+#X connect 28 0 25 0;
+#X connect 29 0 30 0;
+#X connect 33 0 28 0;
+#X connect 33 1 35 0;
+#X connect 34 0 37 1;
+#X connect 35 0 37 0;
+#X connect 36 0 33 0;
+#X connect 37 0 34 0;
+#X connect 37 0 25 1;
+#X connect 38 0 37 1;
+#X connect 39 0 38 0;
+#X connect 41 0 43 0;
+#X connect 42 0 36 0;
+#X connect 43 0 42 0;
+#X connect 43 1 39 0;
+#X connect 44 0 29 0;
+#X connect 44 1 46 0;
+#X connect 45 0 48 1;
+#X connect 46 0 48 0;
+#X connect 47 0 44 0;
+#X connect 48 0 45 0;
+#X connect 48 0 30 1;
+#X connect 49 0 48 1;
+#X connect 50 0 49 0;
+#X connect 51 0 53 0;
+#X connect 52 0 47 0;
+#X connect 53 0 52 0;
+#X connect 53 1 50 0;
+#X connect 54 0 22 0;
+#X connect 54 1 6 0;
+#X connect 63 0 65 0;
+#X connect 65 0 60 0;
+#X connect 65 0 31 0;
+#X connect 65 0 32 0;
+#X connect 72 0 73 0;
+#X connect 73 0 74 0;
+#X coords 0 -1 1 1 610 315 2 100 100;
+#X restore 614 77 pd octave_graph;
+#X text 3 523 Feel free to experiment with FREQUENCY using the sound
+generator outside this module to get a further understand of how FREQUENCY
+works. Experiment with sounds \, with changing the frequency (and amplitude).
+See if you can make any interesting sound-based gestures with the module
+\, using only the fundamental components of frequency and amplitude!
+Below we will continue to explore elements of amplitude in the ENVELOPE
+module \, and elements of frequency in the SPECTRUM AND TIMBRE module.
+, f 98;
+#X text 3 2 7 WAVELENGTH, f 73;
+#X restore 125 595 pd 07_WAVELENGTH;
+#X text 126 247 AMPLITUDE;
+#X text 126 422 FREQUENCY;
+#X obj 1254 187 declare -lib ggee;
+#X coords 0 -1 1 1 1100 650 2 100 100;

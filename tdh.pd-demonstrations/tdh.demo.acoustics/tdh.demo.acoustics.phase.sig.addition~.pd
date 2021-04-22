@@ -1,0 +1,116 @@
+#N canvas 1526 -105 1357 855 10;
+#X declare -lib ggee;
+#X obj 1279 308 osc~ 440;
+#X obj 1279 332 *~;
+#X floatatom 1294 208 5 0 0 0 - - -, f 5;
+#X floatatom 1279 185 5 0 0 0 - - -, f 5;
+#X obj 1839 80 tdh.util.scope~;
+#X text 1314 182 Freq;
+#X text 1330 208 Amp;
+#X obj 1454 160 osc~ 440;
+#X obj 1454 184 *~;
+#X floatatom 1469 100 5 0 0 0 - - -, f 5;
+#X floatatom 1454 77 5 0 0 0 - - -, f 5;
+#X text 1489 74 Freq;
+#X text 1505 100 Amp;
+#X obj 1376 428 +~;
+#X floatatom 1307 277 5 0 1 0 - - -, f 5;
+#X text 1522 123 Phase;
+#X floatatom 1486 125 5 0 0 0 - - -, f 5;
+#X text 1339 275 Phase (0.0-1.0);
+#X obj 1336 310 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1839 -65 receive~ sig3;
+#X obj 1427 499 send~ sig3;
+#X text 1581 8 Sound Wave Addition + Working with Phase;
+#X floatatom 1606 215 5 0 0 0 - - -, f 5;
+#X floatatom 1606 192 5 0 0 0 - - -, f 5;
+#X text 1641 189 Freq;
+#X text 1643 215 Amp;
+#X floatatom 1606 238 5 0 1 0 - - -, f 5;
+#X text 1643 240 Phase (0.0-1.0);
+#X floatatom 1606 95 5 0 0 0 - - -, f 5;
+#X floatatom 1606 72 5 0 0 0 - - -, f 5;
+#X text 1641 69 Freq;
+#X text 1643 95 Amp;
+#X floatatom 1606 118 5 0 1 0 - - -, f 5;
+#X text 1643 120 Phase (0.0-1.0);
+#X text 1603 51 Sine Wave 1;
+#X text 1605 170 Sine Wave 2;
+#X obj 1376 500 outlet~;
+#X text 1351 310 <- When changing phase of osc2 \,;
+#X text 1369 322 we need to immediately retrigger;
+#X text 1368 335 the phase of osc1 so that we can;
+#X text 1369 346 see the effect of phase on;
+#X text 1369 358 signal addition. Without the;
+#X text 1369 373 retriggering \, osc1 could be at;
+#X text 1369 387 any phase in its cycle \, not;
+#X text 1370 400 necessarily the one we specified;
+#X text 1576 284 Elements to experiment with:;
+#X text 1577 361 2 Set both waves to the same frequency;
+#X text 1595 374 and amplitude. Set the phase of Wave 2;
+#X text 1595 386 to 0.5 \, which is a 180 degrees phase;
+#X text 1576 301 1 With phase set to 0 (in-phase addition) \,;
+#X text 1594 316 set both waves to the same frequency.;
+#X text 1594 330 Set both waves to 0.5 amplitude.;
+#X text 1594 342 What do they sum to?;
+#X text 1595 398 shift (anti-phase addition). What is;
+#X text 1595 410 the resulting wave?;
+#X text 1314 -10 For phase:;
+#X text 1310 5 0.5 = 180 degree phase shift;
+#X text 1316 18 1 = 360 degree phase shift;
+#X obj 1314 240 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 110 108 PHASE AND SIGNAL ADDITION;
+#X obj 383 17 declare -lib ggee;
+#X obj 274 667 ggee/image unit_circle_sinewave.jpg;
+#X obj 281 729 ggee/image unit_circle_sinewave.jpg;
+#N canvas 1638 -209 795 541 02_WHAT_IS_PHASE 0;
+#X text 60 21 2 WHAT IS PHASE?, f 73;
+#X obj 386 228 ggee/image unit_circle_sinewave.gif;
+#X text 80 41 Depicted to below is the most simple sound \, the sine
+wave \, which we have been using as our test tone. The sine wave can
+be mathematically generated through the movement of a point revolving
+counterclockwise around a circle. As shown in the diagram \, as the
+point revolves around the circle \, the smooth movement of the sound
+wave’s compression and rarefaction are made – when the point is
+at the 12:00 point of the circle \, we are at the apex of the compression
+\, and when the point is at the 6:00 point of the circle \, we are
+at the lowest point of the rarefaction., f 98;
+#X text 90 361 Now something else occurs when a sound wave follows
+this pattern. We create angles when we draw one line from the center
+of the circle to the 3:00 position on the circle \, and another line
+to the rotating point on the circle. When the point is at 12:00 \,
+we get a 90deg angle. When the point is at 9:00 \, we get a 180deg
+angle \, at 6:00 we get 270deg angle \, and once we complete the full
+circle we get 360deg but we restart the calculation at 0deg., f 98
+;
+#X text 90 441 We use these angles to associate points on the sine
+wave. These angles are known as the sound wave’s PHASE. So we say
+that the phase of the sine wave at the top of its compression is 90deg
+\, while at the bottom of its rarefaction is 270 deg., f 98;
+#X restore 116 181 pd 02_WHAT_IS_PHASE;
+#X connect 0 0 1 0;
+#X connect 1 0 13 0;
+#X connect 2 0 1 1;
+#X connect 2 0 58 0;
+#X connect 3 0 0 0;
+#X connect 7 0 8 0;
+#X connect 8 0 13 1;
+#X connect 9 0 8 1;
+#X connect 10 0 7 0;
+#X connect 13 0 20 0;
+#X connect 13 0 36 0;
+#X connect 14 0 0 1;
+#X connect 14 0 18 0;
+#X connect 16 0 7 1;
+#X connect 18 0 16 0;
+#X connect 19 0 4 0;
+#X connect 22 0 2 0;
+#X connect 23 0 3 0;
+#X connect 26 0 14 0;
+#X connect 28 0 9 0;
+#X connect 29 0 10 0;
+#X connect 32 0 16 0;
+#X connect 58 0 9 0;
+#X coords 0 -1 1 1 1100 450 1 100 100;

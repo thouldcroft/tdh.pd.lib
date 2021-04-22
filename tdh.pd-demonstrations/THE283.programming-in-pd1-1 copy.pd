@@ -1,0 +1,308 @@
+#N canvas 1371 -204 1584 1035 10;
+#X obj -60 -3 cnv 15 775 48 empty empty Making\ Algorithmic\ Decisions\ in\ Pure\ Data
+20 12 0 14 #e0e0e0 #404040 0;
+#X text -57 944 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -57 1436 ________________________________________________________________________________________________________________________________
+, f 128;
+#X text -58 1925 ________________________________________________________________________________________________________________________________
+, f 128;
+#X obj -60 20 cnv 15 775 28 empty empty THE283\ -\ Sound\ Art 20 12
+0 14 #e0e0e0 #404040 0;
+#X obj -60 480 cnv 15 775 31 empty empty Data 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj -58 967 cnv 15 775 31 empty empty Symbols\ and\ Lists 20 12
+0 14 #e0e0e0 #404040 0;
+#X obj -58 1462 cnv 15 775 31 empty empty Messages 20 12 0 14 #e0e0e0
+#404040 0;
+#N canvas 567 48 450 300 init 0;
+#X obj 61 63 loadbang;
+#X restore 660 20 pd init;
+#X text -60 120 • So far what we have done in Pd is not completely
+different from how you might make experimental sounds with REAPER \,
+hardware and effects pedals \, or a synthesizer., f 128;
+#X text -60 200 • Creating sound art with the Sound Art Toolkit is
+still a bit more open-ended than other tools \, which makes it a more
+experimental and interesting approach to sound generation, f 128;
+#X text -60 290 • Where Pd really starts to shine is when we COMBINE
+Pd programming with the SATK, f 128;
+#X text -60 370 • These slides will go over some of the fundamental
+ways we can approach Pd as a programming language, f 128;
+#X text -60 520 • The software/programming environment is called
+"Pure Data" because that is what you are dealing with at all times
+, f 128;
+#X text -60 550 • Even when you are playing a sound or displaying
+an image \, the underlying way these elements are stored and represented
+are through DATA, f 128;
+#X obj 70 640 snapshot~;
+#X floatatom 70 680 5 0 0 0 - - -, f 5;
+#N canvas 2015 -196 450 300 snapshot-helper 0;
+#X obj 120 110 outlet;
+#X obj 120 30 loadbang;
+#X msg 120 55 1;
+#X obj 120 80 metro 10;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 0 0;
+#X restore -50 600 pd snapshot-helper;
+#X text 140 600 <-- A sine wave oscillator \, which in acoustics moves
+up from silence to a max amplitude (compression) \, then back down
+to silence \, and then to a negative amplitude (rarefaction), f 92
+;
+#X text 140 640 <-- [snapshot] lets us convert from the signal rate
+stream of data to a control rate stream of data, f 92;
+#X obj 70 600 osc~ 1;
+#X text 140 680 <-- [snapshot] allows us to see that a sine wave at
+1 Hz (and at ANY frequency) is just a series of amplitude points \,
+*DATA* \, starting from 0 \, going up to +1 \, then back to 0 \, and
+then down to -1 \, covering as many decimal point increments in between
+the 3 levels \, dependent on bitdepth and samplerate, f 92;
+#X obj -1 831 cnv 15 29 21 empty \$0-demo-canv empty 20 12 0 14 #d8fcd8
+#404040 0;
+#N canvas 451 182 448 383 canvas-rectangle-shifter 0;
+#X obj 100 290 outlet;
+#X obj 180 290 outlet;
+#X obj 170 -60 inlet;
+#X obj 170 -33 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 1 1;
+#X msg 150 190 vis_size \$1 \$2;
+#X obj 100 160 pack f f;
+#X obj 100 55 trigger b b;
+#X msg 330 200 color \$1;
+#X obj 270 80 random 29;
+#X text 0 -70 _;
+#X obj 100 30 metro 250;
+#X obj 102 265 unpack f f;
+#X obj 150 220 s \$0-demo-canv;
+#X obj 330 230 s \$0-demo-canv;
+#X obj 270 290 outlet;
+#X obj 100 80 random 50;
+#X obj 180 80 random 50;
+#X obj 270 40 metro 250;
+#X obj 170 -10 trigger f f;
+#X obj 333 -58 loadbang;
+#X obj 334 -11 s \$0-demo-toggle;
+#X msg 333 -33 1;
+#X connect 2 0 3 0;
+#X connect 3 0 18 0;
+#X connect 4 0 12 0;
+#X connect 5 0 4 0;
+#X connect 5 0 11 0;
+#X connect 6 0 15 0;
+#X connect 6 1 16 0;
+#X connect 7 0 13 0;
+#X connect 8 0 7 0;
+#X connect 8 0 14 0;
+#X connect 10 0 6 0;
+#X connect 11 0 0 0;
+#X connect 11 1 1 0;
+#X connect 15 0 5 0;
+#X connect 16 0 5 1;
+#X connect 17 0 8 0;
+#X connect 18 0 10 0;
+#X connect 18 1 17 0;
+#X connect 19 0 21 0;
+#X connect 21 0 20 0;
+#X restore -50 771 pd canvas-rectangle-shifter;
+#X obj -50 751 tgl 15 0 empty \$0-demo-toggle On/Off 17 7 0 10 #fcfcfc
+#000000 #000000 1 1;
+#X floatatom -49 801 5 0 0 1 Width - -, f 5;
+#X floatatom 30 801 5 0 0 1 Height - -, f 5;
+#X floatatom 110 801 5 0 0 1 ColorPreset - -, f 5;
+#X text 93 820 This object (called "canvas" \, [my_canvas/cnv] \, is
+remotely receiving width \, height \, and color choices \, which are
+being algorithmically generated. These could be a stream of values
+as well \, so the shape could shift gradually., f 98;
+#X text 70 830 <--;
+#X obj -40 1300 tabplay~ \$0-sound;
+#N canvas 0 22 450 300 load-sound 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array \$0-sound 124439 float 0 black black;
+#X coords 0 1 124438 -1 200 140 1;
+#X restore 190 20 graph;
+#X obj -18 99 soundfiler;
+#X msg -18 70 read -resize jongly.aif \$0-sound;
+#X obj -18 27 loadbang;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X restore -40 1414 pd load-sound;
+#X msg -40 1270 bang;
+#N canvas 1898 122 450 300 audio-out 0;
+#X obj -70 30 inlet~;
+#X obj 50 30 inlet~;
+#X obj 103 143 tgl 15 0 empty empty DSP\ On/Off 17 7 0 10 #fcfcfc #000000
+#000000 1 1;
+#X text 101 101 In Ch1;
+#X text 183 102 In Ch2;
+#X obj 103 163 hsl 64 15 0.01 1 1 0 empty empty Volume 72 7 0 10 #fcfcfc
+#000000 #000000 5300 1;
+#X obj 50 220 *~;
+#X obj 102 120 cnv 2 123 2 empty empty Audio\ Output 1 8 0 14 #e0e0e0
+#404040 0;
+#X obj 183 144 tgl 15 0 empty empty Mute 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj -70 200 *~;
+#X obj -70 250 dac~ 1 2;
+#X msg 103 230 \; pd dsp \$1;
+#X text -100 260 _;
+#X connect 0 0 9 0;
+#X connect 1 0 6 0;
+#X connect 2 0 11 0;
+#X connect 5 0 6 1;
+#X connect 5 0 9 1;
+#X connect 6 0 10 1;
+#X connect 8 0 6 1;
+#X connect 8 0 9 1;
+#X connect 9 0 10 0;
+#X coords 0 -1 1 1 127 82 2 100 100;
+#X restore -40 1330 pd audio-out;
+#X msg 10 1270 stop;
+#X text -60 1160 • Symbols are used the least in Pd because most
+elements are number based \, but a few objects respond to single symbols
+, f 128;
+#X text -60 880 • In Pd we will mostly deal with three different
+data types: FLOAT (floating-point decimal numbers) \, symbols (text-based
+single word messages)or lists (a combination of multiple floats \,
+multiple symbols \, or both)., f 128;
+#X obj -40 1215 random 10;
+#X msg -40 1190 bang;
+#X floatatom -40 1237 5 0 0 0 - - -, f 5;
+#X text 20 1190 <-- The "bang" message is just a symbol \, even when
+sent by the [bang/bng] object, f 82;
+#X obj 60 1210 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 60 1233 print;
+#X text 100 1233 <-- see result in Pd console;
+#X text 70 1270 <--;
+#X text -60 1500 • Symbols are seen more often in LISTS. Lists are
+a combination of two messages:, f 128;
+#X obj -10 1545 print;
+#X text 58 1520 <-- Easiest way to make a list is to put two items
+in a single message box, f 79;
+#X obj -10 1595 print;
+#X text 40 1570 <-- This is NOT a list \, it is two separate messages
+, f 52;
+#X msg -10 1570 60 \, 65;
+#X msg -10 1620 set 64;
+#X obj -10 1645 hsl 45 15 0 127 0 0 empty empty empty -2 -8 0 10 #fcfcfc
+#000000 #000000 0 1;
+#X text -60 1000 • Al numbers used in Pd are the type FLOAT \, which
+is a floating point decimal number, f 128;
+#X obj -50 1055 print;
+#X floatatom 10 1080 5 0 0 0 - - -, f 5;
+#X text 40 1030 <-- Pd will automatically hide the ".0" at the end
+of an integer \, but it is there, f 83;
+#X msg 10 1030 3.5;
+#X obj 10 1055 + 4.6;
+#X obj 80 1080 / 2;
+#X msg 80 1057 3;
+#X floatatom 80 1105 5 0 0 0 - - -, f 5;
+#X text 140 1060 In some programming lanuages \, if the place where
+the result of this calculation was of type integer \, it would give
+us "2" back. In MAX \, this would also give us "2" \, but in Max you
+have to define if an operator is using integer or floating point arithmetic.
+Not in Pd.;
+#X text 120 1060 <--;
+#X text 100 1270 [tabplay~] is an object that plays an audio file stored
+in a table \, and responds to the symbol "bang" to start playing \,
+the symbol "stop" to stop playing;
+#X text 106 1611 Many objects respond to a list message that is a symbol
+and some other data. The "set" list is very common \, which sets the
+display of a UI object \, without causing the UI object to output a
+value., f 52;
+#X text 82 1621 <--;
+#X floatatom -10 1670 5 0 0 0 - - -, f 5;
+#X text -60 1690 • To build a list in your program \, use [pack]
+, f 49;
+#X floatatom -10 1710 5 0 0 0 - - -, f 5;
+#X floatatom 28 1710 5 0 0 0 - - -, f 5;
+#X text 60 1740 <--;
+#X obj -10 1765 print;
+#X msg -10 1790 3.14;
+#X obj -10 1845 print;
+#X text 90 1730 The [pack] object packs one or more data values into
+a single list. You must tell pack what type of data each element of
+the list is \, using the abbreviations "f" for float \, "s" for symbol
+, f 47;
+#X msg -50 1030 33.3;
+#X obj -10 1820 pack f s;
+#X msg 30 1790 symbol yum;
+#X text 110 1790 <--;
+#X text 140 1790 For some reason \, symbols must be *declared* with
+the word "symbol" before you can pack it in a list, f 36;
+#X msg -10 1870 1;
+#X msg 40 1870 2;
+#X obj -10 1900 pack f f;
+#X text 80 1870 <--;
+#X text 100 1840 [pack] is the object that you must adhere to the hot/cold
+inlet designation the most. It produces output only when it receives
+something at its left inlet \, and it doesn't care if it hasn't received
+something to its cold inlet or not., f 38;
+#X obj -10 1920 print;
+#X obj 389 1689 cnv 1 1 235 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X text 410 1690 • To break a list down into individual elements
+\, use [unpack] \, which works just like [pack] but opposite:, f 49
+;
+#X obj 411 1852 unpack f f f f;
+#X floatatom 412 1880 5 0 0 0 - - -, f 5;
+#X floatatom 457 1880 5 0 0 0 - - -, f 5;
+#X floatatom 497 1880 5 0 0 0 - - -, f 5;
+#X floatatom 537 1880 5 0 0 0 - - -, f 5;
+#X obj 411 1852 unpack f f f f, f 20;
+#X floatatom 412 1880 5 0 0 0 - - -, f 5;
+#X floatatom 457 1880 5 0 0 0 - - -, f 5;
+#X floatatom 497 1880 5 0 0 0 - - -, f 5;
+#X floatatom 537 1880 5 0 0 0 - - -, f 5;
+#X msg -10 1520 50 hello;
+#X obj -10 1740 pack f f s;
+#X msg 67 1711 symbol loop;
+#X obj 408 1789 pack f f f f;
+#X msg 419 1742 1;
+#X msg 462 1741 2;
+#X msg 500 1740 3;
+#X msg 541 1739 4;
+#X msg 573 1791 list 5 6 7 8;
+#X connect 15 0 16 0;
+#X connect 17 0 15 0;
+#X connect 20 0 15 0;
+#X connect 23 0 25 0;
+#X connect 23 1 26 0;
+#X connect 23 2 27 0;
+#X connect 24 0 23 0;
+#X connect 30 0 33 0;
+#X connect 30 0 33 1;
+#X connect 32 0 30 0;
+#X connect 34 0 30 0;
+#X connect 37 0 39 0;
+#X connect 38 0 37 0;
+#X connect 41 0 42 0;
+#X connect 50 0 48 0;
+#X connect 51 0 52 0;
+#X connect 52 0 67 0;
+#X connect 57 0 58 0;
+#X connect 58 0 55 0;
+#X connect 59 0 61 0;
+#X connect 60 0 59 0;
+#X connect 69 0 100 0;
+#X connect 70 0 100 1;
+#X connect 73 0 77 0;
+#X connect 76 0 54 0;
+#X connect 77 0 74 0;
+#X connect 78 0 77 1;
+#X connect 81 0 83 0;
+#X connect 82 0 83 1;
+#X connect 83 0 86 0;
+#X connect 94 0 95 0;
+#X connect 94 1 96 0;
+#X connect 94 2 97 0;
+#X connect 94 3 98 0;
+#X connect 99 0 46 0;
+#X connect 100 0 72 0;
+#X connect 101 0 100 2;
+#X connect 102 0 94 0;
+#X connect 103 0 102 0;
+#X connect 104 0 102 1;
+#X connect 105 0 102 2;
+#X connect 106 0 102 3;
+#X connect 107 0 94 0;

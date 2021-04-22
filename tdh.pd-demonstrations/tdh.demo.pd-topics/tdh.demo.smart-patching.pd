@@ -1,0 +1,77 @@
+#N canvas 1440 -331 2560 1395 12;
+#X obj 39 104 unpack 1 1 1 1;
+#X obj 40 153 pack 1 1 1 1;
+#X text 39 23 Auto-Connect selection;
+#X obj 36 304 unpack 1 1 1 1;
+#X obj 37 353 pack 1 1 1 1;
+#X text 39 56 Select both object \, use cmd-k to connect each inlet
+to the corresponding outlet OR connect one patch cable \, select the
+cable \, then hit cmd-d;
+#X text 36 200 Auto-Connect selection with offset;
+#X obj 164 307 unpack 1 1 1 1;
+#X obj 165 356 pack 1 1 1 1;
+#X text 35 222 Connect patch cable to inlet \, select cable \, press
+cmd-d. Cables will connect moving right from whichever inlet or outlet
+you connect to;
+#X text 29 418 Fan out;
+#X text 28 440 Click and drag patch cable \, press shift over each
+inlet you want to connect the patch cable to;
+#X text 159 122 cmd-k;
+#X text 302 327 cmd-d;
+#X obj 45 505 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 45 562 random 10;
+#X obj 125 561 random 10;
+#X obj 205 562 random 10;
+#X obj 47 704 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 95 699 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 166 704 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 61 766 print;
+#X text 274 515 drag/press shift on top of inlets;
+#X text 44 615 Fan In;
+#X text 43 637 Select outlet objects click and drag patch cable \,
+press and hold shift \, release patch cable at inlet.;
+#X obj 46 943 unpack 1 1 1 1;
+#X obj 47 992 pack 1 1 1 1;
+#X text 42 866 Full auto-connect;
+#X text 41 888 Select both objects \, drag a cable from the first inlet
+to first outlet \, hold shift to connect all outlets and inlets;
+#X obj 47 1105 pack 1 1 1;
+#X msg 46 1049 1;
+#X msg 94 1048 2;
+#X msg 142 1046 3;
+#X text 207 1078 works with multiple objects and a single mutlti-inlet/outlet
+object;
+#X obj 41 1153 unpack 0 0 0;
+#X floatatom 35 1196 5 0 0 0 - - -;
+#X floatatom 91 1195 5 0 0 0 - - -;
+#X floatatom 146 1193 5 0 0 0 - - -;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 0 2 1 2;
+#X connect 0 3 1 3;
+#X connect 3 0 4 1;
+#X connect 3 1 4 2;
+#X connect 3 2 4 3;
+#X connect 7 1 8 0;
+#X connect 7 2 8 1;
+#X connect 7 3 8 2;
+#X connect 14 0 15 0;
+#X connect 14 0 16 0;
+#X connect 14 0 17 0;
+#X connect 18 0 21 0;
+#X connect 19 0 21 0;
+#X connect 20 0 21 0;
+#X connect 25 0 26 0;
+#X connect 25 1 26 1;
+#X connect 25 2 26 2;
+#X connect 25 3 26 3;
+#X connect 30 0 29 0;
+#X connect 31 0 29 1;
+#X connect 32 0 29 2;
+#X connect 34 0 35 0;
+#X connect 34 1 36 0;
+#X connect 34 2 37 0;

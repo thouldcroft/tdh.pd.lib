@@ -1,0 +1,120 @@
+#N canvas 191 23 515 855 10;
+#X text 16 34 Travis Houldcroft || travishouldcroft.com;
+#X obj 0 0 cnv 15 507 31 empty empty tdh.synth.3oscil~ 20 12 0 14 #e0e0e0
+#404040 0;
+#X obj 0 98 cnv 8 506 8 empty empty Inlets 20 15 0 14 #e0e0e0 #404040
+0;
+#X text 20 127 0;
+#X text 42 127 -;
+#X obj 0 358 cnv 8 506 8 empty empty Outlets 20 15 0 14 #e0e0e0 #404040
+0;
+#X text 20 387 0;
+#X text 42 387 -;
+#X obj 0 478 cnv 8 506 8 empty empty Note 20 15 0 14 #e0e0e0 #404040
+0;
+#X obj 0 593 cnv 4 506 4 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 0 418 cnv 8 506 8 empty empty Arguments 20 15 0 14 #e0e0e0 #404040
+0;
+#X text 20 450 None;
+#X obj 0 56 cnv 4 506 4 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
+#X obj 12 1001 tdh.synth.3oscil~;
+#X obj 80 1510 tgl 15 0 empty empty DSP\ On/Off 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X msg 80 1530 \; pd dsp \$1;
+#X obj 12 1537 dac~ 1 2;
+#X text 42 145 -;
+#X text 42 163 -;
+#X text 42 181 -;
+#X text 42 199 -;
+#X text 42 217 -;
+#X text 42 235 -;
+#X text 42 253 -;
+#X text 42 271 -;
+#X text 42 289 -;
+#X text 42 307 -;
+#X text 64 127 (float) Osc1 Shape (0-7);
+#X text 64 145 (float) Osc1 Octave (0-5);
+#X text 64 163 (float) Osc1 Freq in MIDI (24-35 \, 24=C);
+#X text 65 181 (float) Osc1 Gain (0-1);
+#X text 64 199 (float) Osc2 Shape (0-7);
+#X text 64 217 (float) Osc2 Octave (0-5);
+#X text 64 235 (float) Osc2 Freq in MIDI (24-35 \, 24=C);
+#X text 65 253 (float) Osc2 Gain (0-1);
+#X text 64 271 (float) Osc2 Shape (0-7);
+#X text 64 289 (float) Osc2 Octave (0-5);
+#X text 64 307 (float) Osc2 Freq in MIDI (24-35 \, 24=C);
+#X text 65 325 (float) Osc2 Gain (0-1);
+#X text 42 325 -;
+#X text 20 145 1;
+#X text 20 163 2;
+#X text 20 181 3;
+#X text 20 199 4;
+#X text 20 217 5;
+#X text 20 235 6;
+#X text 20 253 7;
+#X text 20 271 8;
+#X text 20 289 9;
+#X text 20 307 10;
+#X text 20 325 11;
+#X text 64 387 (sig) Output;
+#X text 18 604 This module gives you access to 3 independent oscillators
+\, each with their own Waveshape \, Frequency \, Octave \, and Gain
+\, very similar to the oscillator and mixer section on the Minimoog
+Synthesizer, f 78;
+#X text 16 69 A 3 oscillator "Minimoog"-style synth module.;
+#X text 50 530 From tdh.lib: tdh.util.declick \, tdh.synth.oscil-tri~
+\, tdh.synth.oscil-saw~ \, tdh.synth.oscial-pulse~;
+#X text 18 510 Requires the following objects or libraries:;
+#X text 48 570 Cyclone library;
+#X floatatom 10 760 5 0 0 0 - - -, f 5;
+#X floatatom 40 790 5 0 0 0 - - -, f 5;
+#X floatatom 70 820 5 0 0 0 - - -, f 5;
+#X floatatom 100 850 5 0 0 0 - - -, f 5;
+#X text 19 655 Five different waveshapes can be selected from \, including
+two noise sources. All four oscillator parameters can be externally
+controlled via inlet. Frequency is handled in Pitch Class for a single
+octave \, where C=0 \, C#=1 \, etc. Oscillator frequency can be synched
+to Osc 1 \, with independent octave and waveshape for Osc 2-3. Octave
+is set organ style \, and set externally with integers 1-9., f 78
+;
+#X text 50 760 Osc1 Waveshape (Set with integers 0-7);
+#X text 80 790 Osc1 Octave (Using standard octave designations 1-9)
+;
+#X floatatom 130 880 5 0 0 0 - - -, f 5;
+#X floatatom 170 910 5 0 0 0 - - -, f 5;
+#X floatatom 210 940 5 0 0 0 - - -, f 5;
+#X floatatom 250 970 5 0 0 0 - - -, f 5;
+#X text 170 880 Osc2 Waveshape;
+#X text 110 820 Osc1 Frequency in Pitch Class (0-11 in FLOATING POINT)
+;
+#X text 150 850 Osc1 Linear Gain (0-1 in FLOATING POINT);
+#X floatatom 290 880 5 0 0 0 - - -, f 5;
+#X floatatom 330 910 5 0 0 0 - - -, f 5;
+#X floatatom 370 940 5 0 0 0 - - -, f 5;
+#X floatatom 410 970 5 0 0 0 - - -, f 5;
+#X text 330 880 Osc2 Waveshape;
+#X text 370 910 Osc3 Octave;
+#X text 410 940 Osc3 Freq/PC;
+#X text 450 970 Osc1 Gain;
+#X text 210 910 Osc2 Octave;
+#X text 250 940 Osc2 Freq/PC;
+#X text 290 970 Osc2 Gain;
+#X text 32 530 •;
+#X text 32 570 •;
+#X connect 13 0 16 0;
+#X connect 13 0 16 1;
+#X connect 14 0 15 0;
+#X connect 57 0 13 0;
+#X connect 58 0 13 1;
+#X connect 59 0 13 2;
+#X connect 60 0 13 3;
+#X connect 64 0 13 4;
+#X connect 65 0 13 5;
+#X connect 66 0 13 6;
+#X connect 67 0 13 7;
+#X connect 71 0 13 8;
+#X connect 72 0 13 9;
+#X connect 73 0 13 10;
+#X connect 74 0 13 11;

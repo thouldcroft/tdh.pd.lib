@@ -1,0 +1,81 @@
+#N canvas 28 23 1412 855 10;
+#X obj -116 784 tdh.satk.audioout~;
+#X obj -116 474 tdh.satk.channelstrip~;
+#X obj -39 174 tdh.satk.audiofile~;
+#X obj 89 -43 random 2311;
+#X obj 89 -62 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000;
+#X obj 118 -19 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256 0;
+#X obj 35 -117 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj -111 118 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
+#000000 #000000;
+#X obj 151 43 random 1000;
+#X obj 88 88 +;
+#X obj 120 120 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256 0;
+#X obj 88 5 trigger f b;
+#X obj 32 -166 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 311 -20 random 501;
+#X obj 35 -92 trigger b b b;
+#X obj 340 19 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+#fcfcfc #000000 #000000 0 256 0;
+#X obj 32 -140 metro 500;
+#X obj 541 196 tdh.satk.audiofile~;
+#X obj 1100 196 tdh.satk.audiofile~;
+#X obj 541 552 tdh.satk.channelstrip~;
+#X obj 1666 196 tdh.satk.audiofile~;
+#X obj 1100 868 tdh.satk.audioout~;
+#X obj 1100 552 tdh.satk.channelstrip~;
+#X obj 1666 552 tdh.satk.channelstrip~;
+#X obj 543 -129 tdh.satk.seq;
+#X obj 543 145 > 0;
+#X obj 542 172 select 1;
+#X obj 1098 142 > 0;
+#X obj 1100 165 select 1;
+#X obj 1668 138 > 0;
+#X obj 1668 164 select 1;
+#X obj -39 954 tdh.satk.vntg-oscil~;
+#X text 2333 1012 _;
+#X connect 1 0 0 0;
+#X connect 1 1 0 1;
+#X connect 2 0 1 0;
+#X connect 3 0 5 0;
+#X connect 3 0 11 0;
+#X connect 3 0 2 1;
+#X connect 4 0 3 0;
+#X connect 6 0 14 0;
+#X connect 7 0 2 0;
+#X connect 8 0 9 1;
+#X connect 9 0 10 0;
+#X connect 9 0 2 2;
+#X connect 11 0 9 0;
+#X connect 11 1 8 0;
+#X connect 12 0 16 0;
+#X connect 13 0 15 0;
+#X connect 13 0 2 3;
+#X connect 14 0 7 0;
+#X connect 14 1 4 0;
+#X connect 14 2 13 0;
+#X connect 16 0 6 0;
+#X connect 17 0 19 0;
+#X connect 18 0 22 0;
+#X connect 19 0 21 0;
+#X connect 19 1 21 1;
+#X connect 20 0 23 0;
+#X connect 22 0 21 0;
+#X connect 22 1 21 1;
+#X connect 23 0 21 0;
+#X connect 23 1 21 1;
+#X connect 24 0 25 0;
+#X connect 24 1 27 0;
+#X connect 24 2 29 0;
+#X connect 25 0 26 0;
+#X connect 26 0 17 0;
+#X connect 27 0 28 0;
+#X connect 28 0 18 0;
+#X connect 29 0 30 0;
+#X connect 30 0 20 0;
+#X coords 0 -1 1 1 1671 1086 1 527 -145;

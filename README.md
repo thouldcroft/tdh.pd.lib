@@ -1,2 +1,2 @@
 # tdh.lib.pd
-TDH Pd Library
+This is Travis Houldcroft's personal WORKING Pd library. It doesn't contain code that is intended for public use, it is not well documented nor is it all that organized. At some point I hope to shift it to a private repository, but I don't want to accidentally lose any data! All projects intended for public use have been moved out of this folder into their own repositories. So if you do puruse this repository, keep in mind that this code is not intended for public consumption and so you use any code at your own risk! It is all copyright Travis Houldcroft.

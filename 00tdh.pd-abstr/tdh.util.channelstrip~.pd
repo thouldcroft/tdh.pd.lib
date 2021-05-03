@@ -1,4 +1,4 @@
-#N canvas 284 65 901 772 10;
+#N canvas 2816 176 901 772 10;
 #X obj -436 337 *~;
 #X obj -310 180 - 1;
 #X obj -310 209 * -1;
@@ -6,23 +6,23 @@
 #X obj -436 445 outlet~ L;
 #X obj -291 445 outlet~ R;
 #X obj -436 -101 inlet~ signal;
-#X obj 145 312 hsl 64 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 3150 1;
+#X obj 147 306 hsl 64 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
 #X text 100 100 In;
-#X text 166 298 Pan;
-#X text 131 311 L;
-#X text 215 311 R;
+#X text 168 292 Pan;
+#X text 133 305 L;
+#X text 217 305 R;
 #X obj -46 -101 inlet pan;
 #X text -413 336 L;
 #X text -265 333 R;
-#X floatatom 162 330 5 0 0 0 - - -;
+#X floatatom 164 324 5 0 0 0 - - -;
 #X obj -436 144 *~;
-#X text 237 100 Pan;
-#X obj 188 148 vsl 14 118 0 2 0 0 empty empty empty 0 -9 0 10 -262144
+#X text 241 100 Pan;
+#X obj 190 142 vsl 14 118 0 2 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X obj 130 148 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 132 142 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X text 101 380 Out L;
-#X text 225 380 Out R;
+#X text 229 380 Out R;
 #X obj 34 -26 loadbang;
 #X msg 34 34 0.5;
 #X obj -404 312 sig~;
@@ -39,25 +39,25 @@
 #X obj -46 -64 expr if($f1 > 0 \, $f1 \, 0);
 #X obj -368 171 env~;
 #X obj -368 193 - 100;
-#X text 203 200 0dB;
-#X floatatom 189 277 5 0 0 0 - - -;
-#X text 203 185 +2dB;
-#X text 203 145 +6dB;
-#X text 203 214 -2dB;
-#X text 203 230 -6dB;
-#X text 203 255 -20dB;
-#X text 182 128 Gain;
+#X text 205 194 0dB;
+#X floatatom 191 271 5 0 0 0 - - -;
+#X text 205 179 +2dB;
+#X text 205 139 +6dB;
+#X text 205 208 -2dB;
+#X text 205 224 -6dB;
+#X text 205 249 -20dB;
+#X text 184 122 Gain;
 #X text -490 620 _;
 #X msg 288 255 set \$1;
 #X msg 290 308 set \$1;
-#X obj 101 350 cnv 15 157 29 empty empty Channel_Strip 20 12 0 14 -233017
+#X obj 102 344 cnv 15 160 29 empty empty Channel_Strip 20 12 0 14 -233017
 -66577 0;
 #X text 121 100 G(Lin);
 #X obj -250 -69 else/db2lin;
 #X obj -346 -101 inlet gain-lin;
 #X text 386 -203 _;
 #X obj -250 -101 inlet gain-db;
-#X text 160 100 G(dB);
+#X text 163 100 G(dB);
 #X obj -150 -101 inlet~ sig-gain;
 #N canvas 558 57 450 300 snapshotter 0;
 #X obj 80 30 inlet~;
@@ -79,7 +79,7 @@ inlet for gain control \, for display purposes.;
 #X connect 8 0 2 0;
 #X restore -150 -67 pd snapshotter;
 #X obj 289 283 cyclone/atodb;
-#X text 196 100 G(sig);
+#X text 199 100 G(sig);
 #X obj 288 231 else/db2lin;
 #X connect 0 0 4 0;
 #X connect 1 0 2 0;
@@ -126,4 +126,4 @@ inlet for gain control \, for display purposes.;
 #X connect 60 0 29 0;
 #X connect 60 0 27 0;
 #X connect 60 0 47 0;
-#X coords 0 -1 1 1 160 297 2 100 100;
+#X coords 0 -1 1 1 164 297 2 100 100;

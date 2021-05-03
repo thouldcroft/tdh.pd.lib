@@ -1,61 +1,62 @@
-#N canvas 254 28 738 825 10;
-#X obj 29 115 pack 1 1 1 1;
+#N canvas 1932 -261 1032 1205 10;
+#X obj 31 115 pack 1 1 1 1;
 #X obj 31 60 unpack 1 1 1 1;
 #X text 28 14 Two objects with same number of outlets to inlets: Select
 both objects and press cmd-k to connect each outlet, f 52;
-#X obj 25 339 pack 1 1 1 1;
+#X obj 29 339 pack 1 1 1 1;
 #X obj 27 284 unpack 1 1 1 1;
 #X obj 27 218 pack 1 1 1 1;
 #X obj 27 179 unpack 1 1 1 1;
 #X text 25 149 Patch cables also duplicate with cmd-d, f 40;
 #X text 22 252 cmd-d will duplicate to the right from the selected
 cable;
-#X obj 33 404 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X obj 32 455 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X obj 59 456 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X obj 88 453 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X obj 114 456 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
-#000000 #000000;
+#X obj 33 404 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 33 455 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 59 455 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 85 455 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 111 455 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X text 21 372 fan out: click drag and hold \, THEN press shift on
 each destination object;
-#X obj 29 520 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X obj 61 519 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X obj 93 522 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X obj 57 561 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X text 23 488 many to one - select all source then connect one the
-destination;
+#X obj 29 531 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 61 530 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 93 530 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 29 561 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X obj 25 617 unpack 1 1 1 1;
 #X obj 26 656 pack 1 1 1 1;
 #X text 22 589 multi-connect: select both objects and connect one cable
 ;
-#X obj 38 726 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X obj 55 791 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X obj 86 791 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
-#X obj 22 791 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc #000000
-#000000;
+#X obj 38 726 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 55 791 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 86 791 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 22 791 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
 #X text 21 681 triggerize: select trigger causing message and cmd-t
 creates a trigger obj that fans out to the connected object whose sequence
 is the order in which the objects were connected;
-#X obj 38 750 t a a a;
 #X text 150 80 Purr Data: Select both objects \, drag 1 patch cable
 from outlet 1 to inlet 1, f 27;
 #X text 140 200 Purr Data: Not available?, f 27;
 #X text 140 310 Purr Data: Not available?, f 27;
-#X text 150 410 Purr Data: Click + hold \, press shift \, release *mouse*
+#X text 151 410 Purr Data: Click + hold \, press shift \, release *mouse*
 \, click on each inlet, f 27;
 #X text 150 540 Purr Data: Same!, f 27;
 #X text 160 760 Purr Data: Not available?, f 27;
+#X text 23 488 MANY TO ONE: select all source objects \, CLICK+DRAG
+a patch cable from *one of the source objects* \, PRESS+HOLD SHIFT
+\, CONNECT CABLE TO INLET WHILE HOLDING SHIFT;
+#X obj 28 761 t a a a;
 #X connect 1 0 0 0;
 #X connect 1 1 0 1;
 #X connect 1 2 0 2;
@@ -67,14 +68,18 @@ from outlet 1 to inlet 1, f 27;
 #X connect 6 1 5 1;
 #X connect 6 2 5 2;
 #X connect 6 3 5 3;
+#X connect 9 0 10 0;
+#X connect 9 0 11 0;
+#X connect 9 0 12 0;
+#X connect 9 0 13 0;
 #X connect 15 0 18 0;
 #X connect 16 0 18 0;
 #X connect 17 0 18 0;
-#X connect 20 0 21 0;
-#X connect 20 1 21 1;
-#X connect 20 2 21 2;
-#X connect 20 3 21 3;
-#X connect 23 0 28 0;
-#X connect 28 0 24 0;
-#X connect 28 1 26 0;
-#X connect 28 2 25 0;
+#X connect 19 0 20 0;
+#X connect 19 1 20 1;
+#X connect 19 2 20 2;
+#X connect 19 3 20 3;
+#X connect 22 0 34 0;
+#X connect 34 0 25 0;
+#X connect 34 1 24 0;
+#X connect 34 2 23 0;

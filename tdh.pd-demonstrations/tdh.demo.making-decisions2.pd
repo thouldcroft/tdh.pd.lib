@@ -1,0 +1,921 @@
+#N canvas 1280 -209 1920 1035 12;
+#X obj -85 -5 cnv 15 820 48 empty empty Making_Decisions 20 12 0 14
+-233017 -66577 0;
+#X text -76 1434 ________________________________________________________________________________________________________________________________
+, f 128;
+#X obj -85 18 cnv 15 820 28 empty empty THE283_-_Sound_Art 20 12 0
+14 -233017 -66577 0;
+#X obj -83 478 cnv 15 820 31 empty empty True_or_False 20 12 0 14 -233017
+-66577 0;
+#X obj -77 965 cnv 15 820 31 empty empty If..._then... 20 12 0 14 -233017
+-66577 0;
+#X obj -81 1460 cnv 15 820 31 empty empty Using_If...Then...Else...
+20 12 0 14 -233017 -66577 0;
+#N canvas 567 48 450 300 init 0;
+#X obj 61 63 loadbang;
+#X restore 643 20 pd init;
+#X obj -85 2100 cnv 15 820 31 empty empty Interlude:Wireless-Connections
+20 12 0 14 -233017 -66577 0;
+#X obj -83 2579 cnv 15 820 31 empty empty Clean-Up_Patch 20 12 0 14
+-233017 -66577 0;
+#X text -82 48 • Computer programs truly come "alive" and have much
+more purpose when you have them make very simple decisions (or complex
+decisions \, in the case of AI), f 116;
+#X text -82 98 • Pd provides you with all of the classic decision
+making tools that you find in a more traditional coding language \,
+though they don't always come in as similar of a package., f 116;
+#X text -82 148 • This decision-making is what makes a Pd patch stand
+out - it is often the main reason to use Pd (or Max) vs a DAW, f 117
+;
+#X text -32 188 • Not too surprising \, but DAWs don't often try
+to make decisions for you!, f 110;
+#X text -82 228 • Along with randomization \, decision-making also
+allows you to add variation to a repeated gesture, f 117;
+#X text -82 268 • Decision-making also allows you to start a process
+\, and have it go until a certain element happens, f 116;
+#X text -82 514 • Computers PREFER to work in absolutes (humans do
+too \, but life isn't like that!), f 128;
+#X text -83 531 • TRUE or FALSE works really well because you can
+code it in binary numbers - "1" for true \, "0" for false, f 128;
+#X text -42 547 • Pd Binary Operators work in the same way, f 121
+;
+#X obj -18 631 >;
+#X obj 132 630 <;
+#X obj 287 630 >=;
+#X obj 425 629 <=;
+#X floatatom -51 602 5 0 0 0 - - -;
+#X floatatom 20 601 5 0 0 0 - - -;
+#X floatatom 105 602 5 0 0 0 - - -;
+#X floatatom 156 601 5 0 0 0 - - -;
+#X floatatom 262 601 5 0 0 0 - - -;
+#X floatatom 315 601 5 0 0 0 - - -;
+#X floatatom 402 601 5 0 0 0 - - -;
+#X floatatom 455 601 5 0 0 0 - - -;
+#X floatatom 535 600 5 0 0 0 - - -;
+#X floatatom 588 600 5 0 0 0 - - -;
+#X obj 558 628 ==;
+#X text -61 670 Is a greater than b;
+#X text 89 669 Is a less than b;
+#X text 260 669 Is a greater than or equal tob, f 13;
+#X text 390 671 Is a less than or equal to b, f 14;
+#X text 522 668 Is a equal to b;
+#X text -83 564 • Most binary operators are the functions we have
+been using since elementary school \, maybe written SLIGHTLY different:
+, f 128;
+#X floatatom -18 652 5 0 0 0 - - -;
+#X floatatom 132 651 5 0 0 0 - - -;
+#X floatatom 287 651 5 0 0 0 - - -;
+#X floatatom 425 650 5 0 0 0 - - -;
+#X floatatom 558 649 5 0 0 0 - - -;
+#X text -56 709 • These objects will report 1 or 0 \, if the statement
+is true or false. These objects also follow the hot inlet rule \, so
+you must send a value to the right inlet first \, THEN the left inlet
+, f 123;
+#X text -83 740 • An object that gets used A LOT is the [select]
+object - it will only report true if the input number (or symbol) matches
+the argument (or value supplied to its right inlet), f 128;
+#X text -52 774 • Since it only reports "true" \, it doesn't use
+1 & 0 \, it uses BANG, f 120;
+#X obj -14 851 select 56;
+#X floatatom -14 816 5 0 0 0 - - -;
+#X obj 222 898 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 222 875 select play;
+#X floatatom 83 814 5 0 0 0 - - -;
+#X obj -14 923 print;
+#X obj 83 913 print;
+#X msg -14 887 play;
+#X msg 83 892 stop;
+#X obj 83 834 select 99;
+#X obj 137 869 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 222 830 symbol play;
+#X msg 314 830 symbol stop;
+#X text -75 1020 • The best object to perform this action is an object
+called [select], f 115;
+#X text -75 1002 • A common programming statement is "If (this is
+true) \, then (do that) \, else (do something else), f 117;
+#X text -35 1042 • The [select] object actually performs an if...
+then... else... when using the data sent out its right outlet, f 110
+;
+#X obj 17 1130 sel 10;
+#X obj 17 1155 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 17 1102 10;
+#X msg 60 1102 12;
+#X text -35 1062 • In particular \, it performs the statement "if
+(value to match == input value) then (bang) \, else (input value),
+f 110;
+#X text -5 1082 • If the input value doesn't match the value to be
+matched \, then it sends the value out the right outlet, f 128;
+#X floatatom 53 1154 5 0 0 0 - - -;
+#X text 65 1131 If (input == 10) then (bang) \, else (send out right
+outlet);
+#X text -40 1187 • This allows us to perform additional tests on
+the data \, which in traditional languages takes on the form of "if
+(this is true) then (do that) else if (this is true) then (do this)
+else if (this is true) then (do this) \, else (do this), f 110;
+#X text 23 1243 • To do this \, we need two or more select objects
+, f 107;
+#X obj 32 1289 sel 10;
+#X obj 32 1314 bng 15 250 50 0 empty empty this -33 7 0 10 -262144
+-1 -1;
+#X msg 32 1261 10;
+#X msg 75 1261 12;
+#X floatatom 68 1313 5 0 0 0 - - -;
+#X obj 69 1337 sel 12;
+#X obj 69 1359 bng 15 250 50 0 empty empty that -33 7 0 10 -262144
+-1 -1;
+#X text 82 1290 If (input == 10) then (this_bang), f 34;
+#X text 115 1335 else if (input == 12 ) then (that_bang);
+#X floatatom 103 1370 5 0 0 0 - - -;
+#X text 144 1368 else send the input out;
+#X msg 115 1263 14;
+#X obj 327 1482 tdh.satk.3oscil~;
+#X obj 500 1984 tdh.satk.audioout~;
+#X obj 98 1495 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 98 1515 metro;
+#X floatatom 124 1493 5 0 0 0 - - -;
+#X text -78 1520 If (random # == 0 ) then send oscillator 1 the value
+24 (and silence other oscillators), f 23;
+#X obj 98 1536 random 5;
+#X obj 98 1557 sel 0;
+#X obj 98 1582 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 95 1605 24;
+#X msg 165 1606 0;
+#X msg 205 1605 0;
+#X text -71 1642 Else If (random # == 1 ) then send oscillator 1 the
+value 26 and send oscillator 2 freq 31 (plus turn up gain and silence
+oscillator 3), f 22;
+#X obj 135 1666 sel 1;
+#X msg 178 1716 31;
+#X msg 100 1716 26;
+#X msg 214 1716 1;
+#X obj 136 1685 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 168 1848 1;
+#X obj 163 1807 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 70 1850 31;
+#X msg 132 1848 35;
+#X msg 132 1606 1;
+#X msg 100 1850 1;
+#X msg 238 1848 1;
+#X msg 202 1848 26;
+#X obj 162 1788 sel 2;
+#X obj 192 1902 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 192 1877 sel 3;
+#X text -23 1918 Else if (random # == 3) \, then silence all the oscillators
+, f 21;
+#X msg 147 1941 0;
+#X msg 181 1941 0;
+#X msg 213 1941 0;
+#X text 57 2000 Else if (random # == 4) \, then just do whatever is
+currently happening (i.e. dp nothing), f 21;
+#X obj 224 2003 sel 4;
+#X obj 224 2029 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text -74 2137 • That last patch was MESSY and difficult to read
+\, but because Pd patch cords are straight lines \, it can be hard
+to make a neat patch without help!, f 128;
+#X text -59 2175 • One method I have recently discovered when you
+need to route around objects is to use an object that won't change
+your data at all \, send a patch cord to it \, and then route back
+\, such as this:, f 125;
+#X obj 72 2231 * 15;
+#X obj 72 2252 + 7;
+#X obj 72 2273 /;
+#X floatatom 72 2294 5 0 0 0 - - -;
+#X floatatom 72 2207 5 0 0 0 - - -;
+#X text 125 2210 (Input * 15 + 7) / input;
+#X text -64 2312 • But a much better way to handle things like this
+is through WIRELESS PATCHING, f 128;
+#X text -84 2333 • Wireless patching uses the [send] and [receive]
+objects, f 115;
+#X floatatom -80 2392 5 0 0 0 - - -;
+#X floatatom 102 2417 5 0 0 0 - - -;
+#X obj -80 2415 * 3;
+#X obj -80 2439 send times-three;
+#X obj 102 2392 receive times-three;
+#X text 152 2416 Now I'm here!;
+#X text -38 2402 First I'm here...;
+#X obj 518 2392 cnv 5 1 160 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X text 330 2385 Works for signals too!;
+#X obj 333 2454 send~ slow-sine;
+#X obj 328 2479 receive~ slow-sine;
+#X obj 328 2506 env~;
+#X obj 328 2530 - 100;
+#X obj 468 2429 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj 333 2431 osc~ 0.25;
+#X floatatom 333 2409 5 0 0 0 - - -;
+#X obj -61 2465 cnv 1 350 1 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X text -65 2351 • These objects get an argument \, which is a name
+they share (no spaces! avoid weird characters!) and then anything sent
+to a [send] will come out the [receive], f 104;
+#X msg -82 2502 8;
+#X msg -12 2502 6;
+#X msg 58 2500 0;
+#X obj -82 2573 cnv 5 820 1 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj -82 2532 send code;
+#X obj -12 2532 send code;
+#X obj 58 2532 send code;
+#X obj 127 2500 receive code;
+#X floatatom 127 2532 5 0 0 0 - - -;
+#X obj 219 2499 receive code;
+#X floatatom 219 2533 5 0 0 0 - - -;
+#X text -80 2467 • You can have multiple sends and multiple receives
+of the same name:, f 50;
+#X obj 317 2643 tdh.satk.3oscil~;
+#X obj 317 3156 tdh.satk.audioout~;
+#X obj 97 2610 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 97 2629 metro;
+#X floatatom 123 2609 5 0 0 0 - - -;
+#X text -79 2612 If (random # == 0 ) then send oscillator 1 the value
+24 (and silence other oscillators), f 23;
+#X obj 97 2650 random 5;
+#X obj 97 2671 sel 0;
+#X obj 97 2724 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg -61 2747 24;
+#X msg 89 2747 0;
+#X msg 154 2746 0;
+#X text -82 2789 Else If (random # == 1 ) then send oscillator 1 the
+value 26 and send oscillator 2 freq 31 (plus turn up gain and silence
+oscillator 3), f 21;
+#X obj 129 2795 sel 1;
+#X msg 171 2840 31;
+#X msg 79 2839 26;
+#X msg 223 2839 1;
+#X obj 129 2819 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 160 3011 1;
+#X obj 161 2958 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 16 3011 31;
+#X msg 108 3011 35;
+#X msg 20 2747 1;
+#X msg 64 3011 1;
+#X msg 252 3011 1;
+#X msg 203 3011 26;
+#X obj 161 2930 sel 2;
+#X obj 193 3091 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 193 3068 sel 3;
+#X text -14 3079 Else if (random # == 3) \, then silence all the oscillators
+, f 21;
+#X obj 227 3213 sel 4;
+#X obj 227 3239 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -61 2768 send frq1;
+#X obj 334 2611 receive frq1;
+#X obj 527 2468 cnv 5 200 1 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj 20 2768 send gn1;
+#X obj 427 2611 r gn1;
+#X obj 89 2768 send gn2;
+#X obj 721 2610 r gn3;
+#X obj 573 2610 r gn2;
+#X obj 154 2769 send gn3;
+#X obj 79 2862 s frq1;
+#X obj 171 2862 s frq2;
+#X msg 271 2837 0;
+#X obj 271 2860 s gn3;
+#X obj 223 2861 s gn2;
+#X msg 127 2839 1;
+#X obj 127 2862 s gn1;
+#X obj 16 3044 s frq1;
+#X obj 108 3044 s frq2;
+#X obj 252 3043 s gn3;
+#X obj 160 3043 s gn2;
+#X obj 64 3044 s gn1;
+#X obj 203 3043 s frq3;
+#X text -32 2905 Else If (random # == 2 ) then send oscillator 1 the
+value 31 and send oscillator 2 freq 35 and send oscillator 3 freq 26
+(plus turn up gain on all 3), f 26;
+#X text -45 1748 Else If (random # == 2 ) then send oscillator 1 the
+value 31 and send oscillator 2 freq 35 and send oscillator 3 freq 26
+(plus turn up gain on all 3), f 26;
+#X msg 135 1716 1;
+#X msg 252 1714 0;
+#X obj 234 3174 s gn3;
+#X obj 190 3174 s gn2;
+#X obj 144 3174 s gn1;
+#X text 66 3201 Else if (random # == 4) \, then just do whatever is
+currently happening (i.e. do nothing), f 21;
+#X obj 525 2610 r frq2;
+#X obj 671 2610 r frq3;
+#X obj -84 3827 cnv 15 775 31 empty empty With-Ramps 20 12 0 14 -233017
+-66577 0;
+#X obj 316 3964 tdh.satk.3oscil~;
+#X obj 316 4477 tdh.satk.audioout~;
+#X obj 86 3941 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 86 3960 metro;
+#X floatatom 112 3940 5 0 0 0 - - -;
+#X obj 86 3981 random 5;
+#X obj 86 4002 sel 0;
+#X obj 86 4025 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 118 4126 sel 1;
+#X obj 118 4150 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 150 4289 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 150 4261 sel 2;
+#X obj 182 4449 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 182 4426 sel 3;
+#X obj 214 4574 sel 4;
+#X obj 214 4600 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -83 468 cnv 5 820 1 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj -83 958 cnv 5 820 1 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj -83 3299 cnv 15 820 31 empty empty Interlude2:Value-Ramps 20
+12 0 14 -233017 -66577 0;
+#X obj -83 3289 cnv 5 820 1 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj -83 3819 cnv 5 820 1 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X text -81 3336 • Those clicks and pops that happened when we turned
+our oscillators on and off were... annoying, f 115;
+#X text -64 3365 • A better way to turn off an audio signal is through
+a RAMP of values, f 115;
+#X text -61 3396 • Instead of sending "1" or "0" \, we send "0.0
+\, 0.1 \, 0.2 \, 0.3 \, 0.4 \, 0.5 \, 0.6 \, 0.7 \, 0.8 \, 0.9 \, 1.0"
+(and then the opposite for ramping down to 0), f 115;
+#X text -58 3438 • If we send the ramp of values fast enough \, it
+won't sound any different than ON and OFF \, but the milliseconds of
+fade will prevent the POP that happens when we suddenly turn on the
+signal, f 115;
+#X text -55 3478 • we use the [line] object to send such a ramp,
+f 115;
+#X text -81 3512 • [line] and [line~], f 115;
+#X msg -53 3583 1 1000;
+#X msg 23 3582 0 10000;
+#X obj -53 3616 line;
+#X floatatom -53 3640 5 0 0 0 - - -;
+#X obj -49 3663 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X text -54 3542 • the [line/~] objects take a list of two values
+to determine how they operate \, which includes a destination value
+\, and the time (in milliseconds) over which the ramp of values should
+occur, f 115;
+#X text 297 3581 • [line] will remember where it stopped \, and can
+be interrupted \, so the ramp will move from its current value to its
+destination value. If you want to specify a starting value \, sent
+it a single number and line will jump straight to that number \, then
+you can send a destination and time., f 31;
+#X obj 125 3613 line~;
+#X obj 125 3637 env~;
+#X msg 125 3580 1 1000;
+#X msg 201 3579 0 10000;
+#X obj 125 3661 - 100;
+#X obj 202 3610 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X msg 146 3136 0;
+#X obj 548 3595 line;
+#X floatatom 548 3619 5 0 0 0 - - -;
+#X obj 552 3642 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 19050 1;
+#X msg 548 3570 75 1000;
+#X msg 614 3571 0;
+#X msg 648 3569 100;
+#X text 545 3659 You can send start and destination with one message
+box:, f 18;
+#X obj 547 3746 line;
+#X floatatom 547 3770 5 0 0 0 - - -;
+#X obj 551 3793 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 25400 1;
+#X msg 639 3719 80;
+#X msg 547 3721 0 \, 100 1000;
+#X text -79 3865 The [send] and [receive] objects need new names \,
+because a patch will share those names throughout it... so we would
+send values to the module up above!, f 54;
+#X obj -75 4131 send frq1a;
+#X obj 9 4099 send gn1a;
+#X obj 83 4099 send gn2a;
+#X obj 158 4100 send gn3a;
+#X obj 28 4203 s frq1a;
+#X obj 86 4203 s gn1a;
+#X obj 140 4203 s frq2a;
+#X obj 202 4202 s gn2a;
+#X obj 250 4201 s gn3a;
+#X obj -45 4385 s frq1a;
+#X obj 13 4385 s gn1a;
+#X obj 67 4385 s frq2a;
+#X obj 129 4384 s gn2a;
+#X obj 191 4381 s frq3a;
+#X obj 253 4381 s gn3a;
+#X obj 113 4511 s gn1a;
+#X obj 169 4511 s gn2a;
+#X obj 223 4511 s gn3a;
+#X obj 406 3922 r gn1a;
+#X obj 489 3921 r frq2a;
+#X obj 552 3921 r gn2a;
+#X obj 650 3921 r frq3a;
+#X obj 710 3921 r gn3a;
+#X obj 321 3895 r frq1a;
+#X msg 192 3135 0;
+#X msg 239 3132 0;
+#X obj 192 1516 sel 0;
+#X msg 192 1539 0;
+#X text 233 1515 stop all!;
+#X obj 154 2670 sel 0;
+#X obj 152 2722 s gn1;
+#X obj 197 2722 s gn2;
+#X obj 239 2723 s gn3;
+#X msg 154 2694 0;
+#X text 525 2408 You can abbreviate [send] and [receive]!, f 28;
+#X obj 529 2444 s blah;
+#X obj 590 2442 r blah;
+#X obj 312 2390 cnv 5 1 160 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X text 524 2472 • Copy & paste the [send] name \, and then change
+[send] to [receive] \, then you won't make a typo!, f 17;
+#X text 529 2386 ** PRO TIPS! **;
+#X obj 664 2484 s blob;
+#X text 793 6111 _;
+#X obj -84 4707 cnv 15 775 31 empty empty With-Ramps 20 12 0 14 -233017
+-66577 0;
+#X obj 316 4844 tdh.satk.3oscil~;
+#X obj 316 5357 tdh.satk.audioout~;
+#X obj 96 4801 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 96 4820 metro;
+#X floatatom 122 4800 5 0 0 0 - - -;
+#X obj 96 4841 random 5;
+#X obj 96 4862 sel 0;
+#X obj 96 4885 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 128 4986 sel 1;
+#X obj 128 5010 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 160 5149 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 160 5121 sel 2;
+#X obj 192 5309 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 192 5286 sel 3;
+#X obj 224 5434 sel 4;
+#X obj 224 5460 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -83 4699 cnv 5 820 1 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X text -79 4745 The [send] and [receive] objects need new names \,
+because a patch will share those names throughout it... so we would
+send values to the module up above!, f 54;
+#X obj -62 4959 send frq1a;
+#X obj 19 4959 send gn1a;
+#X obj 93 4959 send gn2a;
+#X obj 168 4960 send gn3a;
+#X obj 38 5063 s frq1a;
+#X obj 96 5063 s gn1a;
+#X obj 150 5063 s frq2a;
+#X obj 212 5062 s gn2a;
+#X obj 260 5061 s gn3a;
+#X obj -35 5245 s frq1a;
+#X obj 23 5245 s gn1a;
+#X obj 77 5245 s frq2a;
+#X obj 139 5244 s gn2a;
+#X obj 201 5241 s frq3a;
+#X obj 263 5241 s gn3a;
+#X obj 123 5371 s gn1a;
+#X obj 179 5371 s gn2a;
+#X obj 233 5371 s gn3a;
+#X obj 406 4772 r gn1a;
+#X obj 494 4771 r frq2a;
+#X obj 552 4771 r gn2a;
+#X obj 650 4771 r frq3a;
+#X obj 710 4771 r gn3a;
+#X obj 313 4772 r frq1a;
+#X obj 313 4796 line;
+#X obj 406 4796 line;
+#X obj 494 4795 line;
+#X obj 552 4795 line;
+#X obj 650 4795 line;
+#X obj 710 4795 line;
+#X msg -62 4928 24 100;
+#X msg 19 4928 1 50;
+#X msg 93 4928 0 50;
+#X msg 168 4927 0 50;
+#X msg 96 5031 1 50;
+#X msg 212 5030 1 50;
+#X msg 260 5028 0 50;
+#X msg 23 5202 1 50;
+#X msg 139 5202 1 50;
+#X msg 260 5202 1 50;
+#X msg 123 5333 0 50;
+#X msg 181 5334 0 50;
+#X msg 235 5333 0 50;
+#X msg 38 5030 26 100;
+#X msg 150 5031 31 100;
+#X msg -35 5202 31 100;
+#X msg 77 5202 35 100;
+#X msg 202 5202 26 100;
+#X msg 9 4068 1;
+#X msg 83 4068 0;
+#X msg 158 4067 0;
+#X msg 250 4168 0;
+#X msg 202 4170 1;
+#X msg 140 4171 31;
+#X msg 86 4171 1;
+#X msg 28 4170 26;
+#X msg -45 4342 31;
+#X msg 13 4342 1;
+#X msg 68 4342 35;
+#X msg 129 4342 1;
+#X msg 192 4342 26;
+#X msg 250 4342 1;
+#X msg 113 4473 0;
+#X msg 171 4474 0;
+#X msg 225 4473 0;
+#X obj -84 2094 cnv 5 820 1 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj -85 5524 cnv 15 820 31 empty empty Route 20 12 0 14 -233017
+-66577 0;
+#X obj -82 5997 cnv 5 820 1 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X obj -84 5518 cnv 5 820 1 empty empty empty 20 12 0 14 -1 -66577
+0;
+#X text -80 5561 • One very common approach to using Pd and making
+code that has become more popular over the last 10 years is moving
+away from multiple inlets and or multiple data lanes \, and instead
+using single data lanes where all the data is "tagged" with what is
+known as a SELECTOR, f 115;
+#N canvas 1282 -207 1920 1035 simple-synth 0;
+#X obj 64 19 inlet;
+#X obj 66 95 osc~;
+#X floatatom 65 66 5 0 0 0 - - -;
+#X obj 66 118 *~;
+#X obj 66 141 outlet~;
+#X obj 64 42 route freq;
+#X obj 132 74 route amp;
+#X connect 0 0 5 0;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 5 0 2 0;
+#X connect 5 1 6 0;
+#X connect 6 0 3 1;
+#X restore -27 5685 pd simple-synth;
+#X msg -77 5652 freq 440;
+#X obj -27 5724 tdh.satk.audioout~;
+#X msg 109 5652 amp 0.5;
+#X msg 170 5652 amp 0;
+#X msg -9 5652 freq 880;
+#X text -77 5624 Selector: freq;
+#X text 109 5623 Selector: amp;
+#X text 247 5771 • Now you are likely thinking "why would I need
+to know this \, I'm not making my own objects!", f 65;
+#X text 280 5808 • This is true \, but I wanted to show another way
+to make decisions (based on selector);
+#X text 283 5847 • ALSO! Building Plug-Ins in Pd for REAPER will
+require you to handle data like this!;
+#X text 236 5608 • This is accomplished with the [route] object;
+#X text 256 5628 • [route] matches a selector with its argument \,
+and then sends the trailing data out the corresponding outlet:;
+#X msg 297 5662 freq 440;
+#X msg 433 5662 amp 0.5;
+#X msg 365 5662 freq 880;
+#X obj 299 5694 route freq amp;
+#X floatatom 299 5721 5 0 0 0 - - -;
+#X floatatom 351 5721 5 0 0 0 - - -;
+#X text 412 5694 inlet 0 corresponds to the 1st argument (freq);
+#X text 412 5714 inlet 1 corresponds to the 2nd argument (amp);
+#X msg 494 5661 amp 1;
+#X obj 330 876 sel 55;
+#X obj 121 2234 send input;
+#X obj 135 2260 receive input;
+#X floatatom 133 2284 5 0 0 0 - - -;
+#X obj 660 2520 r blob;
+#X obj -71 4096 line;
+#X msg -72 4068 33 5000;
+#X obj 324 3930 line;
+#X connect 18 0 39 0;
+#X connect 19 0 40 0;
+#X connect 20 0 41 0;
+#X connect 21 0 42 0;
+#X connect 22 0 18 0;
+#X connect 23 0 18 1;
+#X connect 24 0 19 0;
+#X connect 25 0 19 1;
+#X connect 26 0 20 0;
+#X connect 27 0 20 1;
+#X connect 28 0 21 0;
+#X connect 29 0 21 1;
+#X connect 30 0 32 0;
+#X connect 31 0 32 1;
+#X connect 32 0 43 0;
+#X connect 47 0 54 0;
+#X connect 48 0 47 0;
+#X connect 50 0 49 0;
+#X connect 51 0 56 0;
+#X connect 54 0 52 0;
+#X connect 55 0 53 0;
+#X connect 56 0 57 0;
+#X connect 56 0 55 0;
+#X connect 58 0 50 0;
+#X connect 59 0 50 0;
+#X connect 63 0 64 0;
+#X connect 63 1 69 0;
+#X connect 65 0 63 0;
+#X connect 66 0 63 0;
+#X connect 73 0 74 0;
+#X connect 73 1 77 0;
+#X connect 75 0 73 0;
+#X connect 76 0 73 0;
+#X connect 77 0 78 0;
+#X connect 78 0 79 0;
+#X connect 78 1 82 0;
+#X connect 84 0 73 0;
+#X connect 85 0 86 0;
+#X connect 85 0 86 1;
+#X connect 87 0 88 0;
+#X connect 87 0 306 0;
+#X connect 88 0 91 0;
+#X connect 89 0 88 1;
+#X connect 91 0 92 0;
+#X connect 92 0 93 0;
+#X connect 92 1 98 0;
+#X connect 93 0 94 0;
+#X connect 93 0 95 0;
+#X connect 93 0 96 0;
+#X connect 93 0 107 0;
+#X connect 94 0 85 2;
+#X connect 95 0 85 7;
+#X connect 96 0 85 11;
+#X connect 98 0 102 0;
+#X connect 98 1 111 0;
+#X connect 99 0 85 6;
+#X connect 100 0 85 2;
+#X connect 101 0 85 7;
+#X connect 102 0 100 0;
+#X connect 102 0 99 0;
+#X connect 102 0 101 0;
+#X connect 102 0 217 0;
+#X connect 102 0 218 0;
+#X connect 103 0 85 7;
+#X connect 104 0 105 0;
+#X connect 104 0 106 0;
+#X connect 104 0 103 0;
+#X connect 104 0 110 0;
+#X connect 104 0 109 0;
+#X connect 105 0 85 2;
+#X connect 106 0 85 6;
+#X connect 107 0 85 3;
+#X connect 108 0 85 3;
+#X connect 109 0 85 11;
+#X connect 110 0 85 10;
+#X connect 111 0 104 0;
+#X connect 111 1 113 0;
+#X connect 112 0 115 0;
+#X connect 112 0 116 0;
+#X connect 112 0 117 0;
+#X connect 113 0 112 0;
+#X connect 113 1 119 0;
+#X connect 115 0 85 3;
+#X connect 116 0 85 7;
+#X connect 117 0 85 11;
+#X connect 119 0 120 0;
+#X connect 123 0 124 0;
+#X connect 124 0 125 0;
+#X connect 125 0 126 0;
+#X connect 127 0 123 0;
+#X connect 127 0 434 0;
+#X connect 131 0 133 0;
+#X connect 133 0 134 0;
+#X connect 141 0 142 0;
+#X connect 142 0 143 0;
+#X connect 143 0 144 0;
+#X connect 145 0 140 0;
+#X connect 146 0 145 0;
+#X connect 149 0 153 0;
+#X connect 150 0 154 0;
+#X connect 151 0 155 0;
+#X connect 156 0 157 0;
+#X connect 158 0 159 0;
+#X connect 161 0 162 0;
+#X connect 161 0 162 1;
+#X connect 163 0 164 0;
+#X connect 163 0 309 0;
+#X connect 164 0 167 0;
+#X connect 165 0 164 1;
+#X connect 167 0 168 0;
+#X connect 168 0 169 0;
+#X connect 168 1 174 0;
+#X connect 169 0 170 0;
+#X connect 169 0 171 0;
+#X connect 169 0 172 0;
+#X connect 169 0 183 0;
+#X connect 170 0 193 0;
+#X connect 171 0 198 0;
+#X connect 172 0 201 0;
+#X connect 174 0 178 0;
+#X connect 174 1 187 0;
+#X connect 175 0 203 0;
+#X connect 176 0 202 0;
+#X connect 177 0 206 0;
+#X connect 178 0 176 0;
+#X connect 178 0 175 0;
+#X connect 178 0 177 0;
+#X connect 178 0 207 0;
+#X connect 179 0 212 0;
+#X connect 180 0 181 0;
+#X connect 180 0 182 0;
+#X connect 180 0 179 0;
+#X connect 180 0 186 0;
+#X connect 180 0 185 0;
+#X connect 181 0 209 0;
+#X connect 182 0 210 0;
+#X connect 183 0 196 0;
+#X connect 184 0 213 0;
+#X connect 185 0 211 0;
+#X connect 186 0 214 0;
+#X connect 187 0 180 0;
+#X connect 187 1 189 0;
+#X connect 188 0 266 0;
+#X connect 188 0 305 0;
+#X connect 188 0 304 0;
+#X connect 189 0 188 0;
+#X connect 189 1 191 0;
+#X connect 191 0 192 0;
+#X connect 194 0 161 2;
+#X connect 197 0 161 3;
+#X connect 199 0 161 11;
+#X connect 200 0 161 7;
+#X connect 204 0 205 0;
+#X connect 207 0 208 0;
+#X connect 217 0 85 3;
+#X connect 218 0 85 11;
+#X connect 223 0 161 6;
+#X connect 224 0 161 10;
+#X connect 226 0 227 0;
+#X connect 226 0 227 1;
+#X connect 228 0 229 0;
+#X connect 229 0 231 0;
+#X connect 230 0 229 1;
+#X connect 231 0 232 0;
+#X connect 232 0 233 0;
+#X connect 232 1 234 0;
+#X connect 233 0 439 0;
+#X connect 233 0 390 0;
+#X connect 233 0 391 0;
+#X connect 233 0 389 0;
+#X connect 234 0 235 0;
+#X connect 234 1 237 0;
+#X connect 235 0 396 0;
+#X connect 235 0 394 0;
+#X connect 235 0 393 0;
+#X connect 235 0 395 0;
+#X connect 235 0 392 0;
+#X connect 236 0 397 0;
+#X connect 236 0 399 0;
+#X connect 236 0 400 0;
+#X connect 236 0 401 0;
+#X connect 236 0 402 0;
+#X connect 237 0 236 0;
+#X connect 237 1 239 0;
+#X connect 238 0 403 0;
+#X connect 238 0 404 0;
+#X connect 238 0 405 0;
+#X connect 239 0 238 0;
+#X connect 239 1 240 0;
+#X connect 240 0 241 0;
+#X connect 253 0 255 0;
+#X connect 254 0 255 0;
+#X connect 255 0 256 0;
+#X connect 256 0 257 0;
+#X connect 260 0 261 0;
+#X connect 261 0 264 0;
+#X connect 262 0 260 0;
+#X connect 263 0 260 0;
+#X connect 264 0 265 0;
+#X connect 266 0 221 0;
+#X connect 267 0 268 0;
+#X connect 268 0 269 0;
+#X connect 270 0 267 0;
+#X connect 271 0 267 0;
+#X connect 272 0 267 0;
+#X connect 274 0 275 0;
+#X connect 275 0 276 0;
+#X connect 277 0 276 0;
+#X connect 278 0 274 0;
+#X connect 298 0 226 3;
+#X connect 299 0 226 6;
+#X connect 300 0 226 7;
+#X connect 301 0 226 10;
+#X connect 302 0 226 11;
+#X connect 303 0 440 0;
+#X connect 304 0 220 0;
+#X connect 305 0 219 0;
+#X connect 306 0 307 0;
+#X connect 307 0 85 3;
+#X connect 307 0 85 7;
+#X connect 307 0 85 11;
+#X connect 309 0 313 0;
+#X connect 313 0 311 0;
+#X connect 313 0 312 0;
+#X connect 313 0 310 0;
+#X connect 323 0 324 0;
+#X connect 323 0 324 1;
+#X connect 325 0 326 0;
+#X connect 326 0 328 0;
+#X connect 327 0 326 1;
+#X connect 328 0 329 0;
+#X connect 329 0 330 0;
+#X connect 329 1 331 0;
+#X connect 330 0 371 0;
+#X connect 330 0 373 0;
+#X connect 330 0 374 0;
+#X connect 330 0 372 0;
+#X connect 331 0 332 0;
+#X connect 331 1 334 0;
+#X connect 332 0 384 0;
+#X connect 332 0 385 0;
+#X connect 332 0 376 0;
+#X connect 332 0 375 0;
+#X connect 332 0 377 0;
+#X connect 333 0 386 0;
+#X connect 333 0 387 0;
+#X connect 333 0 379 0;
+#X connect 333 0 388 0;
+#X connect 333 0 380 0;
+#X connect 334 0 333 0;
+#X connect 334 1 336 0;
+#X connect 335 0 381 0;
+#X connect 335 0 382 0;
+#X connect 335 0 383 0;
+#X connect 336 0 335 0;
+#X connect 336 1 337 0;
+#X connect 337 0 338 0;
+#X connect 359 0 366 0;
+#X connect 360 0 367 0;
+#X connect 361 0 368 0;
+#X connect 362 0 369 0;
+#X connect 363 0 370 0;
+#X connect 364 0 365 0;
+#X connect 365 0 323 2;
+#X connect 366 0 323 3;
+#X connect 367 0 323 6;
+#X connect 368 0 323 7;
+#X connect 369 0 323 10;
+#X connect 370 0 323 11;
+#X connect 371 0 341 0;
+#X connect 372 0 342 0;
+#X connect 373 0 343 0;
+#X connect 374 0 344 0;
+#X connect 375 0 346 0;
+#X connect 376 0 348 0;
+#X connect 377 0 349 0;
+#X connect 378 0 351 0;
+#X connect 379 0 353 0;
+#X connect 380 0 355 0;
+#X connect 381 0 356 0;
+#X connect 382 0 357 0;
+#X connect 383 0 358 0;
+#X connect 384 0 345 0;
+#X connect 385 0 347 0;
+#X connect 386 0 350 0;
+#X connect 387 0 352 0;
+#X connect 388 0 354 0;
+#X connect 389 0 281 0;
+#X connect 390 0 282 0;
+#X connect 391 0 283 0;
+#X connect 392 0 288 0;
+#X connect 393 0 287 0;
+#X connect 394 0 286 0;
+#X connect 395 0 285 0;
+#X connect 396 0 284 0;
+#X connect 397 0 289 0;
+#X connect 398 0 290 0;
+#X connect 399 0 291 0;
+#X connect 400 0 292 0;
+#X connect 401 0 293 0;
+#X connect 402 0 294 0;
+#X connect 403 0 295 0;
+#X connect 404 0 296 0;
+#X connect 405 0 297 0;
+#X connect 411 0 413 0;
+#X connect 411 0 413 1;
+#X connect 412 0 411 0;
+#X connect 414 0 411 0;
+#X connect 415 0 411 0;
+#X connect 416 0 411 0;
+#X connect 424 0 427 0;
+#X connect 425 0 427 0;
+#X connect 426 0 427 0;
+#X connect 427 0 428 0;
+#X connect 427 1 429 0;
+#X connect 432 0 427 0;
+#X connect 435 0 436 0;
+#X connect 436 0 125 1;
+#X connect 438 0 280 0;
+#X connect 439 0 438 0;
